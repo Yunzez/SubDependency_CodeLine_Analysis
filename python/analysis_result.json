@@ -2,79 +2,70 @@
     "imported_modules": [],
     "external_calls": [
         {
-            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isdir",
-            "line": 6,
-            "package": null
-        },
-        {
-            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isfile",
-            "line": 17,
-            "package": null
-        },
-        {
             "function": "open",
             "line": 7,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "os.listdir",
             "line": 9,
-            "package": "os"
+            "package": "os",
+            "lines_in_package": null
         },
         {
             "function": "f.write",
             "line": 16,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "filepath.endswith",
             "line": 18,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "print",
             "line": 22,
-            "package": null
-        },
-        {
-            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).join",
-            "line": 12,
-            "package": null
-        },
-        {
-            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isdir",
-            "line": 13,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "imgs.append",
             "line": 15,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "img2pdf.convert",
             "line": 16,
-            "package": "img2pdf"
+            "package": "img2pdf",
+            "lines_in_package": "1928 to 2084"
         },
         {
             "function": "fname.endswith",
             "line": 10,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "open",
             "line": 19,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "f.write",
             "line": 20,
-            "package": null
+            "package": null,
+            "lines_in_package": null
         },
         {
             "function": "img2pdf.convert",
             "line": 20,
-            "package": "img2pdf"
+            "package": "img2pdf",
+            "lines_in_package": "1928 to 2084"
         }
     ]
 }

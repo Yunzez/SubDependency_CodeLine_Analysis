@@ -41,7 +41,7 @@
             "function": "img2pdf.convert",
             "line": 16,
             "package": "img2pdf",
-            "lines_in_package": "1928 to 2084"
+            "lines_in_package": null
         },
         {
             "function": "fname.endswith",
@@ -65,7 +65,7 @@
             "function": "img2pdf.convert",
             "line": 20,
             "package": "img2pdf",
-            "lines_in_package": "1928 to 2084"
+            "lines_in_package": null
         }
     ]
 }
