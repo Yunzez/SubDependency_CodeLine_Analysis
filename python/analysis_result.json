@@ -2,70 +2,289 @@
     "imported_modules": [],
     "external_calls": [
         {
-            "function": "open",
-            "line": 7,
-            "package": null,
-            "lines_in_package": null
-        },
-        {
             "function": "os.listdir",
             "line": 9,
             "package": "os",
-            "lines_in_package": null
-        },
-        {
-            "function": "f.write",
-            "line": 16,
-            "package": null,
-            "lines_in_package": null
-        },
-        {
-            "function": "filepath.endswith",
-            "line": 18,
-            "package": null,
-            "lines_in_package": null
-        },
-        {
-            "function": "print",
-            "line": 22,
-            "package": null,
-            "lines_in_package": null
-        },
-        {
-            "function": "imgs.append",
-            "line": 15,
-            "package": null,
-            "lines_in_package": null
+            "lines_in_package": null,
+            "details": {}
         },
         {
             "function": "img2pdf.convert",
             "line": 16,
             "package": "img2pdf",
-            "lines_in_package": "1928 to 2084"
-        },
-        {
-            "function": "fname.endswith",
-            "line": 10,
-            "package": null,
-            "lines_in_package": null
-        },
-        {
-            "function": "open",
-            "line": 19,
-            "package": null,
-            "lines_in_package": null
-        },
-        {
-            "function": "f.write",
-            "line": 20,
-            "package": null,
-            "lines_in_package": null
-        },
-        {
-            "function": "img2pdf.convert",
-            "line": 20,
-            "package": "img2pdf",
-            "lines_in_package": "1928 to 2084"
+            "lines_in_package": "1928 - 2084",
+            "details": {
+                "lines": "1928 - 2084",
+                "internal_calls": [
+                    {
+                        "function": "dict"
+                    },
+                    {
+                        "function": "_default_kwargs.items"
+                    },
+                    {
+                        "function": "pdfdoc"
+                    },
+                    {
+                        "function": "pdf.tostring",
+                        "lines": "449 - 463",
+                        "internal_calls": []
+                    },
+                    {
+                        "function": "len"
+                    },
+                    {
+                        "function": "isinstance"
+                    },
+                    {
+                        "function": "read_images",
+                        "lines": "1344 - 1635",
+                        "internal_calls": [
+                            {
+                                "function": "BytesIO"
+                            },
+                            {
+                                "function": "im.seek"
+                            },
+                            {
+                                "function": "logging.debug"
+                            },
+                            {
+                                "function": "im.close"
+                            },
+                            {
+                                "function": "Image.open"
+                            },
+                            {
+                                "function": "get_imgmetadata",
+                                "lines": "1155 - 1268",
+                                "internal_calls": [
+                                    {
+                                        "function": "logging.debug"
+                                    },
+                                    {
+                                        "function": "parsejp2"
+                                    },
+                                    {
+                                        "function": "Attribute(value=Name(id='imgdata', ctx=Load()), attr='info', ctx=Load()).get"
+                                    },
+                                    {
+                                        "function": "logging.warning"
+                                    },
+                                    {
+                                        "function": "AlphaChannelError"
+                                    },
+                                    {
+                                        "function": "hasattr"
+                                    },
+                                    {
+                                        "function": "Call(func=Attribute(value=Name(id='imgdata', ctx=Load()), attr='_getexif', ctx=Load()), args=[], keywords=[]).items"
+                                    },
+                                    {
+                                        "function": "int"
+                                    },
+                                    {
+                                        "function": "Attribute(value=Name(id='imgdata', ctx=Load()), attr='tag_v2', ctx=Load()).get"
+                                    },
+                                    {
+                                        "function": "imgdata._getexif"
+                                    },
+                                    {
+                                        "function": "round"
+                                    },
+                                    {
+                                        "function": "TAGS.get"
+                                    },
+                                    {
+                                        "function": "ValueError"
+                                    },
+                                    {
+                                        "function": "ExifOrientationError"
+                                    }
+                                ]
+                            },
+                            {
+                                "function": "parse_png",
+                                "lines": "1326 - 1341",
+                                "internal_calls": [
+                                    {
+                                        "function": "len"
+                                    },
+                                    {
+                                        "function": "struct.unpack"
+                                    },
+                                    {
+                                        "function": "Exception"
+                                    }
+                                ]
+                            },
+                            {
+                                "function": "imgdata.close"
+                            },
+                            {
+                                "function": "JpegColorspaceError"
+                            },
+                            {
+                                "function": "ValueError"
+                            },
+                            {
+                                "function": "imgdata.seek"
+                            },
+                            {
+                                "function": "ccitt_payload_location_from_pil",
+                                "lines": "1271 - 1297",
+                                "internal_calls": [
+                                    {
+                                        "function": "Attribute(value=Name(id='img', ctx=Load()), attr='tag_v2', ctx=Load()).get"
+                                    },
+                                    {
+                                        "function": "logging.debug"
+                                    },
+                                    {
+                                        "function": "ValueError"
+                                    },
+                                    {
+                                        "function": "NotImplementedError"
+                                    },
+                                    {
+                                        "function": "len"
+                                    }
+                                ]
+                            },
+                            {
+                                "function": "im.read"
+                            },
+                            {
+                                "function": "Attribute(value=Name(id='imgdata', ctx=Load()), attr='tag_v2', ctx=Load()).get"
+                            },
+                            {
+                                "function": "result.append"
+                            },
+                            {
+                                "function": "zlib.compress"
+                            },
+                            {
+                                "function": "newimg.save"
+                            },
+                            {
+                                "function": "pngbuffer.seek"
+                            },
+                            {
+                                "function": "ord"
+                            },
+                            {
+                                "function": "ImageOpenError"
+                            },
+                            {
+                                "function": "max"
+                            },
+                            {
+                                "function": "len"
+                            },
+                            {
+                                "function": "transcode_monochrome",
+                                "lines": "1300 - 1323",
+                                "internal_calls": [
+                                    {
+                                        "function": "logging.debug"
+                                    },
+                                    {
+                                        "function": "BytesIO"
+                                    },
+                                    {
+                                        "function": "Image.frombytes"
+                                    },
+                                    {
+                                        "function": "im.save"
+                                    },
+                                    {
+                                        "function": "newimgio.seek"
+                                    },
+                                    {
+                                        "function": "Image.open"
+                                    },
+                                    {
+                                        "function": "ccitt_payload_location_from_pil"
+                                    },
+                                    {
+                                        "function": "newimgio.read"
+                                    },
+                                    {
+                                        "function": "imgdata.tobytes"
+                                    }
+                                ]
+                            },
+                            {
+                                "function": "newimg.tobytes"
+                            },
+                            {
+                                "function": "pngbuffer.getvalue"
+                            },
+                            {
+                                "function": "pngbuffer.read"
+                            },
+                            {
+                                "function": "imgdata.convert"
+                            },
+                            {
+                                "function": "bytearray"
+                            },
+                            {
+                                "function": "range"
+                            },
+                            {
+                                "function": "bytes"
+                            }
+                        ]
+                    },
+                    {
+                        "function": "pdf.tostream",
+                        "lines": "506 - 571",
+                        "internal_calls": []
+                    },
+                    {
+                        "function": "img.read"
+                    },
+                    {
+                        "function": "pdf.add_imagepage",
+                        "lines": "733 - 951",
+                        "internal_calls": []
+                    },
+                    {
+                        "function": "logging.warning"
+                    },
+                    {
+                        "function": "TypeError"
+                    },
+                    {
+                        "function": "open"
+                    },
+                    {
+                        "function": "f.read"
+                    },
+                    {
+                        "function": "f.close"
+                    },
+                    {
+                        "function": "find_scale",
+                        "lines": "1910 - 1918",
+                        "internal_calls": [
+                            {
+                                "function": "max"
+                            },
+                            {
+                                "function": "ceil"
+                            },
+                            {
+                                "function": "log10"
+                            }
+                        ]
+                    },
+                    {
+                        "function": "PdfTooLargeError"
+                    }
+                ]
+            }
         }
     ]
 }
