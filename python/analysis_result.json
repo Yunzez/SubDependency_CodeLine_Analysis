@@ -1,0 +1,69 @@
+{
+    "imported_modules": [
+        "sys",
+        "img2pdf",
+        "os"
+    ],
+    "external_calls": [
+        {
+            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isdir",
+            "line": 6
+        },
+        {
+            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isfile",
+            "line": 17
+        },
+        {
+            "function": "open",
+            "line": 7
+        },
+        {
+            "function": "os.listdir",
+            "line": 9
+        },
+        {
+            "function": "f.write",
+            "line": 16
+        },
+        {
+            "function": "filepath.endswith",
+            "line": 18
+        },
+        {
+            "function": "print",
+            "line": 22
+        },
+        {
+            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).join",
+            "line": 12
+        },
+        {
+            "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isdir",
+            "line": 13
+        },
+        {
+            "function": "imgs.append",
+            "line": 15
+        },
+        {
+            "function": "img2pdf.convert",
+            "line": 16
+        },
+        {
+            "function": "fname.endswith",
+            "line": 10
+        },
+        {
+            "function": "open",
+            "line": 19
+        },
+        {
+            "function": "f.write",
+            "line": 20
+        },
+        {
+            "function": "img2pdf.convert",
+            "line": 20
+        }
+    ]
+}
