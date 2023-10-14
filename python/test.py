@@ -1,47 +1,71 @@
-import ast
 import argparse
+import ast
 import json
+import os
+import importlib
+import inspect
 
-def analyze_script_coverage(code):
+def analyze_function(code, function_name):
     tree = ast.parse(code)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.FunctionDef) and node.name == function_name:
+            return node.lineno, node.end_lineno
+    return None, None
+
+def analyze_script_coverage(script_code, external_code_map):
     analysis_result = {
         'imported_modules': [],
         'external_calls': []
     }
 
+    import_map = {}
+
+    tree = ast.parse(script_code)
     for node in ast.walk(tree):
-        # Capture import statements
         if isinstance(node, ast.Import):
             for n in node.names:
-                analysis_result['imported_modules'].append(n.name)
+                import_map[n.name.split('.')[0]] = n.name
         elif isinstance(node, ast.ImportFrom):
             module = node.module
             for n in node.names:
-                analysis_result['imported_modules'].append(f"{module}.{n.name}")
+                import_map[n.name] = f"{module}.{n.name}"
 
-        # Capture external calls
         if isinstance(node, ast.Call):
             func = node.func
+            package = None
+            function_name = None
             if isinstance(func, ast.Attribute):
                 if isinstance(func.value, ast.Name):
-                    analysis_result['external_calls'].append({
-                        'function': f"{func.value.id}.{func.attr}",
-                        'line': node.lineno
-                    })
-                else:
-                    analysis_result['external_calls'].append({
-                        'function': f"{ast.dump(func.value)}.{func.attr}",
-                        'line': node.lineno
-                    })
+                    function_name = f"{func.value.id}.{func.attr}"
+                    package = import_map.get(func.value.id)
             elif isinstance(func, ast.Name):
+                function_name = func.id
+                package = import_map.get(func.id)
+
+            if function_name:
+                start_line, end_line = None, None
+                if package and function_name in external_code_map:
+                    start_line, end_line = analyze_function(
+                        external_code_map[function_name], function_name.split('.')[-1])
+
                 analysis_result['external_calls'].append({
-                    'function': func.id,
-                    'line': node.lineno
+                    'function': function_name,
+                    'line': node.lineno,
+                    'package': package,
+                    'lines_in_package': f"{start_line} to {end_line}" if start_line and end_line else None
                 })
 
-    # Write to JSON file
     with open('analysis_result.json', 'w') as f:
         json.dump(analysis_result, f, indent=4)
+
+def get_module_path(module_name):
+    try:
+        module = importlib.import_module(module_name)
+        module_path = inspect.getfile(module)
+        return module_path
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return None
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Analyze Python script for package usage.')
@@ -50,6 +74,13 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     with open(args.file_path, 'r') as f:
-        code = f.read()
+        script_code = f.read()
 
-    analyze_script_coverage(code)
+    external_code_map = {}
+    module_name = 'img2pdf'
+    module_path = get_module_path(module_name)
+    if module_path:
+        with open(module_path, 'r') as f:
+            external_code_map[f"{module_name}.convert"] = f.read()
+
+    analyze_script_coverage(script_code, external_code_map)

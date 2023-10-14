@@ -1,0 +1,71 @@
+{
+    "imported_modules": [],
+    "external_calls": [
+        {
+            "function": "open",
+            "line": 7,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "os.listdir",
+            "line": 9,
+            "package": "os",
+            "lines_in_package": null
+        },
+        {
+            "function": "f.write",
+            "line": 16,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "filepath.endswith",
+            "line": 18,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "print",
+            "line": 22,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "imgs.append",
+            "line": 15,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "img2pdf.convert",
+            "line": 16,
+            "package": "img2pdf",
+            "lines_in_package": "1928 to 2084"
+        },
+        {
+            "function": "fname.endswith",
+            "line": 10,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "open",
+            "line": 19,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "f.write",
+            "line": 20,
+            "package": null,
+            "lines_in_package": null
+        },
+        {
+            "function": "img2pdf.convert",
+            "line": 20,
+            "package": "img2pdf",
+            "lines_in_package": "1928 to 2084"
+        }
+    ]
+}

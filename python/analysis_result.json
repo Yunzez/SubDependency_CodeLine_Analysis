@@ -1,69 +1,80 @@
 {
-    "imported_modules": [
-        "sys",
-        "img2pdf",
-        "os"
-    ],
+    "imported_modules": [],
     "external_calls": [
         {
             "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isdir",
-            "line": 6
+            "line": 6,
+            "package": null
         },
         {
             "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isfile",
-            "line": 17
+            "line": 17,
+            "package": null
         },
         {
             "function": "open",
-            "line": 7
+            "line": 7,
+            "package": null
         },
         {
             "function": "os.listdir",
-            "line": 9
+            "line": 9,
+            "package": "os"
         },
         {
             "function": "f.write",
-            "line": 16
+            "line": 16,
+            "package": null
         },
         {
             "function": "filepath.endswith",
-            "line": 18
+            "line": 18,
+            "package": null
         },
         {
             "function": "print",
-            "line": 22
+            "line": 22,
+            "package": null
         },
         {
             "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).join",
-            "line": 12
+            "line": 12,
+            "package": null
         },
         {
             "function": "Attribute(value=Name(id='os', ctx=Load()), attr='path', ctx=Load()).isdir",
-            "line": 13
+            "line": 13,
+            "package": null
         },
         {
             "function": "imgs.append",
-            "line": 15
+            "line": 15,
+            "package": null
         },
         {
             "function": "img2pdf.convert",
-            "line": 16
+            "line": 16,
+            "package": "img2pdf"
         },
         {
             "function": "fname.endswith",
-            "line": 10
+            "line": 10,
+            "package": null
         },
         {
             "function": "open",
-            "line": 19
+            "line": 19,
+            "package": null
         },
         {
             "function": "f.write",
-            "line": 20
+            "line": 20,
+            "package": null
         },
         {
             "function": "img2pdf.convert",
-            "line": 20
+            "line": 20,
+            "package": "img2pdf"
         }
     ]
 }
