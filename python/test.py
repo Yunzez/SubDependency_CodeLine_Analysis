@@ -14,13 +14,9 @@ def analyze_function(code, function_name):
             return node.lineno, node.end_lineno
     return None, None
 
-def recursive_analyze_function(code, function_name, result, depth=0, max_depth=10, processed=None):
+def recursive_analyze_function(code, function_name, result, depth=0, max_depth=10, processed=None, import_map=None):
     if processed is None:
         processed = set()
-
-    if depth >= max_depth:
-        print(f"Reached maximum recursion depth for {function_name}")
-        return
 
     if function_name in processed:
         print(f"Skipping already processed function {function_name}")
@@ -65,14 +61,19 @@ def recursive_analyze_function(code, function_name, result, depth=0, max_depth=1
                 child_function_name = func.id
 
             if child_function_name:
+                # Check if function is in an imported module
+                if child_function_name.split('.')[0] in import_map:
+                    print(f"Skipping external function: {child_function_name}")
+                    continue
+                
                 if child_function_name in local_processed:
                     continue  # Skip if already processed in this call
 
-                local_processed.add(child_function_name)  # Mark as processed in this call， only for this internal call
+                local_processed.add(child_function_name)  # Mark as processed in this call
 
                 internal_result = {'function': child_function_name}
                 recursive_analyze_function(
-                    code, child_function_name.split('.')[-1], internal_result, depth + 1, max_depth, processed)
+                    code, child_function_name.split('.')[-1], internal_result, depth + 1, max_depth, processed, import_map)
                 result['internal_calls'].append(internal_result)
 
 
@@ -124,7 +125,7 @@ def analyze_script_coverage(script_code, external_code_map):
                     start_line, end_line = analyze_function(
                         external_code_map[package], function_name.split('.')[-1])
                     recursive_analyze_function(
-                        external_code_map[package], function_name.split('.')[-1], details)
+                        external_code_map[package], function_name.split('.')[-1], details, import_map=import_map)
 
                 analysis_result['external_calls'].append({
                     'function': function_name,
