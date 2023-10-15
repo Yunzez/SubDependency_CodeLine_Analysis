@@ -63,9 +63,11 @@ def recursive_analyze_function(code, function_name, result, depth=0, processed=N
             if child_function_name:
                 # Check if function is in an imported module
                 if child_function_name.split('.')[0] in import_map:
-                    print(f"Skipping external function: {child_function_name}")
-                    continue
-                
+                    module_name = import_map[child_function_name.split('.')[0]]
+                    if module_name in external_code_map:
+                        print(f"Analyzing external function: {child_function_name}")
+                        code = external_code_map[module_name]  # Switch to the external library's code
+                    
                 if child_function_name in local_processed:
                     continue  # Skip if already processed in this call
 
@@ -75,7 +77,6 @@ def recursive_analyze_function(code, function_name, result, depth=0, processed=N
                 recursive_analyze_function(
                     code, child_function_name.split('.')[-1], internal_result, depth + 1, processed, import_map)
                 result['internal_calls'].append(internal_result)
-
 
 def analyze_script_coverage(script_code, external_code_map):
     processed_functions = set()
