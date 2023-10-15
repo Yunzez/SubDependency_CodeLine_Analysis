@@ -14,7 +14,7 @@ def analyze_function(code, function_name):
             return node.lineno, node.end_lineno
     return None, None
 
-def recursive_analyze_function(code, function_name, result, depth=0, max_depth=10, processed=None, import_map=None):
+def recursive_analyze_function(code, function_name, result, depth=0, processed=None, import_map=None):
     if processed is None:
         processed = set()
 
@@ -73,7 +73,7 @@ def recursive_analyze_function(code, function_name, result, depth=0, max_depth=1
 
                 internal_result = {'function': child_function_name}
                 recursive_analyze_function(
-                    code, child_function_name.split('.')[-1], internal_result, depth + 1, max_depth, processed, import_map)
+                    code, child_function_name.split('.')[-1], internal_result, depth + 1, processed, import_map)
                 result['internal_calls'].append(internal_result)
 
 
