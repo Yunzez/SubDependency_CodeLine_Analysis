@@ -15,10 +15,6 @@ python3 ./python/test.py ./python/img_to_pdf.py
 
 ---
 
-Certainly! Here's how you can write a quick start guide for running a Rust project, similar to your Python instructions:
-
----
-
 To run the Rust demo:
 
 1. **Install Rust and Cargo**: If you haven't installed Rust and Cargo (Rust's package manager), you can install them from [here](https://rust-lang.org/tools/install).
