@@ -1,0 +1,1 @@
+/Users/yunzezhao/Code/Rust/snake/target/debug/snake: /Users/yunzezhao/Code/Rust/snake/src/draw.rs /Users/yunzezhao/Code/Rust/snake/src/game.rs /Users/yunzezhao/Code/Rust/snake/src/main.rs /Users/yunzezhao/Code/Rust/snake/src/snake.rs
