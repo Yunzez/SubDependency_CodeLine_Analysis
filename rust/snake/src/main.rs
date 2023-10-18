@@ -1,5 +1,6 @@
 extern crate piston_window;
 extern crate rand;
+use tree_sitter::{Language, Parser};
 
 mod draw;
 mod game;
