@@ -6,29 +6,34 @@
           "children": [],
           "end_position": { "column": 6, "row": 0 },
           "start_position": { "column": 0, "row": 0 },
+          "text": "extern",
           "type": "extern"
         },
         {
           "children": [],
           "end_position": { "column": 12, "row": 0 },
           "start_position": { "column": 7, "row": 0 },
+          "text": "crate",
           "type": "crate"
         },
         {
           "children": [],
           "end_position": { "column": 26, "row": 0 },
           "start_position": { "column": 13, "row": 0 },
+          "text": "piston_window",
           "type": "identifier"
         },
         {
           "children": [],
           "end_position": { "column": 27, "row": 0 },
           "start_position": { "column": 26, "row": 0 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 27, "row": 0 },
       "start_position": { "column": 0, "row": 0 },
+      "text": "extern crate piston_window;",
       "type": "extern_crate_declaration"
     },
     {
@@ -37,29 +42,34 @@
           "children": [],
           "end_position": { "column": 6, "row": 1 },
           "start_position": { "column": 0, "row": 1 },
+          "text": "extern",
           "type": "extern"
         },
         {
           "children": [],
           "end_position": { "column": 12, "row": 1 },
           "start_position": { "column": 7, "row": 1 },
+          "text": "crate",
           "type": "crate"
         },
         {
           "children": [],
           "end_position": { "column": 17, "row": 1 },
           "start_position": { "column": 13, "row": 1 },
+          "text": "rand",
           "type": "identifier"
         },
         {
           "children": [],
           "end_position": { "column": 18, "row": 1 },
           "start_position": { "column": 17, "row": 1 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 18, "row": 1 },
       "start_position": { "column": 0, "row": 1 },
+      "text": "extern crate rand;",
       "type": "extern_crate_declaration"
     },
     {
@@ -68,6 +78,7 @@
           "children": [],
           "end_position": { "column": 3, "row": 2 },
           "start_position": { "column": 0, "row": 2 },
+          "text": "use",
           "type": "use"
         },
         {
@@ -76,12 +87,14 @@
               "children": [],
               "end_position": { "column": 15, "row": 2 },
               "start_position": { "column": 4, "row": 2 },
+              "text": "tree_sitter",
               "type": "identifier"
             },
             {
               "children": [],
               "end_position": { "column": 17, "row": 2 },
               "start_position": { "column": 15, "row": 2 },
+              "text": "::",
               "type": "::"
             },
             {
@@ -90,51 +103,60 @@
                   "children": [],
                   "end_position": { "column": 18, "row": 2 },
                   "start_position": { "column": 17, "row": 2 },
+                  "text": "{",
                   "type": "{"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 26, "row": 2 },
                   "start_position": { "column": 18, "row": 2 },
+                  "text": "Language",
                   "type": "identifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 27, "row": 2 },
                   "start_position": { "column": 26, "row": 2 },
+                  "text": ",",
                   "type": ","
                 },
                 {
                   "children": [],
                   "end_position": { "column": 34, "row": 2 },
                   "start_position": { "column": 28, "row": 2 },
+                  "text": "Parser",
                   "type": "identifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 35, "row": 2 },
                   "start_position": { "column": 34, "row": 2 },
+                  "text": "}",
                   "type": "}"
                 }
               ],
               "end_position": { "column": 35, "row": 2 },
               "start_position": { "column": 17, "row": 2 },
+              "text": "{Language, Parser}",
               "type": "use_list"
             }
           ],
           "end_position": { "column": 35, "row": 2 },
           "start_position": { "column": 4, "row": 2 },
+          "text": "tree_sitter::{Language, Parser}",
           "type": "scoped_use_list"
         },
         {
           "children": [],
           "end_position": { "column": 36, "row": 2 },
           "start_position": { "column": 35, "row": 2 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 36, "row": 2 },
       "start_position": { "column": 0, "row": 2 },
+      "text": "use tree_sitter::{Language, Parser};",
       "type": "use_declaration"
     },
     {
@@ -143,23 +165,27 @@
           "children": [],
           "end_position": { "column": 3, "row": 4 },
           "start_position": { "column": 0, "row": 4 },
+          "text": "mod",
           "type": "mod"
         },
         {
           "children": [],
           "end_position": { "column": 8, "row": 4 },
           "start_position": { "column": 4, "row": 4 },
+          "text": "draw",
           "type": "identifier"
         },
         {
           "children": [],
           "end_position": { "column": 9, "row": 4 },
           "start_position": { "column": 8, "row": 4 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 9, "row": 4 },
       "start_position": { "column": 0, "row": 4 },
+      "text": "mod draw;",
       "type": "mod_item"
     },
     {
@@ -168,23 +194,27 @@
           "children": [],
           "end_position": { "column": 3, "row": 5 },
           "start_position": { "column": 0, "row": 5 },
+          "text": "mod",
           "type": "mod"
         },
         {
           "children": [],
           "end_position": { "column": 8, "row": 5 },
           "start_position": { "column": 4, "row": 5 },
+          "text": "game",
           "type": "identifier"
         },
         {
           "children": [],
           "end_position": { "column": 9, "row": 5 },
           "start_position": { "column": 8, "row": 5 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 9, "row": 5 },
       "start_position": { "column": 0, "row": 5 },
+      "text": "mod game;",
       "type": "mod_item"
     },
     {
@@ -193,23 +223,27 @@
           "children": [],
           "end_position": { "column": 3, "row": 6 },
           "start_position": { "column": 0, "row": 6 },
+          "text": "mod",
           "type": "mod"
         },
         {
           "children": [],
           "end_position": { "column": 9, "row": 6 },
           "start_position": { "column": 4, "row": 6 },
+          "text": "snake",
           "type": "identifier"
         },
         {
           "children": [],
           "end_position": { "column": 10, "row": 6 },
           "start_position": { "column": 9, "row": 6 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 10, "row": 6 },
       "start_position": { "column": 0, "row": 6 },
+      "text": "mod snake;",
       "type": "mod_item"
     },
     {
@@ -218,6 +252,7 @@
           "children": [],
           "end_position": { "column": 3, "row": 7 },
           "start_position": { "column": 0, "row": 7 },
+          "text": "use",
           "type": "use"
         },
         {
@@ -228,51 +263,60 @@
                   "children": [],
                   "end_position": { "column": 17, "row": 7 },
                   "start_position": { "column": 4, "row": 7 },
+                  "text": "piston_window",
                   "type": "identifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 19, "row": 7 },
                   "start_position": { "column": 17, "row": 7 },
+                  "text": "::",
                   "type": "::"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 24, "row": 7 },
                   "start_position": { "column": 19, "row": 7 },
+                  "text": "types",
                   "type": "identifier"
                 }
               ],
               "end_position": { "column": 24, "row": 7 },
               "start_position": { "column": 4, "row": 7 },
+              "text": "piston_window::types",
               "type": "scoped_identifier"
             },
             {
               "children": [],
               "end_position": { "column": 26, "row": 7 },
               "start_position": { "column": 24, "row": 7 },
+              "text": "::",
               "type": "::"
             },
             {
               "children": [],
               "end_position": { "column": 31, "row": 7 },
               "start_position": { "column": 26, "row": 7 },
+              "text": "Color",
               "type": "identifier"
             }
           ],
           "end_position": { "column": 31, "row": 7 },
           "start_position": { "column": 4, "row": 7 },
+          "text": "piston_window::types::Color",
           "type": "scoped_identifier"
         },
         {
           "children": [],
           "end_position": { "column": 32, "row": 7 },
           "start_position": { "column": 31, "row": 7 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 32, "row": 7 },
       "start_position": { "column": 0, "row": 7 },
+      "text": "use piston_window::types::Color;",
       "type": "use_declaration"
     },
     {
@@ -281,6 +325,7 @@
           "children": [],
           "end_position": { "column": 3, "row": 8 },
           "start_position": { "column": 0, "row": 8 },
+          "text": "use",
           "type": "use"
         },
         {
@@ -289,34 +334,40 @@
               "children": [],
               "end_position": { "column": 17, "row": 8 },
               "start_position": { "column": 4, "row": 8 },
+              "text": "piston_window",
               "type": "identifier"
             },
             {
               "children": [],
               "end_position": { "column": 19, "row": 8 },
               "start_position": { "column": 17, "row": 8 },
+              "text": "::",
               "type": "::"
             },
             {
               "children": [],
               "end_position": { "column": 20, "row": 8 },
               "start_position": { "column": 19, "row": 8 },
+              "text": "*",
               "type": "*"
             }
           ],
           "end_position": { "column": 20, "row": 8 },
           "start_position": { "column": 4, "row": 8 },
+          "text": "piston_window::*",
           "type": "use_wildcard"
         },
         {
           "children": [],
           "end_position": { "column": 21, "row": 8 },
           "start_position": { "column": 20, "row": 8 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 21, "row": 8 },
       "start_position": { "column": 0, "row": 8 },
+      "text": "use piston_window::*;",
       "type": "use_declaration"
     },
     {
@@ -325,6 +376,7 @@
           "children": [],
           "end_position": { "column": 3, "row": 10 },
           "start_position": { "column": 0, "row": 10 },
+          "text": "use",
           "type": "use"
         },
         {
@@ -333,34 +385,40 @@
               "children": [],
               "end_position": { "column": 8, "row": 10 },
               "start_position": { "column": 4, "row": 10 },
+              "text": "draw",
               "type": "identifier"
             },
             {
               "children": [],
               "end_position": { "column": 10, "row": 10 },
               "start_position": { "column": 8, "row": 10 },
+              "text": "::",
               "type": "::"
             },
             {
               "children": [],
               "end_position": { "column": 22, "row": 10 },
               "start_position": { "column": 10, "row": 10 },
+              "text": "to_coord_u32",
               "type": "identifier"
             }
           ],
           "end_position": { "column": 22, "row": 10 },
           "start_position": { "column": 4, "row": 10 },
+          "text": "draw::to_coord_u32",
           "type": "scoped_identifier"
         },
         {
           "children": [],
           "end_position": { "column": 23, "row": 10 },
           "start_position": { "column": 22, "row": 10 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 23, "row": 10 },
       "start_position": { "column": 0, "row": 10 },
+      "text": "use draw::to_coord_u32;",
       "type": "use_declaration"
     },
     {
@@ -369,6 +427,7 @@
           "children": [],
           "end_position": { "column": 3, "row": 11 },
           "start_position": { "column": 0, "row": 11 },
+          "text": "use",
           "type": "use"
         },
         {
@@ -377,34 +436,40 @@
               "children": [],
               "end_position": { "column": 8, "row": 11 },
               "start_position": { "column": 4, "row": 11 },
+              "text": "game",
               "type": "identifier"
             },
             {
               "children": [],
               "end_position": { "column": 10, "row": 11 },
               "start_position": { "column": 8, "row": 11 },
+              "text": "::",
               "type": "::"
             },
             {
               "children": [],
               "end_position": { "column": 14, "row": 11 },
               "start_position": { "column": 10, "row": 11 },
+              "text": "Game",
               "type": "identifier"
             }
           ],
           "end_position": { "column": 14, "row": 11 },
           "start_position": { "column": 4, "row": 11 },
+          "text": "game::Game",
           "type": "scoped_identifier"
         },
         {
           "children": [],
           "end_position": { "column": 15, "row": 11 },
           "start_position": { "column": 14, "row": 11 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 15, "row": 11 },
       "start_position": { "column": 0, "row": 11 },
+      "text": "use game::Game;",
       "type": "use_declaration"
     },
     {
@@ -413,30 +478,35 @@
           "children": [],
           "end_position": { "column": 5, "row": 13 },
           "start_position": { "column": 0, "row": 13 },
+          "text": "const",
           "type": "const"
         },
         {
           "children": [],
           "end_position": { "column": 16, "row": 13 },
           "start_position": { "column": 6, "row": 13 },
+          "text": "BACK_COLOR",
           "type": "identifier"
         },
         {
           "children": [],
           "end_position": { "column": 17, "row": 13 },
           "start_position": { "column": 16, "row": 13 },
+          "text": ":",
           "type": ":"
         },
         {
           "children": [],
           "end_position": { "column": 23, "row": 13 },
           "start_position": { "column": 18, "row": 13 },
+          "text": "Color",
           "type": "type_identifier"
         },
         {
           "children": [],
           "end_position": { "column": 25, "row": 13 },
           "start_position": { "column": 24, "row": 13 },
+          "text": "=",
           "type": "="
         },
         {
@@ -445,70 +515,82 @@
               "children": [],
               "end_position": { "column": 27, "row": 13 },
               "start_position": { "column": 26, "row": 13 },
+              "text": "[",
               "type": "["
             },
             {
               "children": [],
               "end_position": { "column": 30, "row": 13 },
               "start_position": { "column": 27, "row": 13 },
+              "text": "0.5",
               "type": "float_literal"
             },
             {
               "children": [],
               "end_position": { "column": 31, "row": 13 },
               "start_position": { "column": 30, "row": 13 },
+              "text": ",",
               "type": ","
             },
             {
               "children": [],
               "end_position": { "column": 35, "row": 13 },
               "start_position": { "column": 32, "row": 13 },
+              "text": "0.5",
               "type": "float_literal"
             },
             {
               "children": [],
               "end_position": { "column": 36, "row": 13 },
               "start_position": { "column": 35, "row": 13 },
+              "text": ",",
               "type": ","
             },
             {
               "children": [],
               "end_position": { "column": 40, "row": 13 },
               "start_position": { "column": 37, "row": 13 },
+              "text": "0.5",
               "type": "float_literal"
             },
             {
               "children": [],
               "end_position": { "column": 41, "row": 13 },
               "start_position": { "column": 40, "row": 13 },
+              "text": ",",
               "type": ","
             },
             {
               "children": [],
               "end_position": { "column": 45, "row": 13 },
               "start_position": { "column": 42, "row": 13 },
+              "text": "1.0",
               "type": "float_literal"
             },
             {
               "children": [],
               "end_position": { "column": 46, "row": 13 },
               "start_position": { "column": 45, "row": 13 },
+              "text": "]",
               "type": "]"
             }
           ],
           "end_position": { "column": 46, "row": 13 },
           "start_position": { "column": 26, "row": 13 },
+          "text": "[0.5, 0.5, 0.5, 1.0]",
           "type": "array_expression"
         },
         {
           "children": [],
           "end_position": { "column": 47, "row": 13 },
           "start_position": { "column": 46, "row": 13 },
+          "text": ";",
           "type": ";"
         }
       ],
       "end_position": { "column": 47, "row": 13 },
       "start_position": { "column": 0, "row": 13 },
+      "text": "const BACK_COLOR: Color = [0.5, 0.5, 0.5, 1.0];",
       "type": "const_item"
     },
     {
@@ -517,12 +599,14 @@
           "children": [],
           "end_position": { "column": 2, "row": 15 },
           "start_position": { "column": 0, "row": 15 },
+          "text": "fn",
           "type": "fn"
         },
         {
           "children": [],
           "end_position": { "column": 7, "row": 15 },
           "start_position": { "column": 3, "row": 15 },
+          "text": "main",
           "type": "identifier"
         },
         {
@@ -531,17 +615,20 @@
               "children": [],
               "end_position": { "column": 8, "row": 15 },
               "start_position": { "column": 7, "row": 15 },
+              "text": "(",
               "type": "("
             },
             {
               "children": [],
               "end_position": { "column": 9, "row": 15 },
               "start_position": { "column": 8, "row": 15 },
+              "text": ")",
               "type": ")"
             }
           ],
           "end_position": { "column": 9, "row": 15 },
           "start_position": { "column": 7, "row": 15 },
+          "text": "()",
           "type": "parameters"
         },
         {
@@ -550,6 +637,7 @@
               "children": [],
               "end_position": { "column": 11, "row": 15 },
               "start_position": { "column": 10, "row": 15 },
+              "text": "{",
               "type": "{"
             },
             {
@@ -558,6 +646,7 @@
                   "children": [],
                   "end_position": { "column": 7, "row": 16 },
                   "start_position": { "column": 4, "row": 16 },
+                  "text": "let",
                   "type": "let"
                 },
                 {
@@ -566,41 +655,48 @@
                       "children": [],
                       "end_position": { "column": 9, "row": 16 },
                       "start_position": { "column": 8, "row": 16 },
+                      "text": "(",
                       "type": "("
                     },
                     {
                       "children": [],
                       "end_position": { "column": 14, "row": 16 },
                       "start_position": { "column": 9, "row": 16 },
+                      "text": "width",
                       "type": "identifier"
                     },
                     {
                       "children": [],
                       "end_position": { "column": 15, "row": 16 },
                       "start_position": { "column": 14, "row": 16 },
+                      "text": ",",
                       "type": ","
                     },
                     {
                       "children": [],
                       "end_position": { "column": 22, "row": 16 },
                       "start_position": { "column": 16, "row": 16 },
+                      "text": "height",
                       "type": "identifier"
                     },
                     {
                       "children": [],
                       "end_position": { "column": 23, "row": 16 },
                       "start_position": { "column": 22, "row": 16 },
+                      "text": ")",
                       "type": ")"
                     }
                   ],
                   "end_position": { "column": 23, "row": 16 },
                   "start_position": { "column": 8, "row": 16 },
+                  "text": "(width, height)",
                   "type": "tuple_pattern"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 25, "row": 16 },
                   "start_position": { "column": 24, "row": 16 },
+                  "text": "=",
                   "type": "="
                 },
                 {
@@ -609,46 +705,54 @@
                       "children": [],
                       "end_position": { "column": 27, "row": 16 },
                       "start_position": { "column": 26, "row": 16 },
+                      "text": "(",
                       "type": "("
                     },
                     {
                       "children": [],
                       "end_position": { "column": 29, "row": 16 },
                       "start_position": { "column": 27, "row": 16 },
+                      "text": "20",
                       "type": "integer_literal"
                     },
                     {
                       "children": [],
                       "end_position": { "column": 30, "row": 16 },
                       "start_position": { "column": 29, "row": 16 },
+                      "text": ",",
                       "type": ","
                     },
                     {
                       "children": [],
                       "end_position": { "column": 33, "row": 16 },
                       "start_position": { "column": 31, "row": 16 },
+                      "text": "20",
                       "type": "integer_literal"
                     },
                     {
                       "children": [],
                       "end_position": { "column": 34, "row": 16 },
                       "start_position": { "column": 33, "row": 16 },
+                      "text": ")",
                       "type": ")"
                     }
                   ],
                   "end_position": { "column": 34, "row": 16 },
                   "start_position": { "column": 26, "row": 16 },
+                  "text": "(20, 20)",
                   "type": "tuple_expression"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 35, "row": 16 },
                   "start_position": { "column": 34, "row": 16 },
+                  "text": ";",
                   "type": ";"
                 }
               ],
               "end_position": { "column": 35, "row": 16 },
               "start_position": { "column": 4, "row": 16 },
+              "text": "let (width, height) = (20, 20);",
               "type": "let_declaration"
             },
             {
@@ -657,36 +761,42 @@
                   "children": [],
                   "end_position": { "column": 7, "row": 17 },
                   "start_position": { "column": 4, "row": 17 },
+                  "text": "let",
                   "type": "let"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 11, "row": 17 },
                   "start_position": { "column": 8, "row": 17 },
+                  "text": "mut",
                   "type": "mutable_specifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 18, "row": 17 },
                   "start_position": { "column": 12, "row": 17 },
+                  "text": "window",
                   "type": "identifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 19, "row": 17 },
                   "start_position": { "column": 18, "row": 17 },
+                  "text": ":",
                   "type": ":"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 32, "row": 17 },
                   "start_position": { "column": 20, "row": 17 },
+                  "text": "PistonWindow",
                   "type": "type_identifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 34, "row": 17 },
                   "start_position": { "column": 33, "row": 17 },
+                  "text": "=",
                   "type": "="
                 },
                 {
@@ -715,6 +825,7 @@
                                                     "column": 8,
                                                     "row": 18
                                                   },
+                                                  "text": "WindowSettings",
                                                   "type": "identifier"
                                                 },
                                                 {
@@ -727,6 +838,7 @@
                                                     "column": 22,
                                                     "row": 18
                                                   },
+                                                  "text": "::",
                                                   "type": "::"
                                                 },
                                                 {
@@ -739,6 +851,7 @@
                                                     "column": 24,
                                                     "row": 18
                                                   },
+                                                  "text": "new",
                                                   "type": "identifier"
                                                 }
                                               ],
@@ -750,6 +863,7 @@
                                                 "column": 8,
                                                 "row": 18
                                               },
+                                              "text": "WindowSettings::new",
                                               "type": "scoped_identifier"
                                             },
                                             {
@@ -764,6 +878,7 @@
                                                     "column": 27,
                                                     "row": 18
                                                   },
+                                                  "text": "(",
                                                   "type": "("
                                                 },
                                                 {
@@ -778,6 +893,7 @@
                                                         "column": 28,
                                                         "row": 18
                                                       },
+                                                      "text": "\"",
                                                       "type": "\""
                                                     },
                                                     {
@@ -790,6 +906,7 @@
                                                         "column": 34,
                                                         "row": 18
                                                       },
+                                                      "text": "\"",
                                                       "type": "\""
                                                     }
                                                   ],
@@ -801,6 +918,7 @@
                                                     "column": 28,
                                                     "row": 18
                                                   },
+                                                  "text": "\"Snake\"",
                                                   "type": "string_literal"
                                                 },
                                                 {
@@ -813,6 +931,7 @@
                                                     "column": 35,
                                                     "row": 18
                                                   },
+                                                  "text": ",",
                                                   "type": ","
                                                 },
                                                 {
@@ -827,6 +946,7 @@
                                                         "column": 37,
                                                         "row": 18
                                                       },
+                                                      "text": "[",
                                                       "type": "["
                                                     },
                                                     {
@@ -841,6 +961,7 @@
                                                             "column": 38,
                                                             "row": 18
                                                           },
+                                                          "text": "to_coord_u32",
                                                           "type": "identifier"
                                                         },
                                                         {
@@ -855,6 +976,7 @@
                                                                 "column": 50,
                                                                 "row": 18
                                                               },
+                                                              "text": "(",
                                                               "type": "("
                                                             },
                                                             {
@@ -867,6 +989,7 @@
                                                                 "column": 51,
                                                                 "row": 18
                                                               },
+                                                              "text": "width",
                                                               "type": "identifier"
                                                             },
                                                             {
@@ -879,6 +1002,7 @@
                                                                 "column": 56,
                                                                 "row": 18
                                                               },
+                                                              "text": ")",
                                                               "type": ")"
                                                             }
                                                           ],
@@ -890,6 +1014,7 @@
                                                             "column": 50,
                                                             "row": 18
                                                           },
+                                                          "text": "(width)",
                                                           "type": "arguments"
                                                         }
                                                       ],
@@ -901,6 +1026,7 @@
                                                         "column": 38,
                                                         "row": 18
                                                       },
+                                                      "text": "to_coord_u32(width)",
                                                       "type": "call_expression"
                                                     },
                                                     {
@@ -913,6 +1039,7 @@
                                                         "column": 57,
                                                         "row": 18
                                                       },
+                                                      "text": ",",
                                                       "type": ","
                                                     },
                                                     {
@@ -927,6 +1054,7 @@
                                                             "column": 59,
                                                             "row": 18
                                                           },
+                                                          "text": "to_coord_u32",
                                                           "type": "identifier"
                                                         },
                                                         {
@@ -941,6 +1069,7 @@
                                                                 "column": 71,
                                                                 "row": 18
                                                               },
+                                                              "text": "(",
                                                               "type": "("
                                                             },
                                                             {
@@ -953,6 +1082,7 @@
                                                                 "column": 72,
                                                                 "row": 18
                                                               },
+                                                              "text": "height",
                                                               "type": "identifier"
                                                             },
                                                             {
@@ -965,6 +1095,7 @@
                                                                 "column": 78,
                                                                 "row": 18
                                                               },
+                                                              "text": ")",
                                                               "type": ")"
                                                             }
                                                           ],
@@ -976,6 +1107,7 @@
                                                             "column": 71,
                                                             "row": 18
                                                           },
+                                                          "text": "(height)",
                                                           "type": "arguments"
                                                         }
                                                       ],
@@ -987,6 +1119,7 @@
                                                         "column": 59,
                                                         "row": 18
                                                       },
+                                                      "text": "to_coord_u32(height)",
                                                       "type": "call_expression"
                                                     },
                                                     {
@@ -999,6 +1132,7 @@
                                                         "column": 79,
                                                         "row": 18
                                                       },
+                                                      "text": "]",
                                                       "type": "]"
                                                     }
                                                   ],
@@ -1010,6 +1144,7 @@
                                                     "column": 37,
                                                     "row": 18
                                                   },
+                                                  "text": "[to_coord_u32(width), to_coord_u32(height)]",
                                                   "type": "array_expression"
                                                 },
                                                 {
@@ -1022,6 +1157,7 @@
                                                     "column": 80,
                                                     "row": 18
                                                   },
+                                                  "text": ")",
                                                   "type": ")"
                                                 }
                                               ],
@@ -1033,6 +1169,7 @@
                                                 "column": 27,
                                                 "row": 18
                                               },
+                                              "text": "(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])",
                                               "type": "arguments"
                                             }
                                           ],
@@ -1044,6 +1181,7 @@
                                             "column": 8,
                                             "row": 18
                                           },
+                                          "text": "WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])",
                                           "type": "call_expression"
                                         },
                                         {
@@ -1056,6 +1194,7 @@
                                             "column": 12,
                                             "row": 19
                                           },
+                                          "text": ".",
                                           "type": "."
                                         },
                                         {
@@ -1068,6 +1207,7 @@
                                             "column": 13,
                                             "row": 19
                                           },
+                                          "text": "exit_on_esc",
                                           "type": "field_identifier"
                                         }
                                       ],
@@ -1079,6 +1219,7 @@
                                         "column": 8,
                                         "row": 18
                                       },
+                                      "text": "WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc",
                                       "type": "field_expression"
                                     },
                                     {
@@ -1093,6 +1234,7 @@
                                             "column": 24,
                                             "row": 19
                                           },
+                                          "text": "(",
                                           "type": "("
                                         },
                                         {
@@ -1107,6 +1249,7 @@
                                                 "column": 25,
                                                 "row": 19
                                               },
+                                              "text": "true",
                                               "type": "true"
                                             }
                                           ],
@@ -1118,6 +1261,7 @@
                                             "column": 25,
                                             "row": 19
                                           },
+                                          "text": "true",
                                           "type": "boolean_literal"
                                         },
                                         {
@@ -1130,6 +1274,7 @@
                                             "column": 29,
                                             "row": 19
                                           },
+                                          "text": ")",
                                           "type": ")"
                                         }
                                       ],
@@ -1141,28 +1286,33 @@
                                         "column": 24,
                                         "row": 19
                                       },
+                                      "text": "(true)",
                                       "type": "arguments"
                                     }
                                   ],
                                   "end_position": { "column": 30, "row": 19 },
                                   "start_position": { "column": 8, "row": 18 },
+                                  "text": "WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)",
                                   "type": "call_expression"
                                 },
                                 {
                                   "children": [],
                                   "end_position": { "column": 13, "row": 20 },
                                   "start_position": { "column": 12, "row": 20 },
+                                  "text": ".",
                                   "type": "."
                                 },
                                 {
                                   "children": [],
                                   "end_position": { "column": 18, "row": 20 },
                                   "start_position": { "column": 13, "row": 20 },
+                                  "text": "build",
                                   "type": "field_identifier"
                                 }
                               ],
                               "end_position": { "column": 18, "row": 20 },
                               "start_position": { "column": 8, "row": 18 },
+                              "text": "WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build",
                               "type": "field_expression"
                             },
                             {
@@ -1171,39 +1321,46 @@
                                   "children": [],
                                   "end_position": { "column": 19, "row": 20 },
                                   "start_position": { "column": 18, "row": 20 },
+                                  "text": "(",
                                   "type": "("
                                 },
                                 {
                                   "children": [],
                                   "end_position": { "column": 20, "row": 20 },
                                   "start_position": { "column": 19, "row": 20 },
+                                  "text": ")",
                                   "type": ")"
                                 }
                               ],
                               "end_position": { "column": 20, "row": 20 },
                               "start_position": { "column": 18, "row": 20 },
+                              "text": "()",
                               "type": "arguments"
                             }
                           ],
                           "end_position": { "column": 20, "row": 20 },
                           "start_position": { "column": 8, "row": 18 },
+                          "text": "WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build()",
                           "type": "call_expression"
                         },
                         {
                           "children": [],
                           "end_position": { "column": 13, "row": 21 },
                           "start_position": { "column": 12, "row": 21 },
+                          "text": ".",
                           "type": "."
                         },
                         {
                           "children": [],
                           "end_position": { "column": 19, "row": 21 },
                           "start_position": { "column": 13, "row": 21 },
+                          "text": "unwrap",
                           "type": "field_identifier"
                         }
                       ],
                       "end_position": { "column": 19, "row": 21 },
                       "start_position": { "column": 8, "row": 18 },
+                      "text": "WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build()\n            .unwrap",
                       "type": "field_expression"
                     },
                     {
@@ -1212,33 +1369,39 @@
                           "children": [],
                           "end_position": { "column": 20, "row": 21 },
                           "start_position": { "column": 19, "row": 21 },
+                          "text": "(",
                           "type": "("
                         },
                         {
                           "children": [],
                           "end_position": { "column": 21, "row": 21 },
                           "start_position": { "column": 20, "row": 21 },
+                          "text": ")",
                           "type": ")"
                         }
                       ],
                       "end_position": { "column": 21, "row": 21 },
                       "start_position": { "column": 19, "row": 21 },
+                      "text": "()",
                       "type": "arguments"
                     }
                   ],
                   "end_position": { "column": 21, "row": 21 },
                   "start_position": { "column": 8, "row": 18 },
+                  "text": "WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build()\n            .unwrap()",
                   "type": "call_expression"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 22, "row": 21 },
                   "start_position": { "column": 21, "row": 21 },
+                  "text": ";",
                   "type": ";"
                 }
               ],
               "end_position": { "column": 22, "row": 21 },
               "start_position": { "column": 4, "row": 17 },
+              "text": "let mut window: PistonWindow =\n        WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build()\n            .unwrap();",
               "type": "let_declaration"
             },
             {
@@ -1247,24 +1410,28 @@
                   "children": [],
                   "end_position": { "column": 7, "row": 23 },
                   "start_position": { "column": 4, "row": 23 },
+                  "text": "let",
                   "type": "let"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 11, "row": 23 },
                   "start_position": { "column": 8, "row": 23 },
+                  "text": "mut",
                   "type": "mutable_specifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 16, "row": 23 },
                   "start_position": { "column": 12, "row": 23 },
+                  "text": "game",
                   "type": "identifier"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 18, "row": 23 },
                   "start_position": { "column": 17, "row": 23 },
+                  "text": "=",
                   "type": "="
                 },
                 {
@@ -1275,23 +1442,27 @@
                           "children": [],
                           "end_position": { "column": 23, "row": 23 },
                           "start_position": { "column": 19, "row": 23 },
+                          "text": "Game",
                           "type": "identifier"
                         },
                         {
                           "children": [],
                           "end_position": { "column": 25, "row": 23 },
                           "start_position": { "column": 23, "row": 23 },
+                          "text": "::",
                           "type": "::"
                         },
                         {
                           "children": [],
                           "end_position": { "column": 28, "row": 23 },
                           "start_position": { "column": 25, "row": 23 },
+                          "text": "new",
                           "type": "identifier"
                         }
                       ],
                       "end_position": { "column": 28, "row": 23 },
                       "start_position": { "column": 19, "row": 23 },
+                      "text": "Game::new",
                       "type": "scoped_identifier"
                     },
                     {
@@ -1300,6 +1471,7 @@
                           "children": [],
                           "end_position": { "column": 29, "row": 23 },
                           "start_position": { "column": 28, "row": 23 },
+                          "text": "(",
                           "type": "("
                         },
                         {
@@ -1308,29 +1480,34 @@
                               "children": [],
                               "end_position": { "column": 34, "row": 23 },
                               "start_position": { "column": 29, "row": 23 },
+                              "text": "width",
                               "type": "identifier"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 37, "row": 23 },
                               "start_position": { "column": 35, "row": 23 },
+                              "text": "as",
                               "type": "as"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 41, "row": 23 },
                               "start_position": { "column": 38, "row": 23 },
+                              "text": "i32",
                               "type": "primitive_type"
                             }
                           ],
                           "end_position": { "column": 41, "row": 23 },
                           "start_position": { "column": 29, "row": 23 },
+                          "text": "width as i32",
                           "type": "type_cast_expression"
                         },
                         {
                           "children": [],
                           "end_position": { "column": 42, "row": 23 },
                           "start_position": { "column": 41, "row": 23 },
+                          "text": ",",
                           "type": ","
                         },
                         {
@@ -1339,50 +1516,59 @@
                               "children": [],
                               "end_position": { "column": 49, "row": 23 },
                               "start_position": { "column": 43, "row": 23 },
+                              "text": "height",
                               "type": "identifier"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 52, "row": 23 },
                               "start_position": { "column": 50, "row": 23 },
+                              "text": "as",
                               "type": "as"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 56, "row": 23 },
                               "start_position": { "column": 53, "row": 23 },
+                              "text": "i32",
                               "type": "primitive_type"
                             }
                           ],
                           "end_position": { "column": 56, "row": 23 },
                           "start_position": { "column": 43, "row": 23 },
+                          "text": "height as i32",
                           "type": "type_cast_expression"
                         },
                         {
                           "children": [],
                           "end_position": { "column": 57, "row": 23 },
                           "start_position": { "column": 56, "row": 23 },
+                          "text": ")",
                           "type": ")"
                         }
                       ],
                       "end_position": { "column": 57, "row": 23 },
                       "start_position": { "column": 28, "row": 23 },
+                      "text": "(width as i32, height as i32)",
                       "type": "arguments"
                     }
                   ],
                   "end_position": { "column": 57, "row": 23 },
                   "start_position": { "column": 19, "row": 23 },
+                  "text": "Game::new(width as i32, height as i32)",
                   "type": "call_expression"
                 },
                 {
                   "children": [],
                   "end_position": { "column": 58, "row": 23 },
                   "start_position": { "column": 57, "row": 23 },
+                  "text": ";",
                   "type": ";"
                 }
               ],
               "end_position": { "column": 58, "row": 23 },
               "start_position": { "column": 4, "row": 23 },
+              "text": "let mut game = Game::new(width as i32, height as i32);",
               "type": "let_declaration"
             },
             {
@@ -1393,6 +1579,7 @@
                       "children": [],
                       "end_position": { "column": 9, "row": 25 },
                       "start_position": { "column": 4, "row": 25 },
+                      "text": "while",
                       "type": "while"
                     },
                     {
@@ -1401,6 +1588,7 @@
                           "children": [],
                           "end_position": { "column": 13, "row": 25 },
                           "start_position": { "column": 10, "row": 25 },
+                          "text": "let",
                           "type": "let"
                         },
                         {
@@ -1409,35 +1597,41 @@
                               "children": [],
                               "end_position": { "column": 18, "row": 25 },
                               "start_position": { "column": 14, "row": 25 },
+                              "text": "Some",
                               "type": "identifier"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 19, "row": 25 },
                               "start_position": { "column": 18, "row": 25 },
+                              "text": "(",
                               "type": "("
                             },
                             {
                               "children": [],
                               "end_position": { "column": 24, "row": 25 },
                               "start_position": { "column": 19, "row": 25 },
+                              "text": "event",
                               "type": "identifier"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 25, "row": 25 },
                               "start_position": { "column": 24, "row": 25 },
+                              "text": ")",
                               "type": ")"
                             }
                           ],
                           "end_position": { "column": 25, "row": 25 },
                           "start_position": { "column": 14, "row": 25 },
+                          "text": "Some(event)",
                           "type": "tuple_struct_pattern"
                         },
                         {
                           "children": [],
                           "end_position": { "column": 27, "row": 25 },
                           "start_position": { "column": 26, "row": 25 },
+                          "text": "=",
                           "type": "="
                         },
                         {
@@ -1448,23 +1642,27 @@
                                   "children": [],
                                   "end_position": { "column": 34, "row": 25 },
                                   "start_position": { "column": 28, "row": 25 },
+                                  "text": "window",
                                   "type": "identifier"
                                 },
                                 {
                                   "children": [],
                                   "end_position": { "column": 35, "row": 25 },
                                   "start_position": { "column": 34, "row": 25 },
+                                  "text": ".",
                                   "type": "."
                                 },
                                 {
                                   "children": [],
                                   "end_position": { "column": 39, "row": 25 },
                                   "start_position": { "column": 35, "row": 25 },
+                                  "text": "next",
                                   "type": "field_identifier"
                                 }
                               ],
                               "end_position": { "column": 39, "row": 25 },
                               "start_position": { "column": 28, "row": 25 },
+                              "text": "window.next",
                               "type": "field_expression"
                             },
                             {
@@ -1473,27 +1671,32 @@
                                   "children": [],
                                   "end_position": { "column": 40, "row": 25 },
                                   "start_position": { "column": 39, "row": 25 },
+                                  "text": "(",
                                   "type": "("
                                 },
                                 {
                                   "children": [],
                                   "end_position": { "column": 41, "row": 25 },
                                   "start_position": { "column": 40, "row": 25 },
+                                  "text": ")",
                                   "type": ")"
                                 }
                               ],
                               "end_position": { "column": 41, "row": 25 },
                               "start_position": { "column": 39, "row": 25 },
+                              "text": "()",
                               "type": "arguments"
                             }
                           ],
                           "end_position": { "column": 41, "row": 25 },
                           "start_position": { "column": 28, "row": 25 },
+                          "text": "window.next()",
                           "type": "call_expression"
                         }
                       ],
                       "end_position": { "column": 41, "row": 25 },
                       "start_position": { "column": 10, "row": 25 },
+                      "text": "let Some(event) = window.next()",
                       "type": "let_condition"
                     },
                     {
@@ -1502,6 +1705,7 @@
                           "children": [],
                           "end_position": { "column": 43, "row": 25 },
                           "start_position": { "column": 42, "row": 25 },
+                          "text": "{",
                           "type": "{"
                         },
                         {
@@ -1512,6 +1716,7 @@
                                   "children": [],
                                   "end_position": { "column": 10, "row": 26 },
                                   "start_position": { "column": 8, "row": 26 },
+                                  "text": "if",
                                   "type": "if"
                                 },
                                 {
@@ -1526,6 +1731,7 @@
                                         "column": 11,
                                         "row": 26
                                       },
+                                      "text": "let",
                                       "type": "let"
                                     },
                                     {
@@ -1540,6 +1746,7 @@
                                             "column": 15,
                                             "row": 26
                                           },
+                                          "text": "Some",
                                           "type": "identifier"
                                         },
                                         {
@@ -1552,6 +1759,7 @@
                                             "column": 19,
                                             "row": 26
                                           },
+                                          "text": "(",
                                           "type": "("
                                         },
                                         {
@@ -1568,6 +1776,7 @@
                                                     "column": 20,
                                                     "row": 26
                                                   },
+                                                  "text": "Button",
                                                   "type": "identifier"
                                                 },
                                                 {
@@ -1580,6 +1789,7 @@
                                                     "column": 26,
                                                     "row": 26
                                                   },
+                                                  "text": "::",
                                                   "type": "::"
                                                 },
                                                 {
@@ -1592,6 +1802,7 @@
                                                     "column": 28,
                                                     "row": 26
                                                   },
+                                                  "text": "Keyboard",
                                                   "type": "identifier"
                                                 }
                                               ],
@@ -1603,6 +1814,7 @@
                                                 "column": 20,
                                                 "row": 26
                                               },
+                                              "text": "Button::Keyboard",
                                               "type": "scoped_identifier"
                                             },
                                             {
@@ -1615,6 +1827,7 @@
                                                 "column": 36,
                                                 "row": 26
                                               },
+                                              "text": "(",
                                               "type": "("
                                             },
                                             {
@@ -1627,6 +1840,7 @@
                                                 "column": 37,
                                                 "row": 26
                                               },
+                                              "text": "key",
                                               "type": "identifier"
                                             },
                                             {
@@ -1639,6 +1853,7 @@
                                                 "column": 40,
                                                 "row": 26
                                               },
+                                              "text": ")",
                                               "type": ")"
                                             }
                                           ],
@@ -1650,6 +1865,7 @@
                                             "column": 20,
                                             "row": 26
                                           },
+                                          "text": "Button::Keyboard(key)",
                                           "type": "tuple_struct_pattern"
                                         },
                                         {
@@ -1662,6 +1878,7 @@
                                             "column": 41,
                                             "row": 26
                                           },
+                                          "text": ")",
                                           "type": ")"
                                         }
                                       ],
@@ -1673,6 +1890,7 @@
                                         "column": 15,
                                         "row": 26
                                       },
+                                      "text": "Some(Button::Keyboard(key))",
                                       "type": "tuple_struct_pattern"
                                     },
                                     {
@@ -1685,6 +1903,7 @@
                                         "column": 43,
                                         "row": 26
                                       },
+                                      "text": "=",
                                       "type": "="
                                     },
                                     {
@@ -1701,6 +1920,7 @@
                                                 "column": 45,
                                                 "row": 26
                                               },
+                                              "text": "event",
                                               "type": "identifier"
                                             },
                                             {
@@ -1713,6 +1933,7 @@
                                                 "column": 50,
                                                 "row": 26
                                               },
+                                              "text": ".",
                                               "type": "."
                                             },
                                             {
@@ -1725,6 +1946,7 @@
                                                 "column": 51,
                                                 "row": 26
                                               },
+                                              "text": "press_args",
                                               "type": "field_identifier"
                                             }
                                           ],
@@ -1736,6 +1958,7 @@
                                             "column": 45,
                                             "row": 26
                                           },
+                                          "text": "event.press_args",
                                           "type": "field_expression"
                                         },
                                         {
@@ -1750,6 +1973,7 @@
                                                 "column": 61,
                                                 "row": 26
                                               },
+                                              "text": "(",
                                               "type": "("
                                             },
                                             {
@@ -1762,6 +1986,7 @@
                                                 "column": 62,
                                                 "row": 26
                                               },
+                                              "text": ")",
                                               "type": ")"
                                             }
                                           ],
@@ -1773,6 +1998,7 @@
                                             "column": 61,
                                             "row": 26
                                           },
+                                          "text": "()",
                                           "type": "arguments"
                                         }
                                       ],
@@ -1784,11 +2010,13 @@
                                         "column": 45,
                                         "row": 26
                                       },
+                                      "text": "event.press_args()",
                                       "type": "call_expression"
                                     }
                                   ],
                                   "end_position": { "column": 63, "row": 26 },
                                   "start_position": { "column": 11, "row": 26 },
+                                  "text": "let Some(Button::Keyboard(key)) = event.press_args()",
                                   "type": "let_condition"
                                 },
                                 {
@@ -1803,6 +2031,7 @@
                                         "column": 64,
                                         "row": 26
                                       },
+                                      "text": "{",
                                       "type": "{"
                                     },
                                     {
@@ -1821,6 +2050,7 @@
                                                     "column": 12,
                                                     "row": 27
                                                   },
+                                                  "text": "game",
                                                   "type": "identifier"
                                                 },
                                                 {
@@ -1833,6 +2063,7 @@
                                                     "column": 16,
                                                     "row": 27
                                                   },
+                                                  "text": ".",
                                                   "type": "."
                                                 },
                                                 {
@@ -1845,6 +2076,7 @@
                                                     "column": 17,
                                                     "row": 27
                                                   },
+                                                  "text": "key_pressed",
                                                   "type": "field_identifier"
                                                 }
                                               ],
@@ -1856,6 +2088,7 @@
                                                 "column": 12,
                                                 "row": 27
                                               },
+                                              "text": "game.key_pressed",
                                               "type": "field_expression"
                                             },
                                             {
@@ -1870,6 +2103,7 @@
                                                     "column": 28,
                                                     "row": 27
                                                   },
+                                                  "text": "(",
                                                   "type": "("
                                                 },
                                                 {
@@ -1882,6 +2116,7 @@
                                                     "column": 29,
                                                     "row": 27
                                                   },
+                                                  "text": "key",
                                                   "type": "identifier"
                                                 },
                                                 {
@@ -1894,6 +2129,7 @@
                                                     "column": 32,
                                                     "row": 27
                                                   },
+                                                  "text": ")",
                                                   "type": ")"
                                                 }
                                               ],
@@ -1905,6 +2141,7 @@
                                                 "column": 28,
                                                 "row": 27
                                               },
+                                              "text": "(key)",
                                               "type": "arguments"
                                             }
                                           ],
@@ -1916,6 +2153,7 @@
                                             "column": 12,
                                             "row": 27
                                           },
+                                          "text": "game.key_pressed(key)",
                                           "type": "call_expression"
                                         },
                                         {
@@ -1928,6 +2166,7 @@
                                             "column": 33,
                                             "row": 27
                                           },
+                                          "text": ";",
                                           "type": ";"
                                         }
                                       ],
@@ -1939,6 +2178,7 @@
                                         "column": 12,
                                         "row": 27
                                       },
+                                      "text": "game.key_pressed(key);",
                                       "type": "expression_statement"
                                     },
                                     {
@@ -1951,21 +2191,25 @@
                                         "column": 8,
                                         "row": 28
                                       },
+                                      "text": "}",
                                       "type": "}"
                                     }
                                   ],
                                   "end_position": { "column": 9, "row": 28 },
                                   "start_position": { "column": 64, "row": 26 },
+                                  "text": "{\n            game.key_pressed(key);\n        }",
                                   "type": "block"
                                 }
                               ],
                               "end_position": { "column": 9, "row": 28 },
                               "start_position": { "column": 8, "row": 26 },
+                              "text": "if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }",
                               "type": "if_expression"
                             }
                           ],
                           "end_position": { "column": 9, "row": 28 },
                           "start_position": { "column": 8, "row": 26 },
+                          "text": "if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }",
                           "type": "expression_statement"
                         },
                         {
@@ -1984,6 +2228,7 @@
                                         "column": 8,
                                         "row": 29
                                       },
+                                      "text": "window",
                                       "type": "identifier"
                                     },
                                     {
@@ -1996,6 +2241,7 @@
                                         "column": 14,
                                         "row": 29
                                       },
+                                      "text": ".",
                                       "type": "."
                                     },
                                     {
@@ -2008,11 +2254,13 @@
                                         "column": 15,
                                         "row": 29
                                       },
+                                      "text": "draw_2d",
                                       "type": "field_identifier"
                                     }
                                   ],
                                   "end_position": { "column": 22, "row": 29 },
                                   "start_position": { "column": 8, "row": 29 },
+                                  "text": "window.draw_2d",
                                   "type": "field_expression"
                                 },
                                 {
@@ -2027,6 +2275,7 @@
                                         "column": 22,
                                         "row": 29
                                       },
+                                      "text": "(",
                                       "type": "("
                                     },
                                     {
@@ -2041,6 +2290,7 @@
                                             "column": 23,
                                             "row": 29
                                           },
+                                          "text": "&",
                                           "type": "&"
                                         },
                                         {
@@ -2053,6 +2303,7 @@
                                             "column": 24,
                                             "row": 29
                                           },
+                                          "text": "event",
                                           "type": "identifier"
                                         }
                                       ],
@@ -2064,6 +2315,7 @@
                                         "column": 23,
                                         "row": 29
                                       },
+                                      "text": "&event",
                                       "type": "reference_expression"
                                     },
                                     {
@@ -2076,6 +2328,7 @@
                                         "column": 29,
                                         "row": 29
                                       },
+                                      "text": ",",
                                       "type": ","
                                     },
                                     {
@@ -2092,6 +2345,7 @@
                                                 "column": 31,
                                                 "row": 29
                                               },
+                                              "text": "|",
                                               "type": "|"
                                             },
                                             {
@@ -2104,6 +2358,7 @@
                                                 "column": 32,
                                                 "row": 29
                                               },
+                                              "text": "c",
                                               "type": "identifier"
                                             },
                                             {
@@ -2116,6 +2371,7 @@
                                                 "column": 33,
                                                 "row": 29
                                               },
+                                              "text": ",",
                                               "type": ","
                                             },
                                             {
@@ -2128,6 +2384,7 @@
                                                 "column": 35,
                                                 "row": 29
                                               },
+                                              "text": "g",
                                               "type": "identifier"
                                             },
                                             {
@@ -2140,6 +2397,7 @@
                                                 "column": 36,
                                                 "row": 29
                                               },
+                                              "text": ",",
                                               "type": ","
                                             },
                                             {
@@ -2152,6 +2410,7 @@
                                                 "column": 38,
                                                 "row": 29
                                               },
+                                              "text": "t",
                                               "type": "identifier"
                                             },
                                             {
@@ -2164,6 +2423,7 @@
                                                 "column": 39,
                                                 "row": 29
                                               },
+                                              "text": "|",
                                               "type": "|"
                                             }
                                           ],
@@ -2175,6 +2435,7 @@
                                             "column": 31,
                                             "row": 29
                                           },
+                                          "text": "|c, g, t|",
                                           "type": "closure_parameters"
                                         },
                                         {
@@ -2189,6 +2450,7 @@
                                                 "column": 41,
                                                 "row": 29
                                               },
+                                              "text": "{",
                                               "type": "{"
                                             },
                                             {
@@ -2205,6 +2467,7 @@
                                                         "column": 12,
                                                         "row": 30
                                                       },
+                                                      "text": "clear",
                                                       "type": "identifier"
                                                     },
                                                     {
@@ -2219,6 +2482,7 @@
                                                             "column": 17,
                                                             "row": 30
                                                           },
+                                                          "text": "(",
                                                           "type": "("
                                                         },
                                                         {
@@ -2231,6 +2495,7 @@
                                                             "column": 18,
                                                             "row": 30
                                                           },
+                                                          "text": "BACK_COLOR",
                                                           "type": "identifier"
                                                         },
                                                         {
@@ -2243,6 +2508,7 @@
                                                             "column": 28,
                                                             "row": 30
                                                           },
+                                                          "text": ",",
                                                           "type": ","
                                                         },
                                                         {
@@ -2255,6 +2521,7 @@
                                                             "column": 30,
                                                             "row": 30
                                                           },
+                                                          "text": "g",
                                                           "type": "identifier"
                                                         },
                                                         {
@@ -2267,6 +2534,7 @@
                                                             "column": 31,
                                                             "row": 30
                                                           },
+                                                          "text": ")",
                                                           "type": ")"
                                                         }
                                                       ],
@@ -2278,6 +2546,7 @@
                                                         "column": 17,
                                                         "row": 30
                                                       },
+                                                      "text": "(BACK_COLOR, g)",
                                                       "type": "arguments"
                                                     }
                                                   ],
@@ -2289,6 +2558,7 @@
                                                     "column": 12,
                                                     "row": 30
                                                   },
+                                                  "text": "clear(BACK_COLOR, g)",
                                                   "type": "call_expression"
                                                 },
                                                 {
@@ -2301,6 +2571,7 @@
                                                     "column": 32,
                                                     "row": 30
                                                   },
+                                                  "text": ";",
                                                   "type": ";"
                                                 }
                                               ],
@@ -2312,6 +2583,7 @@
                                                 "column": 12,
                                                 "row": 30
                                               },
+                                              "text": "clear(BACK_COLOR, g);",
                                               "type": "expression_statement"
                                             },
                                             {
@@ -2330,6 +2602,7 @@
                                                             "column": 12,
                                                             "row": 31
                                                           },
+                                                          "text": "game",
                                                           "type": "identifier"
                                                         },
                                                         {
@@ -2342,6 +2615,7 @@
                                                             "column": 16,
                                                             "row": 31
                                                           },
+                                                          "text": ".",
                                                           "type": "."
                                                         },
                                                         {
@@ -2354,6 +2628,7 @@
                                                             "column": 17,
                                                             "row": 31
                                                           },
+                                                          "text": "draw",
                                                           "type": "field_identifier"
                                                         }
                                                       ],
@@ -2365,6 +2640,7 @@
                                                         "column": 12,
                                                         "row": 31
                                                       },
+                                                      "text": "game.draw",
                                                       "type": "field_expression"
                                                     },
                                                     {
@@ -2379,6 +2655,7 @@
                                                             "column": 21,
                                                             "row": 31
                                                           },
+                                                          "text": "(",
                                                           "type": "("
                                                         },
                                                         {
@@ -2393,6 +2670,7 @@
                                                                 "column": 22,
                                                                 "row": 31
                                                               },
+                                                              "text": "&",
                                                               "type": "&"
                                                             },
                                                             {
@@ -2405,6 +2683,7 @@
                                                                 "column": 23,
                                                                 "row": 31
                                                               },
+                                                              "text": "c",
                                                               "type": "identifier"
                                                             }
                                                           ],
@@ -2416,6 +2695,7 @@
                                                             "column": 22,
                                                             "row": 31
                                                           },
+                                                          "text": "&c",
                                                           "type": "reference_expression"
                                                         },
                                                         {
@@ -2428,6 +2708,7 @@
                                                             "column": 24,
                                                             "row": 31
                                                           },
+                                                          "text": ",",
                                                           "type": ","
                                                         },
                                                         {
@@ -2440,6 +2721,7 @@
                                                             "column": 26,
                                                             "row": 31
                                                           },
+                                                          "text": "g",
                                                           "type": "identifier"
                                                         },
                                                         {
@@ -2452,6 +2734,7 @@
                                                             "column": 27,
                                                             "row": 31
                                                           },
+                                                          "text": ")",
                                                           "type": ")"
                                                         }
                                                       ],
@@ -2463,6 +2746,7 @@
                                                         "column": 21,
                                                         "row": 31
                                                       },
+                                                      "text": "(&c, g)",
                                                       "type": "arguments"
                                                     }
                                                   ],
@@ -2474,6 +2758,7 @@
                                                     "column": 12,
                                                     "row": 31
                                                   },
+                                                  "text": "game.draw(&c, g)",
                                                   "type": "call_expression"
                                                 },
                                                 {
@@ -2486,6 +2771,7 @@
                                                     "column": 28,
                                                     "row": 31
                                                   },
+                                                  "text": ";",
                                                   "type": ";"
                                                 }
                                               ],
@@ -2497,6 +2783,7 @@
                                                 "column": 12,
                                                 "row": 31
                                               },
+                                              "text": "game.draw(&c, g);",
                                               "type": "expression_statement"
                                             },
                                             {
@@ -2509,6 +2796,7 @@
                                                 "column": 8,
                                                 "row": 32
                                               },
+                                              "text": "}",
                                               "type": "}"
                                             }
                                           ],
@@ -2520,6 +2808,7 @@
                                             "column": 41,
                                             "row": 29
                                           },
+                                          "text": "{\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        }",
                                           "type": "block"
                                         }
                                       ],
@@ -2531,6 +2820,7 @@
                                         "column": 31,
                                         "row": 29
                                       },
+                                      "text": "|c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        }",
                                       "type": "closure_expression"
                                     },
                                     {
@@ -2543,27 +2833,32 @@
                                         "column": 9,
                                         "row": 32
                                       },
+                                      "text": ")",
                                       "type": ")"
                                     }
                                   ],
                                   "end_position": { "column": 10, "row": 32 },
                                   "start_position": { "column": 22, "row": 29 },
+                                  "text": "(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        })",
                                   "type": "arguments"
                                 }
                               ],
                               "end_position": { "column": 10, "row": 32 },
                               "start_position": { "column": 8, "row": 29 },
+                              "text": "window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        })",
                               "type": "call_expression"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 11, "row": 32 },
                               "start_position": { "column": 10, "row": 32 },
+                              "text": ";",
                               "type": ";"
                             }
                           ],
                           "end_position": { "column": 11, "row": 32 },
                           "start_position": { "column": 8, "row": 29 },
+                          "text": "window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        });",
                           "type": "expression_statement"
                         },
                         {
@@ -2582,6 +2877,7 @@
                                         "column": 8,
                                         "row": 34
                                       },
+                                      "text": "event",
                                       "type": "identifier"
                                     },
                                     {
@@ -2594,6 +2890,7 @@
                                         "column": 13,
                                         "row": 34
                                       },
+                                      "text": ".",
                                       "type": "."
                                     },
                                     {
@@ -2606,11 +2903,13 @@
                                         "column": 14,
                                         "row": 34
                                       },
+                                      "text": "update",
                                       "type": "field_identifier"
                                     }
                                   ],
                                   "end_position": { "column": 20, "row": 34 },
                                   "start_position": { "column": 8, "row": 34 },
+                                  "text": "event.update",
                                   "type": "field_expression"
                                 },
                                 {
@@ -2625,6 +2924,7 @@
                                         "column": 20,
                                         "row": 34
                                       },
+                                      "text": "(",
                                       "type": "("
                                     },
                                     {
@@ -2641,6 +2941,7 @@
                                                 "column": 21,
                                                 "row": 34
                                               },
+                                              "text": "|",
                                               "type": "|"
                                             },
                                             {
@@ -2653,6 +2954,7 @@
                                                 "column": 22,
                                                 "row": 34
                                               },
+                                              "text": "arg",
                                               "type": "identifier"
                                             },
                                             {
@@ -2665,6 +2967,7 @@
                                                 "column": 25,
                                                 "row": 34
                                               },
+                                              "text": "|",
                                               "type": "|"
                                             }
                                           ],
@@ -2676,6 +2979,7 @@
                                             "column": 21,
                                             "row": 34
                                           },
+                                          "text": "|arg|",
                                           "type": "closure_parameters"
                                         },
                                         {
@@ -2690,6 +2994,7 @@
                                                 "column": 27,
                                                 "row": 34
                                               },
+                                              "text": "{",
                                               "type": "{"
                                             },
                                             {
@@ -2708,6 +3013,7 @@
                                                             "column": 12,
                                                             "row": 35
                                                           },
+                                                          "text": "game",
                                                           "type": "identifier"
                                                         },
                                                         {
@@ -2720,6 +3026,7 @@
                                                             "column": 16,
                                                             "row": 35
                                                           },
+                                                          "text": ".",
                                                           "type": "."
                                                         },
                                                         {
@@ -2732,6 +3039,7 @@
                                                             "column": 17,
                                                             "row": 35
                                                           },
+                                                          "text": "update",
                                                           "type": "field_identifier"
                                                         }
                                                       ],
@@ -2743,6 +3051,7 @@
                                                         "column": 12,
                                                         "row": 35
                                                       },
+                                                      "text": "game.update",
                                                       "type": "field_expression"
                                                     },
                                                     {
@@ -2757,6 +3066,7 @@
                                                             "column": 23,
                                                             "row": 35
                                                           },
+                                                          "text": "(",
                                                           "type": "("
                                                         },
                                                         {
@@ -2771,6 +3081,7 @@
                                                                 "column": 24,
                                                                 "row": 35
                                                               },
+                                                              "text": "arg",
                                                               "type": "identifier"
                                                             },
                                                             {
@@ -2783,6 +3094,7 @@
                                                                 "column": 27,
                                                                 "row": 35
                                                               },
+                                                              "text": ".",
                                                               "type": "."
                                                             },
                                                             {
@@ -2795,6 +3107,7 @@
                                                                 "column": 28,
                                                                 "row": 35
                                                               },
+                                                              "text": "dt",
                                                               "type": "field_identifier"
                                                             }
                                                           ],
@@ -2806,6 +3119,7 @@
                                                             "column": 24,
                                                             "row": 35
                                                           },
+                                                          "text": "arg.dt",
                                                           "type": "field_expression"
                                                         },
                                                         {
@@ -2818,6 +3132,7 @@
                                                             "column": 30,
                                                             "row": 35
                                                           },
+                                                          "text": ")",
                                                           "type": ")"
                                                         }
                                                       ],
@@ -2829,6 +3144,7 @@
                                                         "column": 23,
                                                         "row": 35
                                                       },
+                                                      "text": "(arg.dt)",
                                                       "type": "arguments"
                                                     }
                                                   ],
@@ -2840,6 +3156,7 @@
                                                     "column": 12,
                                                     "row": 35
                                                   },
+                                                  "text": "game.update(arg.dt)",
                                                   "type": "call_expression"
                                                 },
                                                 {
@@ -2852,6 +3169,7 @@
                                                     "column": 31,
                                                     "row": 35
                                                   },
+                                                  "text": ";",
                                                   "type": ";"
                                                 }
                                               ],
@@ -2863,6 +3181,7 @@
                                                 "column": 12,
                                                 "row": 35
                                               },
+                                              "text": "game.update(arg.dt);",
                                               "type": "expression_statement"
                                             },
                                             {
@@ -2875,6 +3194,7 @@
                                                 "column": 8,
                                                 "row": 36
                                               },
+                                              "text": "}",
                                               "type": "}"
                                             }
                                           ],
@@ -2886,6 +3206,7 @@
                                             "column": 27,
                                             "row": 34
                                           },
+                                          "text": "{\n            game.update(arg.dt);\n        }",
                                           "type": "block"
                                         }
                                       ],
@@ -2897,6 +3218,7 @@
                                         "column": 21,
                                         "row": 34
                                       },
+                                      "text": "|arg| {\n            game.update(arg.dt);\n        }",
                                       "type": "closure_expression"
                                     },
                                     {
@@ -2909,68 +3231,81 @@
                                         "column": 9,
                                         "row": 36
                                       },
+                                      "text": ")",
                                       "type": ")"
                                     }
                                   ],
                                   "end_position": { "column": 10, "row": 36 },
                                   "start_position": { "column": 20, "row": 34 },
+                                  "text": "(|arg| {\n            game.update(arg.dt);\n        })",
                                   "type": "arguments"
                                 }
                               ],
                               "end_position": { "column": 10, "row": 36 },
                               "start_position": { "column": 8, "row": 34 },
+                              "text": "event.update(|arg| {\n            game.update(arg.dt);\n        })",
                               "type": "call_expression"
                             },
                             {
                               "children": [],
                               "end_position": { "column": 11, "row": 36 },
                               "start_position": { "column": 10, "row": 36 },
+                              "text": ";",
                               "type": ";"
                             }
                           ],
                           "end_position": { "column": 11, "row": 36 },
                           "start_position": { "column": 8, "row": 34 },
+                          "text": "event.update(|arg| {\n            game.update(arg.dt);\n        });",
                           "type": "expression_statement"
                         },
                         {
                           "children": [],
                           "end_position": { "column": 5, "row": 37 },
                           "start_position": { "column": 4, "row": 37 },
+                          "text": "}",
                           "type": "}"
                         }
                       ],
                       "end_position": { "column": 5, "row": 37 },
                       "start_position": { "column": 42, "row": 25 },
+                      "text": "{\n        if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }\n        window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        });\n\n        event.update(|arg| {\n            game.update(arg.dt);\n        });\n    }",
                       "type": "block"
                     }
                   ],
                   "end_position": { "column": 5, "row": 37 },
                   "start_position": { "column": 4, "row": 25 },
+                  "text": "while let Some(event) = window.next() {\n        if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }\n        window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        });\n\n        event.update(|arg| {\n            game.update(arg.dt);\n        });\n    }",
                   "type": "while_expression"
                 }
               ],
               "end_position": { "column": 5, "row": 37 },
               "start_position": { "column": 4, "row": 25 },
+              "text": "while let Some(event) = window.next() {\n        if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }\n        window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        });\n\n        event.update(|arg| {\n            game.update(arg.dt);\n        });\n    }",
               "type": "expression_statement"
             },
             {
               "children": [],
               "end_position": { "column": 1, "row": 38 },
               "start_position": { "column": 0, "row": 38 },
+              "text": "}",
               "type": "}"
             }
           ],
           "end_position": { "column": 1, "row": 38 },
           "start_position": { "column": 10, "row": 15 },
+          "text": "{\n    let (width, height) = (20, 20);\n    let mut window: PistonWindow =\n        WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build()\n            .unwrap();\n\n    let mut game = Game::new(width as i32, height as i32);\n\n    while let Some(event) = window.next() {\n        if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }\n        window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        });\n\n        event.update(|arg| {\n            game.update(arg.dt);\n        });\n    }\n}",
           "type": "block"
         }
       ],
       "end_position": { "column": 1, "row": 38 },
       "start_position": { "column": 0, "row": 15 },
+      "text": "fn main() {\n    let (width, height) = (20, 20);\n    let mut window: PistonWindow =\n        WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build()\n            .unwrap();\n\n    let mut game = Game::new(width as i32, height as i32);\n\n    while let Some(event) = window.next() {\n        if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }\n        window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        });\n\n        event.update(|arg| {\n            game.update(arg.dt);\n        });\n    }\n}",
       "type": "function_item"
     }
   ],
   "end_position": { "column": 0, "row": 39 },
   "start_position": { "column": 0, "row": 0 },
+  "text": "extern crate piston_window;\nextern crate rand;\nuse tree_sitter::{Language, Parser};\n\nmod draw;\nmod game;\nmod snake;\nuse piston_window::types::Color;\nuse piston_window::*;\n\nuse draw::to_coord_u32;\nuse game::Game;\n\nconst BACK_COLOR: Color = [0.5, 0.5, 0.5, 1.0];\n\nfn main() {\n    let (width, height) = (20, 20);\n    let mut window: PistonWindow =\n        WindowSettings::new(\"Snake\", [to_coord_u32(width), to_coord_u32(height)])\n            .exit_on_esc(true)\n            .build()\n            .unwrap();\n\n    let mut game = Game::new(width as i32, height as i32);\n\n    while let Some(event) = window.next() {\n        if let Some(Button::Keyboard(key)) = event.press_args() {\n            game.key_pressed(key);\n        }\n        window.draw_2d(&event, |c, g, t| {\n            clear(BACK_COLOR, g);\n            game.draw(&c, g);\n        });\n\n        event.update(|arg| {\n            game.update(arg.dt);\n        });\n    }\n}\n",
   "type": "source_file"
 }
