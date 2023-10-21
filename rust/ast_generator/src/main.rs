@@ -13,7 +13,9 @@ fn main() {
     let source_path = "../snake/src/main.rs";
     parser.set_language(tree_sitter_rust::language()).expect("Error loading Rust grammar");
 
-    let source_code = fs::read_to_string(source_path).expect("Something went wrong reading the file");
+    let source_code = fs
+        ::read_to_string(source_path)
+        .expect("Something went wrong reading the file");
 
     let tree = parser.parse(&source_code, None).unwrap();
     let root_node = tree.root_node();
@@ -23,7 +25,6 @@ fn main() {
     write!(json_file, "{}", json.to_string()).expect("Unable to write to file");
 }
 
-
 fn utf8_text<'a>(node: &Node<'a>, source_code: &'a str) -> &'a str {
     let start_byte = node.start_byte();
     let end_byte = node.end_byte();
@@ -31,34 +32,42 @@ fn utf8_text<'a>(node: &Node<'a>, source_code: &'a str) -> &'a str {
 }
 
 fn node_to_json(node: &Node, source_code: &str) -> serde_json::Value {
+    // change this to false to include all nodes in the JSON
+    const EXPRESSION_AND_ABOVE_ONLY: bool = true;
+
+    let node_type = node.kind();
     let start_pos = node.start_position();
     let end_pos = node.end_position();
-    let mut children = Vec::new();
     let text = utf8_text(node, source_code);
+    let mut children = Vec::new();
     let mut cursor = node.walk();
-    for child in node.children(&mut cursor) {
-        children.push(node_to_json(&child, source_code));
+    
+    // If EXPRESSION_AND_ABOVE_ONLY is true, only include nodes of the specified types and expressions
+    if
+        EXPRESSION_AND_ABOVE_ONLY &&
+        !node_type.contains("expression") &&
+        node_type != "source_file" &&
+        node_type != "function_item" &&
+        node_type != "block"
+    {
+        return serde_json::Value::Null;
     }
+
+    for child in node.children(&mut cursor) {
+        let child_json = node_to_json(&child, source_code);
+        // Only add child JSON if it has the desired types or if the filter is off
+        if !EXPRESSION_AND_ABOVE_ONLY {
+            children.push(child_json);
+        } else if child_json != serde_json::Value::Null {
+            children.push(child_json);
+        }
+    }
+
     json!({
-        "type": node.kind(),
+        "type": node_type,
         "start_position": {"row": start_pos.row, "column": start_pos.column},
         "end_position": {"row": end_pos.row, "column": end_pos.column},
         "text": text,
         "children": children
     })
-}
-
-
-#[derive(Serialize)]
-struct FunctionInfo {
-    name: String,
-    module: Option<String>,
-    start_line: usize,
-    end_line: usize,
-    called_functions: Vec<String>,
-}
-
-#[derive(Serialize)]
-struct ModuleInfo {
-    module_name: String,
 }
