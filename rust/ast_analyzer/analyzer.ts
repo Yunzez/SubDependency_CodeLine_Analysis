@@ -117,11 +117,11 @@ const init = (): void => {
     findFunctionCallsInFunction(node);
   });
 
-//   console.log(functionLocationMap);
+  console.log(functionLocationMap);
   console.log(functionCallsMap);
 };
 
-const functionCallsMap: Map<string, any[]> = new Map();
+const functionCallsMap: Map<string, {functions: any[], self: any}> = new Map();
 
 const findFunctionCallsInFunction = (functionNode: any) => {
   const node = functionNode.node;
@@ -137,6 +137,7 @@ const findFunctionCallsInFunction = (functionNode: any) => {
 
   // Extract function name and location info from the node
   const functionName = identifierNode.text;
+  const parentFunctionInfo = functionLocationMap.get(functionName);
   const functionCalls: any[] = [];
 
   findTypeNode(node, "call_expression", (callNode: any) => {
@@ -171,7 +172,7 @@ const findFunctionCallsInFunction = (functionNode: any) => {
     });
   });
 
-  functionCallsMap.set(functionName, functionCalls);
+  functionCallsMap.set(functionName, {"functions": functionCalls, "self": parentFunctionInfo});
 };
 
 const processFunctionItem = (functionNode: any) => {
