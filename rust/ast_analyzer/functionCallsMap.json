@@ -1,0 +1,263 @@
+{
+  "to_coord": {
+    "functions": [],
+    "self": {
+      "line": "5-7",
+      "file": "../snake/src/draw.rs"
+    }
+  },
+  "to_coord_u32": {
+    "functions": [],
+    "self": {
+      "line": "9-11",
+      "file": "../snake/src/draw.rs"
+    }
+  },
+  "draw_block": {
+    "functions": [
+      {
+        "function_name": "to_coord",
+        "used_location_file_name": "../snake/src/draw.rs",
+        "function_file_name": "../snake/src/draw.rs",
+        "used_location_line": "14-14",
+        "function_file_line": "5-7"
+      },
+      {
+        "function_name": "to_coord",
+        "used_location_file_name": "../snake/src/draw.rs",
+        "function_file_name": "../snake/src/draw.rs",
+        "used_location_line": "15-15",
+        "function_file_line": "5-7"
+      }
+    ],
+    "self": {
+      "line": "13-22",
+      "file": "../snake/src/draw.rs"
+    }
+  },
+  "draw_rectangle": {
+    "functions": [
+      {
+        "function_name": "to_coord",
+        "used_location_file_name": "../snake/src/draw.rs",
+        "function_file_name": "../snake/src/draw.rs",
+        "used_location_line": "33-33",
+        "function_file_line": "5-7"
+      },
+      {
+        "function_name": "to_coord",
+        "used_location_file_name": "../snake/src/draw.rs",
+        "function_file_name": "../snake/src/draw.rs",
+        "used_location_line": "34-34",
+        "function_file_line": "5-7"
+      }
+    ],
+    "self": {
+      "line": "24-46",
+      "file": "../snake/src/draw.rs"
+    }
+  },
+  "new": {
+    "functions": [],
+    "self": {
+      "line": "42-62",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "key_pressed": {
+    "functions": [
+      {
+        "function_name": "self.update_snake",
+        "used_location_file_name": "../snake/src/game.rs",
+        "function_file_name": "../snake/src/game.rs",
+        "used_location_line": "61-61",
+        "function_file_line": "138-147"
+      }
+    ],
+    "self": {
+      "line": "44-62",
+      "file": "../snake/src/game.rs"
+    }
+  },
+  "draw": {
+    "functions": [
+      {
+        "function_name": "draw_block",
+        "used_location_file_name": "../snake/src/snake.rs",
+        "function_file_name": "../snake/src/draw.rs",
+        "used_location_line": "66-66",
+        "function_file_line": "13-22"
+      }
+    ],
+    "self": {
+      "line": "64-68",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "update": {
+    "functions": [
+      {
+        "function_name": "self.restart",
+        "used_location_file_name": "../snake/src/game.rs",
+        "function_file_name": "../snake/src/game.rs",
+        "used_location_line": "89-89",
+        "function_file_line": "149-156"
+      },
+      {
+        "function_name": "self.add_food",
+        "used_location_file_name": "../snake/src/game.rs",
+        "function_file_name": "../snake/src/game.rs",
+        "used_location_line": "95-95",
+        "function_file_line": "122-136"
+      },
+      {
+        "function_name": "self.update_snake",
+        "used_location_file_name": "../snake/src/game.rs",
+        "function_file_name": "../snake/src/game.rs",
+        "used_location_line": "99-99",
+        "function_file_line": "138-147"
+      }
+    ],
+    "self": {
+      "line": "84-101",
+      "file": "../snake/src/game.rs"
+    }
+  },
+  "check_eating": {
+    "functions": [],
+    "self": {
+      "line": "103-110",
+      "file": "../snake/src/game.rs"
+    }
+  },
+  "check_if_snake_alive": {
+    "functions": [],
+    "self": {
+      "line": "112-120",
+      "file": "../snake/src/game.rs"
+    }
+  },
+  "add_food": {
+    "functions": [],
+    "self": {
+      "line": "122-136",
+      "file": "../snake/src/game.rs"
+    }
+  },
+  "update_snake": {
+    "functions": [
+      {
+        "function_name": "self.check_if_snake_alive",
+        "used_location_file_name": "../snake/src/game.rs",
+        "function_file_name": "../snake/src/game.rs",
+        "used_location_line": "139-139",
+        "function_file_line": "112-120"
+      },
+      {
+        "function_name": "self.check_eating",
+        "used_location_file_name": "../snake/src/game.rs",
+        "function_file_name": "../snake/src/game.rs",
+        "used_location_line": "141-141",
+        "function_file_line": "103-110"
+      }
+    ],
+    "self": {
+      "line": "138-147",
+      "file": "../snake/src/game.rs"
+    }
+  },
+  "restart": {
+    "functions": [],
+    "self": {
+      "line": "149-156",
+      "file": "../snake/src/game.rs"
+    }
+  },
+  "main": {
+    "functions": [
+      {
+        "function_name": "to_coord_u32",
+        "used_location_file_name": "../snake/src/main.rs",
+        "function_file_name": "../snake/src/draw.rs",
+        "used_location_line": "18-18",
+        "function_file_line": "9-11"
+      },
+      {
+        "function_name": "to_coord_u32",
+        "used_location_file_name": "../snake/src/main.rs",
+        "function_file_name": "../snake/src/draw.rs",
+        "used_location_line": "18-18",
+        "function_file_line": "9-11"
+      }
+    ],
+    "self": {
+      "line": "15-38",
+      "file": "../snake/src/main.rs"
+    }
+  },
+  "opposite": {
+    "functions": [],
+    "self": {
+      "line": "18-25",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "head_position": {
+    "functions": [],
+    "self": {
+      "line": "70-73",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "move_forward": {
+    "functions": [
+      {
+        "function_name": "self.head_position",
+        "used_location_file_name": "../snake/src/snake.rs",
+        "function_file_name": "../snake/src/snake.rs",
+        "used_location_line": "81-81",
+        "function_file_line": "70-73"
+      }
+    ],
+    "self": {
+      "line": "75-104",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "head_direction": {
+    "functions": [],
+    "self": {
+      "line": "106-108",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "next_head": {
+    "functions": [
+      {
+        "function_name": "self.head_position",
+        "used_location_file_name": "../snake/src/snake.rs",
+        "function_file_name": "../snake/src/snake.rs",
+        "used_location_line": "111-111",
+        "function_file_line": "70-73"
+      }
+    ],
+    "self": {
+      "line": "110-125",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "restore_tail": {
+    "functions": [],
+    "self": {
+      "line": "127-130",
+      "file": "../snake/src/snake.rs"
+    }
+  },
+  "overlap_tail": {
+    "functions": [],
+    "self": {
+      "line": "132-144",
+      "file": "../snake/src/snake.rs"
+    }
+  }
+}

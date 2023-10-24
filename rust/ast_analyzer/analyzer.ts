@@ -1,6 +1,6 @@
 import ast from "../ast_generator/ast.json";
 import node_type from "../ast_generator/node-types.json";
-const astTree = new Map();
+import fs from 'fs';
 
 const callSet = new Set();
 const functionSet = new Set();
@@ -119,6 +119,18 @@ const init = (): void => {
 
   console.log(functionLocationMap);
   console.log(functionCallsMap);
+
+
+const writeMapToJsonFile = (map: Map<string, any>, filePath: string) => {
+    const obj = Object.fromEntries(map);
+    const json = JSON.stringify(obj, null, 2);  // Convert map to JSON string
+    fs.writeFileSync(filePath, json);  // Write JSON string to file
+  };
+  
+  // Usage
+  writeMapToJsonFile(functionCallsMap, './functionCallsMap.json');
+  
+  
 };
 
 const functionCallsMap: Map<string, {functions: any[], self: any}> = new Map();
@@ -161,15 +173,16 @@ const findFunctionCallsInFunction = (functionNode: any) => {
     let functionFileLine = "";
     if (functionInfo) {
       functionFileLine = functionInfo.line;
+      functionCalls.push({
+        function_name: originalName,
+        used_location_file_name: file,
+        function_file_name: functionInfo ? functionInfo.file : "unknown",
+        used_location_line: line,
+        function_file_line: functionFileLine,
+      });
     }
 
-    functionCalls.push({
-      function_name: originalName,
-      used_location_file_name: file,
-      function_file_name: functionInfo ? functionInfo.file : "unknown",
-      used_location_line: line,
-      function_file_line: functionFileLine,
-    });
+   
   });
 
   functionCallsMap.set(functionName, {"functions": functionCalls, "self": parentFunctionInfo});
