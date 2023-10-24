@@ -1,3 +1,8 @@
+/**
+ * https://github.com/tree-sitter/tree-sitter-rust/blob/master/src/node-types.json
+ * use this to refer to all the node types in rust 
+ */
+
 use serde_json::{ json, Value };
 use tree_sitter::{ Node, Parser, Point };
 use std::fs::{ self, File };
@@ -48,7 +53,7 @@ fn node_to_json(
     node_type_map: &mut HashMap<String, Vec<(Point, Point, String, Vec<Value>)>>
 ) -> Value {
     // change this to false to include all nodes in the JSON
-    const EXPRESSION_AND_ABOVE_ONLY: bool = true;
+    const EXPRESSION_AND_ABOVE_ONLY: bool = false;
 
     let node_type = node.kind();
     let start_pos = node.start_position();

@@ -1,6 +1,8 @@
 import ast from "../ast_generator/ast.json";
-import node_type from "../ast_generator/node-types.json";
+
 import fs from 'fs';
+import ProgressBar from 'progress';
+
 
 const callSet = new Set();
 const functionSet = new Set();
@@ -55,83 +57,68 @@ const findTypeNode = (
   }
 };
 
-const init = (): void => {
-  console.log("init");
-
-  console.log("gathering function calls....");
-  let typeName = "call_expression";
-  for (const fileNode of Object.entries(ast)) {
-    const fileName = fileNode[0];
-    const fileValue = fileNode[1];
-    findTypeNode(fileValue, typeName, (node: any) => {
-      //   console.log("add node:", node);
-      callSet.add(node);
-      //   console.log("end -------");
+const init = async (): Promise<void> => {
+    const totalTasks = Object.keys(ast).length * 3 + 4; // 3 tasks per file + 4 additional tasks
+    const bar = new ProgressBar(":bar :percent", { total: totalTasks });
+  
+    // Initial tick for starting
+    bar.tick();
+    console.log("Gathering function calls...");
+  
+    let typeName = "call_expression";
+    for (const fileNode of Object.entries(ast)) {
+      findTypeNode(fileNode[1], typeName, (node: any) => {
+        callSet.add(node);
+      });
+      bar.tick(); // Tick after each file processed for call_expression
+    }
+  
+    console.log(`Gathering function calls done. Total: ${callSet.size}`);
+  
+    console.log("Gathering use_declaration...");
+    typeName = "use_declaration";
+    for (const fileNode of Object.entries(ast)) {
+      findTypeNode(fileNode[1], typeName, (node: any) => {
+        useSet.add(node);
+      });
+      bar.tick(); // Tick after each file processed for use_declaration
+    }
+  
+    console.log(`Gathering use_declaration done. Total: ${useSet.size}`);
+  
+    console.log("Gathering function_item...");
+    typeName = "function_item";
+    for (const fileNode of Object.entries(ast)) {
+      findTypeNode(fileNode[1], typeName, (node: any) => {
+        functionSet.add({ node, file: fileNode[0] });
+      });
+      bar.tick(); // Tick after each file processed for function_item
+    }
+  
+    console.log(`Gathering function_item done. Total: ${functionSet.size}`);
+  
+    console.log("Processing function items...");
+    functionSet.forEach(processFunctionItem);
+    bar.tick(); // Tick after processing function items
+  
+    functionSet.forEach((node: any) => {
+      findFunctionCallsInFunction(node);
     });
-  }
-
-  console.log("callSet size: ", callSet.size);
-  console.log("gathering function calls, done");
-
-  console.log("gathering use_declaration....");
-  typeName = "use_declaration";
-  let functionItemNode = null;
-  for (const fileNode of Object.entries(ast)) {
-    const fileName = fileNode[0];
-    const fileValue = fileNode[1];
-    findTypeNode(fileValue, typeName, (node: any) => {
-      //   console.log("add node:", node);
-      useSet.add(node);
-      //   console.log("end -------");
-    });
-  }
-
-  console.log("useSet size: ", useSet.size);
-  console.log("gathering use_declaration, done");
-
-  console.log("gathering function_item....");
-  typeName = "function_item";
-
-  for (const fileNode of Object.entries(ast)) {
-    const fileName = fileNode[0];
-    const fileValue = fileNode[1];
-    findTypeNode(fileValue, typeName, (node: any) => {
-      //   console.log("add node:", node);
-      functionSet.add({ node, file: fileName });
-      //   console.log("end -------");
-    });
-  }
-
-  console.log("useSet size: ", functionSet.size);
-  console.log("gathering use_declaration, done");
-
-  // Process function items to populate functionLocationMap
-
-  functionSet.forEach(processFunctionItem);
-
-  // Process call expressions to find function locations
-  // callSet.forEach(processCallExpression);
-
-  // New code to find function calls within each function
-  functionSet.forEach((node: any) => {
-    findFunctionCallsInFunction(node);
-  });
-
-  console.log(functionLocationMap);
-  console.log(functionCallsMap);
-
-
-const writeMapToJsonFile = (map: Map<string, any>, filePath: string) => {
-    const obj = Object.fromEntries(map);
-    const json = JSON.stringify(obj, null, 2);  // Convert map to JSON string
-    fs.writeFileSync(filePath, json);  // Write JSON string to file
+    bar.tick(); // Tick after finding function calls within each function
+  
+    console.log("Writing to file...");
+    const writeMapToJsonFile = (map: Map<string, any>, filePath: string) => {
+      const obj = Object.fromEntries(map);
+      const json = JSON.stringify(obj, null, 2);
+      fs.writeFileSync(filePath, json);
+    };
+    writeMapToJsonFile(functionCallsMap, "./functionCallsMap.json");
+    bar.tick(); // Tick after writing to file
+  
+    console.log("All tasks completed!");
+    bar.tick(); // Final tick
   };
   
-  // Usage
-  writeMapToJsonFile(functionCallsMap, './functionCallsMap.json');
-  
-  
-};
 
 const functionCallsMap: Map<string, {functions: any[], self: any}> = new Map();
 

@@ -1,2 +1,13 @@
-{"devDependencies":{"@types/node":"^20.8.8"}}
-
+{
+    "devDependencies": {
+        "@types/inquirer": "^9.0.6",
+        "@types/node": "^20.8.8",
+        "@types/progress": "^2.0.6"
+    },
+    "dependencies": {
+        "esm": "^3.2.25",
+        "inquirer": "^9.2.11",
+        "ora": "^7.0.1",
+        "progress": "^2.0.3"
+    }
+}
