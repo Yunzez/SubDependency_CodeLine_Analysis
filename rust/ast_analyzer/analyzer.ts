@@ -4,6 +4,8 @@ import fs from 'fs';
 import ProgressBar from 'progress';
 
 
+
+
 const callSet = new Set();
 const functionSet = new Set();
 const useSet = new Set();
@@ -58,15 +60,24 @@ const findTypeNode = (
 };
 
 const init = async (): Promise<void> => {
-    const totalTasks = Object.keys(ast).length * 3 + 4; // 3 tasks per file + 4 additional tasks
-    const bar = new ProgressBar(":bar :percent", { total: totalTasks });
+    const { prompt } = require('enquirer');
+    const response = await prompt({
+        type: 'input',
+        name: 'filePath',
+        message: 'please input your rust ast file path:'
+      });
   
+    
+    const currentAst = response.filePath ? JSON.parse(fs.readFileSync(response.filePath, 'utf8')) : ast;
+
+    const totalTasks = Object.keys(currentAst).length * 3 + 4; // 3 tasks per file + 4 additional tasks
+    const bar = new ProgressBar(":bar :percent", { total: totalTasks });
     // Initial tick for starting
     bar.tick();
     console.log("Gathering function calls...");
   
     let typeName = "call_expression";
-    for (const fileNode of Object.entries(ast)) {
+    for (const fileNode of Object.entries(currentAst)) {
       findTypeNode(fileNode[1], typeName, (node: any) => {
         callSet.add(node);
       });
@@ -77,7 +88,7 @@ const init = async (): Promise<void> => {
   
     console.log("Gathering use_declaration...");
     typeName = "use_declaration";
-    for (const fileNode of Object.entries(ast)) {
+    for (const fileNode of Object.entries(currentAst)) {
       findTypeNode(fileNode[1], typeName, (node: any) => {
         useSet.add(node);
       });
@@ -88,7 +99,7 @@ const init = async (): Promise<void> => {
   
     console.log("Gathering function_item...");
     typeName = "function_item";
-    for (const fileNode of Object.entries(ast)) {
+    for (const fileNode of Object.entries(currentAst)) {
       findTypeNode(fileNode[1], typeName, (node: any) => {
         functionSet.add({ node, file: fileNode[0] });
       });

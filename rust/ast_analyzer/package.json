@@ -5,6 +5,7 @@
         "@types/progress": "^2.0.6"
     },
     "dependencies": {
+        "enquirer": "^2.4.1",
         "esm": "^3.2.25",
         "inquirer": "^9.2.11",
         "ora": "^7.0.1",
