@@ -1,0 +1,232 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.4",
+  "serialNumber": "urn:uuid:8d36a484-dfcb-4001-9563-0955b8e4d287",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2023-10-29T22:54:33.143Z",
+    "tools": [
+      {
+        "vendor": "cyclonedx",
+        "name": "cdxgen",
+        "version": "8.6.0"
+      }
+    ],
+    "authors": [
+      {
+        "name": "Prabhu Subramanian",
+        "email": "prabhu@appthreat.com"
+      }
+    ],
+    "component": {
+      "author": "",
+      "publisher": "",
+      "group": "com.encryption",
+      "name": "demo",
+      "version": "1.0-SNAPSHOT",
+      "description": "",
+      "licenses": [],
+      "purl": "pkg:maven/com.encryption/demo@1.0-SNAPSHOT?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/com.encryption/demo@1.0-SNAPSHOT?type=jar"
+    }
+  },
+  "components": [
+    {
+      "author": "",
+      "publisher": "JUnit",
+      "group": "junit",
+      "name": "junit",
+      "version": "4.11",
+      "description": "JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "3c42be5ea7cbf3635716abbb429cb90d"
+        },
+        {
+          "alg": "SHA-1",
+          "content": "4e031bb61df09069aeb2bffb4019e7a5034a4ee0"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "90a8e1603eeca48e7e879f3afbc9560715322985f39a274f6f6070b43f9d06fe"
+        },
+        {
+          "alg": "SHA-512",
+          "content": "a0de3a1d9924b8703736f27a0e02e243e9f50add113c8fb3477cd8d8e31505df1609755d79ba8f1e1f43c6b5201b409c116ad184978383da6613382727bedc6b"
+        },
+        {
+          "alg": "SHA-384",
+          "content": "0f9ec06229184455e388ffa929bdc3a532d1b61ae22a51655fac91fca093b26695ecb48a040e869135aa4d69fff3840a"
+        },
+        {
+          "alg": "SHA3-384",
+          "content": "50333b7f876d6660b89a29382a96d10077ee50d568fddbb61c83a241666893f04d3992f7a402fd49d97305acf318e877"
+        },
+        {
+          "alg": "SHA3-256",
+          "content": "57a3a358ca4ab3cc2636cfc7531920afeee3f347e221673edb7c4946b08e8a33"
+        },
+        {
+          "alg": "SHA3-512",
+          "content": "25a71bd3d476e67a4967fc81388432f55ef4d2816c28343ac4b517a4b963f51515a855d1c0ec8a23bf31b416b72774f3852cd226f8f158d16aa69e8e21b74e0c"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Common Public License Version 1.0",
+            "url": "http://www.opensource.org/licenses/cpl1.0.txt"
+          }
+        }
+      ],
+      "purl": "pkg:maven/junit/junit@4.11?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/junit/junit@4.11?type=jar"
+    },
+    {
+      "author": "",
+      "publisher": "",
+      "group": "org.hamcrest",
+      "name": "hamcrest-core",
+      "version": "1.3",
+      "description": "This is the core API of hamcrest matcher framework to be used by third-party framework providers. This includes the a foundation set of matcher implementations for common operations.",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "6393363b47ddcbba82321110c3e07519"
+        },
+        {
+          "alg": "SHA-1",
+          "content": "42a25dc3219429f0e5d060061f71acb49bf010a0"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "66fdef91e9739348df7a096aa384a5685f4e875584cce89386a7a47251c4d8e9"
+        },
+        {
+          "alg": "SHA-512",
+          "content": "e237ae735aac4fa5a7253ec693191f42ef7ddce384c11d29fbf605981c0be077d086757409acad53cb5b9e53d86a07cc428d459ff0f5b00d32a8cbbca390be49"
+        },
+        {
+          "alg": "SHA-384",
+          "content": "4b5297d2a12cc32b824153afc83f1ba9f1869ca288330f0a2f759659d09e4c420eb6ba4a1efbfa0657b625edd41293d5"
+        },
+        {
+          "alg": "SHA3-384",
+          "content": "b14d34985c0a78cf0ba19b5a18bffd403e08adcb2afde228ddef6e16121c7046dbebf58c04d3419311c4496c48aa93be"
+        },
+        {
+          "alg": "SHA3-256",
+          "content": "f679af77deedf69b3c3066f7916583848c6fd32a950f9c0b0e2ef1da121717ba"
+        },
+        {
+          "alg": "SHA3-512",
+          "content": "bca821931e438a1977b7b4356b5f8cebf485634f82159d505c48267c34e6a0f4fde9c2917331365f66dc0e52e2ca3a2db5256863584110c27ecebefc28741f63"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "BSD-3-Clause"
+          }
+        }
+      ],
+      "purl": "pkg:maven/org.hamcrest/hamcrest-core@1.3?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/org.hamcrest/hamcrest-core@1.3?type=jar"
+    },
+    {
+      "author": "",
+      "publisher": "",
+      "group": "org.bouncycastle",
+      "name": "bcprov-jdk15on",
+      "version": "1.70",
+      "description": "The Bouncy Castle Crypto package is a Java implementation of cryptographic algorithms. This jar contains JCE provider and lightweight API for the Bouncy Castle Cryptography APIs for JDK 1.5 and up.",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "1809d0449a6374279c01fdd3be26cd92"
+        },
+        {
+          "alg": "SHA-1",
+          "content": "4636a0d01f74acaf28082fb62b317f1080118371"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "8f3c20e3e2d565d26f33e8d4857a37d0d7f8ac39b62a7026496fcab1bdac30d4"
+        },
+        {
+          "alg": "SHA-512",
+          "content": "7dccfc636ee4df1487615818cfa99c69941081df95e8ef1eaf4bca165594dff9547e3774fd70de3418abace77d2c45889f70bcd2e6823f8539f359e68eaf36d1"
+        },
+        {
+          "alg": "SHA-384",
+          "content": "a0b35d204cd962f1d246fa94b6e8b0fcee1a7c3f37b7e87cda742f2124a25b48794ce11a903ea8d12009c86227b6808d"
+        },
+        {
+          "alg": "SHA3-384",
+          "content": "980d81d3d9906764bbf2ae9b3b364ea58628b485ce1dc3d06734e10495d79f2be2e7cc7df61ac88cd67c1104c7af9393"
+        },
+        {
+          "alg": "SHA3-256",
+          "content": "10a3572e42d29f609721d795116e3e5d0f6f03efef84bb979ce72e26908d242b"
+        },
+        {
+          "alg": "SHA3-512",
+          "content": "a0761cb6deeb86c94b96850c72c0a0eaf516ca849f4b8268f9f60c9ed2a6730e692c15098d47e617da294e931113c6cbcaddec8957c9f029fa595b5f14ff35ac"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "Bouncy Castle Licence",
+            "url": "https://www.bouncycastle.org/licence.html"
+          }
+        }
+      ],
+      "purl": "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:maven/com.encryption/demo@1.0-SNAPSHOT?type=jar",
+      "dependsOn": [
+        "pkg:maven/junit/junit@4.11?type=jar",
+        "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar"
+      ]
+    },
+    {
+      "ref": "pkg:maven/junit/junit@4.11?type=jar",
+      "dependsOn": [
+        "pkg:maven/org.hamcrest/hamcrest-core@1.3?type=jar"
+      ]
+    },
+    {
+      "ref": "pkg:maven/org.hamcrest/hamcrest-core@1.3?type=jar",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar",
+      "dependsOn": []
+    }
+  ],
+  "externalReferences": [
+    {
+      "type": "other",
+      "url": ".",
+      "comment": "Base path"
+    },
+    {
+      "type": "other",
+      "url": "/Users/yunzezhao/Code/SubDependency_CodeLine_Analysis/java/Encryption-test/pom.xml",
+      "comment": "Package file"
+    }
+  ]
+}
