@@ -1,10 +1,10 @@
 {
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:2ee416b9-8e86-4d6f-b3da-d1a590c5c5c1",
+  "serialNumber": "urn:uuid:560ab1aa-ddcd-4a67-98f8-0537f27ec1cb",
   "version": 1,
   "metadata": {
-    "timestamp": "2023-10-31T16:52:22.132Z",
+    "timestamp": "2023-10-31T17:06:17.346Z",
     "tools": {
       "components": [
         {
@@ -200,6 +200,91 @@
       "purl": "pkg:maven/org.jasypt/jasypt@1.9.3?type=jar",
       "type": "library",
       "bom-ref": "pkg:maven/org.jasypt/jasypt@1.9.3?type=jar"
+    },
+    {
+      "publisher": "The Apache Software Foundation",
+      "group": "org.apache.commons",
+      "name": "commons-crypto",
+      "version": "1.1.0",
+      "description": "Apache Commons Crypto is a cryptographic library optimized with AES-NI (Advanced Encryption Standard New Instructions). It provides Java API for both cipher level and Java stream level. Developers can use it to implement high performance AES encryption/decryption with the minimum code and effort. Please note that Crypto doesn't implement the cryptographic algorithm such as AES directly. It wraps to Openssl or JCE which implement the algorithms. Features -------- 1. Cipher API for low level cryptographic operations. 2. Java stream API (CryptoInputStream/CryptoOutputStream) for high level stream encryption/decryption. 3. Both optimized with high performance AES encryption/decryption. (1400 MB/s - 1700 MB/s throughput in modern Xeon processors). 4. JNI-based implementation to achieve comparable performance to the native C/C++ version based on OpenSsl. 5. Portable across various operating systems (currently only Linux/MacOSX/Windows); Apache Commons Crypto loads the library according to your machine environment (it checks system properties, `os.name` and `os.arch`). 6. Simple usage. Add the commons-crypto-(version).jar file to your classpath. Export restrictions ------------------- This distribution includes cryptographic software. The country in which you currently reside may have restrictions on the import, possession, use, and/or re-export to another country, of encryption software. BEFORE using any encryption software, please check your country's laws, regulations and policies concerning the import, possession, or use, and re-export of encryption software, to see if this is permitted. See <http://www.wassenaar.org/> for more information. The U.S. Government Department of Commerce, Bureau of Industry and Security (BIS), has classified this software as Export Commodity Control Number (ECCN) 5D002.C.1, which includes information security software using or performing cryptographic functions with asymmetric algorithms. The form and manner of this Apache Software Foundation distribution makes it eligible for export under the License Exception ENC Technology Software Unrestricted (TSU) exception (see the BIS Export Administration Regulations, Section 740.13) for both object code and source code. The following provides more details on the included cryptographic software: * Commons Crypto use [Java Cryptography Extension](http://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html) provided by Java * Commons Crypto link to and use [OpenSSL](https://www.openssl.org/) ciphers",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "c71451f3c4737ba6d84f9bd9e8f2400d"
+        },
+        {
+          "alg": "SHA-1",
+          "content": "4a8b4caa84032a0f1f1dad16875820a4f37524b7"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "44dc28551cdba731658090d9b10d2eead9839c269d70cdcd7d56c0423df5227f"
+        },
+        {
+          "alg": "SHA-512",
+          "content": "62acf1d90ad667c8f3f9b267c6f4fefa57eb914ef57a24e10a7dc6ea7bf1f2a6933db831f836dc2ca0fe86aff84a6d1a0fb3c8bb34c7c24e3e1190778efb241d"
+        },
+        {
+          "alg": "SHA-384",
+          "content": "0d7c20964ab9cbde60d3d03ca92b481e30f969b30adc336b77ec8b8dcb660e327bfff8c98cb9c30163e7bdf5ffbae486"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/org.apache.commons/commons-crypto@1.1.0?type=jar",
+      "type": "framework",
+      "bom-ref": "pkg:maven/org.apache.commons/commons-crypto@1.1.0?type=jar"
+    },
+    {
+      "group": "net.java.dev.jna",
+      "name": "jna",
+      "version": "5.5.0",
+      "description": "Java Native Access",
+      "scope": "required",
+      "hashes": [
+        {
+          "alg": "MD5",
+          "content": "acfb5b5fd9ee10bf69497792fd469f85"
+        },
+        {
+          "alg": "SHA-1",
+          "content": "0e0845217c4907822403912ad6828d8e0b256208"
+        },
+        {
+          "alg": "SHA-256",
+          "content": "b308faebfe4ed409de8410e0a632d164b2126b035f6eacff968d3908cafb4d9e"
+        },
+        {
+          "alg": "SHA-512",
+          "content": "e52575f58a195ceb3bd16b9740eadf5bc5b1d4d63c0734e8e5fd1d1776aa2d068d2e4c7173b83803f95f72c0a6759ae1c9b65773c734250d4cfcdf47a19f82aa"
+        },
+        {
+          "alg": "SHA-384",
+          "content": "9fab5e0a992959f723a5fcea5b88e0a05e593b4472df397f326a4d467973496ff955e32871f4909f38e0006f728b2731"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "LGPL, version 2.1",
+            "url": "http://www.gnu.org/licenses/licenses.html"
+          }
+        },
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ],
+      "purl": "pkg:maven/net.java.dev.jna/jna@5.5.0?type=jar",
+      "type": "library",
+      "bom-ref": "pkg:maven/net.java.dev.jna/jna@5.5.0?type=jar"
     }
   ],
   "dependencies": [
@@ -207,6 +292,7 @@
       "ref": "pkg:maven/com.encryption/demo@1.0-SNAPSHOT?type=jar",
       "dependsOn": [
         "pkg:maven/junit/junit@4.11?type=jar",
+        "pkg:maven/org.apache.commons/commons-crypto@1.1.0?type=jar",
         "pkg:maven/org.bouncycastle/bcprov-jdk15on@1.70?type=jar",
         "pkg:maven/org.jasypt/jasypt@1.9.3?type=jar"
       ]
@@ -227,6 +313,16 @@
     },
     {
       "ref": "pkg:maven/org.jasypt/jasypt@1.9.3?type=jar",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:maven/org.apache.commons/commons-crypto@1.1.0?type=jar",
+      "dependsOn": [
+        "pkg:maven/net.java.dev.jna/jna@5.5.0?type=jar"
+      ]
+    },
+    {
+      "ref": "pkg:maven/net.java.dev.jna/jna@5.5.0?type=jar",
       "dependsOn": []
     }
   ]
