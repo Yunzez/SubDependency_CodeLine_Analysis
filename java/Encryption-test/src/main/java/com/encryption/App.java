@@ -13,7 +13,7 @@ public class App {
     }
 
     public static void main(String[] args) throws Exception {
-        String text = "America runs on dunkin!";
+        String text = "Hello World!";
         String key = "1234567812345678"; // 16 chars=128 bits
 
         // Using BouncyCastle
