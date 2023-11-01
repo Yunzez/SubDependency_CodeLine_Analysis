@@ -18,6 +18,8 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.EnumSet;
 import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,7 +28,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter the path to the Java source file (hit enter for default): ");
         String sourceFilePath = scanner.nextLine();
-        if(sourceFilePath == null || sourceFilePath.isEmpty()) {
+        if (sourceFilePath == null || sourceFilePath.isEmpty()) {
             sourceFilePath = "java/ast_generator/src/main/java/com/ast_generator/Main.java";
         }
         generateAST(sourceFilePath);
@@ -34,10 +36,10 @@ public class Main {
     }
 
     private static void generateAST(String sourceDirectoryPath) {
-       
+
         ParserConfiguration config = new ParserConfiguration();
         StaticJavaParser.setConfiguration(config);
-    
+
         Path path = Paths.get(sourceDirectoryPath);
         if (!Files.exists(path)) {
             System.out.println("File does not exist: " + sourceDirectoryPath);
@@ -45,6 +47,8 @@ public class Main {
         }
         try {
             Path startDir = Paths.get(sourceDirectoryPath);
+            StringBuilder jsonOutput = new StringBuilder(); // Create a StringBuilder to accumulate JSON outputs
+
             Files.walkFileTree(startDir, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VALUE,
                     new SimpleFileVisitor<Path>() {
                         @Override
@@ -58,8 +62,11 @@ public class Main {
                                 serializer.serialize(cu, jsonGenerator);
                                 jsonGenerator.close();
 
-                                System.out.println("File: " + file);
-                                System.out.println(stringWriter.toString());
+                                // System.out.println("File: " + file);
+                                // System.out.println(stringWriter.toString());
+                                jsonOutput.append(stringWriter.toString()).append("\n"); // Append the JSON output for
+                                                                                         // this file to the
+                                                                                         // StringBuilder
                             }
                             return FileVisitResult.CONTINUE;
                         }
@@ -69,6 +76,11 @@ public class Main {
                             return FileVisitResult.CONTINUE;
                         }
                     });
+
+            Path outputFile = Paths.get("java/ast_generator/ast.json");
+            Files.write(outputFile, jsonOutput.toString().getBytes(StandardCharsets.UTF_8));
+            System.out.println("JSON output saved to: " + outputFile.toAbsolutePath());
+
         } catch (IOException e) {
             e.printStackTrace();
         }
