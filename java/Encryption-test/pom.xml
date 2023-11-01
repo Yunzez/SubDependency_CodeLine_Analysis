@@ -30,6 +30,18 @@
       <artifactId>bcprov-jdk15on</artifactId>
       <version>1.70</version> <!-- Use the version that you want -->
   </dependency>
+  <dependency>
+    <groupId>org.jasypt</groupId>
+    <artifactId>jasypt</artifactId>
+    <version>1.9.3</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.commons</groupId>
+  <artifactId>commons-crypto</artifactId>
+  <version>1.1.0</version>
+</dependency>
+
+
   
   </dependencies>
 
