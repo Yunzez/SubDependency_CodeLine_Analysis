@@ -1,8 +1,11 @@
-import ast from "../rust/ast_generator/ast.json";
-
+import ast_rust from "../rust/ast_generator/ast.json";
+import ast_java from "../java/ast_generator/ast.json";
+// rust: ../rust/ast_generator/ast.json
+// java: ../java/ast_generator/ast.json
 import fs from "fs";
 import ProgressBar from "progress";
-
+import { analyzeRust } from "./rust_analyzer";
+import { analyzeJava } from "./java_analyzer";
 const callSet = new Set();
 const functionSet = new Set();
 const useSet = new Set();
@@ -43,31 +46,9 @@ const mapAst = () => {
   // console.log(node_type)
 };
 
-const findTypeNode = (
-  node: any,
-  typeName: string,
-  onFound: (node: any) => void
-): any => {
-  if (node.type === typeName) {
-    onFound(node);
-  }
-  for (const child of node.children || []) {
-    findTypeNode(child, typeName, onFound);
-  }
-};
 
 const init = async (): Promise<void> => {
   const { prompt } = require("enquirer");
-
-  const response = await prompt({
-    type: "input",
-    name: "filePath",
-    message: "please input your rust ast file path:",
-  });
-
-  const currentAst = response.filePath
-    ? JSON.parse(fs.readFileSync(response.filePath, "utf8"))
-    : ast;
 
   const typeResponse = await prompt({
     type: "select",
@@ -78,143 +59,39 @@ const init = async (): Promise<void> => {
 
   console.log(`You selected: ${typeResponse.fileFormat}`);
 
+  const response = await prompt({
+    type: "input",
+    name: "filePath",
+    message: `please input your ast file path:`,
+  });
+
+  let currentAst = undefined;
+  if(response.filePath) {
+    currentAst = JSON.parse(fs.readFileSync(response.filePath, "utf8"))
+  } 
+   
+
+
   const type = typeResponse.fileFormat;
   switch (type) {
     case "rust":
-      analyzeRust(currentAst);
+      if (!currentAst) {
+        currentAst = ast_rust;
+      }
+      analyzeRust(currentAst, response.filePath);
       break;
+    case "java":
+      if (!currentAst) {
+        currentAst = ast_java;
+      }
+      analyzeJava(currentAst,  response.filePath.length == 0 ? '../java/ast_generator/ast.json' : response.filePath);
+      break;  
     default:
       console.log("not supported yet");
       break;
-  }
+}
 };
 
-const analyzeRust = (currentAst: any) => {
-  // Initial tick for starting
-  console.log("Gathering function calls...");
-
-  let typeName = "call_expression";
-  for (const fileNode of Object.entries(currentAst)) {
-    findTypeNode(fileNode[1], typeName, (node: any) => {
-      callSet.add(node);
-    });
-  }
-
-  console.log(`Gathering function calls done. Total: ${callSet.size}`);
-
-  console.log("Gathering use_declaration...");
-  typeName = "use_declaration";
-  for (const fileNode of Object.entries(currentAst)) {
-    findTypeNode(fileNode[1], typeName, (node: any) => {
-      useSet.add(node);
-    });
-  }
-
-  console.log(`Gathering use_declaration done. Total: ${useSet.size}`);
-
-  console.log("Gathering function_item...");
-  typeName = "function_item";
-  for (const fileNode of Object.entries(currentAst)) {
-    findTypeNode(fileNode[1], typeName, (node: any) => {
-      functionSet.add({ node, file: fileNode[0] });
-    });
-  }
-
-  console.log(`Gathering function_item done. Total: ${functionSet.size}`);
-
-  console.log("Processing function items...");
-  functionSet.forEach(processFunctionItem);
-
-  functionSet.forEach((node: any) => {
-    findFunctionCallsInFunction(node);
-  });
-
-  console.log("Writing to file...");
-  const writeMapToJsonFile = (map: Map<string, any>, filePath: string) => {
-    const obj = Object.fromEntries(map);
-    const json = JSON.stringify(obj, null, 2);
-    fs.writeFileSync(filePath, json);
-  };
-  writeMapToJsonFile(functionCallsMap, "./functionCallsMap.json");
-
-  console.log("All tasks completed!");
-};
-
-const functionCallsMap: Map<string, { functions: any[]; self: any }> =
-  new Map();
-
-const findFunctionCallsInFunction = (functionNode: any) => {
-  const node = functionNode.node;
-  const file = functionNode.file;
-  // console.log('findFunctionCallsInFunction', node)
-  const identifierNode = node.children.find(
-    (child: any) => child.type === "identifier"
-  );
-  if (!identifierNode) {
-    console.log("Identifier not found for function_item");
-    return;
-  }
-
-  // Extract function name and location info from the node
-  const functionName = identifierNode.text;
-  const parentFunctionInfo = functionLocationMap.get(functionName);
-  const functionCalls: any[] = [];
-
-  findTypeNode(node, "call_expression", (callNode: any) => {
-    const identifierNode = callNode.children.find(
-      (child: any) =>
-        child.type === "identifier" || child.type === "field_expression"
-    );
-    if (!identifierNode) {
-      console.log("call_expressio Identifier not found for call_expression");
-      return;
-    }
-    let originalName = identifierNode.text;
-    let calledFunctionName = identifierNode.text;
-    if (calledFunctionName.startsWith("self.")) {
-      calledFunctionName = calledFunctionName.substring(5); // Remove 'self.'
-    }
-    const line = `${callNode.start_position.row}-${callNode.end_position.row}`;
-
-    const functionInfo = functionLocationMap.get(calledFunctionName);
-    console.log("functionInfo", originalName, functionInfo);
-    let functionFileLine = "";
-    if (functionInfo) {
-      functionFileLine = functionInfo.line;
-      functionCalls.push({
-        function_name: originalName,
-        used_location_file_name: file,
-        function_file_name: functionInfo ? functionInfo.file : "unknown",
-        used_location_line: line,
-        function_file_line: functionFileLine,
-      });
-    }
-  });
-
-  functionCallsMap.set(functionName, {
-    functions: functionCalls,
-    self: parentFunctionInfo,
-  });
-};
-
-const processFunctionItem = (functionNode: any) => {
-  const node = functionNode.node;
-  const file = functionNode.file;
-
-  const identifierNode = node.children.find(
-    (child: any) => child.type === "identifier"
-  );
-  if (!identifierNode) {
-    console.log("Identifier not found for function_item");
-    return;
-  }
-
-  // Extract function name and location info from the node
-  const functionName = identifierNode.text;
-  const line = `${node.start_position.row}-${node.end_position.row}`;
-
-  functionLocationMap.set(functionName, { line, file });
-};
 
 init();
 

@@ -29,7 +29,7 @@ public class Main {
         System.out.print("Please enter the path to the Java source file (hit enter for default): ");
         String sourceFilePath = scanner.nextLine();
         if (sourceFilePath == null || sourceFilePath.isEmpty()) {
-            sourceFilePath = "java/ast_generator/src/main/java/com/ast_generator/Main.java";
+            sourceFilePath = "java/Encryption-test/src/main/java/com/encryption/App.java";
         }
         generateAST(sourceFilePath);
         scanner.close();
