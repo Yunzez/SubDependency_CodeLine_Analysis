@@ -1,5 +1,6 @@
 package com.ast_generator;
 
+import com.github.javaparser.ParseProblemException;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
@@ -7,82 +8,166 @@ import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
 import javax.json.Json;
 import javax.json.stream.JsonGenerator;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
-import java.nio.file.FileVisitOption;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.EnumSet;
-import java.util.Scanner;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
+import java.nio.file.*;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Comparator;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class Main {
+    private static Map<String, String> dependencyMap;
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        // Ensure a source file is provided as an argument
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please enter the path to the Java source file (hit enter for default): ");
-        String sourceFilePath = scanner.nextLine();
-        if (sourceFilePath == null || sourceFilePath.isEmpty()) {
+        String sourceFilePath = scanner.nextLine().trim();
+
+        if (sourceFilePath.isEmpty()) {
             sourceFilePath = "java/Encryption-test/src/main/java/com/encryption/App.java";
         }
+
+        // Infer the path to the pom.xml
+        String inferredPomPath = sourceFilePath.substring(0, sourceFilePath.indexOf("src/main/java")) + "pom.xml";
+        System.out.println("Inferred path to pom.xml: " + inferredPomPath);
+        System.out.print("Is this path correct? (yes/no): ");
+        String response = scanner.nextLine();
+        if ("no".equalsIgnoreCase(response)) {
+            System.out.print("Please enter the correct path to the pom.xml: ");
+            inferredPomPath = scanner.nextLine();
+        }
+
+        dependencyMap = parsePomForDependencies(inferredPomPath);
         generateAST(sourceFilePath);
+        generateASTForAllDependencies();
         scanner.close();
     }
 
-    private static void generateAST(String sourceDirectoryPath) {
-
+    private static void generateAST(String sourceFilePath) {
+        // Configure parser
         ParserConfiguration config = new ParserConfiguration();
         StaticJavaParser.setConfiguration(config);
+        Path path = Paths.get(sourceFilePath);
 
-        Path path = Paths.get(sourceDirectoryPath);
         if (!Files.exists(path)) {
-            System.out.println("File does not exist: " + sourceDirectoryPath);
+            System.out.println("File does not exist: " + sourceFilePath);
             return;
         }
+
+        StringBuilder jsonOutput = new StringBuilder();
         try {
-            Path startDir = Paths.get(sourceDirectoryPath);
-            StringBuilder jsonOutput = new StringBuilder(); // Create a StringBuilder to accumulate JSON outputs
+            CompilationUnit cu = StaticJavaParser.parse(path);
+            StringWriter stringWriter = new StringWriter();
+            try (JsonGenerator jsonGenerator = Json.createGenerator(stringWriter)) {
+                JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
+                serializer.serialize(cu, jsonGenerator);
+            }
 
-            Files.walkFileTree(startDir, EnumSet.noneOf(FileVisitOption.class), Integer.MAX_VALUE,
-                    new SimpleFileVisitor<Path>() {
-                        @Override
-                        public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                            if (file.toString().endsWith(".java")) {
-                                CompilationUnit cu = StaticJavaParser.parse(file);
-
-                                StringWriter stringWriter = new StringWriter();
-                                JsonGenerator jsonGenerator = Json.createGenerator(stringWriter);
-                                JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
-                                serializer.serialize(cu, jsonGenerator);
-                                jsonGenerator.close();
-
-                                // System.out.println("File: " + file);
-                                // System.out.println(stringWriter.toString());
-                                jsonOutput.append(stringWriter.toString()).append("\n"); // Append the JSON output for
-                                                                                         // this file to the
-                                                                                         // StringBuilder
-                            }
-                            return FileVisitResult.CONTINUE;
-                        }
-
-                        @Override
-                        public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-                            return FileVisitResult.CONTINUE;
-                        }
-                    });
-
-            Path outputFile = Paths.get("java/ast_generator/ast.json");
-            Files.write(outputFile, jsonOutput.toString().getBytes(StandardCharsets.UTF_8));
-            System.out.println("JSON output saved to: " + outputFile.toAbsolutePath());
-
+            jsonOutput.append(stringWriter.toString());
+            Files.write(Paths.get("java/ast_generator/ast.json"),
+                    jsonOutput.toString().getBytes(StandardCharsets.UTF_8));
+            System.out.println("JSON output saved to: java/ast_generator/ast.json");
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void generateASTForAllDependencies() {
+
+        dependencyMap.forEach((artifactId, mavenPath) -> {
+            if (Files.exists(Paths.get(mavenPath)) && mavenPath.endsWith(".jar")) {
+                System.out.println("Found jar at: " + mavenPath + " for artifact: " + artifactId);
+                try {
+                    // Extract Java files from the jar
+                    extractJavaFilesFromJar(mavenPath);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                System.out.println("Skipping non-jar path: " + mavenPath);
+            }
+        });
+    }
+
+    private static void extractJavaFilesFromJar(String jarPath) throws IOException {
+        Path tempDir = Files.createTempDirectory("jar-extract");
+        System.out.println("parsing: " + jarPath + " "+ tempDir);
+        try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(Paths.get(jarPath)))) {
+            ZipEntry entry;
+            
+            while ((entry = zipInputStream.getNextEntry()) != null) {
+                 System.out.println("parsing entry:" + entry.toString() + " "+ tempDir);
+                if (entry.getName().endsWith(".java")) {
+                    Path outputFile = tempDir.resolve(entry.getName());
+                    Files.createDirectories(outputFile.getParent()); // ensure directory structure
+                    Files.copy(zipInputStream, outputFile, StandardCopyOption.REPLACE_EXISTING);
+                    // Now parse the Java file using JavaParser
+                    try {
+                        CompilationUnit cu = StaticJavaParser.parse(outputFile);
+                        System.out.println("Parsed successfully " + outputFile);
+                        // TODO: Do whatever you want with the parsed CompilationUnit
+                    } catch (ParseProblemException e) {
+                        System.err.println("Failed to parse: " + outputFile);
+                        e.printStackTrace();
+                    }
+                }
+            }
+        } finally {
+            // Cleanup: delete the temporary directory and extracted files
+            Files.walk(tempDir)
+                    .sorted(Comparator.reverseOrder()) // delete contents before directory
+                    .forEach(path -> {
+                        try {
+                            Files.delete(path);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    });
+        }
+    }
+
+    private static Map<String, String> parsePomForDependencies(String pomFilePath) {
+        Map<String, String> dependencyMap = new HashMap<>();
+        try {
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(new File(pomFilePath));
+            doc.getDocumentElement().normalize();
+
+            NodeList dependenciesList = doc.getElementsByTagName("dependency");
+
+            for (int i = 0; i < dependenciesList.getLength(); i++) {
+                Node dependencyNode = dependenciesList.item(i);
+                if (dependencyNode.getNodeType() == Node.ELEMENT_NODE) {
+                    Element dependencyElement = (Element) dependencyNode;
+
+                    String groupId = dependencyElement.getElementsByTagName("groupId").item(0).getTextContent();
+                    String artifactId = dependencyElement.getElementsByTagName("artifactId").item(0).getTextContent();
+                    String version = dependencyElement.getElementsByTagName("version").item(0).getTextContent();
+
+                    String mavenPath = System.getProperty("user.home") + "/.m2/repository/"
+                            + groupId.replace('.', '/') + "/" + artifactId + "/" + version
+                            + "/" + artifactId + "-" + version + ".jar";
+
+                    dependencyMap.put(artifactId, mavenPath);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dependencyMap;
     }
 }
