@@ -1,9 +1,15 @@
+import * as fs from 'fs';
+
+
 export const analyzeJava = (currentAst: any, filePath: string) => {
     const methodDeclarations = extractMethodDeclarations(currentAst);
-    console.log("Method Declarations: ", methodDeclarations);
+    // console.log("Method Declarations: ", methodDeclarations);
 
     const methodDetails = extractMethodDetails(currentAst, filePath);
-    console.log("Method Details: ", methodDetails);
+    // console.log("Method Details: ", methodDetails);
+
+     // Write the method details to a JSON file
+     fs.writeFileSync('java_ast_functionmap.json', JSON.stringify(methodDetails, null, 2));
 }
 
 const extractMethodDeclarations = (node: any): any[] => {
