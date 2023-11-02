@@ -1,10 +1,7 @@
-import ast from "../ast_generator/ast.json";
+import ast from "../rust/ast_generator/ast.json";
 
-import fs from 'fs';
-import ProgressBar from 'progress';
-
-
-
+import fs from "fs";
+import ProgressBar from "progress";
 
 const callSet = new Set();
 const functionSet = new Set();
@@ -60,78 +57,91 @@ const findTypeNode = (
 };
 
 const init = async (): Promise<void> => {
-    const { prompt } = require('enquirer');
-    const response = await prompt({
-        type: 'input',
-        name: 'filePath',
-        message: 'please input your rust ast file path:'
-      });
-  
-    
-    const currentAst = response.filePath ? JSON.parse(fs.readFileSync(response.filePath, 'utf8')) : ast;
+  const { prompt } = require("enquirer");
 
-    const totalTasks = Object.keys(currentAst).length * 3 + 4; // 3 tasks per file + 4 additional tasks
-    const bar = new ProgressBar(":bar :percent", { total: totalTasks });
-    // Initial tick for starting
-    bar.tick();
-    console.log("Gathering function calls...");
-  
-    let typeName = "call_expression";
-    for (const fileNode of Object.entries(currentAst)) {
-      findTypeNode(fileNode[1], typeName, (node: any) => {
-        callSet.add(node);
-      });
-      bar.tick(); // Tick after each file processed for call_expression
-    }
-  
-    console.log(`Gathering function calls done. Total: ${callSet.size}`);
-  
-    console.log("Gathering use_declaration...");
-    typeName = "use_declaration";
-    for (const fileNode of Object.entries(currentAst)) {
-      findTypeNode(fileNode[1], typeName, (node: any) => {
-        useSet.add(node);
-      });
-      bar.tick(); // Tick after each file processed for use_declaration
-    }
-  
-    console.log(`Gathering use_declaration done. Total: ${useSet.size}`);
-  
-    console.log("Gathering function_item...");
-    typeName = "function_item";
-    for (const fileNode of Object.entries(currentAst)) {
-      findTypeNode(fileNode[1], typeName, (node: any) => {
-        functionSet.add({ node, file: fileNode[0] });
-      });
-      bar.tick(); // Tick after each file processed for function_item
-    }
-  
-    console.log(`Gathering function_item done. Total: ${functionSet.size}`);
-  
-    console.log("Processing function items...");
-    functionSet.forEach(processFunctionItem);
-    bar.tick(); // Tick after processing function items
-  
-    functionSet.forEach((node: any) => {
-      findFunctionCallsInFunction(node);
+  const response = await prompt({
+    type: "input",
+    name: "filePath",
+    message: "please input your rust ast file path:",
+  });
+
+  const currentAst = response.filePath
+    ? JSON.parse(fs.readFileSync(response.filePath, "utf8"))
+    : ast;
+
+  const typeResponse = await prompt({
+    type: "select",
+    name: "fileFormat",
+    message: "Choose the format of the file:",
+    choices: ["rust", "java", "js", "python", "go", "c++", "other"],
+  });
+
+  console.log(`You selected: ${typeResponse.fileFormat}`);
+
+  const type = typeResponse.fileFormat;
+  switch (type) {
+    case "rust":
+      analyzeRust(currentAst);
+      break;
+    default:
+      console.log("not supported yet");
+      break;
+  }
+};
+
+const analyzeRust = (currentAst: any) => {
+  // Initial tick for starting
+  console.log("Gathering function calls...");
+
+  let typeName = "call_expression";
+  for (const fileNode of Object.entries(currentAst)) {
+    findTypeNode(fileNode[1], typeName, (node: any) => {
+      callSet.add(node);
     });
-    bar.tick(); // Tick after finding function calls within each function
-  
-    console.log("Writing to file...");
-    const writeMapToJsonFile = (map: Map<string, any>, filePath: string) => {
-      const obj = Object.fromEntries(map);
-      const json = JSON.stringify(obj, null, 2);
-      fs.writeFileSync(filePath, json);
-    };
-    writeMapToJsonFile(functionCallsMap, "./functionCallsMap.json");
-    bar.tick(); // Tick after writing to file
-  
-    console.log("All tasks completed!");
-    bar.tick(); // Final tick
-  };
-  
+  }
 
-const functionCallsMap: Map<string, {functions: any[], self: any}> = new Map();
+  console.log(`Gathering function calls done. Total: ${callSet.size}`);
+
+  console.log("Gathering use_declaration...");
+  typeName = "use_declaration";
+  for (const fileNode of Object.entries(currentAst)) {
+    findTypeNode(fileNode[1], typeName, (node: any) => {
+      useSet.add(node);
+    });
+  }
+
+  console.log(`Gathering use_declaration done. Total: ${useSet.size}`);
+
+  console.log("Gathering function_item...");
+  typeName = "function_item";
+  for (const fileNode of Object.entries(currentAst)) {
+    findTypeNode(fileNode[1], typeName, (node: any) => {
+      functionSet.add({ node, file: fileNode[0] });
+    });
+  }
+
+  console.log(`Gathering function_item done. Total: ${functionSet.size}`);
+
+  console.log("Processing function items...");
+  functionSet.forEach(processFunctionItem);
+
+  functionSet.forEach((node: any) => {
+    findFunctionCallsInFunction(node);
+  });
+
+  console.log("Writing to file...");
+  const writeMapToJsonFile = (map: Map<string, any>, filePath: string) => {
+    const obj = Object.fromEntries(map);
+    const json = JSON.stringify(obj, null, 2);
+    fs.writeFileSync(filePath, json);
+  };
+  writeMapToJsonFile(functionCallsMap, "./functionCallsMap.json");
+
+  console.log("All tasks completed!");
+};
+
+const functionCallsMap: Map<string, { functions: any[]; self: any }> =
+  new Map();
 
 const findFunctionCallsInFunction = (functionNode: any) => {
   const node = functionNode.node;
@@ -159,10 +169,10 @@ const findFunctionCallsInFunction = (functionNode: any) => {
       console.log("call_expressio Identifier not found for call_expression");
       return;
     }
-    let originalName = identifierNode.text
+    let originalName = identifierNode.text;
     let calledFunctionName = identifierNode.text;
-    if (calledFunctionName.startsWith('self.')) {
-      calledFunctionName = calledFunctionName.substring(5);  // Remove 'self.'
+    if (calledFunctionName.startsWith("self.")) {
+      calledFunctionName = calledFunctionName.substring(5); // Remove 'self.'
     }
     const line = `${callNode.start_position.row}-${callNode.end_position.row}`;
 
@@ -179,11 +189,12 @@ const findFunctionCallsInFunction = (functionNode: any) => {
         function_file_line: functionFileLine,
       });
     }
-
-   
   });
 
-  functionCallsMap.set(functionName, {"functions": functionCalls, "self": parentFunctionInfo});
+  functionCallsMap.set(functionName, {
+    functions: functionCalls,
+    self: parentFunctionInfo,
+  });
 };
 
 const processFunctionItem = (functionNode: any) => {

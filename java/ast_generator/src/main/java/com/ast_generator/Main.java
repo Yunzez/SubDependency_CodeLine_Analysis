@@ -86,5 +86,3 @@ public class Main {
         }
     }
 }
-
-// java/Encryption-test/src/main/java/com/encryption/App.java
