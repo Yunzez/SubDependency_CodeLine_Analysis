@@ -1,48 +1,85 @@
 package com.ast_generator;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.StandardOpenOption;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonWriter;
+import javax.json.stream.JsonGenerator;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import com.github.javaparser.ParseProblemException;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
-import javax.json.Json;
-import javax.json.stream.JsonGenerator;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.Comparator;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-
 public class Main {
     private static Map<String, String> dependencyMap;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Please enter the path to the Java source file (hit enter for default): ");
-        String sourceFilePath = scanner.nextLine().trim();
 
-        if (sourceFilePath.isEmpty()) {
-            sourceFilePath = "java/Encryption-test/src/main/java/com/encryption/App.java";
+        // Delete existing ast.json file if it exists
+         System.out.print("initializing");
+        Path astFilePath = Paths.get("java/ast_generator/ast.json");
+        if (Files.exists(astFilePath)) {
+            try {
+                Files.delete(astFilePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        // Infer the path to the pom.xml
-        String inferredPomPath = sourceFilePath.substring(0, sourceFilePath.indexOf("src/main/java")) + "pom.xml";
+        System.out.print("Please enter the path to the Java source file (hit enter for default): ");
+        String rootDirectoryPath = scanner.nextLine().trim();
+
+        if (rootDirectoryPath.isEmpty()) {
+            rootDirectoryPath = "java/Calculator-master";
+        }
+
+        // Validate and process the directory
+        Path rootPath = Paths.get(rootDirectoryPath);
+        if (Files.isDirectory(rootPath)) {
+            try {
+                System.out.println("Processing directory: " + rootPath);
+                processDirectory(rootPath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Invalid directory path.");
+        }
+
+        // Infer the path to pom.xml
+        String inferredPomPath = rootPath.resolve("pom.xml").toString();
         System.out.println("Inferred path to pom.xml: " + inferredPomPath);
+
+        // Check if the inferred path is correct
         System.out.print("Is this path correct? (yes/no): ");
         String response = scanner.nextLine();
         if ("no".equalsIgnoreCase(response)) {
@@ -51,9 +88,22 @@ public class Main {
         }
 
         dependencyMap = parsePomForDependencies(inferredPomPath);
-        generateAST(sourceFilePath);
+
+        generateAST(rootDirectoryPath);
         generateASTForAllDependencies();
         scanner.close();
+    }
+
+    private static void processDirectory(Path directory) throws IOException {
+        Files.walkFileTree(directory, new SimpleFileVisitor<Path>() {
+            @Override
+            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                if (file.toString().endsWith(".java")) {
+                    generateAST(file.toString());
+                }
+                return FileVisitResult.CONTINUE;
+            }
+        });
     }
 
     private static void generateAST(String sourceFilePath) {
@@ -67,7 +117,6 @@ public class Main {
             return;
         }
 
-        StringBuilder jsonOutput = new StringBuilder();
         try {
             CompilationUnit cu = StaticJavaParser.parse(path);
             StringWriter stringWriter = new StringWriter();
@@ -76,12 +125,33 @@ public class Main {
                 serializer.serialize(cu, jsonGenerator);
             }
 
-            jsonOutput.append(stringWriter.toString());
-            Files.write(Paths.get("java/ast_generator/ast.json"),
-                    jsonOutput.toString().getBytes(StandardCharsets.UTF_8));
-            System.out.println("JSON output saved to: java/ast_generator/ast.json");
+            String astJson = stringWriter.toString();
+            Path astFilePath = Paths.get("java/ast_generator/ast.json");
+            appendASTToJsonFile(astFilePath, path.toString(), astJson);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void appendASTToJsonFile(Path astFilePath, String sourceFilePath, String astJson)
+            throws IOException {
+        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+
+        if (Files.exists(astFilePath)) {
+            // Parse existing JSON and add new AST
+            String existingContent = Files.readString(astFilePath);
+            JsonObject existingJson = Json.createReader(new StringReader(existingContent)).readObject();
+            jsonBuilder = Json.createObjectBuilder(existingJson);
+        }
+
+        // Add new AST
+        JsonObject newAst = Json.createReader(new StringReader(astJson)).readObject();
+        jsonBuilder.add(sourceFilePath, newAst);
+
+        // Write back to file
+        try (JsonWriter jsonWriter = Json.createWriter(
+                Files.newBufferedWriter(astFilePath, StandardOpenOption.CREATE, StandardOpenOption.WRITE))) {
+            jsonWriter.writeObject(jsonBuilder.build());
         }
     }
 
@@ -104,12 +174,12 @@ public class Main {
 
     private static void extractJavaFilesFromJar(String jarPath) throws IOException {
         Path tempDir = Files.createTempDirectory("jar-extract");
-        System.out.println("parsing: " + jarPath + " "+ tempDir);
+        System.out.println("parsing: " + jarPath + " " + tempDir);
         try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(Paths.get(jarPath)))) {
             ZipEntry entry;
-            
+
             while ((entry = zipInputStream.getNextEntry()) != null) {
-                 System.out.println("parsing entry:" + entry.toString() + " "+ tempDir);
+                System.out.println("parsing entry:" + entry.toString() + " " + tempDir);
                 if (entry.getName().endsWith(".java")) {
                     Path outputFile = tempDir.resolve(entry.getName());
                     Files.createDirectories(outputFile.getParent()); // ensure directory structure
