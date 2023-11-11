@@ -41,12 +41,14 @@ import com.github.javaparser.serialization.JavaParserJsonSerializer;
 public class Main {
     private static Map<String, String> dependencyMap;
     private static Path astPath;
+    private static Map<String, String> libraryAstJsonMap;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
+        libraryAstJsonMap = new HashMap<>();
         // Delete existing ast.json file if it exists
         System.out.print("initializing");
-       astPath = Paths.get("java/ast_generator/ast.json");
+        astPath = Paths.get("java/ast_generator/ast.json");
         if (Files.exists(astPath)) {
             try {
                 Files.delete(astPath);
@@ -198,15 +200,16 @@ public class Main {
                             JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
                             serializer.serialize(cu, jsonGenerator);
                         }
+
                         String astJson = stringWriter.toString();
-                        // appendLocalASTToJsonFile(path.getFileName().toString(), astJson);
+                        libraryAstJsonMap.put(path.getFileName().toString(), astJson);
 
                     } catch (ParseProblemException | IOException e) {
                         System.err.println("Failed to parse: " + path);
                         e.printStackTrace();
                     }
                 });
-
+        appendAllASTsToJsonFile();
         // Cleanup: delete the temporary directory and extracted files
         Files.walk(dir)
                 .sorted(Comparator.reverseOrder()) // delete contents before directory
@@ -214,6 +217,24 @@ public class Main {
                     // Files.delete(path);
                     System.out.println("Deleting: " + path);
                 });
+
+    }
+
+    private static void appendAllASTsToJsonFile() throws IOException {
+        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+
+        if (Files.exists(astPath)) {
+            String existingContent = Files.readString(astPath);
+            JsonObject existingJson = Json.createReader(new StringReader(existingContent)).readObject();
+            jsonBuilder = Json.createObjectBuilder(existingJson);
+        }
+
+        libraryAstJsonMap.forEach(jsonBuilder::add);
+
+        try (JsonWriter jsonWriter = Json.createWriter(
+                Files.newBufferedWriter(astPath, StandardOpenOption.CREATE, StandardOpenOption.WRITE))) {
+            jsonWriter.writeObject(jsonBuilder.build());
+        }
     }
 
     private static Map<String, String> parsePomForDependencies(String pomFilePath) {
