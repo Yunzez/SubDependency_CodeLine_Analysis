@@ -40,16 +40,16 @@ import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
 public class Main {
     private static Map<String, String> dependencyMap;
-
+    private static Path astPath;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         // Delete existing ast.json file if it exists
-         System.out.print("initializing");
-        Path astFilePath = Paths.get("java/ast_generator/ast.json");
-        if (Files.exists(astFilePath)) {
+        System.out.print("initializing");
+       astPath = Paths.get("java/ast_generator/ast.json");
+        if (Files.exists(astPath)) {
             try {
-                Files.delete(astFilePath);
+                Files.delete(astPath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -59,7 +59,7 @@ public class Main {
         String rootDirectoryPath = scanner.nextLine().trim();
 
         if (rootDirectoryPath.isEmpty()) {
-            rootDirectoryPath = "java/Calculator-master";
+            rootDirectoryPath = "java/Encryption-test";
         }
 
         // Validate and process the directory
@@ -112,11 +112,6 @@ public class Main {
         StaticJavaParser.setConfiguration(config);
         Path path = Paths.get(sourceFilePath);
 
-        if (!Files.exists(path)) {
-            System.out.println("File does not exist: " + sourceFilePath);
-            return;
-        }
-
         try {
             CompilationUnit cu = StaticJavaParser.parse(path);
             StringWriter stringWriter = new StringWriter();
@@ -126,20 +121,19 @@ public class Main {
             }
 
             String astJson = stringWriter.toString();
-            Path astFilePath = Paths.get("java/ast_generator/ast.json");
-            appendASTToJsonFile(astFilePath, path.toString(), astJson);
+            appendLocalASTToJsonFile(path.toString(), astJson);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private static void appendASTToJsonFile(Path astFilePath, String sourceFilePath, String astJson)
+    private static void appendLocalASTToJsonFile(String sourceFilePath, String astJson)
             throws IOException {
         JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
 
-        if (Files.exists(astFilePath)) {
+        if (Files.exists(astPath)) {
             // Parse existing JSON and add new AST
-            String existingContent = Files.readString(astFilePath);
+            String existingContent = Files.readString(astPath);
             JsonObject existingJson = Json.createReader(new StringReader(existingContent)).readObject();
             jsonBuilder = Json.createObjectBuilder(existingJson);
         }
@@ -150,20 +144,24 @@ public class Main {
 
         // Write back to file
         try (JsonWriter jsonWriter = Json.createWriter(
-                Files.newBufferedWriter(astFilePath, StandardOpenOption.CREATE, StandardOpenOption.WRITE))) {
+                Files.newBufferedWriter(astPath, StandardOpenOption.CREATE, StandardOpenOption.WRITE))) {
             jsonWriter.writeObject(jsonBuilder.build());
         }
     }
 
+    // Generate AST for all dependencies
     public static void generateASTForAllDependencies() {
-
         dependencyMap.forEach((artifactId, mavenPath) -> {
             if (Files.exists(Paths.get(mavenPath)) && mavenPath.endsWith(".jar")) {
                 System.out.println("Found jar at: " + mavenPath + " for artifact: " + artifactId);
                 try {
-                    // Extract Java files from the jar
-                    extractJavaFilesFromJar(mavenPath);
+                    Path decompiledDir = decompileJarWithJdCli(mavenPath);
+                    System.out.println("extracting from: " + decompiledDir);
+                    extractJavaFilesFromDir(decompiledDir);
                 } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             } else {
@@ -172,41 +170,50 @@ public class Main {
         });
     }
 
-    private static void extractJavaFilesFromJar(String jarPath) throws IOException {
-        Path tempDir = Files.createTempDirectory("jar-extract");
-        System.out.println("parsing: " + jarPath + " " + tempDir);
-        try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(Paths.get(jarPath)))) {
-            ZipEntry entry;
+    private static Path decompileJarWithJdCli(String jarPath) throws IOException, InterruptedException {
+        String outputDirName = "jd-cli-output";
+        Path outputDir = Paths.get(System.getProperty("user.dir"), outputDirName);
+        if (!Files.exists(outputDir)) {
+            Files.createDirectories(outputDir);
+        }
+        String command = "java -jar java/ast_generator/jd-cli.jar --outputDir " + outputDir + " " + jarPath;
+        Process process = Runtime.getRuntime().exec(command);
+        int exitVal = process.waitFor(); // Wait for the process to complete
+        if (exitVal != 0) {
+            throw new IOException("Decompilation failed with exit code " + exitVal);
+        }
+        return outputDir;
+    }
 
-            while ((entry = zipInputStream.getNextEntry()) != null) {
-                System.out.println("parsing entry:" + entry.toString() + " " + tempDir);
-                if (entry.getName().endsWith(".java")) {
-                    Path outputFile = tempDir.resolve(entry.getName());
-                    Files.createDirectories(outputFile.getParent()); // ensure directory structure
-                    Files.copy(zipInputStream, outputFile, StandardCopyOption.REPLACE_EXISTING);
-                    // Now parse the Java file using JavaParser
+    private static void extractJavaFilesFromDir(Path dir) throws IOException {
+        Files.walk(dir)
+                .filter(path -> path.toString().endsWith(".java"))
+                .forEach(path -> {
                     try {
-                        CompilationUnit cu = StaticJavaParser.parse(outputFile);
-                        System.out.println("Parsed successfully " + outputFile);
-                        // TODO: Do whatever you want with the parsed CompilationUnit
-                    } catch (ParseProblemException e) {
-                        System.err.println("Failed to parse: " + outputFile);
+                        CompilationUnit cu = StaticJavaParser.parse(path);
+                        System.out.println("Parsed successfully " + path);
+
+                        StringWriter stringWriter = new StringWriter();
+                        try (JsonGenerator jsonGenerator = Json.createGenerator(stringWriter)) {
+                            JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
+                            serializer.serialize(cu, jsonGenerator);
+                        }
+                        String astJson = stringWriter.toString();
+                        // appendLocalASTToJsonFile(path.getFileName().toString(), astJson);
+
+                    } catch (ParseProblemException | IOException e) {
+                        System.err.println("Failed to parse: " + path);
                         e.printStackTrace();
                     }
-                }
-            }
-        } finally {
-            // Cleanup: delete the temporary directory and extracted files
-            Files.walk(tempDir)
-                    .sorted(Comparator.reverseOrder()) // delete contents before directory
-                    .forEach(path -> {
-                        try {
-                            Files.delete(path);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    });
-        }
+                });
+
+        // Cleanup: delete the temporary directory and extracted files
+        Files.walk(dir)
+                .sorted(Comparator.reverseOrder()) // delete contents before directory
+                .forEach(path -> {
+                    // Files.delete(path);
+                    System.out.println("Deleting: " + path);
+                });
     }
 
     private static Map<String, String> parsePomForDependencies(String pomFilePath) {

@@ -1,0 +1,117 @@
+package META-INF.versions.9.org.bouncycastle.pqc.math.linearalgebra;
+
+import java.security.SecureRandom;
+import org.bouncycastle.pqc.math.linearalgebra.IntUtils;
+import org.bouncycastle.pqc.math.linearalgebra.IntegerFunctions;
+import org.bouncycastle.pqc.math.linearalgebra.LittleEndianConversions;
+import org.bouncycastle.pqc.math.linearalgebra.RandUtils;
+import org.bouncycastle.util.Arrays;
+
+public class Permutation {
+  private int[] perm;
+  
+  public Permutation(int paramInt) {
+    if (paramInt <= 0)
+      throw new IllegalArgumentException("invalid length"); 
+    this.perm = new int[paramInt];
+    for (int i = paramInt - 1; i >= 0; i--)
+      this.perm[i] = i; 
+  }
+  
+  public Permutation(int[] paramArrayOfint) {
+    if (!isPermutation(paramArrayOfint))
+      throw new IllegalArgumentException("array is not a permutation vector"); 
+    this.perm = IntUtils.clone(paramArrayOfint);
+  }
+  
+  public Permutation(byte[] paramArrayOfbyte) {
+    if (paramArrayOfbyte.length <= 4)
+      throw new IllegalArgumentException("invalid encoding"); 
+    int i = LittleEndianConversions.OS2IP(paramArrayOfbyte, 0);
+    int j = IntegerFunctions.ceilLog256(i - 1);
+    if (paramArrayOfbyte.length != 4 + i * j)
+      throw new IllegalArgumentException("invalid encoding"); 
+    this.perm = new int[i];
+    for (byte b = 0; b < i; b++)
+      this.perm[b] = LittleEndianConversions.OS2IP(paramArrayOfbyte, 4 + b * j, j); 
+    if (!isPermutation(this.perm))
+      throw new IllegalArgumentException("invalid encoding"); 
+  }
+  
+  public Permutation(int paramInt, SecureRandom paramSecureRandom) {
+    if (paramInt <= 0)
+      throw new IllegalArgumentException("invalid length"); 
+    this.perm = new int[paramInt];
+    int[] arrayOfInt = new int[paramInt];
+    int i;
+    for (i = 0; i < paramInt; i++)
+      arrayOfInt[i] = i; 
+    i = paramInt;
+    for (byte b = 0; b < paramInt; b++) {
+      int j = RandUtils.nextInt(paramSecureRandom, i);
+      i--;
+      this.perm[b] = arrayOfInt[j];
+      arrayOfInt[j] = arrayOfInt[i];
+    } 
+  }
+  
+  public byte[] getEncoded() {
+    int i = this.perm.length;
+    int j = IntegerFunctions.ceilLog256(i - 1);
+    byte[] arrayOfByte = new byte[4 + i * j];
+    LittleEndianConversions.I2OSP(i, arrayOfByte, 0);
+    for (byte b = 0; b < i; b++)
+      LittleEndianConversions.I2OSP(this.perm[b], arrayOfByte, 4 + b * j, j); 
+    return arrayOfByte;
+  }
+  
+  public int[] getVector() {
+    return IntUtils.clone(this.perm);
+  }
+  
+  public org.bouncycastle.pqc.math.linearalgebra.Permutation computeInverse() {
+    org.bouncycastle.pqc.math.linearalgebra.Permutation permutation = new org.bouncycastle.pqc.math.linearalgebra.Permutation(this.perm.length);
+    for (int i = this.perm.length - 1; i >= 0; i--)
+      permutation.perm[this.perm[i]] = i; 
+    return permutation;
+  }
+  
+  public org.bouncycastle.pqc.math.linearalgebra.Permutation rightMultiply(org.bouncycastle.pqc.math.linearalgebra.Permutation paramPermutation) {
+    if (paramPermutation.perm.length != this.perm.length)
+      throw new IllegalArgumentException("length mismatch"); 
+    org.bouncycastle.pqc.math.linearalgebra.Permutation permutation = new org.bouncycastle.pqc.math.linearalgebra.Permutation(this.perm.length);
+    for (int i = this.perm.length - 1; i >= 0; i--)
+      permutation.perm[i] = this.perm[paramPermutation.perm[i]]; 
+    return permutation;
+  }
+  
+  public boolean equals(Object paramObject) {
+    if (!(paramObject instanceof org.bouncycastle.pqc.math.linearalgebra.Permutation))
+      return false; 
+    org.bouncycastle.pqc.math.linearalgebra.Permutation permutation = (org.bouncycastle.pqc.math.linearalgebra.Permutation)paramObject;
+    return IntUtils.equals(this.perm, permutation.perm);
+  }
+  
+  public String toString() {
+    String str = "[" + this.perm[0];
+    for (byte b = 1; b < this.perm.length; b++)
+      str = str + ", " + str; 
+    str = str + "]";
+    return str;
+  }
+  
+  public int hashCode() {
+    return Arrays.hashCode(this.perm);
+  }
+  
+  private boolean isPermutation(int[] paramArrayOfint) {
+    int i = paramArrayOfint.length;
+    boolean[] arrayOfBoolean = new boolean[i];
+    for (byte b = 0; b < i; b++) {
+      if (paramArrayOfint[b] < 0 || paramArrayOfint[b] >= i || arrayOfBoolean[paramArrayOfint[b]])
+        return false; 
+      arrayOfBoolean[paramArrayOfint[b]] = true;
+    } 
+    return true;
+  }
+}
