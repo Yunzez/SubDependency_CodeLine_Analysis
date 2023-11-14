@@ -84,7 +84,7 @@ const init = async (): Promise<void> => {
     case "java":
       const javaFilePath =
         response.filePath.length === 0
-          ? "../java/ast_generator/ast.json"
+          ? "../asts/AES.json"
           : response.filePath;
 
       console.log("creating json stream");

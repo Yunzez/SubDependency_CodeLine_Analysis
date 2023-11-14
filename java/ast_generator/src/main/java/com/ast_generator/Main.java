@@ -18,12 +18,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
+import javax.json.JsonReader;
 import javax.json.JsonWriter;
 import javax.json.stream.JsonGenerator;
 import javax.xml.parsers.DocumentBuilder;
@@ -52,13 +54,15 @@ public class Main {
         libraryAstJsonMap = new HashMap<>();
         // Delete existing ast.json file if it exists
         System.out.print("initializing");
-        astPath = Paths.get("java/ast_generator/ast.json");
+        astPath = Paths.get("asts/main/ast.json");
         if (Files.exists(astPath)) {
             try {
                 Files.delete(astPath);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            Files.createDirectories(astPath.getParent());
         }
 
         System.out.print("Please enter the path to the Java source file (hit enter for default): ");
@@ -98,7 +102,7 @@ public class Main {
         // Filter the dependency map based on these imports
         System.out.println("Dependency map: " + dependencyMap.toString());
 
-        // generateASTForAllDependencies();
+        generateASTForAllDependencies();
         scanner.close();
     }
 
@@ -164,7 +168,7 @@ public class Main {
                 System.out.println("Found jar at: " + mavenPath + " for artifact: " + artifactId);
                 try {
                     Path decompiledDir = decompileJarWithJdCli(mavenPath);
-                    System.out.println("extracting from: " + decompiledDir);
+                    // System.out.println("extracting from: " + decompiledDir);
                     extractJavaFilesFromDir(decompiledDir);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -199,7 +203,7 @@ public class Main {
                 .forEach(path -> {
                     try {
                         CompilationUnit cu = StaticJavaParser.parse(path);
-                        System.out.println("Parsed successfully " + path);
+                        // System.out.println("Parsed successfully " + path);
 
                         StringWriter stringWriter = new StringWriter();
                         try (JsonGenerator jsonGenerator = Json.createGenerator(stringWriter)) {
@@ -208,53 +212,101 @@ public class Main {
                         }
 
                         String astJson = stringWriter.toString();
-                        libraryAstJsonMap.put(path.getFileName().toString(), astJson);
+
+                        createJsonForCurrentFile(path.getFileName().toString(), astJson);
+                        // libraryAstJsonMap.put(path.getFileName().toString(), astJson);
 
                     } catch (ParseProblemException | IOException e) {
-                         System.err.println("Failed to parse (skipping): " + path);
+                        System.err.println("Failed to parse (skipping): " + path);
                     }
                 });
-        appendAllASTsToJsonFile();
+        // appendAllASTsToJsonFile();
         // Cleanup: delete the temporary directory and extracted files
-        Files.walk(dir)
-                .sorted(Comparator.reverseOrder()) // delete contents before directory
-                .forEach(path -> {
-                    // Files.delete(path);
-                    System.out.println("Deleting: " + path);
-                });
+        try (Stream<Path> walk = Files.walk(dir).sorted(Comparator.reverseOrder())) {
+            walk.forEach(path -> {
+                try {
+                    Files.delete(path);
+                    System.out.println("Deleted: " + path);
+                } catch (IOException e) {
+                    System.err.println("Failed to delete: " + path + "; " + e.getMessage());
+                }
+            });
+        } catch (IOException e) {
+            System.err.println("Error walking through directory: " + e.getMessage());
+        }
+    }
 
+    public static void createJsonForCurrentFile(String fileName, String astJson) {
+        System.out.println("Current working directory: " + System.getProperty("user.dir"));
+
+        try {
+            // Ensure directory exists
+            Path dirPath = Path.of("asts");
+            if (!Files.exists(dirPath)) {
+                Files.createDirectories(dirPath);
+            }
+
+            // Construct the file path
+            Path filePath = dirPath.resolve(fileName.substring(0, fileName.length() - 5) + ".json");
+            if (!Files.exists(filePath)) {
+                Files.createDirectories(dirPath);
+            } else {
+                Files.delete(filePath);
+                // recreate the files 
+                Files.createDirectories(dirPath);
+            }
+            // Parse the AST JSON data
+            JsonReader jsonReader = Json.createReader(new StringReader(astJson));
+            JsonObject astJsonObject = jsonReader.readObject();
+            jsonReader.close();
+
+            // Create a new JSON object with fileName as the key
+            JsonObject wrappedJson = Json.createObjectBuilder()
+                    .add(fileName, astJsonObject)
+                    .build();
+
+            // Convert the new JSON object to string
+            String wrappedJsonString = wrappedJson.toString();
+
+            // Write the new JSON data to the file
+            Files.writeString(filePath, wrappedJsonString, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+        } catch (IOException e) {
+            System.err.println("Error handling file: " + fileName + " - " + e.getMessage());
+            e.printStackTrace(); // Print the full stack trace for more detailed error information
+        }
     }
 
     // ! only includes function declarations
     // private static void extractJavaFilesFromDir(Path dir) throws IOException {
-    //     Files.walk(dir)
-    //             .filter(path -> path.toString().endsWith(".java"))
-    //             .forEach(path -> {
-    //                 try {
-    //                     CompilationUnit cu = StaticJavaParser.parse(path);
-    //                     System.out.println("Parsed successfully " + path);
-    //                     List<MethodDeclaration> methodDeclarations = cu.findAll(MethodDeclaration.class);
+    // Files.walk(dir)
+    // .filter(path -> path.toString().endsWith(".java"))
+    // .forEach(path -> {
+    // try {
+    // CompilationUnit cu = StaticJavaParser.parse(path);
+    // System.out.println("Parsed successfully " + path);
+    // List<MethodDeclaration> methodDeclarations =
+    // cu.findAll(MethodDeclaration.class);
 
-    //                     // Serialize only method declarations
-    //                     StringWriter stringWriter = new StringWriter();
-    //                     for (MethodDeclaration method : methodDeclarations) {
-    //                         try (JsonGenerator jsonGenerator = Json.createGenerator(stringWriter)) {
-    //                             JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
-    //                             serializer.serialize(method, jsonGenerator);
-    //                         }
-    //                         // Add a separator if required, for example, a comma for JSON array
-    //                     }
+    // // Serialize only method declarations
+    // StringWriter stringWriter = new StringWriter();
+    // for (MethodDeclaration method : methodDeclarations) {
+    // try (JsonGenerator jsonGenerator = Json.createGenerator(stringWriter)) {
+    // JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
+    // serializer.serialize(method, jsonGenerator);
+    // }
+    // // Add a separator if required, for example, a comma for JSON array
+    // }
 
-    //                     String methodsJson = stringWriter.toString();
-    //                     libraryAstJsonMap.put(path.getFileName().toString(), methodsJson);
+    // String methodsJson = stringWriter.toString();
+    // libraryAstJsonMap.put(path.getFileName().toString(), methodsJson);
 
-    //                 } catch (ParseProblemException | IOException e) {
-    //                     System.err.println("Failed to parse (skipping): " + path);
-    //                 }
-    //             });
+    // } catch (ParseProblemException | IOException e) {
+    // System.err.println("Failed to parse (skipping): " + path);
+    // }
+    // });
 
-    //     appendAllASTsToJsonFile();
-    //     // Cleanup...
+    // appendAllASTsToJsonFile();
+    // // Cleanup...
     // }
 
     private static void appendAllASTsToJsonFile() throws IOException {
@@ -283,9 +335,11 @@ public class Main {
             doc.getDocumentElement().normalize();
 
             NodeList dependenciesList = doc.getElementsByTagName("dependency");
-
+            System.out.println("Number of dependencies: " + dependenciesList.getLength());
+            System.out.println("----------------------------");
             for (int i = 0; i < dependenciesList.getLength(); i++) {
                 Node dependencyNode = dependenciesList.item(i);
+                System.out.println("\nCurrent Element :" + dependencyNode.getNodeName());
                 if (dependencyNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element dependencyElement = (Element) dependencyNode;
 

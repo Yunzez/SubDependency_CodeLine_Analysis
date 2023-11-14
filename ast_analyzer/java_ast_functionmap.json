@@ -1,64 +1,113 @@
 {
-  "shouldAnswerWithTrue": {
-    "functions": [
-      "assertTrue"
-    ],
+  "init": {
+    "functions": ["init", "getMac"],
     "self": {
-      "line": "15-19",
-      "file": "java/Encryption-test/src/test/java/com/encryption/AppTest.java"
+      "line": "71-74",
+      "file": "AES.java"
     }
   },
-  "main": {
+  "getAlgorithmName": {
+    "functions": ["getAlgorithmName"],
+    "self": {
+      "line": "76-78",
+      "file": "AES.java"
+    }
+  },
+  "getMacSize": {
+    "functions": [],
+    "self": {
+      "line": "80-82",
+      "file": "AES.java"
+    }
+  },
+  "update": {
+    "functions": ["processAADBytes"],
+    "self": {
+      "line": "88-90",
+      "file": "AES.java"
+    }
+  },
+  "doFinal": {
+    "functions": ["toString", "doFinal"],
+    "self": {
+      "line": "92-98",
+      "file": "AES.java"
+    }
+  },
+  "reset": {
+    "functions": ["reset"],
+    "self": {
+      "line": "100-102",
+      "file": "AES.java"
+    }
+  },
+  "engineInit": {
+    "functions": ["isASN1FormatString", "getInstance"],
+    "self": {
+      "line": "252-256",
+      "file": "AES.java"
+    }
+  },
+  "engineGenerateParameters": {
     "functions": [
-      "getInstance",
-      "getBytes",
-      "println",
+      "nextBytes",
+      "getMessage",
+      "createParametersInstance",
       "init",
-      "doFinal",
-      "getBytes",
-      "encodeToString",
-      "getEncoder",
-      "println",
-      "init",
-      "doFinal",
-      "decode",
-      "getDecoder",
-      "println",
-      "setPassword",
-      "encrypt",
-      "println",
-      "decrypt",
-      "println",
-      "setProperty",
-      "getCipherInstance",
-      "getBytes",
-      "init",
-      "update",
-      "getBytes",
-      "getBytes",
-      "doFinal",
-      "getBytes",
-      "arraycopy",
-      "encodeToString",
-      "getEncoder",
-      "println",
-      "getCipherInstance",
-      "init",
-      "update",
-      "decode",
-      "getDecoder",
-      "decode",
-      "getDecoder",
-      "doFinal",
-      "decode",
-      "getDecoder",
-      "arraycopy",
-      "println",
-      "trim"
+      "getEncoded"
     ],
     "self": {
-      "line": "18-75",
-      "file": "java/Encryption-test/src/test/java/com/encryption/AppTest.java"
+      "line": "165-178",
+      "file": "AES.java"
+    }
+  },
+  "engineToString": {
+    "functions": [],
+    "self": {
+      "line": "268-270",
+      "file": "AES.java"
+    }
+  },
+  "engineGetEncoded": {
+    "functions": ["isASN1FormatString", "getEncoded"],
+    "self": {
+      "line": "262-266",
+      "file": "AES.java"
+    }
+  },
+  "localEngineGetParameterSpec": {
+    "functions": [
+      "isGcmSpec",
+      "gcmSpecExists",
+      "getNonce",
+      "getIcvLen",
+      "extractGcmSpec",
+      "toASN1Primitive",
+      "getName"
+    ],
+    "self": {
+      "line": "272-280",
+      "file": "AES.java"
+    }
+  },
+  "get": {
+    "functions": [],
+    "self": {
+      "line": "304-306",
+      "file": "AES.java"
+    }
+  },
+  "configure": {
+    "functions": [
+      "addAlgorithm",
+      "addAttributes",
+      "getId",
+      "addGMacAlgorithm",
+      "addPoly1305Algorithm"
+    ],
+    "self": {
+      "line": "360-558",
+      "file": "AES.java"
     }
   }
 }

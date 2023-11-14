@@ -37,26 +37,29 @@ const extractMethodDeclarations = (node: any, methodDeclarations: any[] = []) =>
     return methodDeclarations;
 }
 
-const extractFunctionCalls = (node: any): string[] => {
-    const functionCalls: string[] = [];
-
+const extractFunctionCalls = (node: any, functionSets: Set<string> = new Set<string>()): string[] => {
     // Check if the current node represents a function call
     if (node["!"] && node["!"] === "com.github.javaparser.ast.expr.MethodCallExpr") {
-        functionCalls.push(node.name.identifier); // Assuming the function name is stored in `name.identifier`
+        functionSets.add(node.name.identifier); // Add to set
     }
 
     // Recursively search for nested structures
     for (const key in node) {
         if (node[key] instanceof Array) {
             for (const childNode of node[key]) {
-                functionCalls.push(...extractFunctionCalls(childNode));
+                extractFunctionCalls(childNode, functionSets); // Pass the set to the recursive call
             }
         } else if (node[key] instanceof Object) {
-            functionCalls.push(...extractFunctionCalls(node[key]));
+            extractFunctionCalls(node[key], functionSets); // Pass the set to the recursive call
         }
     }
 
-    return functionCalls;
+    // Convert the set to an array when the recursion completes
+    if (functionSets.size > 0) {
+        return Array.from(functionSets);
+    } else {
+        return [];
+    }
 };
 
 const extractMethodDetails = (node: any, filePath: string): any => {
