@@ -1,9 +1,64 @@
 {
-  "main": {
-    "functions": [],
+  "shouldAnswerWithTrue": {
+    "functions": [
+      "assertTrue"
+    ],
     "self": {
-      "line": "7-9",
-      "file": "../java/ast_generator/ast.json"
+      "line": "15-19",
+      "file": "java/Encryption-test/src/test/java/com/encryption/AppTest.java"
+    }
+  },
+  "main": {
+    "functions": [
+      "getInstance",
+      "getBytes",
+      "println",
+      "init",
+      "doFinal",
+      "getBytes",
+      "encodeToString",
+      "getEncoder",
+      "println",
+      "init",
+      "doFinal",
+      "decode",
+      "getDecoder",
+      "println",
+      "setPassword",
+      "encrypt",
+      "println",
+      "decrypt",
+      "println",
+      "setProperty",
+      "getCipherInstance",
+      "getBytes",
+      "init",
+      "update",
+      "getBytes",
+      "getBytes",
+      "doFinal",
+      "getBytes",
+      "arraycopy",
+      "encodeToString",
+      "getEncoder",
+      "println",
+      "getCipherInstance",
+      "init",
+      "update",
+      "decode",
+      "getDecoder",
+      "decode",
+      "getDecoder",
+      "doFinal",
+      "decode",
+      "getDecoder",
+      "arraycopy",
+      "println",
+      "trim"
+    ],
+    "self": {
+      "line": "18-75",
+      "file": "java/Encryption-test/src/test/java/com/encryption/AppTest.java"
     }
   }
 }

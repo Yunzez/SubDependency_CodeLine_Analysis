@@ -1,5 +1,5 @@
 import ast_rust from "../rust/ast_generator/ast.json";
-import ast_java from "../java/ast_generator/ast.json";
+// import ast_java from "../java/ast_generator/ast.json";
 // rust: ../rust/ast_generator/ast.json
 // java: ../java/ast_generator/ast.json
 import fs from "fs";
@@ -46,8 +46,11 @@ const mapAst = () => {
   // console.log(node_type)
 };
 
-
 const init = async (): Promise<void> => {
+  const fs = require("fs");
+  const { parser } = require("stream-json");
+  const { streamValues } = require("stream-json/streamers/StreamValues");
+
   const { prompt } = require("enquirer");
 
   const typeResponse = await prompt({
@@ -65,33 +68,51 @@ const init = async (): Promise<void> => {
     message: `please input your ast file path:`,
   });
 
-  let currentAst = undefined;
-  if(response.filePath) {
-    currentAst = JSON.parse(fs.readFileSync(response.filePath, "utf8"))
-  } 
-   
-
-
   const type = typeResponse.fileFormat;
   switch (type) {
     case "rust":
+      let currentAst = undefined;
+      if (response.filePath) {
+        currentAst = JSON.parse(fs.readFileSync(response.filePath, "utf8"));
+      }
+
       if (!currentAst) {
         currentAst = ast_rust;
       }
       analyzeRust(currentAst, response.filePath);
       break;
     case "java":
-      if (!currentAst) {
-        currentAst = ast_java;
-      }
-      analyzeJava(currentAst,  response.filePath.length == 0 ? '../java/ast_generator/ast.json' : response.filePath);
-      break;  
+      const javaFilePath =
+        response.filePath.length === 0
+          ? "../java/ast_generator/ast.json"
+          : response.filePath;
+
+      console.log("creating json stream");
+      const javaJsonStream = fs
+        .createReadStream(javaFilePath)
+        .pipe(parser())
+        .pipe(streamValues());
+
+        let count = 0;
+        const maxCount = 5; // Limit to 10 nodes
+        
+        javaJsonStream.on("data", ({ key, value }: { key: string; value: any }) => {
+          if (count < maxCount) {
+            console.log(key)
+            const filePath = Object.keys(value)[0];
+            analyzeJava(value, filePath);
+            count++;
+          } else {
+            javaJsonStream.destroy(); // Stop processing further nodes
+          }
+        });
+
+      break;
     default:
       console.log("not supported yet");
       break;
-}
+  }
 };
-
 
 init();
 

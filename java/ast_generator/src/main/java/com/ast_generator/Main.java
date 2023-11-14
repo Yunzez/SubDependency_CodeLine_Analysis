@@ -14,8 +14,10 @@ import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -36,6 +38,8 @@ import com.github.javaparser.ParseProblemException;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.ImportDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
 public class Main {
@@ -43,7 +47,7 @@ public class Main {
     private static Path astPath;
     private static Map<String, String> libraryAstJsonMap;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         libraryAstJsonMap = new HashMap<>();
         // Delete existing ast.json file if it exists
@@ -91,8 +95,10 @@ public class Main {
 
         dependencyMap = parsePomForDependencies(inferredPomPath);
 
-        generateAST(rootDirectoryPath);
-        generateASTForAllDependencies();
+        // Filter the dependency map based on these imports
+        System.out.println("Dependency map: " + dependencyMap.toString());
+
+        // generateASTForAllDependencies();
         scanner.close();
     }
 
@@ -205,8 +211,7 @@ public class Main {
                         libraryAstJsonMap.put(path.getFileName().toString(), astJson);
 
                     } catch (ParseProblemException | IOException e) {
-                        System.err.println("Failed to parse: " + path);
-                        e.printStackTrace();
+                         System.err.println("Failed to parse (skipping): " + path);
                     }
                 });
         appendAllASTsToJsonFile();
@@ -219,6 +224,38 @@ public class Main {
                 });
 
     }
+
+    // ! only includes function declarations
+    // private static void extractJavaFilesFromDir(Path dir) throws IOException {
+    //     Files.walk(dir)
+    //             .filter(path -> path.toString().endsWith(".java"))
+    //             .forEach(path -> {
+    //                 try {
+    //                     CompilationUnit cu = StaticJavaParser.parse(path);
+    //                     System.out.println("Parsed successfully " + path);
+    //                     List<MethodDeclaration> methodDeclarations = cu.findAll(MethodDeclaration.class);
+
+    //                     // Serialize only method declarations
+    //                     StringWriter stringWriter = new StringWriter();
+    //                     for (MethodDeclaration method : methodDeclarations) {
+    //                         try (JsonGenerator jsonGenerator = Json.createGenerator(stringWriter)) {
+    //                             JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
+    //                             serializer.serialize(method, jsonGenerator);
+    //                         }
+    //                         // Add a separator if required, for example, a comma for JSON array
+    //                     }
+
+    //                     String methodsJson = stringWriter.toString();
+    //                     libraryAstJsonMap.put(path.getFileName().toString(), methodsJson);
+
+    //                 } catch (ParseProblemException | IOException e) {
+    //                     System.err.println("Failed to parse (skipping): " + path);
+    //                 }
+    //             });
+
+    //     appendAllASTsToJsonFile();
+    //     // Cleanup...
+    // }
 
     private static void appendAllASTsToJsonFile() throws IOException {
         JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();

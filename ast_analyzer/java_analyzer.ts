@@ -2,33 +2,37 @@ import * as fs from 'fs';
 
 
 export const analyzeJava = (currentAst: any, filePath: string) => {
-    const methodDeclarations = extractMethodDeclarations(currentAst);
-    // console.log("Method Declarations: ", methodDeclarations);
+    console.log(`Analyzing AST node from file: ${filePath}`, currentAst);
 
     const methodDetails = extractMethodDetails(currentAst, filePath);
-    // console.log("Method Details: ", methodDetails);
+    console.log(`Extracted method details from ${filePath}`);
 
-     // Write the method details to a JSON file
-     fs.writeFileSync('java_ast_functionmap.json', JSON.stringify(methodDetails, null, 2));
+    // Append the method details to a JSON file
+    appendToJSONFile('java_ast_functionmap.json', methodDetails);
 }
 
-const extractMethodDeclarations = (node: any): any[] => {
-    const methodDeclarations: any[] = [];
+// Incremental JSON file writing
+const appendToJSONFile = (filename: string, data: any) => {
+    let existingData = {};
+    if (fs.existsSync(filename)) {
+        existingData = JSON.parse(fs.readFileSync(filename, 'utf8'));
+    }
+    
+    const updatedData = { ...existingData, ...data };
+    fs.writeFileSync(filename, JSON.stringify(updatedData, null, 2));
+    console.log(`Data appended to ${filename}`);
+}
 
+const extractMethodDeclarations = (node: any, methodDeclarations: any[] = []) => {
     if (node["!"] && node["!"] === "com.github.javaparser.ast.body.MethodDeclaration") {
         methodDeclarations.push(node);
     }
 
-    // Recursively search for nested structures
-    for (const key in node) {
-        if (node[key] instanceof Array) {
-            for (const childNode of node[key]) {
-                methodDeclarations.push(...extractMethodDeclarations(childNode));
-            }
-        } else if (node[key] instanceof Object) {
-            methodDeclarations.push(...extractMethodDeclarations(node[key]));
+    Object.values(node).forEach(childNode => {
+        if (childNode instanceof Array || childNode instanceof Object) {
+            extractMethodDeclarations(childNode, methodDeclarations);
         }
-    }
+    });
 
     return methodDeclarations;
 }
