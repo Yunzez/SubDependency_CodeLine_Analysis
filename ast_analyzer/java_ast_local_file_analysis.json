@@ -1,0 +1,354 @@
+{
+  "../asts/main/ast.json": [
+    {
+      "methodName": "assertTrue",
+      "methodCallLine": "assertTrue([complex expression])",
+      "line": "18-18"
+    },
+    {
+      "methodName": "addProvider",
+      "methodCallLine": "[complex expression].addProvider([complex expression])",
+      "line": "15-15"
+    },
+    {
+      "methodName": "getInstance",
+      "methodCallLine": "[complex expression].getInstance([complex expression], [complex expression])",
+      "line": "23-23"
+    },
+    {
+      "methodName": "getBytes",
+      "methodCallLine": "[complex expression].getBytes()",
+      "line": "24-24"
+    },
+    {
+      "methodName": "println",
+      "methodCallLine": "[complex expression].println([complex expression])",
+      "line": "25-25"
+    },
+    {
+      "methodName": "init",
+      "methodCallLine": "[complex expression].init([complex expression], [complex expression])",
+      "line": "28-28",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "doFinal",
+      "methodCallLine": "[complex expression].doFinal([complex expression])",
+      "line": "29-29",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "getBytes",
+      "methodCallLine": "[complex expression].getBytes()",
+      "line": "29-29"
+    },
+    {
+      "methodName": "encodeToString",
+      "methodCallLine": "[complex expression].encodeToString([complex expression])",
+      "line": "30-30"
+    },
+    {
+      "methodName": "getEncoder",
+      "methodCallLine": "[complex expression].getEncoder()",
+      "line": "30-30"
+    },
+    {
+      "methodName": "println",
+      "methodCallLine": "[complex expression].println([complex expression])",
+      "line": "31-31"
+    },
+    {
+      "methodName": "init",
+      "methodCallLine": "[complex expression].init([complex expression], [complex expression])",
+      "line": "34-34",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "doFinal",
+      "methodCallLine": "[complex expression].doFinal([complex expression])",
+      "line": "35-35",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "decode",
+      "methodCallLine": "[complex expression].decode([complex expression])",
+      "line": "35-35"
+    },
+    {
+      "methodName": "getDecoder",
+      "methodCallLine": "[complex expression].getDecoder()",
+      "line": "35-35"
+    },
+    {
+      "methodName": "println",
+      "methodCallLine": "[complex expression].println([complex expression])",
+      "line": "36-36"
+    },
+    {
+      "methodName": "setPassword",
+      "methodCallLine": "[complex expression].setPassword([complex expression])",
+      "line": "40-40",
+      "thirdPartyInfo": {
+        "functions": [
+          "setPassword"
+        ],
+        "self": {
+          "line": "13-15",
+          "file": "../asts/BasicTextEncryptor.json"
+        }
+      }
+    },
+    {
+      "methodName": "encrypt",
+      "methodCallLine": "[complex expression].encrypt([complex expression])",
+      "line": "43-43",
+      "thirdPartyInfo": {
+        "functions": [
+          "encrypt"
+        ],
+        "self": {
+          "line": "21-23",
+          "file": "../asts/BasicTextEncryptor.json"
+        }
+      }
+    },
+    {
+      "methodName": "println",
+      "methodCallLine": "[complex expression].println([complex expression])",
+      "line": "44-44"
+    },
+    {
+      "methodName": "decrypt",
+      "methodCallLine": "[complex expression].decrypt([complex expression])",
+      "line": "47-47",
+      "thirdPartyInfo": {
+        "functions": [
+          "decrypt"
+        ],
+        "self": {
+          "line": "25-27",
+          "file": "../asts/BasicTextEncryptor.json"
+        }
+      }
+    },
+    {
+      "methodName": "println",
+      "methodCallLine": "[complex expression].println([complex expression])",
+      "line": "48-48"
+    },
+    {
+      "methodName": "setProperty",
+      "methodCallLine": "[complex expression].setProperty([complex expression], [complex expression])",
+      "line": "52-52"
+    },
+    {
+      "methodName": "getCipherInstance",
+      "methodCallLine": "[complex expression].getCipherInstance([complex expression], [complex expression])",
+      "line": "53-53",
+      "thirdPartyInfo": {
+        "functions": [
+          "getCryptoCipher"
+        ],
+        "self": {
+          "line": "54-60",
+          "file": "../asts/Utils.json"
+        }
+      }
+    },
+    {
+      "methodName": "getBytes",
+      "methodCallLine": "[complex expression].getBytes()",
+      "line": "54-54"
+    },
+    {
+      "methodName": "init",
+      "methodCallLine": "[complex expression].init([complex expression], [complex expression], [complex expression])",
+      "line": "58-58",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "update",
+      "methodCallLine": "[complex expression].update([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
+      "line": "59-59",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "22-22",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "getBytes",
+      "methodCallLine": "[complex expression].getBytes()",
+      "line": "59-59"
+    },
+    {
+      "methodName": "getBytes",
+      "methodCallLine": "[complex expression].getBytes()",
+      "line": "59-59"
+    },
+    {
+      "methodName": "doFinal",
+      "methodCallLine": "[complex expression].doFinal([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
+      "line": "60-60",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "getBytes",
+      "methodCallLine": "[complex expression].getBytes()",
+      "line": "60-60"
+    },
+    {
+      "methodName": "arraycopy",
+      "methodCallLine": "[complex expression].arraycopy([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
+      "line": "62-62"
+    },
+    {
+      "methodName": "encodeToString",
+      "methodCallLine": "[complex expression].encodeToString([complex expression])",
+      "line": "63-63"
+    },
+    {
+      "methodName": "getEncoder",
+      "methodCallLine": "[complex expression].getEncoder()",
+      "line": "63-63"
+    },
+    {
+      "methodName": "println",
+      "methodCallLine": "[complex expression].println([complex expression])",
+      "line": "64-64"
+    },
+    {
+      "methodName": "getCipherInstance",
+      "methodCallLine": "[complex expression].getCipherInstance([complex expression], [complex expression])",
+      "line": "67-67",
+      "thirdPartyInfo": {
+        "functions": [
+          "getCryptoCipher"
+        ],
+        "self": {
+          "line": "54-60",
+          "file": "../asts/Utils.json"
+        }
+      }
+    },
+    {
+      "methodName": "init",
+      "methodCallLine": "[complex expression].init([complex expression], [complex expression], [complex expression])",
+      "line": "68-68",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "update",
+      "methodCallLine": "[complex expression].update([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
+      "line": "70-70",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "22-22",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "decode",
+      "methodCallLine": "[complex expression].decode([complex expression])",
+      "line": "70-70"
+    },
+    {
+      "methodName": "getDecoder",
+      "methodCallLine": "[complex expression].getDecoder()",
+      "line": "70-70"
+    },
+    {
+      "methodName": "decode",
+      "methodCallLine": "[complex expression].decode([complex expression])",
+      "line": "70-70"
+    },
+    {
+      "methodName": "getDecoder",
+      "methodCallLine": "[complex expression].getDecoder()",
+      "line": "70-70"
+    },
+    {
+      "methodName": "doFinal",
+      "methodCallLine": "[complex expression].doFinal([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
+      "line": "71-71",
+      "thirdPartyInfo": {
+        "functions": [],
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json"
+        }
+      }
+    },
+    {
+      "methodName": "decode",
+      "methodCallLine": "[complex expression].decode([complex expression])",
+      "line": "71-71"
+    },
+    {
+      "methodName": "getDecoder",
+      "methodCallLine": "[complex expression].getDecoder()",
+      "line": "71-71"
+    },
+    {
+      "methodName": "arraycopy",
+      "methodCallLine": "[complex expression].arraycopy([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
+      "line": "73-73"
+    },
+    {
+      "methodName": "println",
+      "methodCallLine": "[complex expression].println([complex expression])",
+      "line": "74-74"
+    },
+    {
+      "methodName": "trim",
+      "methodCallLine": "[complex expression].trim()",
+      "line": "74-74"
+    }
+  ]
+}

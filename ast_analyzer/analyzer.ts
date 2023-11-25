@@ -6,6 +6,7 @@ import fs from "fs";
 import ProgressBar from "progress";
 import { analyzeRust } from "./rust_analyzer";
 import { analyzeJava } from "./java_analyzer";
+import path from "path";
 const callSet = new Set();
 const functionSet = new Set();
 const useSet = new Set();
@@ -81,31 +82,57 @@ const init = async (): Promise<void> => {
       }
       analyzeRust(currentAst, response.filePath);
       break;
+
     case "java":
-      const javaFilePath =
-        response.filePath.length === 0
-          ? "../asts/AES.json"
-          : response.filePath;
+      const AST_DIRECTORY = "../asts/";
+      const LOCAL_AST_DIRECTORY = "../asts/main";
+      let thirdPartyAsts: string[] = [];
+      let localAsts: string[] = [];
+      // Step 1: Collecting AST Files
+      fs.readdirSync(AST_DIRECTORY).forEach((dir: string) => {
+        let fullPath = path.join(AST_DIRECTORY, dir);
+        console.log(`Reading directory: ${fullPath}`);
+        if (fs.statSync(fullPath).isFile()) {
+          // Collect third-party AST files
+          thirdPartyAsts.push(fullPath);
+        }
+      });
 
-      console.log("creating json stream");
-      const javaJsonStream = fs
-        .createReadStream(javaFilePath)
-        .pipe(parser())
-        .pipe(streamValues());
+      fs.readdirSync(LOCAL_AST_DIRECTORY).forEach((dir: string) => {
+        let fullPath = path.join(LOCAL_AST_DIRECTORY, dir);
+        console.log(`Reading directory: ${fullPath}`);
+        if (fs.statSync(fullPath).isFile()) {
+          // Collect third-party AST files
+          localAsts.push(fullPath);
+        }
+      });
 
-        let count = 0;
-        const maxCount = 5; // Limit to 10 nodes
-        
-        javaJsonStream.on("data", ({ key, value }: { key: string; value: any }) => {
-          if (count < maxCount) {
-            console.log(key)
-            const filePath = Object.keys(value)[0];
-            analyzeJava(value, filePath);
-            count++;
-          } else {
-            javaJsonStream.destroy(); // Stop processing further nodes
-          }
-        });
+      console.log(`Found ${thirdPartyAsts.length} third-party AST files`);
+      console.log(`Found ${localAsts.length} local AST files`);
+
+      // * Step 2: Processing AST Files
+
+      // ! if third party analysis or local analysis json exist, delete it first
+      if (fs.existsSync("java_ast_third_party_analysis.json")) {
+        fs.unlinkSync("java_ast_third_party_analysis.json");
+      }
+
+      if (fs.existsSync("java_ast_local_file_analysis.json")) {
+        fs.unlinkSync("java_ast_local_file_analysis.json");
+      }
+      // Process Third-Party ASTs
+      console.log("Processing Third-Party ASTs");
+      thirdPartyAsts.forEach((astFilePath) => {
+        const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
+        analyzeJava(astContent, astFilePath, true); // Differentiate mode
+      });
+
+      // Process Local ASTs
+      console.log("Processing Local ASTs");
+      localAsts.forEach((astFilePath) => {
+        const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
+        analyzeJava(astContent, astFilePath, false); // Add a mode parameter
+      });
 
       break;
     default:

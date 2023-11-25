@@ -1,0 +1,380 @@
+{
+  "setPassword": {
+    "functions": [
+      "setPassword"
+    ],
+    "self": {
+      "line": "13-15",
+      "file": "../asts/BasicTextEncryptor.json"
+    }
+  },
+  "setPasswordCharArray": {
+    "functions": [
+      "setPasswordCharArray"
+    ],
+    "self": {
+      "line": "17-19",
+      "file": "../asts/BasicTextEncryptor.json"
+    }
+  },
+  "encrypt": {
+    "functions": [
+      "encrypt"
+    ],
+    "self": {
+      "line": "21-23",
+      "file": "../asts/BasicTextEncryptor.json"
+    }
+  },
+  "decrypt": {
+    "functions": [
+      "decrypt"
+    ],
+    "self": {
+      "line": "25-27",
+      "file": "../asts/BasicTextEncryptor.json"
+    }
+  },
+  "run": {
+    "functions": [
+      "setup"
+    ],
+    "self": {
+      "line": "79-82",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "setup": {
+    "functions": [
+      "loadAlgorithms",
+      "loadPQCKeys",
+      "put"
+    ],
+    "self": {
+      "line": "86-130",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "loadAlgorithms": {
+    "functions": [
+      "loadClass",
+      "configure",
+      "newInstance"
+    ],
+    "self": {
+      "line": "132-142",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "loadPQCKeys": {
+    "functions": [
+      "addKeyInfoConverter"
+    ],
+    "self": {
+      "line": "144-157",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "setParameter": {
+    "functions": [
+      "getSecurityManager",
+      "equals",
+      "checkPermission",
+      "set",
+      "remove",
+      "convertSpec"
+    ],
+    "self": {
+      "line": "46-101",
+      "file": "../asts/BouncyCastleProviderConfiguration.json"
+    }
+  },
+  "hasAlgorithm": {
+    "functions": [
+      "containsKey"
+    ],
+    "self": {
+      "line": "165-167",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "addAlgorithm": {
+    "functions": [
+      "addAlgorithm"
+    ],
+    "self": {
+      "line": "175-178",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "addKeyInfoConverter": {
+    "functions": [
+      "put"
+    ],
+    "self": {
+      "line": "180-184",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "getKeyInfoConverter": {
+    "functions": [
+      "get"
+    ],
+    "self": {
+      "line": "186-188",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "addAttributes": {
+    "functions": [
+      "containsKey",
+      "put",
+      "get",
+      "keySet"
+    ],
+    "self": {
+      "line": "190-197",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "getAsymmetricKeyInfoConverter": {
+    "functions": [
+      "get"
+    ],
+    "self": {
+      "line": "199-203",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "getPublicKey": {
+    "functions": [
+      "getAsymmetricKeyInfoConverter",
+      "getAlgorithm",
+      "generatePublic"
+    ],
+    "self": {
+      "line": "205-208",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "getPrivateKey": {
+    "functions": [
+      "getAsymmetricKeyInfoConverter",
+      "getAlgorithm",
+      "getPrivateKeyAlgorithm",
+      "generatePrivate"
+    ],
+    "self": {
+      "line": "210-213",
+      "file": "../asts/BouncyCastleProvider.json"
+    }
+  },
+  "getEcImplicitlyCa": {
+    "functions": [
+      "get"
+    ],
+    "self": {
+      "line": "103-106",
+      "file": "../asts/BouncyCastleProviderConfiguration.json"
+    }
+  },
+  "getDHDefaultParameters": {
+    "functions": [
+      "get",
+      "bitLength",
+      "getP",
+      "getSizedProperty"
+    ],
+    "self": {
+      "line": "108-125",
+      "file": "../asts/BouncyCastleProviderConfiguration.json"
+    }
+  },
+  "getDSADefaultParameters": {
+    "functions": [
+      "getSizedProperty",
+      "getP",
+      "getQ",
+      "getG"
+    ],
+    "self": {
+      "line": "127-130",
+      "file": "../asts/BouncyCastleProviderConfiguration.json"
+    }
+  },
+  "getAcceptableNamedCurves": {
+    "functions": [
+      "unmodifiableSet"
+    ],
+    "self": {
+      "line": "132-134",
+      "file": "../asts/BouncyCastleProviderConfiguration.json"
+    }
+  },
+  "getAdditionalECParameters": {
+    "functions": [
+      "unmodifiableMap"
+    ],
+    "self": {
+      "line": "136-138",
+      "file": "../asts/BouncyCastleProviderConfiguration.json"
+    }
+  },
+  "getBlockSize": {
+    "functions": [],
+    "self": {
+      "line": "14-14",
+      "file": "../asts/CryptoCipher.json"
+    }
+  },
+  "getAlgorithm": {
+    "functions": [],
+    "self": {
+      "line": "16-16",
+      "file": "../asts/CryptoCipher.json"
+    }
+  },
+  "init": {
+    "functions": [],
+    "self": {
+      "line": "18-18",
+      "file": "../asts/CryptoCipher.json"
+    }
+  },
+  "update": {
+    "functions": [],
+    "self": {
+      "line": "22-22",
+      "file": "../asts/CryptoCipher.json"
+    }
+  },
+  "doFinal": {
+    "functions": [],
+    "self": {
+      "line": "26-26",
+      "file": "../asts/CryptoCipher.json"
+    }
+  },
+  "updateAAD": {
+    "functions": [],
+    "self": {
+      "line": "32-34",
+      "file": "../asts/CryptoCipher.json"
+    }
+  },
+  "getClassName": {
+    "functions": [],
+    "self": {
+      "line": "29-31",
+      "file": "../asts/CryptoCipherFactory.json"
+    }
+  },
+  "getImplClass": {
+    "functions": [],
+    "self": {
+      "line": "33-35",
+      "file": "../asts/CryptoCipherFactory.json"
+    }
+  },
+  "getCryptoCipher": {
+    "functions": [
+      "getCryptoCipher"
+    ],
+    "self": {
+      "line": "68-70",
+      "file": "../asts/CryptoCipherFactory.json"
+    }
+  },
+  "getCipherClassString": {
+    "functions": [
+      "getProperty",
+      "isEmpty"
+    ],
+    "self": {
+      "line": "72-77",
+      "file": "../asts/CryptoCipherFactory.json"
+    }
+  },
+  "createDefaultProperties": {
+    "functions": [
+      "getProperties",
+      "println",
+      "toString",
+      "getResourceAsStream",
+      "getContextClassLoader",
+      "currentThread",
+      "load",
+      "propertyNames",
+      "nextElement",
+      "getProperty",
+      "setProperty",
+      "hasMoreElements"
+    ],
+    "self": {
+      "line": "21-42",
+      "file": "../asts/Utils.json"
+    }
+  },
+  "getDefaultProperties": {
+    "functions": [],
+    "self": {
+      "line": "44-46",
+      "file": "../asts/Utils.json"
+    }
+  },
+  "getProperties": {
+    "functions": [
+      "putAll"
+    ],
+    "self": {
+      "line": "48-52",
+      "file": "../asts/Utils.json"
+    }
+  },
+  "getCipherInstance": {
+    "functions": [
+      "getCryptoCipher"
+    ],
+    "self": {
+      "line": "54-60",
+      "file": "../asts/Utils.json"
+    }
+  },
+  "checkArgument": {
+    "functions": [
+      "valueOf"
+    ],
+    "self": {
+      "line": "67-70",
+      "file": "../asts/Utils.json"
+    }
+  },
+  "checkNotNull": {
+    "functions": [
+      "requireNonNull"
+    ],
+    "self": {
+      "line": "72-75",
+      "file": "../asts/Utils.json"
+    }
+  },
+  "checkState": {
+    "functions": [],
+    "self": {
+      "line": "81-84",
+      "file": "../asts/Utils.json"
+    }
+  },
+  "splitClassNames": {
+    "functions": [
+      "isEmpty",
+      "trim",
+      "add",
+      "split"
+    ],
+    "self": {
+      "line": "86-96",
+      "file": "../asts/Utils.json"
+    }
+  }
+}
