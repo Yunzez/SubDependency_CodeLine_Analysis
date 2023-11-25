@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardOpenOption;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.util.Map;
+import java.util.Set;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -23,22 +25,28 @@ import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
 public class DirectoryProcessor {
-    private String directoryPath;   
+    private String directoryPath;
     private static Path astPath;
+    private static Map<String, Dependency> dependencyMap;
+    private static ImportManager importManager;
 
-    public DirectoryProcessor() {}
-
+    public DirectoryProcessor() {
+    }
 
     public DirectoryProcessor(String directoryPath, Path astPath) {
         this.directoryPath = directoryPath;
         DirectoryProcessor.astPath = astPath;
     }
 
-
+    public DirectoryProcessor(String directoryPath, Path astPath, Map<String, Dependency> dependencyMap) {
+        this.directoryPath = directoryPath;
+        DirectoryProcessor.astPath = astPath;
+        DirectoryProcessor.dependencyMap = dependencyMap;
+    }
 
     public void processDirectory() {
         System.out.println("Processing directory: " + directoryPath);
-         // Validate and process the directory
+        // Validate and process the directory
         Path rootPath = Paths.get(directoryPath);
         if (Files.isDirectory(rootPath)) {
             try {
@@ -52,8 +60,11 @@ public class DirectoryProcessor {
         }
     }
 
+    public void addImportMaganer(ImportManager manager) {
+        DirectoryProcessor.importManager = manager;
+    }
 
-     private static void processDirectory(Path directory) throws IOException {
+    private static void processDirectory(Path directory) throws IOException {
         Files.walkFileTree(directory, new SimpleFileVisitor<Path>() {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
@@ -73,6 +84,23 @@ public class DirectoryProcessor {
 
         try {
             CompilationUnit cu = StaticJavaParser.parse(path);
+
+            FunctionSignatureExtractor extractor = new FunctionSignatureExtractor(
+                    dependencyMap != null ? dependencyMap : null);
+            extractor.extractThirdPartyImports(cu);
+            Set<String> thirdPartyImports = extractor.getThirdPartyImports();
+
+            // Store the imports in ImportManager
+            if (importManager != null) {
+                importManager.addImports(thirdPartyImports);
+            } else {
+                System.out.println("ImportManager is null");
+                System.out.println("---------------------------- third party imports ----------------------------");
+                for (String signature : thirdPartyImports) {
+                    System.out.println(signature);
+                }
+            }
+
             StringWriter stringWriter = new StringWriter();
             try (JsonGenerator jsonGenerator = Json.createGenerator(stringWriter)) {
                 JavaParserJsonSerializer serializer = new JavaParserJsonSerializer();
@@ -86,7 +114,7 @@ public class DirectoryProcessor {
         }
     }
 
-     private static void appendLocalASTToJsonFile(String sourceFilePath, String astJson)
+    private static void appendLocalASTToJsonFile(String sourceFilePath, String astJson)
             throws IOException {
         JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
 

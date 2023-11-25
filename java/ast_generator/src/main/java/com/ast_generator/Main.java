@@ -72,14 +72,11 @@ public class Main {
             rootDirectoryPath = "java/Encryption-test";
         }
 
+
         // Validate and process the directory
         Path rootPath = Paths.get(rootDirectoryPath);
 
-        // ! process directory (local java file)
-        DirectoryProcessor processor = new DirectoryProcessor(rootDirectoryPath, astPath);
-        processor.processDirectory();
-
-        // Infer the path to pom.xml
+         // Infer the path to pom.xml
         String inferredPomPath = rootPath.resolve("pom.xml").toString();
         System.out.println("Inferred path to pom.xml: " + inferredPomPath);
 
@@ -91,8 +88,28 @@ public class Main {
             inferredPomPath = scanner.nextLine();
         }
 
+        Map<String, Dependency> dependencyMap = DependencyProcessor.parsePomForDependencies(inferredPomPath);
+        
+        // * import manager manage imports line to share imports between files
+        ImportManager importManager = new ImportManager();
+
+        // print out dependecy map in a easy to read format
+        System.out.println("---------------------------- dependency map ----------------------------");
+        dependencyMap.forEach((k, v) -> System.out.println(k + " : " + v));
+        System.out.println("---------------------------- dependency map ----------------------------");
+
+        // ! process directory (local java file)
+        DirectoryProcessor processor = new DirectoryProcessor(rootDirectoryPath, astPath, dependencyMap);
+        
+        // ! add import manager to processor before processing directory
+        processor.addImportMaganer(importManager);
+
+        // ! turn this on to process directory
+        processor.processDirectory();
+
+       
         // ! process dependencies
-        DependencyProcessor.processDependencies(inferredPomPath);
+        DependencyProcessor.processDependencies(inferredPomPath, importManager);
 
         scanner.close();
     }

@@ -11,6 +11,8 @@ import java.nio.file.StandardOpenOption;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.json.Json;
@@ -32,12 +34,15 @@ import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
 public class DependencyProcessor {
     private static String pomPath;
-    private static Map<String, String> dependencyMap;
+    private static Map<String, Dependency> dependencyMap;
+    private static ImportManager importManager;
+    private static Path outputDir;
 
     public DependencyProcessor() {
     }
 
-    public static void processDependencies(String pomPath) {
+    public static void processDependencies(String pomPath, ImportManager importManager) {
+        DependencyProcessor.importManager = importManager;
         DependencyProcessor.pomPath = pomPath;
         System.out.println("Processing pom.xml: " + pomPath);
         dependencyMap = parsePomForDependencies(pomPath);
@@ -50,8 +55,8 @@ public class DependencyProcessor {
                 "---------------------------- Done generating AST for all dependencies ----------------------------");
     }
 
-    private static Map<String, String> parsePomForDependencies(String pomFilePath) {
-        Map<String, String> dependencyMap = new HashMap<>();
+    public static Map<String, Dependency> parsePomForDependencies(String pomFilePath) {
+        Map<String, Dependency> dependencyMap = new HashMap<>();
         try {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -63,7 +68,7 @@ public class DependencyProcessor {
             System.out.println("----------------------------");
             for (int i = 0; i < dependenciesList.getLength(); i++) {
                 Node dependencyNode = dependenciesList.item(i);
-                System.out.println("\nCurrent Element :" + dependencyNode.getNodeName());
+                // System.out.println("\nCurrent Element :" + dependencyNode.getNodeName());
                 if (dependencyNode.getNodeType() == Node.ELEMENT_NODE) {
                     Element dependencyElement = (Element) dependencyNode;
 
@@ -75,7 +80,8 @@ public class DependencyProcessor {
                             + groupId.replace('.', '/') + "/" + artifactId + "/" + version
                             + "/" + artifactId + "-" + version + ".jar";
 
-                    dependencyMap.put(artifactId, mavenPath);
+                    Dependency dependency = new Dependency(groupId, artifactId, version, mavenPath);
+                    dependencyMap.put(artifactId, dependency);
                 }
             }
         } catch (Exception e) {
@@ -86,7 +92,8 @@ public class DependencyProcessor {
 
     // Generate AST for all dependencies
     public static void generateASTForAllDependencies() {
-        dependencyMap.forEach((artifactId, mavenPath) -> {
+        dependencyMap.forEach((artifactId, dependecy) -> {
+            String mavenPath = dependecy.getJarPath();
             if (Files.exists(Paths.get(mavenPath)) && mavenPath.endsWith(".jar")) {
                 System.out.println("Found jar at: " + mavenPath + " for artifact: " + artifactId);
                 try {
@@ -107,7 +114,7 @@ public class DependencyProcessor {
 
     private static Path decompileJarWithJdCli(String jarPath) throws IOException, InterruptedException {
         String outputDirName = "jd-cli-output";
-        Path outputDir = Paths.get(System.getProperty("user.dir"), outputDirName);
+        DependencyProcessor.outputDir = Paths.get(System.getProperty("user.dir"), outputDirName);
         if (!Files.exists(outputDir)) {
             Files.createDirectories(outputDir);
         }
@@ -120,9 +127,53 @@ public class DependencyProcessor {
         return outputDir;
     }
 
+    private static Set<String> convertImportsToPackageNames(Set<String> imports) {
+        // Convert import statements to package names
+        // e.g., org.apache.commons.crypto.cipher.CryptoCipher ->
+        // org.apache.commons.crypto.cipher
+        return imports.stream()
+                .map(imp -> imp.substring(0, imp.lastIndexOf('.')))
+                .collect(Collectors.toSet());
+    }
+
+    private static boolean isRelevantFile(Path filePath, Set<String> thirdPartyPackages) {
+        String pathString = filePath.toString();
+
+        // Calculate startingIndex based on the output directory path
+        String outputDirPath = DependencyProcessor.outputDir.toString();
+        int startingIndex = outputDirPath.endsWith("/") ? outputDirPath.length() : outputDirPath.length() + 1;
+
+        // Extract the package-like structure from the path
+        String packageName = pathString.substring(startingIndex).replace('/', '.');
+
+        // Remove the file name and extension to get the package name
+        if (packageName.contains(".")) {
+            packageName = packageName.substring(0, packageName.lastIndexOf('.'));
+            packageName = packageName.substring(0, packageName.lastIndexOf('.'));
+        }
+        // if(thirdPartyPackages.stream().anyMatch(importStr ->
+        // pathString.contains(importStr.replace('.', '/')))) {
+        // System.out.println("packageName matched: " + packageName + '\n' +
+        // "pathString: " + filePath);
+        // }
+        // Check if this package is in the set of third-party packages
+        return thirdPartyPackages.stream().anyMatch(importStr -> pathString.contains(importStr.replace('.', '/')));
+
+    }
+
     private static void extractJavaFilesFromDir(Path dir) throws IOException {
+
+        // ! ! uncomment his to get verbose ast (ast of the all related files)
+        // !! eg. import org.jasypt.util.text.BasicTextEncryptor; we will get org.jasypt.util.text instead
+        // Set<String> thirdPartyPackages =
+        // convertImportsToPackageNames(importManager.getThirdPartyImports());
+        
+        Set<String> thirdPartyPackages = importManager.getThirdPartyImports();
+        System.out.println("checking third party packages: " + thirdPartyPackages.toString());
+
         Files.walk(dir)
                 .filter(path -> path.toString().endsWith(".java"))
+                .filter(path -> isRelevantFile(path, thirdPartyPackages)) // Filter out irrelevant files
                 .forEach(path -> {
                     try {
                         CompilationUnit cu = StaticJavaParser.parse(path);
@@ -149,7 +200,7 @@ public class DependencyProcessor {
             walk.forEach(path -> {
                 try {
                     Files.delete(path);
-                    System.out.println("Deleted: " + path);
+                    // System.out.println("Deleted: " + path);
                 } catch (IOException e) {
                     System.err.println("Failed to delete: " + path + "; " + e.getMessage());
                 }
@@ -160,7 +211,8 @@ public class DependencyProcessor {
     }
 
     public static void createJsonForCurrentFile(String fileName, String astJson) {
-        System.out.println("Current working directory: " + System.getProperty("user.dir"));
+        // System.out.println("Current working directory: " +
+        // System.getProperty("user.dir"));
 
         try {
             // Ensure directory exists
