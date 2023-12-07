@@ -5,7 +5,8 @@
     ],
     "self": {
       "line": "13-15",
-      "file": "../asts/BasicTextEncryptor.json"
+      "file": "../asts/BasicTextEncryptor.json",
+      "className": "org.jasypt.jasypt.BasicTextEncryptor"
     }
   },
   "setPasswordCharArray": {
@@ -14,7 +15,8 @@
     ],
     "self": {
       "line": "17-19",
-      "file": "../asts/BasicTextEncryptor.json"
+      "file": "../asts/BasicTextEncryptor.json",
+      "className": "org.jasypt.jasypt.BasicTextEncryptor"
     }
   },
   "encrypt": {
@@ -23,7 +25,8 @@
     ],
     "self": {
       "line": "21-23",
-      "file": "../asts/BasicTextEncryptor.json"
+      "file": "../asts/BasicTextEncryptor.json",
+      "className": "org.jasypt.jasypt.BasicTextEncryptor"
     }
   },
   "decrypt": {
@@ -32,7 +35,8 @@
     ],
     "self": {
       "line": "25-27",
-      "file": "../asts/BasicTextEncryptor.json"
+      "file": "../asts/BasicTextEncryptor.json",
+      "className": "org.jasypt.jasypt.BasicTextEncryptor"
     }
   },
   "run": {
@@ -41,7 +45,8 @@
     ],
     "self": {
       "line": "79-82",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "setup": {
@@ -52,7 +57,8 @@
     ],
     "self": {
       "line": "86-130",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "loadAlgorithms": {
@@ -63,7 +69,8 @@
     ],
     "self": {
       "line": "132-142",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "loadPQCKeys": {
@@ -72,7 +79,8 @@
     ],
     "self": {
       "line": "144-157",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "setParameter": {
@@ -86,7 +94,8 @@
     ],
     "self": {
       "line": "46-101",
-      "file": "../asts/BouncyCastleProviderConfiguration.json"
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProviderConfiguration"
     }
   },
   "hasAlgorithm": {
@@ -95,7 +104,8 @@
     ],
     "self": {
       "line": "165-167",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "addAlgorithm": {
@@ -104,7 +114,8 @@
     ],
     "self": {
       "line": "175-178",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "addKeyInfoConverter": {
@@ -113,7 +124,8 @@
     ],
     "self": {
       "line": "180-184",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "getKeyInfoConverter": {
@@ -122,7 +134,8 @@
     ],
     "self": {
       "line": "186-188",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "addAttributes": {
@@ -134,7 +147,8 @@
     ],
     "self": {
       "line": "190-197",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "getAsymmetricKeyInfoConverter": {
@@ -143,7 +157,8 @@
     ],
     "self": {
       "line": "199-203",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "getPublicKey": {
@@ -154,7 +169,8 @@
     ],
     "self": {
       "line": "205-208",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "getPrivateKey": {
@@ -166,7 +182,8 @@
     ],
     "self": {
       "line": "210-213",
-      "file": "../asts/BouncyCastleProvider.json"
+      "file": "../asts/BouncyCastleProvider.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProvider"
     }
   },
   "getEcImplicitlyCa": {
@@ -175,7 +192,8 @@
     ],
     "self": {
       "line": "103-106",
-      "file": "../asts/BouncyCastleProviderConfiguration.json"
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProviderConfiguration"
     }
   },
   "getDHDefaultParameters": {
@@ -187,7 +205,8 @@
     ],
     "self": {
       "line": "108-125",
-      "file": "../asts/BouncyCastleProviderConfiguration.json"
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProviderConfiguration"
     }
   },
   "getDSADefaultParameters": {
@@ -199,7 +218,8 @@
     ],
     "self": {
       "line": "127-130",
-      "file": "../asts/BouncyCastleProviderConfiguration.json"
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProviderConfiguration"
     }
   },
   "getAcceptableNamedCurves": {
@@ -208,7 +228,8 @@
     ],
     "self": {
       "line": "132-134",
-      "file": "../asts/BouncyCastleProviderConfiguration.json"
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProviderConfiguration"
     }
   },
   "getAdditionalECParameters": {
@@ -217,63 +238,72 @@
     ],
     "self": {
       "line": "136-138",
-      "file": "../asts/BouncyCastleProviderConfiguration.json"
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "className": "org.bouncycastle.bcprov-jdk15on.BouncyCastleProviderConfiguration"
     }
   },
   "getBlockSize": {
     "functions": [],
     "self": {
       "line": "14-14",
-      "file": "../asts/CryptoCipher.json"
+      "file": "../asts/CryptoCipher.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipher"
     }
   },
   "getAlgorithm": {
     "functions": [],
     "self": {
       "line": "16-16",
-      "file": "../asts/CryptoCipher.json"
+      "file": "../asts/CryptoCipher.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipher"
     }
   },
   "init": {
     "functions": [],
     "self": {
       "line": "18-18",
-      "file": "../asts/CryptoCipher.json"
+      "file": "../asts/CryptoCipher.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipher"
     }
   },
   "update": {
     "functions": [],
     "self": {
       "line": "22-22",
-      "file": "../asts/CryptoCipher.json"
+      "file": "../asts/CryptoCipher.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipher"
     }
   },
   "doFinal": {
     "functions": [],
     "self": {
       "line": "26-26",
-      "file": "../asts/CryptoCipher.json"
+      "file": "../asts/CryptoCipher.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipher"
     }
   },
   "updateAAD": {
     "functions": [],
     "self": {
       "line": "32-34",
-      "file": "../asts/CryptoCipher.json"
+      "file": "../asts/CryptoCipher.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipher"
     }
   },
   "getClassName": {
     "functions": [],
     "self": {
       "line": "29-31",
-      "file": "../asts/CryptoCipherFactory.json"
+      "file": "../asts/CryptoCipherFactory.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipherFactory"
     }
   },
   "getImplClass": {
     "functions": [],
     "self": {
       "line": "33-35",
-      "file": "../asts/CryptoCipherFactory.json"
+      "file": "../asts/CryptoCipherFactory.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipherFactory"
     }
   },
   "getCryptoCipher": {
@@ -282,7 +312,8 @@
     ],
     "self": {
       "line": "68-70",
-      "file": "../asts/CryptoCipherFactory.json"
+      "file": "../asts/CryptoCipherFactory.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipherFactory"
     }
   },
   "getCipherClassString": {
@@ -292,7 +323,8 @@
     ],
     "self": {
       "line": "72-77",
-      "file": "../asts/CryptoCipherFactory.json"
+      "file": "../asts/CryptoCipherFactory.json",
+      "className": "org.apache.commons.commons-crypto.CryptoCipherFactory"
     }
   },
   "createDefaultProperties": {
@@ -312,14 +344,16 @@
     ],
     "self": {
       "line": "21-42",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   },
   "getDefaultProperties": {
     "functions": [],
     "self": {
       "line": "44-46",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   },
   "getProperties": {
@@ -328,7 +362,8 @@
     ],
     "self": {
       "line": "48-52",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   },
   "getCipherInstance": {
@@ -337,7 +372,8 @@
     ],
     "self": {
       "line": "54-60",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   },
   "checkArgument": {
@@ -346,7 +382,8 @@
     ],
     "self": {
       "line": "67-70",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   },
   "checkNotNull": {
@@ -355,14 +392,16 @@
     ],
     "self": {
       "line": "72-75",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   },
   "checkState": {
     "functions": [],
     "self": {
       "line": "81-84",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   },
   "splitClassNames": {
@@ -374,7 +413,8 @@
     ],
     "self": {
       "line": "86-96",
-      "file": "../asts/Utils.json"
+      "file": "../asts/Utils.json",
+      "className": "org.apache.commons.commons-crypto.Utils"
     }
   }
 }

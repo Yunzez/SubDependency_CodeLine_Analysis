@@ -11,6 +11,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -99,7 +100,7 @@ public class DependencyProcessor {
                 try {
                     Path decompiledDir = decompileJarWithJdCli(mavenPath);
                     // System.out.println("extracting from: " + decompiledDir);
-                    extractJavaFilesFromDir(decompiledDir);
+                    extractJavaFilesFromDir(decompiledDir, dependecy);
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (InterruptedException e) {
@@ -136,7 +137,7 @@ public class DependencyProcessor {
                 .collect(Collectors.toSet());
     }
 
-    private static boolean isRelevantFile(Path filePath, Set<String> thirdPartyPackages) {
+    private static Optional<String> isRelevantFile(Path filePath, Set<String> thirdPartyPackages) {
         String pathString = filePath.toString();
 
         // Calculate startingIndex based on the output directory path
@@ -157,11 +158,11 @@ public class DependencyProcessor {
         // "pathString: " + filePath);
         // }
         // Check if this package is in the set of third-party packages
-        return thirdPartyPackages.stream().anyMatch(importStr -> pathString.contains(importStr.replace('.', '/')));
+        return thirdPartyPackages.stream().filter(importStr -> pathString.contains(importStr)).findFirst();
 
     }
 
-    private static void extractJavaFilesFromDir(Path dir) throws IOException {
+    private static void extractJavaFilesFromDir(Path dir, Dependency currDependency) throws IOException {
 
         // ! ! uncomment his to get verbose ast (ast of the all related files)
         // !! eg. import org.jasypt.util.text.BasicTextEncryptor; we will get org.jasypt.util.text instead
@@ -173,9 +174,12 @@ public class DependencyProcessor {
 
         Files.walk(dir)
                 .filter(path -> path.toString().endsWith(".java"))
-                .filter(path -> isRelevantFile(path, thirdPartyPackages)) // Filter out irrelevant files
                 .forEach(path -> {
                     try {
+                        Optional<String> currImport = isRelevantFile(path, thirdPartyPackages);
+                        if(currImport.isEmpty()) {
+                            return;
+                        }
                         CompilationUnit cu = StaticJavaParser.parse(path);
                         // System.out.println("Parsed successfully " + path);
 
@@ -187,8 +191,10 @@ public class DependencyProcessor {
 
                         String astJson = stringWriter.toString();
 
-                        createJsonForCurrentFile(path.getFileName().toString(), astJson);
-                        // libraryAstJsonMap.put(path.getFileName().toString(), astJson);
+                        String fileName = path.getFileName().toString();
+                        String className = currDependency.getBasePackageName() + "." + fileName.substring(0, fileName.lastIndexOf('.'));
+
+                        createJsonForCurrentFile(path.getFileName().toString(), currImport.toString(),  astJson);
 
                     } catch (ParseProblemException | IOException e) {
                         System.err.println("Failed to parse (skipping): " + path);
@@ -210,45 +216,41 @@ public class DependencyProcessor {
         }
     }
 
-    public static void createJsonForCurrentFile(String fileName, String astJson) {
-        // System.out.println("Current working directory: " +
-        // System.getProperty("user.dir"));
-
+    public static void createJsonForCurrentFile(String fileName, String className, String astJson) {
         try {
             // Ensure directory exists
             Path dirPath = Path.of("asts");
             if (!Files.exists(dirPath)) {
                 Files.createDirectories(dirPath);
             }
-
+    
             // Construct the file path
             Path filePath = dirPath.resolve(fileName.substring(0, fileName.length() - 5) + ".json");
-            if (!Files.exists(filePath)) {
-                Files.createDirectories(dirPath);
-            } else {
+            if (Files.exists(filePath)) {
                 Files.delete(filePath);
-                // recreate the files
-                Files.createDirectories(dirPath);
             }
+    
             // Parse the AST JSON data
             JsonReader jsonReader = Json.createReader(new StringReader(astJson));
             JsonObject astJsonObject = jsonReader.readObject();
             jsonReader.close();
-
-            // Create a new JSON object with fileName as the key
+    
+    
+            // Create a new JSON object with fileName, className, and AST data
             JsonObject wrappedJson = Json.createObjectBuilder()
-                    .add(fileName, astJsonObject)
+                    .add("fileName", fileName)
+                    .add("className", className)
+                    .add("ast", astJsonObject)
                     .build();
-
-            // Convert the new JSON object to string
-            String wrappedJsonString = wrappedJson.toString();
-
-            // Write the new JSON data to the file
-            Files.writeString(filePath, wrappedJsonString, StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+    
+            // Convert the new JSON object to string and write to the file
+            Files.writeString(filePath, wrappedJson.toString(), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
+    
         } catch (IOException e) {
             System.err.println("Error handling file: " + fileName + " - " + e.getMessage());
-            e.printStackTrace(); // Print the full stack trace for more detailed error information
+            e.printStackTrace();
         }
     }
+    
 
 }

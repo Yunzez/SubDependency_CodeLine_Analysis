@@ -4,12 +4,13 @@ import { serializeArgument, serializeScope } from "./java_analyzer_utils";
 export const analyzeJava = (
   currentAst: any,
   filePath: string,
+  className: string,
   isThirdParty: boolean
 ) => {
   console.log(`Analyzing AST node from file: ${filePath}`, currentAst);
 
   if (isThirdParty) {
-    const methodDetails = extractMethodDetails(currentAst, filePath);
+    const methodDetails = extractMethodDetails(currentAst, filePath, className);
     console.log(`Extracted method details from ${filePath}`);
 
     // Append the method details to a JSON file
@@ -57,11 +58,11 @@ const extractLocalMethodCalls = (
       currentNode["!"] &&
       currentNode["!"] === "com.github.javaparser.ast.expr.MethodCallExpr"
     ) {
-    //   console.log("find method call");
+    //  console.log("find method call");
       const methodName = currentNode.name.identifier;
       const methodCallLine = extractMethodCallLine(currentNode);
 
-    //   if (thirdPartyMethodDetails[methodName]) {
+    //  if (thirdPartyMethodDetails[methodName]) {
         localMethodCalls.push({
           methodName: methodName,
           methodCallLine: methodCallLine,
@@ -162,7 +163,7 @@ const extractFunctionCalls = (
   }
 };
 
-const extractMethodDetails = (node: any, filePath: string): any => {
+const extractMethodDetails = (node: any, filePath: string, className: string): any => {
   const methodDetails: Record<any, any> = {};
 
   const methodDeclarations = extractMethodDeclarations(node);
@@ -176,6 +177,7 @@ const extractMethodDetails = (node: any, filePath: string): any => {
       self: {
         line: `${method.range.beginLine}-${method.range.endLine}`, // Assuming line numbers are stored in `range`
         file: filePath,
+        className: className,
       },
     };
   }

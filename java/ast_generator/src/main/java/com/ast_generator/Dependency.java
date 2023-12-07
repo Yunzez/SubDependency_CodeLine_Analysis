@@ -14,6 +14,12 @@ public class Dependency {
         this.jarPath = jarPath;
     }
 
+    public String getBasePackageName() {
+        // Convert groupId and artifactId to a base package name
+        // Typically, groupId and artifactId are used in Maven to denote the base package structure.
+        return groupId + "." + artifactId;
+    }
+
     public String getGroupId() {
         return groupId;
     }
