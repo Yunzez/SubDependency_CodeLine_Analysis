@@ -99,7 +99,7 @@ public class DependencyProcessor {
                 System.out.println("Found jar at: " + mavenPath + " for artifact: " + artifactId);
                 try {
                     Path decompiledDir = decompileJarWithJdCli(mavenPath);
-                    // System.out.println("extracting from: " + decompiledDir);
+                    System.out.println("extracting from: " + decompiledDir);
                     extractJavaFilesFromDir(decompiledDir, dependecy);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -152,23 +152,25 @@ public class DependencyProcessor {
             packageName = packageName.substring(0, packageName.lastIndexOf('.'));
             packageName = packageName.substring(0, packageName.lastIndexOf('.'));
         }
-        // if(thirdPartyPackages.stream().anyMatch(importStr ->
-        // pathString.contains(importStr.replace('.', '/')))) {
-        // System.out.println("packageName matched: " + packageName + '\n' +
-        // "pathString: " + filePath);
+
+        // if (thirdPartyPackages.stream().anyMatch(importStr -> pathString.contains(importStr.replace('.', '/')))) {
+        //     System.out.println("packageName matched: " + packageName + '\n' +
+        //             "pathString: " + filePath);
         // }
+        
         // Check if this package is in the set of third-party packages
-        return thirdPartyPackages.stream().filter(importStr -> pathString.contains(importStr)).findFirst();
+        return thirdPartyPackages.stream().filter(importStr -> pathString.contains(importStr.replace('.', '/'))).findFirst();
 
     }
 
     private static void extractJavaFilesFromDir(Path dir, Dependency currDependency) throws IOException {
 
         // ! ! uncomment his to get verbose ast (ast of the all related files)
-        // !! eg. import org.jasypt.util.text.BasicTextEncryptor; we will get org.jasypt.util.text instead
+        // !! eg. import org.jasypt.util.text.BasicTextEncryptor; we will get
+        // org.jasypt.util.text instead
         // Set<String> thirdPartyPackages =
         // convertImportsToPackageNames(importManager.getThirdPartyImports());
-        
+
         Set<String> thirdPartyPackages = importManager.getThirdPartyImports();
         System.out.println("checking third party packages: " + thirdPartyPackages.toString());
 
@@ -177,7 +179,8 @@ public class DependencyProcessor {
                 .forEach(path -> {
                     try {
                         Optional<String> currImport = isRelevantFile(path, thirdPartyPackages);
-                        if(currImport.isEmpty()) {
+
+                        if (currImport.isEmpty()) {
                             return;
                         }
                         CompilationUnit cu = StaticJavaParser.parse(path);
@@ -192,9 +195,10 @@ public class DependencyProcessor {
                         String astJson = stringWriter.toString();
 
                         String fileName = path.getFileName().toString();
-                        String className = currDependency.getBasePackageName() + "." + fileName.substring(0, fileName.lastIndexOf('.'));
-
-                        createJsonForCurrentFile(path.getFileName().toString(), currImport.toString(),  astJson);
+                        String className = currDependency.getBasePackageName() + "."
+                                + fileName.substring(0, fileName.lastIndexOf('.'));
+                        System.out.println("writing json");
+                        createJsonForCurrentFile(path.getFileName().toString(), currImport.toString(), astJson);
 
                     } catch (ParseProblemException | IOException e) {
                         System.err.println("Failed to parse (skipping): " + path);
@@ -223,34 +227,33 @@ public class DependencyProcessor {
             if (!Files.exists(dirPath)) {
                 Files.createDirectories(dirPath);
             }
-    
+
             // Construct the file path
             Path filePath = dirPath.resolve(fileName.substring(0, fileName.length() - 5) + ".json");
             if (Files.exists(filePath)) {
                 Files.delete(filePath);
             }
-    
+
             // Parse the AST JSON data
             JsonReader jsonReader = Json.createReader(new StringReader(astJson));
             JsonObject astJsonObject = jsonReader.readObject();
             jsonReader.close();
-    
-    
+
             // Create a new JSON object with fileName, className, and AST data
             JsonObject wrappedJson = Json.createObjectBuilder()
                     .add("fileName", fileName)
                     .add("className", className)
                     .add("ast", astJsonObject)
                     .build();
-    
+
             // Convert the new JSON object to string and write to the file
+            System.out.println("Writing to file: " + filePath);
             Files.writeString(filePath, wrappedJson.toString(), StandardOpenOption.CREATE, StandardOpenOption.WRITE);
-    
+
         } catch (IOException e) {
             System.err.println("Error handling file: " + fileName + " - " + e.getMessage());
             e.printStackTrace();
         }
     }
-    
 
 }
