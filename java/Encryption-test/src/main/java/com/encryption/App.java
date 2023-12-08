@@ -3,6 +3,8 @@ package com.encryption;
 import org.apache.commons.crypto.cipher.CryptoCipher;
 import org.apache.commons.crypto.utils.Utils;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+// ! each import libary is considered a bussiness application
 import org.jasypt.util.text.BasicTextEncryptor;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;

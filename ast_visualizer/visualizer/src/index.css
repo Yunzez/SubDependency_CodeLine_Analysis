@@ -1,0 +1,12 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 1rem;
+  align-items: start; /* Aligns items to the start of the grid area */
+}
+
+.grid-item {
+  /* Allows items to span rows based on content height */
+  /* You could adjust 'auto' to fit content if necessary */
+  grid-row: auto / span 1;
+}

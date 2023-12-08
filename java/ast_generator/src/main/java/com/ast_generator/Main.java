@@ -51,6 +51,7 @@ public class Main {
         String rootDirectoryPath = scanner.nextLine().trim();
 
         if (rootDirectoryPath.isEmpty()) {
+            // ! default source file path: 
             rootDirectoryPath = "java/Encryption-test";
         }
 

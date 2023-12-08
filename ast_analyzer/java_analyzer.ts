@@ -7,8 +7,8 @@ export const analyzeJava = (
   className: string,
   isThirdParty: boolean
 ) => {
-  console.log(`Analyzing AST node from file: ${filePath}`, currentAst);
-
+  console.log(`Analyzing AST node from file: ${filePath}`);
+  console.log(`------------------------------------------`);
   if (isThirdParty) {
     const methodDetails = extractMethodDetails(currentAst, filePath, className);
     console.log(`Extracted method details from ${filePath}`);
