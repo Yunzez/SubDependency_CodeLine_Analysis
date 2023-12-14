@@ -6,7 +6,7 @@ This is an quick demo for CodeLine analysis that supposes to reveal lines of cod
 
 ### Currently only in python / Rust / Java
 
-- To run the python demo:
+ **To run the python demo:**
 
 ```python
 pip3 install -r requirements.txt
@@ -15,7 +15,7 @@ python3 ./python/test.py ./python/img_to_pdf.py
 
 ---
 
-To run the Rust demo:
+**To run the Rust demo:**
 
 1. **Install Rust and Cargo**: If you haven't installed Rust and Cargo (Rust's package manager), you can install them from [here](https://rust-lang.org/tools/install).
 
@@ -53,9 +53,7 @@ To run the Rust demo:
 
 
 --- 
-To run Java Analysis Demo:
-
-**This section covers the process for analyzing Java projects to reveal lines of code in functions within dependencies.**
+**To run Java Analysis Demo:**
 
 ### Prerequisites
 
