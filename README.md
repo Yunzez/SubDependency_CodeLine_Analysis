@@ -69,18 +69,18 @@ To run Java Analysis Demo:
     - Navigate to the `java/ast_generator` directory.
     - Run the AST generator with the path to your Java project. This will infer `pom.xml` and generate the corresponding AST.
         
-        bashCopy code
-        
-        `cd java/ast_generator java AstGenerator <path-to-your-java-project>`
+        ```bash
+        cd java/ast_generator java AstGenerator <path-to-your-java-project>
+        ```
         
 2. **Run AST Analyzer in TypeScript**:
     
     - Navigate to the `ast_analyzer` directory.
     - Run the analyzer script using TypeScript.
         
-        bashCopy code
-        
-        `cd ast_analyzer ts-node analyzer.ts`
+        ```bash
+        cd ast_analyzer ts-node analyzer.ts
+        ```
         
     - This process will generate two files: `java_ast_local_file_analysis.json` and `java_ast_third_party_analysis.json`.
 3. **Optionally Run AST Visualizer**:
@@ -88,18 +88,19 @@ To run Java Analysis Demo:
     - To visualize the analysis, navigate to the `ast_visualizer` directory.
     - Start the local server to view the visualization.
         
-        bashCopy code
-        
-        `cd ast_visualizer npm install npm run dev`
+       ```bash
+       cd ast_visualizer npm install npm run dev
+       ```
         
 4. **Generate Complete SBOM**:
     
     - For generating a complete SBOM, go to the `SBOM_generator` directory.
     - Run the SBOM generator script.
         
-        bashCopy code
-        
-        `cd SBOM_generator ts-node index.ts`
+
+        ```bash
+         cd SBOM_generator ts-node index.ts
+        ```
         
     - Follow the prompts to specify the path to your Java project.
 
