@@ -4,7 +4,7 @@
 
 This is an quick demo for CodeLine analysis that supposes to reveal lines of code of functions in dependencies for a SBOM research
 
-Currently only in python / Rust
+### Currently only in python / Rust / Java
 
 - To run the python demo:
 
