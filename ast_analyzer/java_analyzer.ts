@@ -11,6 +11,9 @@ export const analyzeJava = (
   console.log(`------------------------------------------`);
   if (isThirdParty) {
     const methodDetails = extractMethodDetails(currentAst, filePath, className);
+    const importStatements = extractImportStatements(currentAst);
+    console.log(`Found ${importStatements.length} external import statements`);
+  console.log(importStatements);
     console.log(`Extracted method details from ${filePath}`);
 
     // Append the method details to a JSON file
@@ -108,7 +111,7 @@ const appendToJSONFile = (filename: string, data: any) => {
   if (fs.existsSync(filename)) {
     existingData = JSON.parse(fs.readFileSync(filename, "utf8"));
   }
-  console.log("data: ", data)
+  // console.log("data: ", data)
   const updatedData = { ...existingData, ...data };
   fs.writeFileSync(filename, JSON.stringify(data, null, 2));
   console.log(`Data appended to ${filename}`);
@@ -132,6 +135,35 @@ const extractMethodDeclarations = (
   });
 
   return methodDeclarations;
+};
+
+const extractFullImportPath = (node: any): string => {
+  if (node.qualifier) {
+    return extractFullImportPath(node.qualifier) + '.' + node.identifier;
+  } else {
+    return node.identifier;
+  }
+};
+
+const extractImportStatements = (node: any, importStatements: string[] = []): string[] => {
+  if (node["!"] && node["!"] === "com.github.javaparser.ast.ImportDeclaration") {
+    const importPath = extractFullImportPath(node.name);
+    // importStatements.push(importPath);
+
+    const firstSegment = importPath.split('.')[0];
+    if (firstSegment !== 'java') {
+      importStatements.push(importPath);
+    }
+  }
+
+  // Recursively search for nested structures
+  Object.values(node).forEach((childNode) => {
+    if (childNode instanceof Array || childNode instanceof Object) {
+      extractImportStatements(childNode, importStatements);
+    }
+  });
+
+  return importStatements;
 };
 
 const extractFunctionCalls = (
@@ -177,7 +209,7 @@ const extractMethodDetails = (node: any, filePath: string, className: string): a
 
   const methodDeclarations = extractMethodDeclarations(node);
   console.log(`Found ${methodDeclarations.length} method declarations`)
-  console.log(methodDeclarations)
+  // console.log(methodDeclarations)
   // console.log(methodDeclarations)
   const internalMethods = new Set(methodDeclarations);
   for (const method of methodDeclarations) {
