@@ -16,8 +16,8 @@ export const analyzeJava = (
     // Append the method details to a JSON file
     appendToJSONFile("java_ast_third_party_analysis.json", methodDetails);
   } else {
-    const methodDetails = extractMethodDetails(currentAst, filePath, className);
-    console.log("local file method details: ", methodDetails)
+    // const methodDetails = extractMethodDetails(currentAst, filePath, className);
+    // console.log("local file method details: ", methodDetails)
     // Analysis logic specific to local ASTs
     const localInfo = analyzeLocalJava(currentAst, filePath);
     appendToJSONFile("java_ast_local_file_analysis.json", localInfo);
@@ -108,9 +108,9 @@ const appendToJSONFile = (filename: string, data: any) => {
   if (fs.existsSync(filename)) {
     existingData = JSON.parse(fs.readFileSync(filename, "utf8"));
   }
-
+  console.log("data: ", data)
   const updatedData = { ...existingData, ...data };
-  fs.writeFileSync(filename, JSON.stringify(updatedData, null, 2));
+  fs.writeFileSync(filename, JSON.stringify(data, null, 2));
   console.log(`Data appended to ${filename}`);
 };
 
@@ -177,6 +177,7 @@ const extractMethodDetails = (node: any, filePath: string, className: string): a
 
   const methodDeclarations = extractMethodDeclarations(node);
   console.log(`Found ${methodDeclarations.length} method declarations`)
+  console.log(methodDeclarations)
   // console.log(methodDeclarations)
   const internalMethods = new Set(methodDeclarations);
   for (const method of methodDeclarations) {
