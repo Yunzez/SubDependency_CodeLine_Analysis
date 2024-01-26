@@ -33,6 +33,14 @@ import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
+/**
+ * ! # DependencyProcessor
+ * * The `DependencyProcessor` class is part of the `com.ast_generator`
+ * package. It is responsible for processing dependencies in a Maven project,
+ * generating Abstract Syntax Trees (ASTs) for each dependency, and serializing
+ * these ASTs into JSON format.
+ */
+
 public class DependencyProcessor {
     private static String pomPath;
     private static Map<String, Dependency> dependencyMap;
@@ -42,6 +50,12 @@ public class DependencyProcessor {
     public DependencyProcessor() {
     }
 
+    /*
+     * This method processes the dependencies specified in the `pom.xml` file of a
+     * Maven project. It parses the `pom.xml` file, extracts the details of each
+     * dependency, and stores them in a `HashMap`. It then generates ASTs for all
+     * dependencies.
+     */
     public static void processDependencies(String pomPath, ImportManager importManager) {
         DependencyProcessor.importManager = importManager;
         DependencyProcessor.pomPath = pomPath;
@@ -56,6 +70,11 @@ public class DependencyProcessor {
                 "---------------------------- Done generating AST for all dependencies ----------------------------");
     }
 
+    /*
+     * This method parses the `pom.xml` file for a Maven project and returns a
+     * `Map` of `Dependency` objects. Each `Dependency` object represents a
+     * dependency in the Maven project.
+     */
     public static Map<String, Dependency> parsePomForDependencies(String pomFilePath) {
         Map<String, Dependency> dependencyMap = new HashMap<>();
         try {
@@ -91,7 +110,13 @@ public class DependencyProcessor {
         return dependencyMap;
     }
 
-    // Generate AST for all dependencies
+    /*
+     * This method generates ASTs for all dependencies in the `dependencyMap`. For
+     * each dependency, it checks if a corresponding `.jar` file exists in the local
+     * Maven repository. If it does, the `.jar` file is decompiled using JD-CLI, a
+     * command-line Java Decompiler. The decompiled Java files are then parsed using
+     * JavaParser to generate ASTs.
+     */
     public static void generateASTForAllDependencies() {
         dependencyMap.forEach((artifactId, dependecy) -> {
             String mavenPath = dependecy.getJarPath();
@@ -99,7 +124,7 @@ public class DependencyProcessor {
                 System.out.println("Found jar at: " + mavenPath + " for artifact: " + artifactId);
                 try {
                     Path decompiledDir = decompileJarWithJdCli(mavenPath);
-                    System.out.println("extracting from: " + decompiledDir);
+                    // System.out.println("extracting from: " + decompiledDir);
                     extractJavaFilesFromDir(decompiledDir, dependecy);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -113,6 +138,10 @@ public class DependencyProcessor {
         });
     }
 
+    /*
+     * This method decompiles a `.jar` file using JD-CLI and returns the output
+     * directory path as a `Path` object.
+     */
     private static Path decompileJarWithJdCli(String jarPath) throws IOException, InterruptedException {
         String outputDirName = "jd-cli-output";
         DependencyProcessor.outputDir = Paths.get(System.getProperty("user.dir"), outputDirName);
@@ -128,6 +157,10 @@ public class DependencyProcessor {
         return outputDir;
     }
 
+    /*
+     * This method converts a set of import statements into a set of package
+     * names.
+     */
     private static Set<String> convertImportsToPackageNames(Set<String> imports) {
         // Convert import statements to package names
         // e.g., org.apache.commons.crypto.cipher.CryptoCipher ->
@@ -137,6 +170,11 @@ public class DependencyProcessor {
                 .collect(Collectors.toSet());
     }
 
+    /*
+     * This method checks if a file is relevant based on its path and a set of
+     * third-party packages. It returns an `Optional<String>` object that contains
+     * the package name if the file is relevant.
+     */
     private static Optional<String> isRelevantFile(Path filePath, Set<String> thirdPartyPackages) {
         String pathString = filePath.toString();
 
@@ -153,16 +191,22 @@ public class DependencyProcessor {
             packageName = packageName.substring(0, packageName.lastIndexOf('.'));
         }
 
-        // if (thirdPartyPackages.stream().anyMatch(importStr -> pathString.contains(importStr.replace('.', '/')))) {
-        //     System.out.println("packageName matched: " + packageName + '\n' +
-        //             "pathString: " + filePath);
+        // if (thirdPartyPackages.stream().anyMatch(importStr ->
+        // pathString.contains(importStr.replace('.', '/')))) {
+        // System.out.println("packageName matched: " + packageName + '\n' +
+        // "pathString: " + filePath);
         // }
-        
+
         // Check if this package is in the set of third-party packages
-        return thirdPartyPackages.stream().filter(importStr -> pathString.contains(importStr.replace('.', '/'))).findFirst();
+        return thirdPartyPackages.stream().filter(importStr -> pathString.contains(importStr.replace('.', '/')))
+                .findFirst();
 
     }
 
+    /*
+     * This method extracts Java files from a directory and generates ASTs for
+     * them. It also writes the ASTs to individual `.json` files.
+     */
     private static void extractJavaFilesFromDir(Path dir, Dependency currDependency) throws IOException {
 
         // ! ! uncomment his to get verbose ast (ast of the all related files)
@@ -197,15 +241,15 @@ public class DependencyProcessor {
                         String fileName = path.getFileName().toString();
                         String className = currDependency.getBasePackageName() + "."
                                 + fileName.substring(0, fileName.lastIndexOf('.'));
-                        System.out.println("writing json");
+                        System.out.println("writing json of" + path);
                         createJsonForCurrentFile(path.getFileName().toString(), currImport.toString(), astJson);
 
                     } catch (ParseProblemException | IOException e) {
-                        System.err.println("Failed to parse (skipping): " + path);
+                        System.err.println("Failed to parse (skipping): " + path + "; ");
                     }
                 });
         // appendAllASTsToJsonFile();
-        // Cleanup: delete the temporary directory and extracted files
+        // ! Cleanup: delete the temporary directory and extracted files
         try (Stream<Path> walk = Files.walk(dir).sorted(Comparator.reverseOrder())) {
             walk.forEach(path -> {
                 try {
@@ -220,6 +264,10 @@ public class DependencyProcessor {
         }
     }
 
+    /*
+     * This method creates a JSON file for a Java file. The JSON file contains the
+     * file name, class name, and AST data.
+     */
     public static void createJsonForCurrentFile(String fileName, String className, String astJson) {
         try {
             // Ensure directory exists

@@ -16,6 +16,8 @@ export const analyzeJava = (
     // Append the method details to a JSON file
     appendToJSONFile("java_ast_third_party_analysis.json", methodDetails);
   } else {
+    const methodDetails = extractMethodDetails(currentAst, filePath, className);
+    console.log("local file method details: ", methodDetails)
     // Analysis logic specific to local ASTs
     const localInfo = analyzeLocalJava(currentAst, filePath);
     appendToJSONFile("java_ast_local_file_analysis.json", localInfo);
@@ -134,46 +136,57 @@ const extractMethodDeclarations = (
 
 const extractFunctionCalls = (
   node: any,
-  functionSets: Set<string> = new Set<string>()
-): string[] => {
-  // Check if the current node represents a function call
+  internalMethods: Set<string>,
+  externalFunctionCalls: Set<string> = new Set<string>(),
+  internalFunctionCalls: Set<string> = new Set<string>()
+): { external: string[], internal: string[] } => {
   if (
     node["!"] &&
     node["!"] === "com.github.javaparser.ast.expr.MethodCallExpr"
   ) {
-    functionSets.add(node.name.identifier); // Add to set
+    const methodName = node.name.identifier;
+
+    // Check if the method is internal
+    if (internalMethods.has(methodName)) {
+      internalFunctionCalls.add(methodName); // Add to internal calls set
+    } else {
+      externalFunctionCalls.add(methodName); // Add to external calls set
+    }
   }
 
   // Recursively search for nested structures
   for (const key in node) {
     if (node[key] instanceof Array) {
       for (const childNode of node[key]) {
-        extractFunctionCalls(childNode, functionSets); // Pass the set to the recursive call
+        extractFunctionCalls(childNode, internalMethods, externalFunctionCalls, internalFunctionCalls);
       }
     } else if (node[key] instanceof Object) {
-      extractFunctionCalls(node[key], functionSets); // Pass the set to the recursive call
+      extractFunctionCalls(node[key], internalMethods, externalFunctionCalls, internalFunctionCalls);
     }
   }
 
-  // Convert the set to an array when the recursion completes
-  if (functionSets.size > 0) {
-    return Array.from(functionSets);
-  } else {
-    return [];
-  }
+  return {
+    external: Array.from(externalFunctionCalls),
+    internal: Array.from(internalFunctionCalls)
+  };
 };
+
 
 const extractMethodDetails = (node: any, filePath: string, className: string): any => {
   const methodDetails: Record<any, any> = {};
 
   const methodDeclarations = extractMethodDeclarations(node);
-
+  console.log(`Found ${methodDeclarations.length} method declarations`)
+  // console.log(methodDeclarations)
+  const internalMethods = new Set(methodDeclarations);
   for (const method of methodDeclarations) {
     const functionName = method.name.identifier; // Assuming the method name is stored in `name.identifier`
-    const functionCalls = extractFunctionCalls(method);
+    const { external, internal } = extractFunctionCalls(method, internalMethods);
+    
 
     methodDetails[functionName] = {
-      functions: functionCalls,
+      external_functions: external,
+      internal_functions: internal,
       self: {
         line: `${method.range.beginLine}-${method.range.endLine}`, // Assuming line numbers are stored in `range`
         file: filePath,

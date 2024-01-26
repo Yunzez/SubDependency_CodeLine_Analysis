@@ -30,11 +30,12 @@
       "methodCallLine": "[complex expression].init([complex expression], [complex expression])",
       "line": "30-30",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "18-18",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -43,11 +44,12 @@
       "methodCallLine": "[complex expression].doFinal([complex expression])",
       "line": "31-31",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "26-26",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -76,11 +78,12 @@
       "methodCallLine": "[complex expression].init([complex expression], [complex expression])",
       "line": "36-36",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "18-18",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -89,11 +92,12 @@
       "methodCallLine": "[complex expression].doFinal([complex expression])",
       "line": "37-37",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "26-26",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -117,13 +121,14 @@
       "methodCallLine": "[complex expression].setPassword([complex expression])",
       "line": "42-42",
       "thirdPartyInfo": {
-        "functions": [
+        "external_functions": [
           "setPassword"
         ],
+        "internal_functions": [],
         "self": {
           "line": "13-15",
           "file": "../asts/BasicTextEncryptor.json",
-          "className": "org.jasypt.jasypt.BasicTextEncryptor"
+          "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
         }
       }
     },
@@ -132,13 +137,14 @@
       "methodCallLine": "[complex expression].encrypt([complex expression])",
       "line": "45-45",
       "thirdPartyInfo": {
-        "functions": [
+        "external_functions": [
           "encrypt"
         ],
+        "internal_functions": [],
         "self": {
           "line": "21-23",
           "file": "../asts/BasicTextEncryptor.json",
-          "className": "org.jasypt.jasypt.BasicTextEncryptor"
+          "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
         }
       }
     },
@@ -152,13 +158,14 @@
       "methodCallLine": "[complex expression].decrypt([complex expression])",
       "line": "49-49",
       "thirdPartyInfo": {
-        "functions": [
+        "external_functions": [
           "decrypt"
         ],
+        "internal_functions": [],
         "self": {
           "line": "25-27",
           "file": "../asts/BasicTextEncryptor.json",
-          "className": "org.jasypt.jasypt.BasicTextEncryptor"
+          "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
         }
       }
     },
@@ -177,13 +184,14 @@
       "methodCallLine": "[complex expression].getCipherInstance([complex expression], [complex expression])",
       "line": "55-55",
       "thirdPartyInfo": {
-        "functions": [
+        "external_functions": [
           "getCryptoCipher"
         ],
+        "internal_functions": [],
         "self": {
           "line": "54-60",
           "file": "../asts/Utils.json",
-          "className": "org.apache.commons.commons-crypto.Utils"
+          "className": "Optional[org.apache.commons.crypto.utils.Utils]"
         }
       }
     },
@@ -197,11 +205,12 @@
       "methodCallLine": "[complex expression].init([complex expression], [complex expression], [complex expression])",
       "line": "60-60",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "18-18",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -210,11 +219,12 @@
       "methodCallLine": "[complex expression].update([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
       "line": "61-61",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "22-22",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -233,11 +243,12 @@
       "methodCallLine": "[complex expression].doFinal([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
       "line": "62-62",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "26-26",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -271,13 +282,14 @@
       "methodCallLine": "[complex expression].getCipherInstance([complex expression], [complex expression])",
       "line": "69-69",
       "thirdPartyInfo": {
-        "functions": [
+        "external_functions": [
           "getCryptoCipher"
         ],
+        "internal_functions": [],
         "self": {
           "line": "54-60",
           "file": "../asts/Utils.json",
-          "className": "org.apache.commons.commons-crypto.Utils"
+          "className": "Optional[org.apache.commons.crypto.utils.Utils]"
         }
       }
     },
@@ -286,11 +298,12 @@
       "methodCallLine": "[complex expression].init([complex expression], [complex expression], [complex expression])",
       "line": "70-70",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "18-18",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -299,11 +312,12 @@
       "methodCallLine": "[complex expression].update([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
       "line": "72-72",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "22-22",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },
@@ -332,11 +346,12 @@
       "methodCallLine": "[complex expression].doFinal([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
       "line": "73-73",
       "thirdPartyInfo": {
-        "functions": [],
+        "external_functions": [],
+        "internal_functions": [],
         "self": {
           "line": "26-26",
           "file": "../asts/CryptoCipher.json",
-          "className": "org.apache.commons.commons-crypto.CryptoCipher"
+          "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
         }
       }
     },

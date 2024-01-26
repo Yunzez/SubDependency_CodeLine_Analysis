@@ -17,10 +17,18 @@ public class App {
         Security.addProvider(new BouncyCastleProvider());
     }
 
+    private static void sayHello() {
+        System.out.println("Hello World!");
+    }
+
+    private static void sayGoodbye() {
+        System.out.println("Bye!");
+    }
+
     public static void main(String[] args) throws Exception {
         String text = "Hello World!";
         String key = "1234567812345678"; // 16 chars=128 bits
-
+        sayHello();
         // Using BouncyCastle
         Cipher cipher = Cipher.getInstance("AES/ECB/PKCS7Padding", "BC");
         SecretKeySpec keySpec = new SecretKeySpec(key.getBytes(), "AES");
@@ -74,5 +82,7 @@ public class App {
         byte[] finalDecryptedCommons = new byte[updateBytes + finalBytes];
         System.arraycopy(decryptedOutput, 0, finalDecryptedCommons, 0, updateBytes + finalBytes);
         System.out.println("Apache Commons Crypto Decrypted: " + new String(finalDecryptedCommons).trim());
+    
+        sayGoodbye();
     }
 }

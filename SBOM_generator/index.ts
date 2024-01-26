@@ -70,10 +70,14 @@ async function mergeSBOMWithCustomData(
       sbom.components.forEach((component: any) => {
         if (functionInfo["thirdPartyInfo"] !== undefined) {
           const externalClassInfo = functionInfo["thirdPartyInfo"];
-          const className = externalClassInfo["self"].className;
+          let className = externalClassInfo["self"].className;
           // Combine group and name for comparison
-          const combinedName = `${component.group}.${component.name}`;
-          console.log("Component:", combinedName, "Class:", className);
+          
+          let combinedName = `${component.group}.${component.name}`;
+          console.log("Component:", combinedName.replace(/-/g, '.'), "Class:", className.replace(/Optional\[(.*?)\]/, '$1'));
+          combinedName = combinedName.replace(/-/g, '.')
+          className = className.replace(/Optional\[(.*?)\]/, '$1')
+          
           if (className.includes(combinedName)) {
             component.extensions = component.extensions || [];
             component.extensions.push({
