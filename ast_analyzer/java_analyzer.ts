@@ -17,7 +17,10 @@ export const analyzeJava = (
     console.log(`Extracted method details from ${filePath}`);
 
     console.log("Analyzing imports: ", importStatements)
-    ImportAnalyzer.analyzer.analyzeImport(basicInfo.groupId, basicInfo.artifactId, basicInfo.version, importStatements);
+    const relevantFilePaths: string[] = []
+    const importAnalyzer = new ImportAnalyzer(relevantFilePaths);
+    const fileName = filePath.split("/")[filePath.split("/").length - 1];
+    importAnalyzer.analyzeImport(basicInfo.groupId, basicInfo.artifactId, basicInfo.version, importStatements, fileName);
 
     // Append the method details to a JSON file
     appendToJSONFile("java_ast_third_party_analysis.json", methodDetails);
