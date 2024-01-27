@@ -1,100 +1,620 @@
 {
+  "setPassword": {
+    "external_functions": {
+      "setPassword": "this.encryptor.setPassword"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "13-15",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
+  "setPasswordCharArray": {
+    "external_functions": {
+      "setPasswordCharArray": "this.encryptor.setPasswordCharArray"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "17-19",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
+  "encrypt": {
+    "external_functions": {
+      "encrypt": "this.encryptor.encrypt"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "21-23",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
+  "decrypt": {
+    "external_functions": {
+      "decrypt": "this.encryptor.decrypt"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "25-27",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
+  "run": {
+    "external_functions": {
+      "setup": "this.setup"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "79-82",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "setup": {
+    "external_functions": {
+      "loadAlgorithms": "loadAlgorithms",
+      "loadPQCKeys": "loadPQCKeys",
+      "put": "put"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "86-130",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "loadAlgorithms": {
+    "external_functions": {
+      "loadClass": "ClassUtil.loadClass",
+      "configure": "configure",
+      "newInstance": "clazz.newInstance"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "132-142",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "loadPQCKeys": {
+    "external_functions": {
+      "addKeyInfoConverter": "addKeyInfoConverter"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "144-157",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "setParameter": {
+    "external_functions": {
+      "getSecurityManager": "System.getSecurityManager",
+      "equals": "paramString.equals",
+      "checkPermission": "securityManager.checkPermission",
+      "set": "this.ecThreadSpec.set",
+      "remove": "this.ecThreadSpec.remove",
+      "convertSpec": "EC5Util.convertSpec"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "46-101",
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "hasAlgorithm": {
+    "external_functions": {
+      "containsKey": "containsKey"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "165-167",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "addAlgorithm": {
+    "external_functions": {
+      "addAlgorithm": "addAlgorithm"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "175-178",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "addKeyInfoConverter": {
+    "external_functions": {
+      "put": "keyInfoConverters.put"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "180-184",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getKeyInfoConverter": {
+    "external_functions": {
+      "get": "keyInfoConverters.get"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "186-188",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "addAttributes": {
+    "external_functions": {
+      "containsKey": "containsKey",
+      "put": "put",
+      "get": "paramMap.get",
+      "keySet": "paramMap.keySet"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "190-197",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getAsymmetricKeyInfoConverter": {
+    "external_functions": {
+      "get": "keyInfoConverters.get"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "199-203",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getPublicKey": {
+    "external_functions": {
+      "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
+      "getAlgorithm": "paramSubjectPublicKeyInfo.getAlgorithm",
+      "generatePublic": "asymmetricKeyInfoConverter.generatePublic"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "205-208",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getPrivateKey": {
+    "external_functions": {
+      "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
+      "getAlgorithm": "getAlgorithm",
+      "getPrivateKeyAlgorithm": "paramPrivateKeyInfo.getPrivateKeyAlgorithm",
+      "generatePrivate": "asymmetricKeyInfoConverter.generatePrivate"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "210-213",
+      "file": "../asts/BouncyCastleProvider.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getEcImplicitlyCa": {
+    "external_functions": {
+      "get": "this.ecThreadSpec.get"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "103-106",
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getDHDefaultParameters": {
+    "external_functions": {
+      "get": "this.dhThreadSpec.get",
+      "bitLength": "bitLength",
+      "getP": "dHParameterSpec.getP",
+      "getSizedProperty": "CryptoServicesRegistrar.getSizedProperty"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "108-125",
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getDSADefaultParameters": {
+    "external_functions": {
+      "getSizedProperty": "CryptoServicesRegistrar.getSizedProperty",
+      "getP": "dSAParameters.getP",
+      "getQ": "dSAParameters.getQ",
+      "getG": "dSAParameters.getG"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "127-130",
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getAcceptableNamedCurves": {
+    "external_functions": {
+      "unmodifiableSet": "Collections.unmodifiableSet"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "132-134",
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getAdditionalECParameters": {
+    "external_functions": {
+      "unmodifiableMap": "Collections.unmodifiableMap"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "136-138",
+      "file": "../asts/BouncyCastleProviderConfiguration.json",
+      "dependencyInfo": {
+        "groupId": "org.bouncycastle",
+        "artifactId": "bcprov-jdk15on",
+        "version": "1.70"
+      }
+    }
+  },
+  "getBlockSize": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "14-14",
+      "file": "../asts/CryptoCipher.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "getAlgorithm": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "16-16",
+      "file": "../asts/CryptoCipher.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "init": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "18-18",
+      "file": "../asts/CryptoCipher.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "update": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "22-22",
+      "file": "../asts/CryptoCipher.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "doFinal": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "26-26",
+      "file": "../asts/CryptoCipher.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "updateAAD": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "32-34",
+      "file": "../asts/CryptoCipher.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "getClassName": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "29-31",
+      "file": "../asts/CryptoCipherFactory.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "getImplClass": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "33-35",
+      "file": "../asts/CryptoCipherFactory.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "getCryptoCipher": {
+    "external_functions": {
+      "getCryptoCipher": "getCryptoCipher"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "68-70",
+      "file": "../asts/CryptoCipherFactory.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
+  "getCipherClassString": {
+    "external_functions": {
+      "getProperty": "props.getProperty",
+      "isEmpty": "cipherClassString.isEmpty"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "72-77",
+      "file": "../asts/CryptoCipherFactory.json",
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
+    }
+  },
   "createDefaultProperties": {
-    "external_functions": [
-      "getProperties",
-      "println",
-      "toString",
-      "getResourceAsStream",
-      "getContextClassLoader",
-      "currentThread",
-      "load",
-      "propertyNames",
-      "nextElement",
-      "getProperty",
-      "setProperty",
-      "hasMoreElements"
-    ],
-    "internal_functions": [],
+    "external_functions": {
+      "getProperties": "System.getProperties",
+      "println": "System.err.println",
+      "toString": "ex.toString",
+      "getResourceAsStream": "getResourceAsStream",
+      "getContextClassLoader": "getContextClassLoader",
+      "currentThread": "Thread.currentThread",
+      "load": "fileProps.load",
+      "propertyNames": "fileProps.propertyNames",
+      "nextElement": "names.nextElement",
+      "getProperty": "fileProps.getProperty",
+      "setProperty": "defaultedProps.setProperty",
+      "hasMoreElements": "names.hasMoreElements"
+    },
+    "internal_functions": {},
     "self": {
       "line": "21-42",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   },
   "getDefaultProperties": {
-    "external_functions": [],
-    "internal_functions": [],
+    "external_functions": {},
+    "internal_functions": {},
     "self": {
       "line": "44-46",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   },
   "getProperties": {
-    "external_functions": [
-      "putAll"
-    ],
-    "internal_functions": [],
+    "external_functions": {
+      "putAll": "properties.putAll"
+    },
+    "internal_functions": {},
     "self": {
       "line": "48-52",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   },
   "getCipherInstance": {
-    "external_functions": [
-      "getCryptoCipher"
-    ],
-    "internal_functions": [],
+    "external_functions": {
+      "getCryptoCipher": "CryptoCipherFactory.getCryptoCipher"
+    },
+    "internal_functions": {},
     "self": {
       "line": "54-60",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   },
   "checkArgument": {
-    "external_functions": [
-      "valueOf"
-    ],
-    "internal_functions": [],
+    "external_functions": {
+      "valueOf": "String.valueOf"
+    },
+    "internal_functions": {},
     "self": {
       "line": "67-70",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   },
   "checkNotNull": {
-    "external_functions": [
-      "requireNonNull"
-    ],
-    "internal_functions": [],
+    "external_functions": {
+      "requireNonNull": "Objects.requireNonNull"
+    },
+    "internal_functions": {},
     "self": {
       "line": "72-75",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   },
   "checkState": {
-    "external_functions": [],
-    "internal_functions": [],
+    "external_functions": {},
+    "internal_functions": {},
     "self": {
       "line": "81-84",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   },
   "splitClassNames": {
-    "external_functions": [
-      "isEmpty",
-      "trim",
-      "add",
-      "split"
-    ],
-    "internal_functions": [],
+    "external_functions": {
+      "isEmpty": "clazzName.isEmpty",
+      "trim": "clazzName.trim",
+      "add": "res.add",
+      "split": "clazzNames.split"
+    },
+    "internal_functions": {},
     "self": {
       "line": "86-96",
       "file": "../asts/Utils.json",
-      "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+      "dependencyInfo": {
+        "groupId": "org.apache.commons",
+        "artifactId": "commons-crypto",
+        "version": "1.1.0"
+      }
     }
   }
 }

@@ -237,12 +237,13 @@ public class DependencyProcessor {
                         }
 
                         String astJson = stringWriter.toString();
-
                         String fileName = path.getFileName().toString();
                         String className = currDependency.getBasePackageName() + "."
                                 + fileName.substring(0, fileName.lastIndexOf('.'));
                         System.out.println("writing json of" + path);
-                        createJsonForCurrentFile(path.getFileName().toString(), currImport.toString(), astJson);
+
+                        createJsonForCurrentFile(path.getFileName().toString(), currImport.toString(), astJson,
+                                currDependency);
 
                     } catch (ParseProblemException | IOException e) {
                         System.err.println("Failed to parse (skipping): " + path + "; ");
@@ -268,7 +269,8 @@ public class DependencyProcessor {
      * This method creates a JSON file for a Java file. The JSON file contains the
      * file name, class name, and AST data.
      */
-    public static void createJsonForCurrentFile(String fileName, String className, String astJson) {
+    public static void createJsonForCurrentFile(String fileName, String className, String astJson,
+            Dependency currDependency) {
         try {
             // Ensure directory exists
             Path dirPath = Path.of("asts");
@@ -288,9 +290,15 @@ public class DependencyProcessor {
             jsonReader.close();
 
             // Create a new JSON object with fileName, className, and AST data
+            String groupId = currDependency.getGroupId();
+            String artifactId = currDependency.getArtifactId();
+            String version = currDependency.getVersion();
             JsonObject wrappedJson = Json.createObjectBuilder()
                     .add("fileName", fileName)
                     .add("className", className)
+                    .add("groupId", groupId)
+                    .add("artifactId", artifactId)
+                    .add("version", version)
                     .add("ast", astJsonObject)
                     .build();
 

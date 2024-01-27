@@ -19,11 +19,15 @@ import javax.json.JsonObjectBuilder;
 import javax.json.JsonWriter;
 import javax.json.stream.JsonGenerator;
 
+import com.github.javaparser.ParseProblemException;
 import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.serialization.JavaParserJsonSerializer;
 
+/*
+ * this process local directory and generate AST for each java file
+ */
 public class DirectoryProcessor {
     private String directoryPath;
     private static Path astPath;
@@ -44,13 +48,32 @@ public class DirectoryProcessor {
         DirectoryProcessor.dependencyMap = dependencyMap;
     }
 
+    // Main method for command-line execution
+
+    // ! test statement:
+    // cd /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis ; /usr/bin/env
+    // /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java
+    // @/var/folders/9w/qz54k17x6zg0n9c2zm3kccz40000gn/T/cp_d3xggjeqc1p2bqsmyr7i4eqxu.argfile
+    // com.ast_generator.DirectoryProcessor
+    // /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis/ast_analyzer/decompiled
+    // /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis/ast_analyzer/sub_ast
+    public static void main(String[] args) {
+        if (args.length == 2) {
+            String sourcePath = Paths.get(args[0]).toString();
+            Path outputPath = Paths.get(args[1]);
+            DirectoryProcessor processor = new DirectoryProcessor(sourcePath, outputPath);
+            processor.processDirectory();
+        } else {
+            System.out.println("Usage: java DirectoryProcessor <source directory> <AST output path>");
+        }
+    }
+
     public void processDirectory() {
         System.out.println("Processing directory: " + directoryPath);
         // Validate and process the directory
         Path rootPath = Paths.get(directoryPath);
         if (Files.isDirectory(rootPath)) {
             try {
-                System.out.println("Processing directory: " + rootPath);
                 processDirectory(rootPath);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -69,6 +92,7 @@ public class DirectoryProcessor {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 if (file.toString().endsWith(".java")) {
+                    System.out.println("Processing file: " + file);
                     generateAST(file.toString());
                 }
                 return FileVisitResult.CONTINUE;
@@ -78,6 +102,7 @@ public class DirectoryProcessor {
 
     private static void generateAST(String sourceFilePath) {
         // Configure parser
+        System.out.println("Configuring parser... for file: " + sourceFilePath);
         ParserConfiguration config = new ParserConfiguration();
         StaticJavaParser.setConfiguration(config);
         Path path = Paths.get(sourceFilePath);
@@ -85,20 +110,25 @@ public class DirectoryProcessor {
         try {
             CompilationUnit cu = StaticJavaParser.parse(path);
 
-            FunctionSignatureExtractor extractor = new FunctionSignatureExtractor(
-                    dependencyMap != null ? dependencyMap : null);
-            extractor.extractThirdPartyImports(cu);
-            Set<String> thirdPartyImports = extractor.getThirdPartyImports();
-
-            // Store the imports in ImportManager
-            if (importManager != null) {
-                importManager.addImports(thirdPartyImports);
+            if (dependencyMap == null) {
+                System.out.println("dependencyMap is invalid, skipping dependency check");
             } else {
-                System.out.println("ImportManager is null");
-                System.out.println("---------------------------- third party imports ----------------------------");
-                for (String signature : thirdPartyImports) {
-                    System.out.println(signature);
+                FunctionSignatureExtractor extractor = new FunctionSignatureExtractor(
+                        dependencyMap != null ? dependencyMap : null);
+                extractor.extractThirdPartyImports(cu);
+                Set<String> thirdPartyImports = extractor.getThirdPartyImports();
+
+                // Store the imports in ImportManager
+                if (importManager != null) {
+                    importManager.addImports(thirdPartyImports);
+                } else {
+                    System.out.println("ImportManager is null");
+                    System.out.println("---------------------------- third party imports ----------------------------");
+                    for (String signature : thirdPartyImports) {
+                        System.out.println(signature);
+                    }
                 }
+
             }
 
             StringWriter stringWriter = new StringWriter();
@@ -110,6 +140,10 @@ public class DirectoryProcessor {
             String astJson = stringWriter.toString();
             appendLocalASTToJsonFile(path.toString(), astJson);
         } catch (IOException e) {
+            System.err.println("Error parsing file: " + path);
+            e.printStackTrace();
+        } catch (ParseProblemException e) {
+            System.err.println("Parse problem in file: " + sourceFilePath + ", Skipped");
             e.printStackTrace();
         }
     }

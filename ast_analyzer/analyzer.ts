@@ -124,16 +124,23 @@ const init = async (): Promise<void> => {
       console.log("Processing Third-Party ASTs");
       thirdPartyAsts.forEach((astFilePath) => {
         const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
+        const basicInfo = {
+          filePath: astFilePath,
+          className: astContent.className,
+          groupId: astContent.groupId,
+          artifactId: astContent.artifactId,
+          version: astContent.version,
+        };
         const className = astContent.className;
-        console.log("Class Name:", className)
-        analyzeJava(astContent, astFilePath, className, true); // Differentiate mode
+        console.log("Class Name:", className, basicInfo)
+        analyzeJava(astContent, astFilePath, basicInfo, true); // Differentiate mode
       });
 
       // Process Local ASTs
       console.log("Processing Local ASTs");
       localAsts.forEach((astFilePath) => {
         const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
-        const className = astContent.className;
+        const className = {className: astContent.className}
         console.log("Class Name:", className)
         analyzeJava(astContent, astFilePath, className, false); // Add a mode parameter
       });

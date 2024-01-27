@@ -8,6 +8,7 @@
         "enquirer": "^2.4.1",
         "esm": "^3.2.25",
         "inquirer": "^9.2.11",
+        "java-parser": "^2.2.0",
         "ora": "^7.0.1",
         "progress": "^2.0.3",
         "stream-json": "^1.8.0"

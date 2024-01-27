@@ -1,20 +1,23 @@
 import * as fs from "fs";
 import { serializeArgument, serializeScope } from "./java_analyzer_utils";
-
+import ImportAnalyzer from "./java_import_analyzer";
 export const analyzeJava = (
   currentAst: any,
   filePath: string,
-  className: string,
+  basicInfo: Record<string, string>,
   isThirdParty: boolean
 ) => {
-  console.log(`Analyzing AST node from file: ${filePath}`);
+  console.log(`Analyzing AST node from file: ${filePath}`, basicInfo);
   console.log(`------------------------------------------`);
   if (isThirdParty) {
-    const methodDetails = extractMethodDetails(currentAst, filePath, className);
+    const methodDetails = extractMethodDetails(currentAst, filePath, basicInfo);
     const importStatements = extractImportStatements(currentAst);
     console.log(`Found ${importStatements.length} external import statements`);
   console.log(importStatements);
     console.log(`Extracted method details from ${filePath}`);
+
+    console.log("Analyzing imports: ", importStatements)
+    ImportAnalyzer.analyzer.analyzeImport(basicInfo.groupId, basicInfo.artifactId, basicInfo.version, importStatements);
 
     // Append the method details to a JSON file
     appendToJSONFile("java_ast_third_party_analysis.json", methodDetails);
@@ -113,7 +116,7 @@ const appendToJSONFile = (filename: string, data: any) => {
   }
   // console.log("data: ", data)
   const updatedData = { ...existingData, ...data };
-  fs.writeFileSync(filename, JSON.stringify(data, null, 2));
+  fs.writeFileSync(filename, JSON.stringify(updatedData, null, 2));
   console.log(`Data appended to ${filename}`);
 };
 
@@ -169,20 +172,22 @@ const extractImportStatements = (node: any, importStatements: string[] = []): st
 const extractFunctionCalls = (
   node: any,
   internalMethods: Set<string>,
-  externalFunctionCalls: Set<string> = new Set<string>(),
-  internalFunctionCalls: Set<string> = new Set<string>()
-): { external: string[], internal: string[] } => {
+  externalFunctionCalls: Record<string, string> = {},
+  internalFunctionCalls: Record<string, string> = {}
+): { external: Record<string, string>, internal: Record<string, string> } => {
   if (
     node["!"] &&
     node["!"] === "com.github.javaparser.ast.expr.MethodCallExpr"
   ) {
     const methodName = node.name.identifier;
+    const scope = node.scope ? extractFullScope(node.scope) : '';
+    const fullMethodCall = scope ? `${scope}.${methodName}` : methodName;
 
     // Check if the method is internal
     if (internalMethods.has(methodName)) {
-      internalFunctionCalls.add(methodName); // Add to internal calls set
+      internalFunctionCalls[methodName] = fullMethodCall;
     } else {
-      externalFunctionCalls.add(methodName); // Add to external calls set
+      externalFunctionCalls[methodName] = fullMethodCall;
     }
   }
 
@@ -198,13 +203,58 @@ const extractFunctionCalls = (
   }
 
   return {
-    external: Array.from(externalFunctionCalls),
-    internal: Array.from(internalFunctionCalls)
+    external: externalFunctionCalls,
+    internal: internalFunctionCalls
   };
 };
 
+// const extractFullScope = (node: any): string => {
+//   if (!node) {
+//     return '';
+//   }
+//   switch (node["!"]) {
+//   }
+  
+//   if (node["!"] === "com.github.javaparser.ast.expr.FieldAccessExpr") {
+//     const innerScope = node.scope ? extractFullScope(node.scope) : '';
+//     return `${innerScope}.${node.name.identifier}`;
+//   } else if (node["!"] === "com.github.javaparser.ast.expr.NameExpr" || 
+//              node["!"] === "com.github.javaparser.ast.expr.ThisExpr") {
+//     return node.name ? node.name.identifier : 'this';
+//   }
+//   return '';
+// };
 
-const extractMethodDetails = (node: any, filePath: string, className: string): any => {
+const extractFullScope = (node: any): string => {
+  if (!node) {
+    return '';
+  }
+
+  switch (node["!"]) {
+    case "com.github.javaparser.ast.expr.FieldAccessExpr":
+      // Recursively get the scope for field access
+      const fieldScope = node.scope ? extractFullScope(node.scope) : '';
+      const fieldName = node.name && node.name.identifier ? node.name.identifier : '';
+      return fieldScope ? `${fieldScope}.${fieldName}` : fieldName;
+
+    case "com.github.javaparser.ast.expr.NameExpr":
+    case "com.github.javaparser.ast.expr.ThisExpr":
+      // Directly return the identifier for simple names and 'this' expressions
+      return node.name && node.name.identifier ? node.name.identifier : 'this';
+
+    case "com.github.javaparser.ast.expr.SimpleName":
+      // Handle simple names
+      return node.identifier ? node.identifier : '';
+
+    default:
+      // Fallback for other or unknown types of expressions
+      return '';
+  }
+};
+
+
+
+const extractMethodDetails = (node: any, filePath: string, basicInfo: Record<string, string>): any => {
   const methodDetails: Record<any, any> = {};
 
   const methodDeclarations = extractMethodDeclarations(node);
@@ -223,7 +273,11 @@ const extractMethodDetails = (node: any, filePath: string, className: string): a
       self: {
         line: `${method.range.beginLine}-${method.range.endLine}`, // Assuming line numbers are stored in `range`
         file: filePath,
-        className: className,
+        dependencyInfo: {
+          groupId: basicInfo.groupId,
+          artifactId: basicInfo.artifactId,
+          version: basicInfo.version,
+        }
       },
     };
   }

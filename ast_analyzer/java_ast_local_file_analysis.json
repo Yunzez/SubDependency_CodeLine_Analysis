@@ -43,12 +43,38 @@
     {
       "methodName": "init",
       "methodCallLine": "[complex expression].init([complex expression], [complex expression])",
-      "line": "38-38"
+      "line": "38-38",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "doFinal",
       "methodCallLine": "[complex expression].doFinal([complex expression])",
-      "line": "39-39"
+      "line": "39-39",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "getBytes",
@@ -73,12 +99,38 @@
     {
       "methodName": "init",
       "methodCallLine": "[complex expression].init([complex expression], [complex expression])",
-      "line": "44-44"
+      "line": "44-44",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "doFinal",
       "methodCallLine": "[complex expression].doFinal([complex expression])",
-      "line": "45-45"
+      "line": "45-45",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "decode",
@@ -98,12 +150,42 @@
     {
       "methodName": "setPassword",
       "methodCallLine": "[complex expression].setPassword([complex expression])",
-      "line": "50-50"
+      "line": "50-50",
+      "thirdPartyInfo": {
+        "external_functions": {
+          "setPassword": "this.encryptor.setPassword"
+        },
+        "internal_functions": {},
+        "self": {
+          "line": "13-15",
+          "file": "../asts/BasicTextEncryptor.json",
+          "dependencyInfo": {
+            "groupId": "org.jasypt",
+            "artifactId": "jasypt",
+            "version": "1.9.3"
+          }
+        }
+      }
     },
     {
       "methodName": "encrypt",
       "methodCallLine": "[complex expression].encrypt([complex expression])",
-      "line": "53-53"
+      "line": "53-53",
+      "thirdPartyInfo": {
+        "external_functions": {
+          "encrypt": "this.encryptor.encrypt"
+        },
+        "internal_functions": {},
+        "self": {
+          "line": "21-23",
+          "file": "../asts/BasicTextEncryptor.json",
+          "dependencyInfo": {
+            "groupId": "org.jasypt",
+            "artifactId": "jasypt",
+            "version": "1.9.3"
+          }
+        }
+      }
     },
     {
       "methodName": "println",
@@ -113,7 +195,22 @@
     {
       "methodName": "decrypt",
       "methodCallLine": "[complex expression].decrypt([complex expression])",
-      "line": "57-57"
+      "line": "57-57",
+      "thirdPartyInfo": {
+        "external_functions": {
+          "decrypt": "this.encryptor.decrypt"
+        },
+        "internal_functions": {},
+        "self": {
+          "line": "25-27",
+          "file": "../asts/BasicTextEncryptor.json",
+          "dependencyInfo": {
+            "groupId": "org.jasypt",
+            "artifactId": "jasypt",
+            "version": "1.9.3"
+          }
+        }
+      }
     },
     {
       "methodName": "println",
@@ -130,14 +227,18 @@
       "methodCallLine": "[complex expression].getCipherInstance([complex expression], [complex expression])",
       "line": "63-63",
       "thirdPartyInfo": {
-        "external_functions": [
-          "getCryptoCipher"
-        ],
-        "internal_functions": [],
+        "external_functions": {
+          "getCryptoCipher": "CryptoCipherFactory.getCryptoCipher"
+        },
+        "internal_functions": {},
         "self": {
           "line": "54-60",
           "file": "../asts/Utils.json",
-          "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
         }
       }
     },
@@ -149,12 +250,38 @@
     {
       "methodName": "init",
       "methodCallLine": "[complex expression].init([complex expression], [complex expression], [complex expression])",
-      "line": "68-68"
+      "line": "68-68",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "update",
       "methodCallLine": "[complex expression].update([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
-      "line": "69-69"
+      "line": "69-69",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "22-22",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "getBytes",
@@ -169,7 +296,20 @@
     {
       "methodName": "doFinal",
       "methodCallLine": "[complex expression].doFinal([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
-      "line": "70-70"
+      "line": "70-70",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "getBytes",
@@ -201,26 +341,56 @@
       "methodCallLine": "[complex expression].getCipherInstance([complex expression], [complex expression])",
       "line": "77-77",
       "thirdPartyInfo": {
-        "external_functions": [
-          "getCryptoCipher"
-        ],
-        "internal_functions": [],
+        "external_functions": {
+          "getCryptoCipher": "CryptoCipherFactory.getCryptoCipher"
+        },
+        "internal_functions": {},
         "self": {
           "line": "54-60",
           "file": "../asts/Utils.json",
-          "className": "Optional[org.apache.commons.crypto.utils.Utils]"
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
         }
       }
     },
     {
       "methodName": "init",
       "methodCallLine": "[complex expression].init([complex expression], [complex expression], [complex expression])",
-      "line": "78-78"
+      "line": "78-78",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "18-18",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "update",
       "methodCallLine": "[complex expression].update([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
-      "line": "80-80"
+      "line": "80-80",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "22-22",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "decode",
@@ -245,7 +415,20 @@
     {
       "methodName": "doFinal",
       "methodCallLine": "[complex expression].doFinal([complex expression], [complex expression], [complex expression], [complex expression], [complex expression])",
-      "line": "81-81"
+      "line": "81-81",
+      "thirdPartyInfo": {
+        "external_functions": {},
+        "internal_functions": {},
+        "self": {
+          "line": "26-26",
+          "file": "../asts/CryptoCipher.json",
+          "dependencyInfo": {
+            "groupId": "org.apache.commons",
+            "artifactId": "commons-crypto",
+            "version": "1.1.0"
+          }
+        }
+      }
     },
     {
       "methodName": "decode",
