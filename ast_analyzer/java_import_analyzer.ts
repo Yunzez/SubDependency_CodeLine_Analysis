@@ -2,13 +2,10 @@ import { exec } from "child_process";
 import * as path from "path";
 import * as fs from "fs";
 import * as os from "os";
+import { analyzeJava } from "./java_analyzer";
 
 export class ImportAnalyzer {
-
-relevantFilePaths: string[] = [];
-constructor(relevantFilePaths: string[]) {
-    this.relevantFilePaths = relevantFilePaths;
-}
+  constructor() {}
 
   getMavenJarPath(
     groupId: string,
@@ -52,59 +49,101 @@ constructor(relevantFilePaths: string[]) {
     astFileName: string
   ) {
     const jarPath = this.getMavenJarPath(groupId, artifactId, version);
-    console.log(`Analyzing JAR file: ${groupId.replace(/\./g, "/") + artifactId,
+    console.log(
+      `Analyzing JAR file: ${
+        (groupId.replace(/\./g, "/") + artifactId,
         version,
-        artifactId + "-" + version}`);
+        artifactId + "-" + version)
+      }`
+    );
 
     if (fs.existsSync(jarPath)) {
-        console.log(`target: ${groupId.replace(/\./g, "/") + artifactId, version, artifactId + "-" + version}`)
-      const outputDir = `./decompiled/${astFileName}`;
+      console.log(
+        `target: ${
+          (groupId.replace(/\./g, "/") + artifactId,
+          version,
+          artifactId + "-" + version)
+        }`
+      );
+      const outputDir = `./decompiled/${astFileName.split(".")[0]}`;
       await this.decompileJarWithJdCli(jarPath, outputDir);
       await this.filterAndProcessDecompiledFiles(outputDir, importStatements);
 
-      this.deleteEmptyDirectories(outputDir);
+      const directoryExists = await this.deleteEmptyDirectories(outputDir);
+
+      if (directoryExists) {
+        const astOutputDir = path.dirname(
+          `./subAst/output/${astFileName.split(".")[0]}/sub_ast.json`
+        );
+        await this.runDirectoryProcessor(
+          outputDir,
+          `./subAst/output/${astFileName.split(".")[0]}/sub_ast.json`
+        );
+
+        console.log(`Directory ${outputDir} was processed`);
+        // const fileFormat: string = "java";
+        // const localAstDirectory: string = "../asts/";
+        // const thirdPartyAstDirectory: string = `./subAst/output/${
+        //   astFileName.split(".")[0]
+        // }`;
+        // const localAnalysisOutputDir: string = `./subAst_local/${
+        //   astFileName.split(".")[0]
+        // }.json`;
+        // const thirdPartyAnalysisOutputDir: string = `./subAst_third_party/${
+        //   astFileName.split(".")[0]
+        // }.json`;
+
+        // //  * java                                              -> fileFormat
+        // //  * ../asts/                                          -> localAstDirectory
+        // //  * ../asts/main                                      -> thirdPartyAstDirectory
+        // //  * ../java_ast_local_file_analysis.json              -> localAnalysisOutputDir
+        // //  * ../asts/main/java_ast_third_party_analysis.json   -> thirdPartyAnalysisOutputDir
+        // this.rerunAnalyzer(
+        //   fileFormat,
+        //   localAstDirectory,
+        //   thirdPartyAstDirectory,
+        //   localAnalysisOutputDir,
+        //   thirdPartyAnalysisOutputDir
+        // );
+      } else {
+        console.log(
+          `Directory ${outputDir} was compeletely irrelavant and so deleted`
+        );
+      }
+
       // Further processing...
     } else {
       console.log(`JAR file not found: ${jarPath}`);
     }
   }
 
-  async filterAndProcessDecompiledFiles(
-    outputDir: string,
-    importStatements: string[],
-  ) {
-    const files = this.getAllFiles(outputDir);
-    for (const filePath of files) {
-      const relativePath = this.convertFilePathToPackagePath(
-        filePath,
-        outputDir
-      );
-
-      const isRelevant = importStatements.some((importStmt) =>
-        relativePath.includes(importStmt)
-      );
-      if (!isRelevant) {
-        // File does not match any import statement, delete it
-        // console.log(`Deleting irrelevant file: ${filePath}`);
-        fs.unlinkSync(filePath);
-      } else {
-        this.relevantFilePaths.push(filePath);
-        // File matches an import statement, process it further
-        console.log(`Processing relevant file: ${filePath}`);
-        // Call your AST generation or other processing methods here
-      }
-    }
-
-    // await this.runDirectoryProcessor(outputDir, "../ast_analyzer/sub_ast");
-  }
-
-  private runDirectoryProcessor(
-    decompiledDir: string,
-    astOutputDir: string
+  private rerunAnalyzer(
+    fileFormat: string,
+    localAstDirectory: string,
+    thirdPartyAstDirectory: string,
+    localAnalysisOutputDir: string,
+    thirdPartyAnalysisOutputDir: string
   ): Promise<void> {
     return new Promise((resolve, reject) => {
-        const javaDecompilationDir = "../ast_analyzer/decompiled"
-      const command = `/usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java @/var/folders/9w/qz54k17x6zg0n9c2zm3kccz40000gn/T/cp_d3xggjeqc1p2bqsmyr7i4eqxu.argfile com.ast_generator.DirectoryProcessor ${javaDecompilationDir} ${astOutputDir}`;
+      // Check if the output directory exists, and create it if it doesn't
+      // if (!fs.existsSync(localAnalysisOutputDir)) {
+      //   fs.mkdirSync(localAnalysisOutputDir, { recursive: true });
+      //   console.log(`Created directory: ${localAnalysisOutputDir}`);
+      // }
+      // if (!fs.existsSync(thirdPartyAnalysisOutputDir)) {
+      //   fs.mkdirSync(thirdPartyAnalysisOutputDir, { recursive: true });
+      //   console.log(`Created directory: ${thirdPartyAnalysisOutputDir}`);
+      // }
+
+      console.log("Local Source AST Code Directory: ", localAstDirectory);
+      console.log(
+        "Third Party Source AST Code Directory: ",
+        thirdPartyAstDirectory
+      );
+      console.log("Local AST Output File: ", localAnalysisOutputDir);
+      console.log("Third Party AST Output File: ", thirdPartyAnalysisOutputDir);
+
+      const command = `ts-node analyzer.ts ${fileFormat} ${localAstDirectory} ${thirdPartyAstDirectory} ${localAnalysisOutputDir} ${thirdPartyAnalysisOutputDir}}`;
       exec(command, (error, stdout, stderr) => {
         if (error) {
           console.error(`DirectoryProcessor error: ${stderr}`);
@@ -117,30 +156,86 @@ constructor(relevantFilePaths: string[]) {
     });
   }
 
-  private deleteEmptyDirectories(directory: string) {
-    // Get all files and directories in the current directory
-    const entries = fs.readdirSync(directory);
+  async filterAndProcessDecompiledFiles(
+    outputDir: string,
+    importStatements: string[]
+  ) {
+    const files = this.getAllFiles(outputDir);
+    for (const filePath of files) {
+      const relativePath = this.convertFilePathToPackagePath(
+        filePath,
+        outputDir
+      );
 
-    entries.forEach((entry) => {
-        const fullPath = path.join(directory, entry);
-        const stat = fs.statSync(fullPath);
-
-        if (stat.isDirectory()) {
-            this.deleteEmptyDirectories(fullPath);
+      const isRelevant = importStatements.some((importStmt) => {
+        if (relativePath.includes("META-INF")) {
+          //   console.log("Skipping META-INF ( meta info ) file: " + relativePath);
+          return false;
         }
+        return relativePath.includes(importStmt);
+      });
+
+      if (!isRelevant) {
+        fs.unlinkSync(filePath);
+      }
+    }
+  }
+
+  private runDirectoryProcessor(
+    decompiledDir: string,
+    astOutputFile: string
+  ): Promise<void> {
+    return new Promise((resolve, reject) => {
+      const sourceCodeDir = path.resolve(decompiledDir);
+      const astOutputFileJava = path.resolve(astOutputFile);
+      const astOutputDir = path.dirname(astOutputFileJava); // Directory for the output file
+
+      // Check if the output directory exists, and create it if it doesn't
+      if (!fs.existsSync(astOutputDir)) {
+        fs.mkdirSync(astOutputDir, { recursive: true });
+        console.log(`Created directory: ${astOutputDir}`);
+      }
+
+      console.log("Source Code Directory: ", sourceCodeDir);
+      console.log("AST Output File: ", astOutputFileJava);
+
+      const command = `/usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java @/var/folders/9w/qz54k17x6zg0n9c2zm3kccz40000gn/T/cp_d3xggjeqc1p2bqsmyr7i4eqxu.argfile com.ast_generator.DirectoryProcessor ${sourceCodeDir} ${astOutputDir} --separate`;
+      exec(command, (error, stdout, stderr) => {
+        if (error) {
+          console.error(`DirectoryProcessor error: ${stderr}`);
+          reject(error);
+        } else {
+          console.log(`DirectoryProcessor output: ${stdout}`);
+          resolve();
+        }
+      });
     });
+  }
+
+  private async deleteEmptyDirectories(directory: string): Promise<boolean> {
+    const entries = await fs.promises.readdir(directory);
+
+    for (const entry of entries) {
+      const fullPath = path.join(directory, entry);
+      const stat = await fs.promises.stat(fullPath);
+
+      if (stat.isDirectory()) {
+        await this.deleteEmptyDirectories(fullPath);
+      }
+    }
 
     // Re-check if the directory is empty
     try {
-        if (fs.readdirSync(directory).length === 0) {
-            console.log(`Deleting empty directory: ${directory}`);
-            fs.rmdirSync(directory);
-        }
+      if ((await fs.promises.readdir(directory)).length === 0) {
+        console.log(`Deleting empty directory: ${directory}`);
+        await fs.promises.rmdir(directory);
+        return false; // Directory was deleted
+      }
     } catch (error) {
-        console.error(`Error deleting directory ${directory}`);
+      console.error(`Error deleting directory ${directory}: ${error}`);
     }
-}
-
+    return true;
+  }
 
   private getAllFiles(dirPath: string, arrayOfFiles: string[] = []): string[] {
     const files = fs.readdirSync(dirPath);

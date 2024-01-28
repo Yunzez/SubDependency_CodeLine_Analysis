@@ -24,6 +24,7 @@ import com.github.javaparser.ParserConfiguration;
 import com.github.javaparser.StaticJavaParser;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.serialization.JavaParserJsonSerializer;
+import java.io.File;
 
 /*
  * this process local directory and generate AST for each java file
@@ -33,6 +34,7 @@ public class DirectoryProcessor {
     private static Path astPath;
     private static Map<String, Dependency> dependencyMap;
     private static ImportManager importManager;
+    private static boolean separateFiles;
 
     public DirectoryProcessor() {
     }
@@ -40,6 +42,12 @@ public class DirectoryProcessor {
     public DirectoryProcessor(String directoryPath, Path astPath) {
         this.directoryPath = directoryPath;
         DirectoryProcessor.astPath = astPath;
+    }
+
+    public DirectoryProcessor(String directoryPath, Path astPath, Boolean separateFiles) {
+        this.directoryPath = directoryPath;
+        DirectoryProcessor.astPath = astPath;
+        this.separateFiles = separateFiles;
     }
 
     public DirectoryProcessor(String directoryPath, Path astPath, Map<String, Dependency> dependencyMap) {
@@ -58,13 +66,14 @@ public class DirectoryProcessor {
     // /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis/ast_analyzer/decompiled
     // /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis/ast_analyzer/sub_ast
     public static void main(String[] args) {
-        if (args.length == 2) {
+        if (args.length >= 2) {
             String sourcePath = Paths.get(args[0]).toString();
             Path outputPath = Paths.get(args[1]);
-            DirectoryProcessor processor = new DirectoryProcessor(sourcePath, outputPath);
+            boolean separateFiles = (args.length == 3 && "--separate".equals(args[2])); // Check for separate flag
+            DirectoryProcessor processor = new DirectoryProcessor(sourcePath, outputPath, separateFiles);
             processor.processDirectory();
         } else {
-            System.out.println("Usage: java DirectoryProcessor <source directory> <AST output path>");
+            System.out.println("Usage: java DirectoryProcessor <source directory> <AST output path> [--separate]");
         }
     }
 
@@ -92,7 +101,6 @@ public class DirectoryProcessor {
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                 if (file.toString().endsWith(".java")) {
-                    System.out.println("Processing file: " + file);
                     generateAST(file.toString());
                 }
                 return FileVisitResult.CONTINUE;
@@ -102,7 +110,7 @@ public class DirectoryProcessor {
 
     private static void generateAST(String sourceFilePath) {
         // Configure parser
-        System.out.println("Configuring parser... for file: " + sourceFilePath);
+        // System.out.println("Configuring parser for file: " + sourceFilePath);
         ParserConfiguration config = new ParserConfiguration();
         StaticJavaParser.setConfiguration(config);
         Path path = Paths.get(sourceFilePath);
@@ -110,9 +118,9 @@ public class DirectoryProcessor {
         try {
             CompilationUnit cu = StaticJavaParser.parse(path);
 
-            if (dependencyMap == null) {
-                System.out.println("dependencyMap is invalid, skipping dependency check");
-            } else {
+            // ! dependency can be null when we are processing directory without pom.xml or
+            // ! calling this class by itself
+            if (dependencyMap != null) {
                 FunctionSignatureExtractor extractor = new FunctionSignatureExtractor(
                         dependencyMap != null ? dependencyMap : null);
                 extractor.extractThirdPartyImports(cu);
@@ -140,33 +148,54 @@ public class DirectoryProcessor {
             String astJson = stringWriter.toString();
             appendLocalASTToJsonFile(path.toString(), astJson);
         } catch (IOException e) {
-            System.err.println("Error parsing file: " + path);
+            System.out.println("Error parsing file: " + path);
             e.printStackTrace();
         } catch (ParseProblemException e) {
-            System.err.println("Parse problem in file: " + sourceFilePath + ", Skipped");
+            System.out.print("Parse problem in file: " + sourceFilePath);
             e.printStackTrace();
+            // System.out.println(" Skipped");
         }
     }
 
     private static void appendLocalASTToJsonFile(String sourceFilePath, String astJson)
             throws IOException {
-        JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
 
-        if (Files.exists(astPath)) {
+        if (separateFiles) {
+            // Replace .java extension with .json
+            String jsonFileName = new File(sourceFilePath).getName().replace(".java", ".json");
+            Path individualAstPath = Paths.get(astPath.toString(), jsonFileName);
+            try (JsonWriter jsonWriter = Json
+                    .createWriter(Files.newBufferedWriter(individualAstPath, StandardOpenOption.CREATE))) {
+                JsonObject newAst = Json.createReader(new StringReader(astJson)).readObject();
+                jsonWriter.writeObject(newAst);
+            }
+        } else {
+
+            JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
+            System.out.println("Appending AST to JSON file: " + astPath);
+            if (!Files.exists(astPath)) {
+                Files.createFile(astPath);
+            }
             // Parse existing JSON and add new AST
             String existingContent = Files.readString(astPath);
-            JsonObject existingJson = Json.createReader(new StringReader(existingContent)).readObject();
-            jsonBuilder = Json.createObjectBuilder(existingJson);
-        }
+            if (existingContent.trim().isEmpty()) {
+                // File is empty, start with an empty JSON object
+                jsonBuilder = Json.createObjectBuilder();
+            } else {
+                // File has content, parse it as JSON
+                JsonObject existingJson = Json.createReader(new StringReader(existingContent)).readObject();
+                jsonBuilder = Json.createObjectBuilder(existingJson);
+            }
 
-        // Add new AST
-        JsonObject newAst = Json.createReader(new StringReader(astJson)).readObject();
-        jsonBuilder.add(sourceFilePath, newAst);
+            // Add new AST
+            JsonObject newAst = Json.createReader(new StringReader(astJson)).readObject();
+            jsonBuilder.add(sourceFilePath, newAst);
 
-        // Write back to file
-        try (JsonWriter jsonWriter = Json.createWriter(
-                Files.newBufferedWriter(astPath, StandardOpenOption.CREATE, StandardOpenOption.WRITE))) {
-            jsonWriter.writeObject(jsonBuilder.build());
+            // Write back to file
+            try (JsonWriter jsonWriter = Json.createWriter(
+                    Files.newBufferedWriter(astPath, StandardOpenOption.CREATE, StandardOpenOption.WRITE))) {
+                jsonWriter.writeObject(jsonBuilder.build());
+            }
         }
     }
 }

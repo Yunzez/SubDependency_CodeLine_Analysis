@@ -7,61 +7,52 @@ import ProgressBar from "progress";
 import { analyzeRust } from "./rust_analyzer";
 import { analyzeJava } from "./java_analyzer";
 import path from "path";
-const callSet = new Set();
-const functionSet = new Set();
-const useSet = new Set();
-/**
- *  @named field indicates whether a particular node type corresponds to a named rule in the grammar or an anonymous rule. Named rules typically represent more semantically meaningful constructs in the language, while anonymous rules might represent more syntactic or structural details.
- *  @fields field is an array of strings, each of which is the name of a field in the node type. The order of the fields is significant, and corresponds to the order of the fields in the grammar rule that the node type represents.
- *  @children  provides information about the child nodes that a particular node type can have according to the grammar. It specifies the types of child nodes, and whether they are required or optional, as well as if there can be multiple instances of them.
- *  @children -
- *   @multiple : a boolean indicating whether the node type can have multiple instances of the specified child node types.
- *   @required : indicating whether the child nodes are required for this node type according to the grammar
- *   @types : an array containing the possible types of child nodes. Each type is represented by an object detailing the type of node
+import { countJavaFiles, findAstPaths } from "./java_analyzer_utils";
+
+/* example command line usage:
+ * node analyzer.js
+ * java                                              -> fileFormat
+ * ../asts/                                          -> localAstDirectory
+ * ../asts/main                                      -> thirdPartyAstDirectory
+ * ../java_ast_local_file_analysis.json              -> localAnalysisOutputDir
+ * ../asts/main/java_ast_third_party_analysis.json   -> thirdPartyAnalysisOutputDir
  */
-
-type NodeType = {
-  type: string;
-  named: boolean;
-  fields?: any;
-  children?: any;
-};
-
-type FunctionInfo = {
-  line: string;
-  file: string;
-};
-
-type FunctionNode = {
-  node: any;
-  file: string;
-};
-
-const functionLocationMap: Map<string, FunctionInfo> = new Map();
-
-const functionTreeMap: Map<string, any> = new Map();
-
-const nodeTypeMap = new Map<string, NodeType>();
-
-const mapAst = () => {
-  // console.log(node_type)
-};
-
 const init = async (): Promise<void> => {
+  let fileFormat = process.argv[2];
+  let localAstDirectory = process.argv[3];
+  let thirdPartyAstDirectory = process.argv[4];
+  let localAnalysisOutputDir = process.argv[5];
+  let thirdPartyAnalysisOutputDir = process.argv[6];
+  let recursiveAnalysis = process.argv[6];
+
   const fs = require("fs");
   const { parser } = require("stream-json");
   const { streamValues } = require("stream-json/streamers/StreamValues");
 
   const { prompt } = require("enquirer");
 
-  const typeResponse = await prompt({
-    type: "select",
-    name: "fileFormat",
-    message: "Choose the format of the file:",
-    choices: ["rust", "java", "js", "python", "go", "c++", "other"],
-  });
+  let typeResponse = null;
+  if (fileFormat == null) {
+    typeResponse = await prompt({
+      type: "select",
+      name: "fileFormat",
+      message: "Choose the format of the file:",
+      choices: ["java", "rust", "js", "python"],
+    });
+    fileFormat = typeResponse.fileFormat;
+    console.log(`You selected: ${typeResponse.fileFormat}`);
+  }
 
-  console.log(`You selected: ${typeResponse.fileFormat}`);
+  if (recursiveAnalysis == null) {
+    typeResponse = await prompt({
+      type: "select",
+      name: "recursiveAnalysis",
+      message: "Do you want to recursively analyze the ASTs?",
+      choices: ["true", "false"],
+    });
+    recursiveAnalysis = typeResponse.recursiveAnalysis ?? "true";
+    console.log(`You selected: ${typeResponse.recursiveAnalysis}`);
+  }
 
   const response = await prompt({
     type: "input",
@@ -69,8 +60,7 @@ const init = async (): Promise<void> => {
     message: `please input your ast file path:`,
   });
 
-  const type = typeResponse.fileFormat;
-  switch (type) {
+  switch (fileFormat) {
     case "rust":
       let currentAst = undefined;
       if (response.filePath) {
@@ -84,28 +74,19 @@ const init = async (): Promise<void> => {
       break;
 
     case "java":
-      const AST_DIRECTORY = "../asts/";
-      const LOCAL_AST_DIRECTORY = "../asts/main";
+      const AST_DIRECTORY = thirdPartyAstDirectory ?? "../asts/";
+      const LOCAL_AST_DIRECTORY = localAstDirectory ?? "../asts/main";
+      let recursive = false;
+
+      if (recursiveAnalysis != null) {
+        recursive = recursiveAnalysis == "true" ? true : false;
+      }
+
       let thirdPartyAsts: string[] = [];
       let localAsts: string[] = [];
       // Step 1: Collecting AST Files
-      fs.readdirSync(AST_DIRECTORY).forEach((dir: string) => {
-        let fullPath = path.join(AST_DIRECTORY, dir);
-        console.log(`Reading directory: ${fullPath}`);
-        if (fs.statSync(fullPath).isFile()) {
-          // Collect third-party AST files
-          thirdPartyAsts.push(fullPath);
-        }
-      });
-
-      fs.readdirSync(LOCAL_AST_DIRECTORY).forEach((dir: string) => {
-        let fullPath = path.join(LOCAL_AST_DIRECTORY, dir);
-        console.log(`Reading directory: ${fullPath}`);
-        if (fs.statSync(fullPath).isFile()) {
-          // Collect third-party AST files
-          localAsts.push(fullPath);
-        }
-      });
+      findAstPaths(AST_DIRECTORY, thirdPartyAsts);
+      findAstPaths(LOCAL_AST_DIRECTORY, localAsts);
 
       console.log(`Found ${thirdPartyAsts.length} third-party AST files`);
       console.log(`Found ${localAsts.length} local AST files`);
@@ -113,16 +94,22 @@ const init = async (): Promise<void> => {
       // * Step 2: Processing AST Files
 
       // ! if third party analysis or local analysis json exist, delete it first
-      if (fs.existsSync("java_ast_third_party_analysis.json")) {
-        fs.unlinkSync("java_ast_third_party_analysis.json");
+      localAnalysisOutputDir =
+        localAnalysisOutputDir ?? "./java_ast_local_file_analysis.json";
+
+      thirdPartyAnalysisOutputDir =
+        thirdPartyAnalysisOutputDir ?? "./java_ast_third_party_analysis.json";
+
+      if (fs.existsSync(thirdPartyAnalysisOutputDir)) {
+        fs.unlinkSync(thirdPartyAnalysisOutputDir);
       }
 
-      if (fs.existsSync("java_ast_local_file_analysis.json")) {
-        fs.unlinkSync("java_ast_local_file_analysis.json");
+      if (fs.existsSync(localAnalysisOutputDir)) {
+        fs.unlinkSync(localAnalysisOutputDir);
       }
       // Process Third-Party ASTs
       console.log("Processing Third-Party ASTs");
-      thirdPartyAsts.forEach((astFilePath) => {
+      const completePromises = thirdPartyAsts.map(async (astFilePath) => {
         const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
         const basicInfo = {
           filePath: astFilePath,
@@ -132,19 +119,27 @@ const init = async (): Promise<void> => {
           version: astContent.version,
         };
         const className = astContent.className;
-        console.log("Class Name:", className, basicInfo)
-        analyzeJava(astContent, astFilePath, basicInfo, true); // Differentiate mode
+        console.log("Class Name:", className, basicInfo);
+
+        return analyzeJava(astContent, astFilePath, basicInfo, true, recursive); // is third party, and analyze import
       });
 
+      // ! wait for all the promises to complete
+      await Promise.all(completePromises);
+      console.log("Finished processing third-party ASTs");
+      collectMetaInfo(thirdPartyAnalysisOutputDir);
+      console.log("Gather meta data from third party ASTs");
       // Process Local ASTs
       console.log("Processing Local ASTs");
       localAsts.forEach((astFilePath) => {
         const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
-        const className = {className: astContent.className}
-        console.log("Class Name:", className)
-        analyzeJava(astContent, astFilePath, className, false); // Add a mode parameter
+        const className = { className: astContent.className };
+        console.log("Class Name:", className);
+        analyzeJava(astContent, astFilePath, className, false, false); // not third party, and do not analyze import
       });
 
+      const javaFileCount = countJavaFiles("./decompiled");
+      console.log(`Found ${javaFileCount} Java files in decompiled directory`);
       break;
     default:
       console.log("not supported yet");
@@ -152,6 +147,41 @@ const init = async (): Promise<void> => {
   }
 };
 
-init();
+const collectMetaInfo = async (astFilePath: string) => {
+  if (!fs.existsSync(astFilePath)) {
+    console.log(`AST file not found: ${astFilePath}`);
+    return;
+  }
 
-mapAst();
+  const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
+  const functionsRequiredInfo: string[] = [];
+  for (const [key, value] of Object.entries(astContent)) {
+    const astValue = value as { external_functions: Record<string, string> };
+    if (astValue.external_functions) {
+      // Get all the values from the external_functions object and add to the array
+      functionsRequiredInfo.push(...Object.values(astValue.external_functions));
+    } else {
+      console.log(`External functions not found in ${key}`);
+    }
+  }
+
+  functionsRequiredInfo.filter((func) => {
+    // Define patterns for system calls
+    const systemPatterns = ["System.", "Thread.", "Objects."];
+
+    // Check if the function call starts with any of the system patterns
+    const isSystemCall = systemPatterns.some((pattern) =>
+      func.startsWith(pattern)
+    );
+
+    // Check if the function call is an internal call (no dot notation)
+    const isInternalCall = !func.includes(".");
+
+    // Filter out system calls and internal calls
+    return !isSystemCall && !isInternalCall;
+  });
+
+  console.log("functionsRequiredInfo:", functionsRequiredInfo);
+};
+
+init();
