@@ -1,0 +1,1436 @@
+{
+  "setConfig": {
+    "external_functions": {
+      "setConfig": "this.byteEncryptor.setConfig"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "43-47",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setAlgorithm": {
+    "external_functions": {
+      "setAlgorithm": "this.byteEncryptor.setAlgorithm"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "49-51",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setPassword": {
+    "external_functions": {
+      "setPassword": "this.byteEncryptor.setPassword"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "53-55",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setPasswordCharArray": {
+    "external_functions": {
+      "setPasswordCharArray": "this.byteEncryptor.setPasswordCharArray"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "57-59",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setKeyObtentionIterations": {
+    "external_functions": {
+      "setKeyObtentionIterations": "this.byteEncryptor.setKeyObtentionIterations"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "61-63",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setSaltGenerator": {
+    "external_functions": {
+      "setSaltGenerator": "this.byteEncryptor.setSaltGenerator"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "65-67",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setIvGenerator": {
+    "external_functions": {
+      "setIvGenerator": "this.byteEncryptor.setIvGenerator"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "69-71",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setProviderName": {
+    "external_functions": {
+      "setProviderName": "this.byteEncryptor.setProviderName"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "73-75",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setProvider": {
+    "external_functions": {
+      "setProvider": "this.byteEncryptor.setProvider"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "77-79",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setStringOutputType": {
+    "external_functions": {
+      "validateNotEmpty": "CommonUtils.validateNotEmpty",
+      "isInitialized": "isInitialized",
+      "getStandardStringOutputType": "CommonUtils.getStandardStringOutputType"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "81-89",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "cloneAndInitializeEncryptor": {
+    "external_functions": {
+      "cloneAndInitializeEncryptor": "this.byteEncryptor.cloneAndInitializeEncryptor",
+      "initializeSpecifics": "initializeSpecifics",
+      "isNotEmpty": "CommonUtils.isNotEmpty",
+      "setStringOutputType": "setStringOutputType"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "91-102",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "isInitialized": {
+    "external_functions": {
+      "isInitialized": "this.byteEncryptor.isInitialized"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "104-106",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "initialize": {
+    "external_functions": {
+      "isInitialized": "isInitialized",
+      "initializeSpecifics": "initializeSpecifics",
+      "initialize": "this.byteEncryptor.initialize"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "108-113",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "initializeSpecifics": {
+    "external_functions": {
+      "getStringOutputType": "this.stringPBEConfig.getStringOutputType",
+      "equalsIgnoreCase": "equalsIgnoreCase"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "115-123",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "encrypt": {
+    "external_functions": {
+      "isInitialized": "isInitialized",
+      "initialize": "initialize",
+      "getBytes": "message.getBytes",
+      "encrypt": "this.byteEncryptor.encrypt",
+      "toHexadecimal": "CommonUtils.toHexadecimal",
+      "encode": "this.base64.encode"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "125-148",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "decrypt": {
+    "external_functions": {
+      "isInitialized": "isInitialized",
+      "initialize": "initialize",
+      "fromHexadecimal": "CommonUtils.fromHexadecimal",
+      "getBytes": "encryptedMessage.getBytes",
+      "decode": "this.base64.decode",
+      "decrypt": "this.byteEncryptor.decrypt"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "150-172",
+      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "dependencyInfo": {}
+    }
+  },
+  "fromImplicitPrimitive": {
+    "external_functions": {
+      "createPrimitive": "ASN1ObjectIdentifier.createPrimitive",
+      "getOctets": "param1DEROctetString.getOctets"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "12-14",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "fromContents": {
+    "external_functions": {
+      "createPrimitive": "createPrimitive"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "25-27",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getInstance": {
+    "external_functions": {
+      "getInstance": "ASN1Sequence.getInstance"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "24-26",
+      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getId": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "120-122",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "branch": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "124-126",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "on": {
+    "external_functions": {
+      "getId": "paramASN1ObjectIdentifier.getId",
+      "length": "str2.length",
+      "charAt": "str1.charAt",
+      "startsWith": "str1.startsWith"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "128-132",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "doOutput": {
+    "external_functions": {
+      "parseInt": "Integer.parseInt",
+      "nextToken": "oIDTokenizer.nextToken",
+      "length": "str1.length",
+      "writeField": "ASN1RelativeOID.writeField",
+      "add": "add",
+      "valueOf": "BigInteger.valueOf",
+      "parseLong": "Long.parseLong",
+      "hasMoreTokens": "oIDTokenizer.hasMoreTokens"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "134-151",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getContents": {
+    "external_functions": {
+      "doOutput": "doOutput",
+      "toByteArray": "byteArrayOutputStream.toByteArray"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "153-160",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "encodeConstructed": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "162-164",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "encodedLength": {
+    "external_functions": {
+      "getLengthOfEncodingDL": "ASN1OutputStream.getLengthOfEncodingDL",
+      "getContents": "getContents"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "166-168",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "encode": {
+    "external_functions": {
+      "writeEncodingDL": "paramASN1OutputStream.writeEncodingDL",
+      "getContents": "getContents"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "170-172",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "hashCode": {
+    "external_functions": {
+      "hashCode": "hashCode",
+      "getName": "getName"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "109-111",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "dependencyInfo": {}
+    }
+  },
+  "asn1Equals": {
+    "external_functions": {
+      "equals": "this.identifier.equals"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "178-180",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "toString": {
+    "external_functions": {
+      "getId": "getId"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "182-184",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "isValidIdentifier": {
+    "external_functions": {
+      "length": "paramString.length",
+      "charAt": "paramString.charAt",
+      "isValidIdentifier": "ASN1RelativeOID.isValidIdentifier"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "186-191",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "intern": {
+    "external_functions": {
+      "getContents": "getContents",
+      "get": "pool.get",
+      "putIfAbsent": "pool.putIfAbsent"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "193-202",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "createPrimitive": {
+    "external_functions": {
+      "get": "pool.get"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "204-208",
+      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "dependencyInfo": {}
+    }
+  },
+  "equals": {
+    "external_functions": {
+      "equals": "equals",
+      "getName": "getName"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "99-107",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "dependencyInfo": {}
+    }
+  },
+  "configure": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "6-6",
+      "file": "subAst/output/BouncyCastleProvider/AlgorithmProvider.json",
+      "dependencyInfo": {}
+    }
+  },
+  "generatePrivate": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "62-64",
+      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "generatePublic": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "66-68",
+      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "loadClass": {
+    "external_functions": {
+      "getClassLoader": "paramClass.getClassLoader",
+      "doPrivileged": "AccessController.doPrivileged",
+      "forName": "Class.forName",
+      "loadClass": "classLoader.loadClass"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "7-22",
+      "file": "subAst/output/BouncyCastleProvider/ClassUtil.json",
+      "dependencyInfo": {}
+    }
+  },
+  "run": {
+    "external_functions": {
+      "checkPermission": "securityManager.checkPermission"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "150-153",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setParameter": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "20-20",
+      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "dependencyInfo": {}
+    }
+  },
+  "addAlgorithm": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "24-24",
+      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "dependencyInfo": {}
+    }
+  },
+  "hasAlgorithm": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "26-26",
+      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "dependencyInfo": {}
+    }
+  },
+  "addKeyInfoConverter": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "28-28",
+      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getKeyInfoConverter": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "30-30",
+      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "dependencyInfo": {}
+    }
+  },
+  "addAttributes": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "32-32",
+      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "dependencyInfo": {}
+    }
+  },
+  "engineGeneratePrivate": {
+    "external_functions": {
+      "getEncoded": "getEncoded",
+      "toString": "exception.toString",
+      "generatePrivate": "generatePrivate",
+      "getInstance": "PrivateKeyInfo.getInstance",
+      "fromByteArray": "ASN1Primitive.fromByteArray",
+      "getClass": "paramKeySpec.getClass"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "19-29",
+      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "engineGeneratePublic": {
+    "external_functions": {
+      "getEncoded": "getEncoded",
+      "toString": "exception.toString",
+      "generatePublic": "generatePublic",
+      "getInstance": "SubjectPublicKeyInfo.getInstance"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "31-41",
+      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "engineGetKeySpec": {
+    "external_functions": {
+      "getClass": "paramKey.getClass",
+      "isAssignableFrom": "isAssignableFrom",
+      "getEncoded": "paramKey.getEncoded"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "43-54",
+      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "engineTranslateKey": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "56-60",
+      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getKeySpec": {
+    "external_functions": {
+      "getClass": "paramKey.getClass",
+      "isAssignableFrom": "isAssignableFrom",
+      "getEncoded": "paramKey.getEncoded"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "73-84",
+      "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "translateKey": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "86-90",
+      "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getDigest": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "112-114",
+      "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getVersionValue": {
+    "external_functions": {
+      "intValueExact": "paramASN1Integer.intValueExact"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "41-46",
+      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getVersion": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "91-93",
+      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getAttributes": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "95-97",
+      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getPrivateKeyAlgorithm": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "99-101",
+      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getPrivateKey": {
+    "external_functions": {
+      "getOctets": "this.privateKey.getOctets"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "103-105",
+      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "parsePrivateKey": {
+    "external_functions": {
+      "fromByteArray": "ASN1Primitive.fromByteArray",
+      "getOctets": "this.privateKey.getOctets"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "107-109",
+      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "hasPublicKey": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "111-113",
+      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "parsePublicKey": {
+    "external_functions": {
+      "fromByteArray": "ASN1Primitive.fromByteArray",
+      "getOctets": "this.keyData.getOctets"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "54-56",
+      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getPublicKeyData": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "62-64",
+      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "toASN1Primitive": {
+    "external_functions": {
+      "add": "aSN1EncodableVector.add"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "66-71",
+      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getEcImplicitlyCa": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "10-10",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getDHDefaultParameters": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "12-12",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getDSADefaultParameters": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "14-14",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getAcceptableNamedCurves": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "16-16",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getAdditionalECParameters": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "18-18",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "dependencyInfo": {}
+    }
+  },
+  "calculateMask": {
+    "external_functions": {
+      "toLowerCase": "Strings.toLowerCase",
+      "nextToken": "stringTokenizer.nextToken",
+      "equals": "str.equals",
+      "hasMoreTokens": "stringTokenizer.hasMoreTokens"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "49-84",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getActions": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "86-88",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "dependencyInfo": {}
+    }
+  },
+  "implies": {
+    "external_functions": {
+      "equals": "equals",
+      "getName": "getName"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "90-97",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getAlgorithm": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "16-16",
+      "file": "subAst/output/Utils/CryptoCipher.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getAlgorithmId": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "50-52",
+      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getPublicKey": {
+    "external_functions": {
+      "fromByteArray": "ASN1Primitive.fromByteArray",
+      "getOctets": "this.keyData.getOctets"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "58-60",
+      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getSecureRandom": {
+    "external_functions": {
+      "getSecureRandom": "getSecureRandom"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "46-48",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setSecureRandom": {
+    "external_functions": {
+      "checkPermission": "checkPermission"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "50-55",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getProperty": {
+    "external_functions": {
+      "lookupProperty": "lookupProperty"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "57-60",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "lookupProperty": {
+    "external_functions": {
+      "get": "globalProperties.get",
+      "containsKey": "map.containsKey"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "62-71",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getSizedProperty": {
+    "external_functions": {
+      "lookupProperty": "lookupProperty",
+      "isAssignableFrom": "paramProperty.type.isAssignableFrom",
+      "bitLength": "bitLength",
+      "getP": "dHParameters.getP"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "78-96",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setThreadProperty": {
+    "external_functions": {
+      "checkPermission": "checkPermission",
+      "isAssignableFrom": "paramProperty.type.isAssignableFrom",
+      "getClass": "getClass",
+      "localSetThread": "localSetThread",
+      "clone": "paramVarArgs.clone"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "98-103",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "setGlobalProperty": {
+    "external_functions": {
+      "checkPermission": "checkPermission",
+      "localSetGlobalProperty": "localSetGlobalProperty",
+      "clone": "paramVarArgs.clone"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "105-108",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "localSetThread": {
+    "external_functions": {
+      "get": "threadProperties.get",
+      "set": "threadProperties.set",
+      "put": "map.put"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "110-117",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "localSetGlobalProperty": {
+    "external_functions": {
+      "isAssignableFrom": "paramProperty.type.isAssignableFrom",
+      "getClass": "getClass",
+      "localSetThread": "localSetThread",
+      "put": "globalProperties.put"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "119-124",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "clearGlobalProperty": {
+    "external_functions": {
+      "checkPermission": "checkPermission",
+      "localClearThreadProperty": "localClearThreadProperty",
+      "remove": "globalProperties.remove"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "126-130",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "clearThreadProperty": {
+    "external_functions": {
+      "checkPermission": "checkPermission",
+      "localClearThreadProperty": "localClearThreadProperty"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "132-135",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "localClearThreadProperty": {
+    "external_functions": {
+      "get": "threadProperties.get",
+      "set": "threadProperties.set",
+      "remove": "map.remove"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "137-144",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "checkPermission": {
+    "external_functions": {
+      "getSecurityManager": "System.getSecurityManager",
+      "doPrivileged": "AccessController.doPrivileged",
+      "checkPermission": "securityManager.checkPermission"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "146-155",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "toDH": {
+    "external_functions": {
+      "bitLength": "bitLength",
+      "getP": "paramDSAParameters.getP",
+      "chooseLowerBound": "chooseLowerBound",
+      "getG": "paramDSAParameters.getG",
+      "getQ": "paramDSAParameters.getQ",
+      "getSeed": "getSeed",
+      "getValidationParameters": "paramDSAParameters.getValidationParameters",
+      "getCounter": "getCounter"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "157-161",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "chooseLowerBound": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "163-176",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getQ": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "32-34",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getJ": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "78-80",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getM": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "82-84",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getDomainParameters": {
+    "external_functions": {
+      "getDomainParameters": "ECUtil.getDomainParameters",
+      "convertSpec": "convertSpec",
+      "getEcImplicitlyCa": "paramProviderConfiguration.getEcImplicitlyCa",
+      "getCurve": "eCParameterSpec.getCurve",
+      "getG": "eCParameterSpec.getG",
+      "getN": "eCParameterSpec.getN",
+      "getH": "eCParameterSpec.getH",
+      "getSeed": "eCParameterSpec.getSeed"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "72-81",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getDefaultMParam": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "24-26",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getP": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "28-30",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getG": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "47-49",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getL": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "86-88",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getValidationParameters": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "40-42",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getCurve": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "43-45",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "dependencyInfo": {}
+    }
+  },
+  "convertToSpec": {
+    "external_functions": {
+      "convertCurve": "convertCurve",
+      "getCurve": "paramECDomainParameters.getCurve",
+      "convertPoint": "convertPoint",
+      "getG": "paramECDomainParameters.getG",
+      "getN": "paramECDomainParameters.getN",
+      "intValue": "intValue",
+      "getH": "paramECDomainParameters.getH"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "122-124",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "dependencyInfo": {}
+    }
+  },
+  "convertCurve": {
+    "external_functions": {
+      "getField": "paramEllipticCurve.getField",
+      "getA": "paramEllipticCurve.getA",
+      "getB": "paramEllipticCurve.getB",
+      "getP": "getP",
+      "containsKey": "customCurves.containsKey",
+      "get": "customCurves.get",
+      "getM": "eCFieldF2m.getM",
+      "convertMidTerms": "ECUtil.convertMidTerms",
+      "getMidTermsOfReductionPolynomial": "eCFieldF2m.getMidTermsOfReductionPolynomial"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "133-145",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "dependencyInfo": {}
+    }
+  },
+  "convertField": {
+    "external_functions": {
+      "isFpField": "ECAlgorithms.isFpField",
+      "getCharacteristic": "paramFiniteField.getCharacteristic",
+      "getMinimalPolynomial": "getMinimalPolynomial",
+      "getExponentsPresent": "polynomial.getExponentsPresent",
+      "reverseInPlace": "Arrays.reverseInPlace",
+      "copyOfRange": "Arrays.copyOfRange",
+      "getDegree": "polynomial.getDegree"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "147-154",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "dependencyInfo": {}
+    }
+  },
+  "convertSpec": {
+    "external_functions": {
+      "convertCurve": "convertCurve",
+      "getCurve": "paramECParameterSpec.getCurve",
+      "convertPoint": "convertPoint",
+      "getGenerator": "paramECParameterSpec.getGenerator",
+      "getOrder": "paramECParameterSpec.getOrder",
+      "valueOf": "BigInteger.valueOf",
+      "getCofactor": "paramECParameterSpec.getCofactor",
+      "getSeed": "getSeed",
+      "getName": "getName"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "165-172",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "dependencyInfo": {}
+    }
+  },
+  "convertPoint": {
+    "external_functions": {
+      "normalize": "paramECPoint.normalize",
+      "toBigInteger": "toBigInteger",
+      "getAffineXCoord": "paramECPoint.getAffineXCoord",
+      "getAffineYCoord": "paramECPoint.getAffineYCoord"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "182-185",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getN": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "51-53",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getH": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "55-57",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getSeed": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "59-61",
+      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "dependencyInfo": {}
+    }
+  },
+  "newInstance": {
+    "external_functions": {
+      "getClass": "getClass",
+      "getDeclaredConstructor": "klass.getDeclaredConstructor",
+      "setAccessible": "ctor.setAccessible",
+      "newInstance": "ctor.newInstance"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "24-40",
+      "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getClassByName": {
+    "external_functions": {
+      "getClassByNameOrNull": "getClassByNameOrNull"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "42-47",
+      "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getClassByNameOrNull": {
+    "external_functions": {
+      "get": "ref.get",
+      "synchronizedMap": "Collections.synchronizedMap",
+      "put": "map.put",
+      "forName": "Class.forName"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "49-75",
+      "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "createDefaultProperties": {
+    "external_functions": {
+      "getProperties": "System.getProperties",
+      "println": "System.err.println",
+      "toString": "ex.toString",
+      "getResourceAsStream": "getResourceAsStream",
+      "getContextClassLoader": "getContextClassLoader",
+      "currentThread": "Thread.currentThread",
+      "load": "fileProps.load",
+      "propertyNames": "fileProps.propertyNames",
+      "nextElement": "names.nextElement",
+      "getProperty": "fileProps.getProperty",
+      "setProperty": "defaultedProps.setProperty",
+      "hasMoreElements": "names.hasMoreElements"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "21-42",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getDefaultProperties": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "44-46",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getProperties": {
+    "external_functions": {
+      "putAll": "properties.putAll"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "48-52",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getCipherInstance": {
+    "external_functions": {
+      "getCryptoCipher": "CryptoCipherFactory.getCryptoCipher"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "54-60",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "checkArgument": {
+    "external_functions": {
+      "valueOf": "String.valueOf"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "67-70",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "checkNotNull": {
+    "external_functions": {
+      "requireNonNull": "Objects.requireNonNull"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "72-75",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "checkState": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "81-84",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "splitClassNames": {
+    "external_functions": {
+      "isEmpty": "clazzName.isEmpty",
+      "trim": "clazzName.trim",
+      "add": "res.add",
+      "split": "clazzNames.split"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "86-96",
+      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getBlockSize": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "14-14",
+      "file": "subAst/output/Utils/CryptoCipher.json",
+      "dependencyInfo": {}
+    }
+  },
+  "init": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "18-18",
+      "file": "subAst/output/Utils/CryptoCipher.json",
+      "dependencyInfo": {}
+    }
+  },
+  "update": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "22-22",
+      "file": "subAst/output/Utils/CryptoCipher.json",
+      "dependencyInfo": {}
+    }
+  },
+  "doFinal": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "26-26",
+      "file": "subAst/output/Utils/CryptoCipher.json",
+      "dependencyInfo": {}
+    }
+  },
+  "updateAAD": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "32-34",
+      "file": "subAst/output/Utils/CryptoCipher.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getClassName": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "29-31",
+      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getImplClass": {
+    "external_functions": {},
+    "internal_functions": {},
+    "self": {
+      "line": "33-35",
+      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getCryptoCipher": {
+    "external_functions": {
+      "getCryptoCipher": "getCryptoCipher"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "68-70",
+      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "dependencyInfo": {}
+    }
+  },
+  "getCipherClassString": {
+    "external_functions": {
+      "getProperty": "props.getProperty",
+      "isEmpty": "cipherClassString.isEmpty"
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "72-77",
+      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "dependencyInfo": {}
+    }
+  }
+}

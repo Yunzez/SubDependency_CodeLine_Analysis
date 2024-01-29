@@ -1,12 +1,27 @@
 import * as fs from "fs";
 import { serializeArgument, serializeScope } from "./java_analyzer_utils";
 import ImportAnalyzer from "./java_import_analyzer";
+
+/**
+ * * This function analyzes ONE Java Abstract Syntax Tree (AST).
+ *
+ * @param {any} currentAst - The AST to analyze.
+ * @param {string} filePath - The path to the Java file.
+ * @param {Record<string, string>} basicInfo - Basic information about the Java file.
+ * @param {boolean} isThirdParty - Whether the Java file is a third-party file.
+ * @param {boolean} analyzeImport - Whether to analyze import statements.
+ * @param {string} outputFile - The name of the output file.
+ * @returns {Promise<void>}
+ */
 export const analyzeJava = async (
   currentAst: any,
   filePath: string,
   basicInfo: Record<string, string>,
   isThirdParty: boolean,
-  analyzeImport: boolean = false
+  analyzeImport: boolean = false,
+  outputFile: string = isThirdParty
+    ? "java_ast_third_party_analysis.json"
+    : "java_ast_local_file_analysis.json"
 ): Promise<void> => {
   console.log(`Analyzing AST node from file: ${filePath}`, basicInfo);
   console.log(`------------------------------------------`);
@@ -33,13 +48,14 @@ export const analyzeJava = async (
     }
 
     // Append the method details to a JSON file
-    appendToJSONFile("java_ast_third_party_analysis.json", methodDetails);
+    appendToJSONFile(outputFile, methodDetails);
+    console.log("output to", outputFile);
   } else {
     // const methodDetails = extractMethodDetails(currentAst, filePath, className);
     // console.log("local file method details: ", methodDetails)
     // Analysis logic specific to local ASTs
     const localInfo = analyzeLocalJava(currentAst, filePath);
-    appendToJSONFile("java_ast_local_file_analysis.json", localInfo);
+    appendToJSONFile(outputFile, localInfo);
   }
 };
 

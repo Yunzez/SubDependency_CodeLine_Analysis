@@ -127,8 +127,10 @@ const init = async (): Promise<void> => {
       // ! wait for all the promises to complete
       await Promise.all(completePromises);
       console.log("Finished processing third-party ASTs");
-      collectMetaInfo(thirdPartyAnalysisOutputDir);
       console.log("Gather meta data from third party ASTs");
+
+      await collectMetaInfo(thirdPartyAnalysisOutputDir);
+
       // Process Local ASTs
       console.log("Processing Local ASTs");
       localAsts.forEach((astFilePath) => {
@@ -153,6 +155,12 @@ const collectMetaInfo = async (astFilePath: string) => {
     return;
   }
 
+  const functionsRequiredInfo = gatherFunctionsCall(astFilePath);
+  await processMetaAstData("./subAst/output");
+  // gatherFunctionMetaData(functionsRequiredInfo);
+};
+
+const gatherFunctionsCall = (astFilePath: string) => {
   const astContent = JSON.parse(fs.readFileSync(astFilePath, "utf8"));
   const functionsRequiredInfo: string[] = [];
   for (const [key, value] of Object.entries(astContent)) {
@@ -182,6 +190,105 @@ const collectMetaInfo = async (astFilePath: string) => {
   });
 
   console.log("functionsRequiredInfo:", functionsRequiredInfo);
+  return functionsRequiredInfo;
+};
+
+const processMetaAstData = async (astDirectory: string) => {
+  const astFiles = fs.readdirSync(astDirectory);
+  const allPath: string[] = [];
+
+  const findAllJsonFiles = (dirPath: string, arrayOfFiles: string[] = []) => {
+    const files = fs.readdirSync(dirPath);
+
+    files.forEach((file) => {
+      const filePath = path.join(dirPath, file);
+      if (fs.statSync(filePath).isDirectory()) {
+        arrayOfFiles = findAllJsonFiles(filePath, arrayOfFiles);
+      } else if (file.endsWith(".json")) {
+        arrayOfFiles.push(filePath);
+      }
+    });
+
+    return arrayOfFiles;
+  };
+
+  const jsonFiles = findAllJsonFiles(astDirectory);
+
+  const completePromises = jsonFiles.map(async (dir: string) => {
+    if (fs.statSync(dir).isFile()) {
+      const astContent = JSON.parse(fs.readFileSync(dir, "utf8"));
+      const basicInfo = {
+        filePath: dir,
+        className: astContent.className,
+        groupId: astContent.groupId,
+        artifactId: astContent.artifactId,
+        version: astContent.version,
+      };
+      console.log(`Processing file: ${dir}`);
+      return analyzeJava(
+        astContent,
+        dir,
+        basicInfo,
+        true,
+        false,
+        "metaAst.json"
+      );
+    }
+  });
+
+  await Promise.all(completePromises);
+  console.log("All AST files processed.");
+};
+
+const gatherFunctionMetaData = (functionInfo: string[]) => {
+  const functionMetaData: Record<string, any> = {};
+  const bar = new ProgressBar(
+    "Analyzing function calls [:bar] :percent :etas",
+    {
+      complete: "=",
+      incomplete: " ",
+      width: 50,
+      total: functionInfo.length,
+    }
+  );
+
+  functionInfo.forEach((func) => {
+    // Split the function call into its components
+    const components = func.split(".");
+
+    // Get the package name from the first component
+    const packageName = components[0];
+
+    // Get the class name from the second component
+    const className = components[1];
+
+    // Get the method name from the last component
+    const methodName = components[components.length - 1];
+
+    // Check if the package name is already in the functionMetaData object
+    if (!functionMetaData[packageName]) {
+      // If not, add it with an empty object
+      functionMetaData[packageName] = {};
+    }
+
+    // Check if the class name is already in the functionMetaData object
+    if (!functionMetaData[packageName][className]) {
+      // If not, add it with an empty array
+      functionMetaData[packageName][className] = [];
+    }
+
+    // Add the method name to the array
+    functionMetaData[packageName][className].push(methodName);
+
+    // Update the progress bar
+    bar.tick();
+  });
+
+  // Write the function metadata to a JSON file
+  fs.writeFileSync(
+    "java_function_metadata.json",
+    JSON.stringify(functionMetaData, null, 4)
+  );
 };
 
 init();
