@@ -155,9 +155,12 @@ const collectMetaInfo = async (astFilePath: string) => {
     return;
   }
 
+  const metaAstOutputPath = "./subAst/output";
   const functionsRequiredInfo = gatherFunctionsCall(astFilePath);
-  await processMetaAstData("./subAst/output");
-  // gatherFunctionMetaData(functionsRequiredInfo);
+  await processMetaAstData(metaAstOutputPath);
+
+  console.log("Merging analysis files");
+  mergeAnalysis("./java_ast_third_party_analysis.json", "./metaAst.json");
 };
 
 const gatherFunctionsCall = (astFilePath: string) => {
@@ -225,6 +228,7 @@ const processMetaAstData = async (astDirectory: string) => {
         version: astContent.version,
       };
       console.log(`Processing file: ${dir}`);
+      // ! generate same output analysis file as the third party analysis with name of metaAst.json
       return analyzeJava(
         astContent,
         dir,
@@ -240,55 +244,47 @@ const processMetaAstData = async (astDirectory: string) => {
   console.log("All AST files processed.");
 };
 
-const gatherFunctionMetaData = (functionInfo: string[]) => {
-  const functionMetaData: Record<string, any> = {};
-  const bar = new ProgressBar(
-    "Analyzing function calls [:bar] :percent :etas",
-    {
-      complete: "=",
-      incomplete: " ",
-      width: 50,
-      total: functionInfo.length,
-    }
+const mergeAnalysis = (basePath: string, addsonPath: string) => {
+  if (!fs.statSync(basePath).isFile() || !fs.statSync(addsonPath).isFile()) {
+    console.log("File not found");
+    return null;
+  }
+
+  const addonContent = JSON.parse(fs.readFileSync(addsonPath, "utf8"));
+  const baseContent = JSON.parse(fs.readFileSync(basePath, "utf8"));
+  const addonAnalysisMap = new Map<string, AnalysisResult>();
+
+  for (const [functionName, functionData] of Object.entries(addonContent)) {
+    addonAnalysisMap.set(functionName, functionData as AnalysisResult);
+  }
+
+  console.log(
+    "finish creating addon analysis reference,  size: ",
+    addonAnalysisMap.size
   );
 
-  functionInfo.forEach((func) => {
-    // Split the function call into its components
-    const components = func.split(".");
-
-    // Get the package name from the first component
-    const packageName = components[0];
-
-    // Get the class name from the second component
-    const className = components[1];
-
-    // Get the method name from the last component
-    const methodName = components[components.length - 1];
-
-    // Check if the package name is already in the functionMetaData object
-    if (!functionMetaData[packageName]) {
-      // If not, add it with an empty object
-      functionMetaData[packageName] = {};
+  for (const [key, value] of Object.entries(baseContent)) {
+    const baseFunctionData = value as AnalysisResult;
+    for (const exterFuncName in baseFunctionData.external_functions) {
+      if (addonAnalysisMap.has(exterFuncName)) {
+        console.log("found match: ", exterFuncName);
+        const addonFunctionData = addonAnalysisMap.get(exterFuncName);
+        baseFunctionData.external_functions[exterFuncName] = {
+          call_line: baseFunctionData.external_functions[exterFuncName],
+          exter_func_info: addonFunctionData?.self,
+        };
+      }
     }
+  }
 
-    // Check if the class name is already in the functionMetaData object
-    if (!functionMetaData[packageName][className]) {
-      // If not, add it with an empty array
-      functionMetaData[packageName][className] = [];
-    }
+  // Optionally, write the merged analysis back to a file
+  fs.writeFileSync(basePath, JSON.stringify(baseContent, null, 2));
+};
 
-    // Add the method name to the array
-    functionMetaData[packageName][className].push(methodName);
-
-    // Update the progress bar
-    bar.tick();
-  });
-
-  // Write the function metadata to a JSON file
-  fs.writeFileSync(
-    "java_function_metadata.json",
-    JSON.stringify(functionMetaData, null, 4)
-  );
+type AnalysisResult = {
+  external_functions: Record<string, any>;
+  internal_functions: Record<string, any>;
+  self: Record<string, any>;
 };
 
 init();

@@ -105,7 +105,14 @@
   },
   "getCryptoCipher": {
     "external_functions": {
-      "getCryptoCipher": "getCryptoCipher"
+      "getCryptoCipher": {
+        "call_line": "getCryptoCipher",
+        "exter_func_info": {
+          "line": "68-70",
+          "file": "subAst/output/Utils/CryptoCipherFactory.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -120,7 +127,14 @@
   },
   "getCipherClassString": {
     "external_functions": {
-      "getProperty": "props.getProperty",
+      "getProperty": {
+        "call_line": "props.getProperty",
+        "exter_func_info": {
+          "line": "57-60",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
       "isEmpty": "cipherClassString.isEmpty"
     },
     "internal_functions": {},
@@ -134,18 +148,127 @@
       }
     }
   },
+  "setPassword": {
+    "external_functions": {
+      "setPassword": {
+        "call_line": "this.encryptor.setPassword",
+        "exter_func_info": {
+          "line": "53-55",
+          "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "13-15",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
+  "setPasswordCharArray": {
+    "external_functions": {
+      "setPasswordCharArray": {
+        "call_line": "this.encryptor.setPasswordCharArray",
+        "exter_func_info": {
+          "line": "57-59",
+          "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "17-19",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
+  "encrypt": {
+    "external_functions": {
+      "encrypt": {
+        "call_line": "this.encryptor.encrypt",
+        "exter_func_info": {
+          "line": "125-148",
+          "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "21-23",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
+  "decrypt": {
+    "external_functions": {
+      "decrypt": {
+        "call_line": "this.encryptor.decrypt",
+        "exter_func_info": {
+          "line": "150-172",
+          "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "self": {
+      "line": "25-27",
+      "file": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3"
+      }
+    }
+  },
   "createDefaultProperties": {
     "external_functions": {
-      "getProperties": "System.getProperties",
+      "getProperties": {
+        "call_line": "System.getProperties",
+        "exter_func_info": {
+          "line": "48-52",
+          "file": "subAst/output/CryptoCipherFactory/Utils.json",
+          "dependencyInfo": {}
+        }
+      },
       "println": "System.err.println",
-      "toString": "ex.toString",
+      "toString": {
+        "call_line": "ex.toString",
+        "exter_func_info": {
+          "line": "182-184",
+          "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+          "dependencyInfo": {}
+        }
+      },
       "getResourceAsStream": "getResourceAsStream",
       "getContextClassLoader": "getContextClassLoader",
       "currentThread": "Thread.currentThread",
       "load": "fileProps.load",
       "propertyNames": "fileProps.propertyNames",
       "nextElement": "names.nextElement",
-      "getProperty": "fileProps.getProperty",
+      "getProperty": {
+        "call_line": "fileProps.getProperty",
+        "exter_func_info": {
+          "line": "57-60",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
       "setProperty": "defaultedProps.setProperty",
       "hasMoreElements": "names.hasMoreElements"
     },
@@ -190,7 +313,14 @@
   },
   "getCipherInstance": {
     "external_functions": {
-      "getCryptoCipher": "CryptoCipherFactory.getCryptoCipher"
+      "getCryptoCipher": {
+        "call_line": "CryptoCipherFactory.getCryptoCipher",
+        "exter_func_info": {
+          "line": "68-70",
+          "file": "subAst/output/Utils/CryptoCipherFactory.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -264,69 +394,16 @@
       }
     }
   },
-  "setPassword": {
-    "external_functions": {
-      "setPassword": "this.encryptor.setPassword"
-    },
-    "internal_functions": {},
-    "self": {
-      "line": "13-15",
-      "file": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3"
-      }
-    }
-  },
-  "setPasswordCharArray": {
-    "external_functions": {
-      "setPasswordCharArray": "this.encryptor.setPasswordCharArray"
-    },
-    "internal_functions": {},
-    "self": {
-      "line": "17-19",
-      "file": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3"
-      }
-    }
-  },
-  "encrypt": {
-    "external_functions": {
-      "encrypt": "this.encryptor.encrypt"
-    },
-    "internal_functions": {},
-    "self": {
-      "line": "21-23",
-      "file": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3"
-      }
-    }
-  },
-  "decrypt": {
-    "external_functions": {
-      "decrypt": "this.encryptor.decrypt"
-    },
-    "internal_functions": {},
-    "self": {
-      "line": "25-27",
-      "file": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3"
-      }
-    }
-  },
   "setParameter": {
     "external_functions": {
-      "setParameter": "setParameter"
+      "setParameter": {
+        "call_line": "setParameter",
+        "exter_func_info": {
+          "line": "20-20",
+          "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -358,8 +435,22 @@
     "external_functions": {
       "get": "this.dhThreadSpec.get",
       "bitLength": "bitLength",
-      "getP": "dHParameterSpec.getP",
-      "getSizedProperty": "CryptoServicesRegistrar.getSizedProperty"
+      "getP": {
+        "call_line": "dHParameterSpec.getP",
+        "exter_func_info": {
+          "line": "28-30",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getSizedProperty": {
+        "call_line": "CryptoServicesRegistrar.getSizedProperty",
+        "exter_func_info": {
+          "line": "78-96",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -374,10 +465,38 @@
   },
   "getDSADefaultParameters": {
     "external_functions": {
-      "getSizedProperty": "CryptoServicesRegistrar.getSizedProperty",
-      "getP": "dSAParameters.getP",
-      "getQ": "dSAParameters.getQ",
-      "getG": "dSAParameters.getG"
+      "getSizedProperty": {
+        "call_line": "CryptoServicesRegistrar.getSizedProperty",
+        "exter_func_info": {
+          "line": "78-96",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getP": {
+        "call_line": "dSAParameters.getP",
+        "exter_func_info": {
+          "line": "28-30",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getQ": {
+        "call_line": "dSAParameters.getQ",
+        "exter_func_info": {
+          "line": "32-34",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getG": {
+        "call_line": "dSAParameters.getG",
+        "exter_func_info": {
+          "line": "47-49",
+          "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -454,9 +573,30 @@
   },
   "loadAlgorithms": {
     "external_functions": {
-      "loadClass": "ClassUtil.loadClass",
-      "configure": "configure",
-      "newInstance": "clazz.newInstance"
+      "loadClass": {
+        "call_line": "ClassUtil.loadClass",
+        "exter_func_info": {
+          "line": "7-22",
+          "file": "subAst/output/BouncyCastleProvider/ClassUtil.json",
+          "dependencyInfo": {}
+        }
+      },
+      "configure": {
+        "call_line": "configure",
+        "exter_func_info": {
+          "line": "6-6",
+          "file": "subAst/output/BouncyCastleProvider/AlgorithmProvider.json",
+          "dependencyInfo": {}
+        }
+      },
+      "newInstance": {
+        "call_line": "clazz.newInstance",
+        "exter_func_info": {
+          "line": "24-40",
+          "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -471,7 +611,14 @@
   },
   "loadPQCKeys": {
     "external_functions": {
-      "addKeyInfoConverter": "addKeyInfoConverter"
+      "addKeyInfoConverter": {
+        "call_line": "addKeyInfoConverter",
+        "exter_func_info": {
+          "line": "28-28",
+          "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -501,7 +648,14 @@
   },
   "addAlgorithm": {
     "external_functions": {
-      "addAlgorithm": "addAlgorithm"
+      "addAlgorithm": {
+        "call_line": "addAlgorithm",
+        "exter_func_info": {
+          "line": "24-24",
+          "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -580,8 +734,22 @@
   "getPublicKey": {
     "external_functions": {
       "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
-      "getAlgorithm": "paramSubjectPublicKeyInfo.getAlgorithm",
-      "generatePublic": "asymmetricKeyInfoConverter.generatePublic"
+      "getAlgorithm": {
+        "call_line": "paramSubjectPublicKeyInfo.getAlgorithm",
+        "exter_func_info": {
+          "line": "16-16",
+          "file": "subAst/output/Utils/CryptoCipher.json",
+          "dependencyInfo": {}
+        }
+      },
+      "generatePublic": {
+        "call_line": "asymmetricKeyInfoConverter.generatePublic",
+        "exter_func_info": {
+          "line": "66-68",
+          "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
@@ -597,9 +765,30 @@
   "getPrivateKey": {
     "external_functions": {
       "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
-      "getAlgorithm": "getAlgorithm",
-      "getPrivateKeyAlgorithm": "paramPrivateKeyInfo.getPrivateKeyAlgorithm",
-      "generatePrivate": "asymmetricKeyInfoConverter.generatePrivate"
+      "getAlgorithm": {
+        "call_line": "getAlgorithm",
+        "exter_func_info": {
+          "line": "16-16",
+          "file": "subAst/output/Utils/CryptoCipher.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getPrivateKeyAlgorithm": {
+        "call_line": "paramPrivateKeyInfo.getPrivateKeyAlgorithm",
+        "exter_func_info": {
+          "line": "99-101",
+          "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+          "dependencyInfo": {}
+        }
+      },
+      "generatePrivate": {
+        "call_line": "asymmetricKeyInfoConverter.generatePrivate",
+        "exter_func_info": {
+          "line": "62-64",
+          "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+          "dependencyInfo": {}
+        }
+      }
     },
     "internal_functions": {},
     "self": {
