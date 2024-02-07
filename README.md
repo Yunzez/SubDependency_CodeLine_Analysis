@@ -65,12 +65,15 @@ python3 ./python/test.py ./python/img_to_pdf.py
 1. **Use Java AST Generator**:
     
     - Navigate to the `java/ast_generator` directory.
-    - Run the AST generator with the path to your Java project. This will infer `pom.xml` and generate the corresponding AST.
+    - Run the AST generator with the path to your Java project. Then in put the path. This will infer `pom.xml` and generate the corresponding AST.
         
         ```bash
-        cd java/ast_generator java AstGenerator <path-to-your-java-project>
+        java -jar ast_generator/target/ast_generator-1.0.jar
+
+		  initializingPlease enter the path to the Java source file (hit enter for default): ../Encryption-test
         ```
-        
+	
+	
 2. **Run AST Analyzer in TypeScript**:
     
     - Navigate to the `ast_analyzer` directory.
