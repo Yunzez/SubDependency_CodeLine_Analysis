@@ -199,7 +199,7 @@ export class ImportAnalyzer {
       console.log("Source Code Directory: ", sourceCodeDir);
       console.log("AST Output File: ", astOutputFileJava);
 
-      const command = `/usr/bin/env /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java @/var/folders/9w/qz54k17x6zg0n9c2zm3kccz40000gn/T/cp_d3xggjeqc1p2bqsmyr7i4eqxu.argfile com.ast_generator.DirectoryProcessor ${sourceCodeDir} ${astOutputDir} --separate`;
+      const command = `java -jar ../java/ast_generator/target/ast_generator-1.0.jar --process-directory ${sourceCodeDir} ${astOutputDir} --separate`;
       exec(command, (error, stdout, stderr) => {
         if (error) {
           console.error(`DirectoryProcessor error: ${stderr}`);

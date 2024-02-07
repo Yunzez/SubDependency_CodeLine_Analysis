@@ -18,13 +18,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonObjectBuilder;
 import javax.json.JsonReader;
 import javax.json.JsonWriter;
-
 
 public class Main {
     private static Map<String, String> dependencyMap;
@@ -32,6 +30,24 @@ public class Main {
     private static Map<String, String> libraryAstJsonMap;
 
     public static void main(String[] args) throws IOException {
+
+        // ! Check for --process-directory argument
+        if (args.length > 0 && "--process-directory".equals(args[0])) {
+            // Assuming args[1] is sourcePath, args[2] is outputPath, and args[3] is
+            // --separate
+            if (args.length >= 3) {
+                String sourcePath = Paths.get(args[1]).toString();
+                Path outputPath = Paths.get(args[2]);
+                boolean separateFiles = (args.length == 4 && "--separate".equals(args[3]));
+                DirectoryProcessor processor = new DirectoryProcessor(sourcePath, outputPath, separateFiles);
+                processor.processDirectory();
+            } else {
+                System.out.println(
+                        "Usage: java Main --process-directory <source directory> <AST output path> [--separate]");
+            }
+            return; // Exit after processing directory
+        }
+
         Scanner scanner = new Scanner(System.in);
         libraryAstJsonMap = new HashMap<>();
         // Delete existing ast.json file if it exists
@@ -51,15 +67,14 @@ public class Main {
         String rootDirectoryPath = scanner.nextLine().trim();
 
         if (rootDirectoryPath.isEmpty()) {
-            // ! default source file path: 
+            // ! default source file path:
             rootDirectoryPath = "java/Encryption-test";
         }
-
 
         // Validate and process the directory
         Path rootPath = Paths.get(rootDirectoryPath);
 
-         // Infer the path to pom.xml
+        // Infer the path to pom.xml
         String inferredPomPath = rootPath.resolve("pom.xml").toString();
         System.out.println("Inferred path to pom.xml: " + inferredPomPath);
 
@@ -72,7 +87,7 @@ public class Main {
         }
 
         Map<String, Dependency> dependencyMap = DependencyProcessor.parsePomForDependencies(inferredPomPath);
-        
+
         // * import manager manage imports line to share imports between files
         ImportManager importManager = new ImportManager();
 
@@ -83,20 +98,19 @@ public class Main {
 
         // ! process directory (local java file)
         DirectoryProcessor processor = new DirectoryProcessor(rootDirectoryPath, astPath, dependencyMap);
-        
+
         // ! add import manager to processor before processing directory
         processor.addImportMaganer(importManager);
 
         // ! turn this on to process directory
         processor.processDirectory();
 
-       
         // ! process dependencies
         DependencyProcessor.processDependencies(inferredPomPath, importManager);
 
         scanner.close();
     }
-    
+
     private static void appendAllASTsToJsonFile() throws IOException {
         JsonObjectBuilder jsonBuilder = Json.createObjectBuilder();
 

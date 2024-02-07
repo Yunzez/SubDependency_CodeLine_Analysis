@@ -4,5 +4,6 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

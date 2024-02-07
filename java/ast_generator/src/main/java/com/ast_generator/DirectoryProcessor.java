@@ -58,25 +58,6 @@ public class DirectoryProcessor {
 
     // Main method for command-line execution
 
-    // ! test statement:
-    // cd /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis ; /usr/bin/env
-    // /Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home/bin/java
-    // @/var/folders/9w/qz54k17x6zg0n9c2zm3kccz40000gn/T/cp_d3xggjeqc1p2bqsmyr7i4eqxu.argfile
-    // com.ast_generator.DirectoryProcessor
-    // /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis/ast_analyzer/decompiled
-    // /Users/yunzezhao/Code/SubDependency_CodeLine_Analysis/ast_analyzer/sub_ast
-    public static void main(String[] args) {
-        if (args.length >= 2) {
-            String sourcePath = Paths.get(args[0]).toString();
-            Path outputPath = Paths.get(args[1]);
-            boolean separateFiles = (args.length == 3 && "--separate".equals(args[2])); // Check for separate flag
-            DirectoryProcessor processor = new DirectoryProcessor(sourcePath, outputPath, separateFiles);
-            processor.processDirectory();
-        } else {
-            System.out.println("Usage: java DirectoryProcessor <source directory> <AST output path> [--separate]");
-        }
-    }
-
     public void processDirectory() {
         System.out.println("Processing directory: " + directoryPath);
         // Validate and process the directory
