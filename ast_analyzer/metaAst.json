@@ -4,6 +4,17 @@
       "setConfig": "this.byteEncryptor.setConfig"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 44
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        44
+      ]
+    },
     "self": {
       "line": "43-47",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -15,6 +26,17 @@
       "setAlgorithm": "this.byteEncryptor.setAlgorithm"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 50
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        50
+      ]
+    },
     "self": {
       "line": "49-51",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -26,6 +48,17 @@
       "setPassword": "this.byteEncryptor.setPassword"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 54
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        54
+      ]
+    },
     "self": {
       "line": "53-55",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -37,6 +70,17 @@
       "setPasswordCharArray": "this.byteEncryptor.setPasswordCharArray"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 58
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        58
+      ]
+    },
     "self": {
       "line": "57-59",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -48,6 +92,17 @@
       "setKeyObtentionIterations": "this.byteEncryptor.setKeyObtentionIterations"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 62
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        62
+      ]
+    },
     "self": {
       "line": "61-63",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -59,6 +114,17 @@
       "setSaltGenerator": "this.byteEncryptor.setSaltGenerator"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 66
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        66
+      ]
+    },
     "self": {
       "line": "65-67",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -70,6 +136,17 @@
       "setIvGenerator": "this.byteEncryptor.setIvGenerator"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 70
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        70
+      ]
+    },
     "self": {
       "line": "69-71",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -81,6 +158,17 @@
       "setProviderName": "this.byteEncryptor.setProviderName"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 74
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        74
+      ]
+    },
     "self": {
       "line": "73-75",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -92,6 +180,17 @@
       "setProvider": "this.byteEncryptor.setProvider"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 78
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        78
+      ]
+    },
     "self": {
       "line": "77-79",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -105,6 +204,17 @@
       "getStandardStringOutputType": "CommonUtils.getStandardStringOutputType"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "CommonUtils",
+        "lineUsed": 82
+      },
+      {
+        "variableName": "CommonUtils",
+        "lineUsed": 87
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "81-89",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -119,6 +229,21 @@
       "setStringOutputType": "setStringOutputType"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 92
+      },
+      {
+        "variableName": "CommonUtils",
+        "lineUsed": 98
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        92
+      ]
+    },
     "self": {
       "line": "91-102",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -130,6 +255,17 @@
       "isInitialized": "this.byteEncryptor.isInitialized"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 105
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        105
+      ]
+    },
     "self": {
       "line": "104-106",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -143,6 +279,17 @@
       "initialize": "this.byteEncryptor.initialize"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 111
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteEncryptor": [
+        111
+      ]
+    },
     "self": {
       "line": "108-113",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -155,6 +302,17 @@
       "equalsIgnoreCase": "equalsIgnoreCase"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "stringPBEConfig",
+        "lineUsed": 117
+      }
+    ],
+    "declaredVariableUsages": {
+      "stringPBEConfig": [
+        117
+      ]
+    },
     "self": {
       "line": "115-123",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -171,6 +329,35 @@
       "encode": "this.base64.encode"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "message",
+        "lineUsed": 131
+      },
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 132
+      },
+      {
+        "variableName": "CommonUtils",
+        "lineUsed": 138
+      },
+      {
+        "variableName": "base64",
+        "lineUsed": 135
+      }
+    ],
+    "declaredVariableUsages": {
+      "message": [
+        131
+      ],
+      "byteEncryptor": [
+        132
+      ],
+      "base64": [
+        135
+      ]
+    },
     "self": {
       "line": "125-148",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -187,6 +374,35 @@
       "decrypt": "this.byteEncryptor.decrypt"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "CommonUtils",
+        "lineUsed": 161
+      },
+      {
+        "variableName": "encryptedMessage",
+        "lineUsed": 158
+      },
+      {
+        "variableName": "base64",
+        "lineUsed": 159
+      },
+      {
+        "variableName": "byteEncryptor",
+        "lineUsed": 163
+      }
+    ],
+    "declaredVariableUsages": {
+      "encryptedMessage": [
+        158
+      ],
+      "base64": [
+        159
+      ],
+      "byteEncryptor": [
+        163
+      ]
+    },
     "self": {
       "line": "150-172",
       "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
@@ -199,6 +415,17 @@
       "getOctets": "param1DEROctetString.getOctets"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ASN1ObjectIdentifier",
+        "lineUsed": 13
+      },
+      {
+        "variableName": "param1DEROctetString",
+        "lineUsed": 13
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "12-14",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -210,6 +437,8 @@
       "createPrimitive": "createPrimitive"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "25-27",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -221,6 +450,13 @@
       "getInstance": "ASN1Sequence.getInstance"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ASN1Sequence",
+        "lineUsed": 25
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "24-26",
       "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
@@ -230,6 +466,8 @@
   "getId": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "120-122",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -239,6 +477,8 @@
   "branch": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "124-126",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -253,6 +493,43 @@
       "startsWith": "str1.startsWith"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramASN1ObjectIdentifier",
+        "lineUsed": 130
+      },
+      {
+        "variableName": "str1",
+        "lineUsed": 131
+      },
+      {
+        "variableName": "str2",
+        "lineUsed": 131
+      },
+      {
+        "variableName": "str1",
+        "lineUsed": 131
+      },
+      {
+        "variableName": "str2",
+        "lineUsed": 131
+      },
+      {
+        "variableName": "str1",
+        "lineUsed": 131
+      }
+    ],
+    "declaredVariableUsages": {
+      "str1": [
+        131,
+        131,
+        131
+      ],
+      "str2": [
+        131,
+        131
+      ]
+    },
     "self": {
       "line": "128-132",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -271,6 +548,78 @@
       "hasMoreTokens": "oIDTokenizer.hasMoreTokens"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "Integer",
+        "lineUsed": 136
+      },
+      {
+        "variableName": "oIDTokenizer",
+        "lineUsed": 136
+      },
+      {
+        "variableName": "oIDTokenizer",
+        "lineUsed": 137
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 138
+      },
+      {
+        "variableName": "ASN1RelativeOID",
+        "lineUsed": 141
+      },
+      {
+        "variableName": "BigInteger",
+        "lineUsed": 141
+      },
+      {
+        "variableName": "ASN1RelativeOID",
+        "lineUsed": 139
+      },
+      {
+        "variableName": "Long",
+        "lineUsed": 139
+      },
+      {
+        "variableName": "oIDTokenizer",
+        "lineUsed": 144
+      },
+      {
+        "variableName": "str1",
+        "lineUsed": 145
+      },
+      {
+        "variableName": "ASN1RelativeOID",
+        "lineUsed": 146
+      },
+      {
+        "variableName": "Long",
+        "lineUsed": 146
+      },
+      {
+        "variableName": "ASN1RelativeOID",
+        "lineUsed": 149
+      },
+      {
+        "variableName": "oIDTokenizer",
+        "lineUsed": 143
+      }
+    ],
+    "declaredVariableUsages": {
+      "oIDTokenizer": [
+        136,
+        137,
+        144,
+        143
+      ],
+      "str": [
+        138
+      ],
+      "str1": [
+        145
+      ]
+    },
     "self": {
       "line": "134-151",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -283,6 +632,17 @@
       "toByteArray": "byteArrayOutputStream.toByteArray"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "byteArrayOutputStream",
+        "lineUsed": 157
+      }
+    ],
+    "declaredVariableUsages": {
+      "byteArrayOutputStream": [
+        157
+      ]
+    },
     "self": {
       "line": "153-160",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -292,6 +652,8 @@
   "encodeConstructed": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "162-164",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -304,6 +666,13 @@
       "getContents": "getContents"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ASN1OutputStream",
+        "lineUsed": 167
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "166-168",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -316,6 +685,13 @@
       "getContents": "getContents"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramASN1OutputStream",
+        "lineUsed": 171
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "170-172",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -328,6 +704,13 @@
       "getName": "getName"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "getName",
+        "lineUsed": 110
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "109-111",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
@@ -339,6 +722,17 @@
       "equals": "this.identifier.equals"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "identifier",
+        "lineUsed": 179
+      }
+    ],
+    "declaredVariableUsages": {
+      "identifier": [
+        179
+      ]
+    },
     "self": {
       "line": "178-180",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -350,6 +744,8 @@
       "getId": "getId"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "182-184",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -363,6 +759,25 @@
       "isValidIdentifier": "ASN1RelativeOID.isValidIdentifier"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramString",
+        "lineUsed": 187
+      },
+      {
+        "variableName": "paramString",
+        "lineUsed": 187
+      },
+      {
+        "variableName": "paramString",
+        "lineUsed": 189
+      },
+      {
+        "variableName": "ASN1RelativeOID",
+        "lineUsed": 190
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "186-191",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -376,6 +791,22 @@
       "putIfAbsent": "pool.putIfAbsent"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "pool",
+        "lineUsed": 195
+      },
+      {
+        "variableName": "pool",
+        "lineUsed": 197
+      }
+    ],
+    "declaredVariableUsages": {
+      "pool": [
+        195,
+        197
+      ]
+    },
     "self": {
       "line": "193-202",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -387,6 +818,17 @@
       "get": "pool.get"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "pool",
+        "lineUsed": 206
+      }
+    ],
+    "declaredVariableUsages": {
+      "pool": [
+        206
+      ]
+    },
     "self": {
       "line": "204-208",
       "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
@@ -399,6 +841,21 @@
       "getName": "getName"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "getName",
+        "lineUsed": 104
+      },
+      {
+        "variableName": "providerConfigurationPermission",
+        "lineUsed": 104
+      }
+    ],
+    "declaredVariableUsages": {
+      "providerConfigurationPermission": [
+        104
+      ]
+    },
     "self": {
       "line": "99-107",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
@@ -408,6 +865,8 @@
   "configure": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "6-6",
       "file": "subAst/output/BouncyCastleProvider/AlgorithmProvider.json",
@@ -417,6 +876,8 @@
   "generatePrivate": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "62-64",
       "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
@@ -426,6 +887,8 @@
   "generatePublic": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "66-68",
       "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
@@ -440,6 +903,29 @@
       "loadClass": "classLoader.loadClass"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramClass",
+        "lineUsed": 9
+      },
+      {
+        "variableName": "AccessController",
+        "lineUsed": 10
+      },
+      {
+        "variableName": "Class",
+        "lineUsed": 13
+      },
+      {
+        "variableName": "classLoader",
+        "lineUsed": 10
+      }
+    ],
+    "declaredVariableUsages": {
+      "classLoader": [
+        10
+      ]
+    },
     "self": {
       "line": "7-22",
       "file": "subAst/output/BouncyCastleProvider/ClassUtil.json",
@@ -451,6 +937,17 @@
       "checkPermission": "securityManager.checkPermission"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "securityManager",
+        "lineUsed": 151
+      }
+    ],
+    "declaredVariableUsages": {
+      "securityManager": [
+        151
+      ]
+    },
     "self": {
       "line": "150-153",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -460,6 +957,8 @@
   "setParameter": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "20-20",
       "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
@@ -469,6 +968,8 @@
   "addAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "24-24",
       "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
@@ -478,6 +979,8 @@
   "hasAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "26-26",
       "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
@@ -487,6 +990,8 @@
   "addKeyInfoConverter": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "28-28",
       "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
@@ -496,6 +1001,8 @@
   "getKeyInfoConverter": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "30-30",
       "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
@@ -505,6 +1012,8 @@
   "addAttributes": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "32-32",
       "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
@@ -521,6 +1030,25 @@
       "getClass": "paramKeySpec.getClass"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "exception",
+        "lineUsed": 25
+      },
+      {
+        "variableName": "PrivateKeyInfo",
+        "lineUsed": 23
+      },
+      {
+        "variableName": "ASN1Primitive",
+        "lineUsed": 23
+      },
+      {
+        "variableName": "paramKeySpec",
+        "lineUsed": 28
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "19-29",
       "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
@@ -535,6 +1063,17 @@
       "getInstance": "SubjectPublicKeyInfo.getInstance"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "exception",
+        "lineUsed": 37
+      },
+      {
+        "variableName": "SubjectPublicKeyInfo",
+        "lineUsed": 35
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "31-41",
       "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
@@ -548,6 +1087,21 @@
       "getEncoded": "paramKey.getEncoded"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramKey",
+        "lineUsed": 51
+      },
+      {
+        "variableName": "paramKey",
+        "lineUsed": 49
+      },
+      {
+        "variableName": "paramKey",
+        "lineUsed": 46
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "43-54",
       "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
@@ -557,6 +1111,8 @@
   "engineTranslateKey": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "56-60",
       "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
@@ -570,6 +1126,21 @@
       "getEncoded": "paramKey.getEncoded"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramKey",
+        "lineUsed": 81
+      },
+      {
+        "variableName": "paramKey",
+        "lineUsed": 79
+      },
+      {
+        "variableName": "paramKey",
+        "lineUsed": 76
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "73-84",
       "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
@@ -579,6 +1150,8 @@
   "translateKey": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "86-90",
       "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
@@ -588,6 +1161,8 @@
   "getDigest": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "112-114",
       "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
@@ -599,6 +1174,13 @@
       "intValueExact": "paramASN1Integer.intValueExact"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramASN1Integer",
+        "lineUsed": 42
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "41-46",
       "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
@@ -608,6 +1190,8 @@
   "getVersion": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "91-93",
       "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
@@ -617,6 +1201,8 @@
   "getAttributes": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "95-97",
       "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
@@ -626,6 +1212,8 @@
   "getPrivateKeyAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "99-101",
       "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
@@ -637,6 +1225,17 @@
       "getOctets": "this.privateKey.getOctets"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "privateKey",
+        "lineUsed": 104
+      }
+    ],
+    "declaredVariableUsages": {
+      "privateKey": [
+        104
+      ]
+    },
     "self": {
       "line": "103-105",
       "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
@@ -649,6 +1248,21 @@
       "getOctets": "this.privateKey.getOctets"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ASN1Primitive",
+        "lineUsed": 108
+      },
+      {
+        "variableName": "privateKey",
+        "lineUsed": 108
+      }
+    ],
+    "declaredVariableUsages": {
+      "privateKey": [
+        108
+      ]
+    },
     "self": {
       "line": "107-109",
       "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
@@ -658,6 +1272,8 @@
   "hasPublicKey": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "111-113",
       "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
@@ -670,6 +1286,21 @@
       "getOctets": "this.keyData.getOctets"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ASN1Primitive",
+        "lineUsed": 55
+      },
+      {
+        "variableName": "keyData",
+        "lineUsed": 55
+      }
+    ],
+    "declaredVariableUsages": {
+      "keyData": [
+        55
+      ]
+    },
     "self": {
       "line": "54-56",
       "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
@@ -679,6 +1310,8 @@
   "getPublicKeyData": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "62-64",
       "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
@@ -690,6 +1323,22 @@
       "add": "aSN1EncodableVector.add"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "aSN1EncodableVector",
+        "lineUsed": 68
+      },
+      {
+        "variableName": "aSN1EncodableVector",
+        "lineUsed": 69
+      }
+    ],
+    "declaredVariableUsages": {
+      "aSN1EncodableVector": [
+        68,
+        69
+      ]
+    },
     "self": {
       "line": "66-71",
       "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
@@ -699,6 +1348,8 @@
   "getEcImplicitlyCa": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "10-10",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
@@ -708,6 +1359,8 @@
   "getDHDefaultParameters": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "12-12",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
@@ -717,6 +1370,8 @@
   "getDSADefaultParameters": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "14-14",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
@@ -726,6 +1381,8 @@
   "getAcceptableNamedCurves": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "16-16",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
@@ -735,6 +1392,8 @@
   "getAdditionalECParameters": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "18-18",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
@@ -749,6 +1408,63 @@
       "hasMoreTokens": "stringTokenizer.hasMoreTokens"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "Strings",
+        "lineUsed": 50
+      },
+      {
+        "variableName": "stringTokenizer",
+        "lineUsed": 53
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 54
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 58
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 62
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 66
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 70
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 74
+      },
+      {
+        "variableName": "str",
+        "lineUsed": 78
+      },
+      {
+        "variableName": "stringTokenizer",
+        "lineUsed": 52
+      }
+    ],
+    "declaredVariableUsages": {
+      "stringTokenizer": [
+        53,
+        52
+      ],
+      "str": [
+        54,
+        58,
+        62,
+        66,
+        70,
+        74,
+        78
+      ]
+    },
     "self": {
       "line": "49-84",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
@@ -758,6 +1474,8 @@
   "getActions": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "86-88",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
@@ -770,6 +1488,17 @@
       "getName": "getName"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "getName",
+        "lineUsed": 93
+      },
+      {
+        "variableName": "paramPermission",
+        "lineUsed": 93
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "90-97",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
@@ -779,6 +1508,8 @@
   "getAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "16-16",
       "file": "subAst/output/Utils/CryptoCipher.json",
@@ -788,6 +1519,8 @@
   "getAlgorithmId": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "50-52",
       "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
@@ -800,6 +1533,21 @@
       "getOctets": "this.keyData.getOctets"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ASN1Primitive",
+        "lineUsed": 59
+      },
+      {
+        "variableName": "keyData",
+        "lineUsed": 59
+      }
+    ],
+    "declaredVariableUsages": {
+      "keyData": [
+        59
+      ]
+    },
     "self": {
       "line": "58-60",
       "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
@@ -811,6 +1559,8 @@
       "getSecureRandom": "getSecureRandom"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "46-48",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -822,6 +1572,8 @@
       "checkPermission": "checkPermission"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "50-55",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -833,6 +1585,8 @@
       "lookupProperty": "lookupProperty"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "57-60",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -845,6 +1599,36 @@
       "containsKey": "map.containsKey"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 64
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 65
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 68
+      },
+      {
+        "variableName": "globalProperties",
+        "lineUsed": 66
+      }
+    ],
+    "declaredVariableUsages": {
+      "threadProperties": [
+        64
+      ],
+      "map": [
+        65,
+        68
+      ],
+      "globalProperties": [
+        66
+      ]
+    },
     "self": {
       "line": "62-71",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -859,6 +1643,44 @@
       "getP": "dHParameters.getP"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "type",
+        "lineUsed": 82
+      },
+      {
+        "variableName": "type",
+        "lineUsed": 88
+      },
+      {
+        "variableName": "getP",
+        "lineUsed": 91
+      },
+      {
+        "variableName": "dSAParameters",
+        "lineUsed": 91
+      },
+      {
+        "variableName": "getP",
+        "lineUsed": 85
+      },
+      {
+        "variableName": "dHParameters",
+        "lineUsed": 85
+      }
+    ],
+    "declaredVariableUsages": {
+      "type": [
+        82,
+        88
+      ],
+      "dSAParameters": [
+        91
+      ],
+      "dHParameters": [
+        85
+      ]
+    },
     "self": {
       "line": "78-96",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -874,6 +1696,21 @@
       "clone": "paramVarArgs.clone"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "type",
+        "lineUsed": 100
+      },
+      {
+        "variableName": "paramVarArgs",
+        "lineUsed": 102
+      }
+    ],
+    "declaredVariableUsages": {
+      "type": [
+        100
+      ]
+    },
     "self": {
       "line": "98-103",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -887,6 +1724,13 @@
       "clone": "paramVarArgs.clone"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramVarArgs",
+        "lineUsed": 107
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "105-108",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -900,6 +1744,29 @@
       "put": "map.put"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 111
+      },
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 114
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 116
+      }
+    ],
+    "declaredVariableUsages": {
+      "threadProperties": [
+        111,
+        114
+      ],
+      "map": [
+        116
+      ]
+    },
     "self": {
       "line": "110-117",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -914,6 +1781,24 @@
       "put": "globalProperties.put"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "type",
+        "lineUsed": 120
+      },
+      {
+        "variableName": "globalProperties",
+        "lineUsed": 123
+      }
+    ],
+    "declaredVariableUsages": {
+      "type": [
+        120
+      ],
+      "globalProperties": [
+        123
+      ]
+    },
     "self": {
       "line": "119-124",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -927,6 +1812,17 @@
       "remove": "globalProperties.remove"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "globalProperties",
+        "lineUsed": 129
+      }
+    ],
+    "declaredVariableUsages": {
+      "globalProperties": [
+        129
+      ]
+    },
     "self": {
       "line": "126-130",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -939,6 +1835,8 @@
       "localClearThreadProperty": "localClearThreadProperty"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "132-135",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -952,6 +1850,29 @@
       "remove": "map.remove"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 138
+      },
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 141
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 143
+      }
+    ],
+    "declaredVariableUsages": {
+      "threadProperties": [
+        138,
+        141
+      ],
+      "map": [
+        143
+      ]
+    },
     "self": {
       "line": "137-144",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -965,6 +1886,25 @@
       "checkPermission": "securityManager.checkPermission"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "System",
+        "lineUsed": 147
+      },
+      {
+        "variableName": "AccessController",
+        "lineUsed": 149
+      },
+      {
+        "variableName": "securityManager",
+        "lineUsed": 151
+      }
+    ],
+    "declaredVariableUsages": {
+      "securityManager": [
+        151
+      ]
+    },
     "self": {
       "line": "146-155",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -983,6 +1923,45 @@
       "getCounter": "getCounter"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "getP",
+        "lineUsed": 158
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 158
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "getValidationParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "getValidationParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "157-161",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -992,6 +1971,8 @@
   "chooseLowerBound": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "163-176",
       "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
@@ -1001,6 +1982,8 @@
   "getQ": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "32-34",
       "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
@@ -1010,6 +1993,8 @@
   "getJ": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "78-80",
       "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
@@ -1019,6 +2004,8 @@
   "getM": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "82-84",
       "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
@@ -1037,6 +2024,45 @@
       "getSeed": "eCParameterSpec.getSeed"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ECUtil",
+        "lineUsed": 78
+      },
+      {
+        "variableName": "paramProviderConfiguration",
+        "lineUsed": 75
+      },
+      {
+        "variableName": "eCParameterSpec",
+        "lineUsed": 76
+      },
+      {
+        "variableName": "eCParameterSpec",
+        "lineUsed": 76
+      },
+      {
+        "variableName": "eCParameterSpec",
+        "lineUsed": 76
+      },
+      {
+        "variableName": "eCParameterSpec",
+        "lineUsed": 76
+      },
+      {
+        "variableName": "eCParameterSpec",
+        "lineUsed": 76
+      }
+    ],
+    "declaredVariableUsages": {
+      "eCParameterSpec": [
+        76,
+        76,
+        76,
+        76,
+        76
+      ]
+    },
     "self": {
       "line": "72-81",
       "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
@@ -1046,6 +2072,8 @@
   "getDefaultMParam": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "24-26",
       "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
@@ -1055,6 +2083,8 @@
   "getP": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "28-30",
       "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
@@ -1064,6 +2094,8 @@
   "getG": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "47-49",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
@@ -1073,6 +2105,8 @@
   "getL": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "86-88",
       "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
@@ -1082,6 +2116,8 @@
   "getValidationParameters": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "40-42",
       "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
@@ -1091,6 +2127,8 @@
   "getCurve": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "43-45",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
@@ -1108,6 +2146,29 @@
       "getH": "paramECDomainParameters.getH"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramECDomainParameters",
+        "lineUsed": 123
+      },
+      {
+        "variableName": "paramECDomainParameters",
+        "lineUsed": 123
+      },
+      {
+        "variableName": "paramECDomainParameters",
+        "lineUsed": 123
+      },
+      {
+        "variableName": "getH",
+        "lineUsed": 123
+      },
+      {
+        "variableName": "paramECDomainParameters",
+        "lineUsed": 123
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "122-124",
       "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
@@ -1127,6 +2188,50 @@
       "getMidTermsOfReductionPolynomial": "eCFieldF2m.getMidTermsOfReductionPolynomial"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramEllipticCurve",
+        "lineUsed": 134
+      },
+      {
+        "variableName": "paramEllipticCurve",
+        "lineUsed": 135
+      },
+      {
+        "variableName": "paramEllipticCurve",
+        "lineUsed": 136
+      },
+      {
+        "variableName": "customCurves",
+        "lineUsed": 139
+      },
+      {
+        "variableName": "customCurves",
+        "lineUsed": 139
+      },
+      {
+        "variableName": "eCFieldF2m",
+        "lineUsed": 142
+      },
+      {
+        "variableName": "ECUtil",
+        "lineUsed": 143
+      },
+      {
+        "variableName": "eCFieldF2m",
+        "lineUsed": 143
+      }
+    ],
+    "declaredVariableUsages": {
+      "customCurves": [
+        139,
+        139
+      ],
+      "eCFieldF2m": [
+        142,
+        143
+      ]
+    },
     "self": {
       "line": "133-145",
       "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
@@ -1144,6 +2249,38 @@
       "getDegree": "polynomial.getDegree"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "ECAlgorithms",
+        "lineUsed": 148
+      },
+      {
+        "variableName": "paramFiniteField",
+        "lineUsed": 149
+      },
+      {
+        "variableName": "polynomial",
+        "lineUsed": 151
+      },
+      {
+        "variableName": "Arrays",
+        "lineUsed": 152
+      },
+      {
+        "variableName": "Arrays",
+        "lineUsed": 152
+      },
+      {
+        "variableName": "polynomial",
+        "lineUsed": 153
+      }
+    ],
+    "declaredVariableUsages": {
+      "polynomial": [
+        151,
+        153
+      ]
+    },
     "self": {
       "line": "147-154",
       "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
@@ -1163,6 +2300,37 @@
       "getName": "getName"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramECParameterSpec",
+        "lineUsed": 166
+      },
+      {
+        "variableName": "paramECParameterSpec",
+        "lineUsed": 167
+      },
+      {
+        "variableName": "paramECParameterSpec",
+        "lineUsed": 168
+      },
+      {
+        "variableName": "BigInteger",
+        "lineUsed": 169
+      },
+      {
+        "variableName": "paramECParameterSpec",
+        "lineUsed": 169
+      },
+      {
+        "variableName": "getCurve",
+        "lineUsed": 170
+      },
+      {
+        "variableName": "paramECParameterSpec",
+        "lineUsed": 170
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "165-172",
       "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
@@ -1177,6 +2345,29 @@
       "getAffineYCoord": "paramECPoint.getAffineYCoord"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "paramECPoint",
+        "lineUsed": 183
+      },
+      {
+        "variableName": "getAffineXCoord",
+        "lineUsed": 184
+      },
+      {
+        "variableName": "paramECPoint",
+        "lineUsed": 184
+      },
+      {
+        "variableName": "getAffineYCoord",
+        "lineUsed": 184
+      },
+      {
+        "variableName": "paramECPoint",
+        "lineUsed": 184
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "182-185",
       "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
@@ -1186,6 +2377,8 @@
   "getN": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "51-53",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
@@ -1195,6 +2388,8 @@
   "getH": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "55-57",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
@@ -1204,6 +2399,8 @@
   "getSeed": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "59-61",
       "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
@@ -1218,6 +2415,30 @@
       "newInstance": "ctor.newInstance"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "klass",
+        "lineUsed": 33
+      },
+      {
+        "variableName": "klass",
+        "lineUsed": 28
+      },
+      {
+        "variableName": "ctor",
+        "lineUsed": 35
+      },
+      {
+        "variableName": "ctor",
+        "lineUsed": 36
+      }
+    ],
+    "declaredVariableUsages": {
+      "ctor": [
+        35,
+        36
+      ]
+    },
     "self": {
       "line": "24-40",
       "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
@@ -1229,6 +2450,8 @@
       "getClassByNameOrNull": "getClassByNameOrNull"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "42-47",
       "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
@@ -1243,6 +2466,54 @@
       "forName": "Class.forName"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "CACHE_CLASSES",
+        "lineUsed": 52
+      },
+      {
+        "variableName": "Collections",
+        "lineUsed": 54
+      },
+      {
+        "variableName": "CACHE_CLASSES",
+        "lineUsed": 55
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 59
+      },
+      {
+        "variableName": "ref",
+        "lineUsed": 61
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 66
+      },
+      {
+        "variableName": "Class",
+        "lineUsed": 64
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 69
+      }
+    ],
+    "declaredVariableUsages": {
+      "CACHE_CLASSES": [
+        52,
+        55
+      ],
+      "map": [
+        59,
+        66,
+        69
+      ],
+      "ref": [
+        61
+      ]
+    },
     "self": {
       "line": "49-75",
       "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
@@ -1265,6 +2536,74 @@
       "hasMoreElements": "names.hasMoreElements"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "System",
+        "lineUsed": 22
+      },
+      {
+        "variableName": "err",
+        "lineUsed": 37
+      },
+      {
+        "variableName": "ex",
+        "lineUsed": 37
+      },
+      {
+        "variableName": "getContextClassLoader",
+        "lineUsed": 25
+      },
+      {
+        "variableName": "currentThread",
+        "lineUsed": 25
+      },
+      {
+        "variableName": "Thread",
+        "lineUsed": 25
+      },
+      {
+        "variableName": "fileProps",
+        "lineUsed": 28
+      },
+      {
+        "variableName": "fileProps",
+        "lineUsed": 30
+      },
+      {
+        "variableName": "names",
+        "lineUsed": 32
+      },
+      {
+        "variableName": "System",
+        "lineUsed": 33
+      },
+      {
+        "variableName": "defaultedProps",
+        "lineUsed": 34
+      },
+      {
+        "variableName": "fileProps",
+        "lineUsed": 34
+      },
+      {
+        "variableName": "names",
+        "lineUsed": 31
+      }
+    ],
+    "declaredVariableUsages": {
+      "fileProps": [
+        28,
+        30,
+        34
+      ],
+      "names": [
+        32,
+        31
+      ],
+      "defaultedProps": [
+        34
+      ]
+    },
     "self": {
       "line": "21-42",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1274,6 +2613,8 @@
   "getDefaultProperties": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "44-46",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1285,6 +2626,17 @@
       "putAll": "properties.putAll"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "properties",
+        "lineUsed": 50
+      }
+    ],
+    "declaredVariableUsages": {
+      "properties": [
+        50
+      ]
+    },
     "self": {
       "line": "48-52",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1296,6 +2648,13 @@
       "getCryptoCipher": "CryptoCipherFactory.getCryptoCipher"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "CryptoCipherFactory",
+        "lineUsed": 56
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "54-60",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1307,6 +2666,13 @@
       "valueOf": "String.valueOf"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "String",
+        "lineUsed": 69
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "67-70",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1318,6 +2684,13 @@
       "requireNonNull": "Objects.requireNonNull"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "Objects",
+        "lineUsed": 74
+      }
+    ],
+    "declaredVariableUsages": {},
     "self": {
       "line": "72-75",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1327,6 +2700,8 @@
   "checkState": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "81-84",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1341,6 +2716,37 @@
       "split": "clazzNames.split"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "clazzNames",
+        "lineUsed": 88
+      },
+      {
+        "variableName": "clazzName",
+        "lineUsed": 91
+      },
+      {
+        "variableName": "clazzName",
+        "lineUsed": 92
+      },
+      {
+        "variableName": "res",
+        "lineUsed": 93
+      },
+      {
+        "variableName": "clazzNames",
+        "lineUsed": 90
+      }
+    ],
+    "declaredVariableUsages": {
+      "clazzName": [
+        91,
+        92
+      ],
+      "res": [
+        93
+      ]
+    },
     "self": {
       "line": "86-96",
       "file": "subAst/output/CryptoCipherFactory/Utils.json",
@@ -1350,6 +2756,8 @@
   "getBlockSize": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "14-14",
       "file": "subAst/output/Utils/CryptoCipher.json",
@@ -1359,6 +2767,8 @@
   "init": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "18-18",
       "file": "subAst/output/Utils/CryptoCipher.json",
@@ -1368,6 +2778,8 @@
   "update": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "22-22",
       "file": "subAst/output/Utils/CryptoCipher.json",
@@ -1377,6 +2789,8 @@
   "doFinal": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "26-26",
       "file": "subAst/output/Utils/CryptoCipher.json",
@@ -1386,6 +2800,8 @@
   "updateAAD": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "32-34",
       "file": "subAst/output/Utils/CryptoCipher.json",
@@ -1395,6 +2811,8 @@
   "getClassName": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "29-31",
       "file": "subAst/output/Utils/CryptoCipherFactory.json",
@@ -1404,6 +2822,8 @@
   "getImplClass": {
     "external_functions": {},
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "33-35",
       "file": "subAst/output/Utils/CryptoCipherFactory.json",
@@ -1415,6 +2835,8 @@
       "getCryptoCipher": "getCryptoCipher"
     },
     "internal_functions": {},
+    "usedVariables": [],
+    "declaredVariableUsages": {},
     "self": {
       "line": "68-70",
       "file": "subAst/output/Utils/CryptoCipherFactory.json",
@@ -1427,6 +2849,21 @@
       "isEmpty": "cipherClassString.isEmpty"
     },
     "internal_functions": {},
+    "usedVariables": [
+      {
+        "variableName": "props",
+        "lineUsed": 73
+      },
+      {
+        "variableName": "cipherClassString",
+        "lineUsed": 74
+      }
+    ],
+    "declaredVariableUsages": {
+      "cipherClassString": [
+        74
+      ]
+    },
     "self": {
       "line": "72-77",
       "file": "subAst/output/Utils/CryptoCipherFactory.json",

@@ -148,6 +148,10 @@ public class DependencyProcessor {
         if (!Files.exists(outputDir)) {
             Files.createDirectories(outputDir);
         }
+        // Log the current working directory
+        String currentWorkingDir = System.getProperty("user.dir");
+        System.out.println("Current working directory: " + currentWorkingDir);
+
         String command = "java -jar java/ast_generator/jd-cli.jar --outputDir " + outputDir + " " + jarPath;
         Process process = Runtime.getRuntime().exec(command);
         int exitVal = process.waitFor(); // Wait for the process to complete
@@ -251,18 +255,18 @@ public class DependencyProcessor {
                 });
         // appendAllASTsToJsonFile();
         // ! Cleanup: delete the temporary directory and extracted files
-        try (Stream<Path> walk = Files.walk(dir).sorted(Comparator.reverseOrder())) {
-            walk.forEach(path -> {
-                try {
-                    Files.delete(path);
-                    // System.out.println("Deleted: " + path);
-                } catch (IOException e) {
-                    System.err.println("Failed to delete: " + path + "; " + e.getMessage());
-                }
-            });
-        } catch (IOException e) {
-            System.err.println("Error walking through directory: " + e.getMessage());
-        }
+        // try (Stream<Path> walk = Files.walk(dir).sorted(Comparator.reverseOrder())) {
+        // walk.forEach(path -> {
+        // try {
+        // Files.delete(path);
+        // // System.out.println("Deleted: " + path);
+        // } catch (IOException e) {
+        // System.err.println("Failed to delete: " + path + "; " + e.getMessage());
+        // }
+        // });
+        // } catch (IOException e) {
+        // System.err.println("Error walking through directory: " + e.getMessage());
+        // }
     }
 
     /*

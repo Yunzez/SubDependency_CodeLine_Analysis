@@ -1,7 +1,10 @@
 import * as fs from "fs";
 import { serializeArgument, serializeScope } from "./java_analyzer_utils";
 import ImportAnalyzer from "./java_import_analyzer";
-
+import {
+  extractVariableDeclarations,
+  extractVariableUsageReferences,
+} from "./java_variable_analyzer";
 /**
  * * This function analyzes ONE Java Abstract Syntax Tree (AST).
  *
@@ -301,9 +304,15 @@ const extractMethodDetails = (
       internalMethods
     );
 
+    const { variableDeclarations, variableUsages, declaredVariableUsages } =
+      extractVariableUsageReferences(node, method);
+    console.log(`Extracted undeclared variables from ${functionName}`);
     methodDetails[functionName] = {
       external_functions: external,
       internal_functions: internal,
+      // variableDeclarations: variableDeclarations,
+      usedVariables: variableUsages,
+      declaredVariableUsages: declaredVariableUsages,
       self: {
         line: `${method.range.beginLine}-${method.range.endLine}`, // Assuming line numbers are stored in `range`
         file: filePath,
