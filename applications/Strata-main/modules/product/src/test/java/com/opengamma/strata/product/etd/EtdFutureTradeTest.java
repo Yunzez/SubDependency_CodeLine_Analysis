@@ -1,0 +1,103 @@
+/*
+ * Copyright (C) 2017 - present by OpenGamma Inc. and the OpenGamma group of companies
+ *
+ * Please see distribution for license.
+ */
+package com.opengamma.strata.product.etd;
+
+import static com.opengamma.strata.collect.TestHelper.assertJodaSerialization;
+import static com.opengamma.strata.collect.TestHelper.assertSerialization;
+import static com.opengamma.strata.collect.TestHelper.coverBeanEquals;
+import static com.opengamma.strata.collect.TestHelper.coverImmutableBean;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.data.Offset.offset;
+
+import java.time.LocalDate;
+
+import org.junit.jupiter.api.Test;
+
+import com.opengamma.strata.basics.ImmutableReferenceData;
+import com.opengamma.strata.product.GenericSecurity;
+import com.opengamma.strata.product.GenericSecurityTrade;
+import com.opengamma.strata.product.PortfolioItemSummary;
+import com.opengamma.strata.product.PortfolioItemType;
+import com.opengamma.strata.product.ProductType;
+import com.opengamma.strata.product.Trade;
+import com.opengamma.strata.product.TradeInfo;
+
+/**
+ * Test {@link EtdFutureTrade}.
+ */
+public class EtdFutureTradeTest {
+
+  private static final TradeInfo TRADE_INFO = TradeInfo.of(LocalDate.of(2017, 1, 1));
+  private static final EtdFutureSecurity SECURITY = EtdFutureSecurityTest.sut();
+
+  @Test
+  public void test_of() {
+    EtdFutureTrade test = EtdFutureTrade.of(TRADE_INFO, SECURITY, 1000, 20);
+    assertThat(test.getSecurity()).isEqualTo(SECURITY);
+    assertThat(test.getQuantity()).isCloseTo(1000d, offset(0d));
+    assertThat(test.getPrice()).isCloseTo(20d, offset(0d));
+    assertThat(test.getSecurityId()).isEqualTo(SECURITY.getSecurityId());
+    assertThat(test.getCurrency()).isEqualTo(SECURITY.getCurrency());
+    assertThat(test.withInfo(TRADE_INFO).getInfo()).isEqualTo(TRADE_INFO);
+    assertThat(test.withQuantity(129).getQuantity()).isCloseTo(129d, offset(0d));
+    assertThat(test.withPrice(129).getPrice()).isCloseTo(129d, offset(0d));
+  }
+
+  //-------------------------------------------------------------------------
+  @Test
+  public void coverage() {
+    coverImmutableBean(sut());
+    coverBeanEquals(sut(), sut2());
+  }
+
+  @Test
+  public void test_serialization() {
+    assertJodaSerialization(sut(), "EtdFutureTrade1");
+    assertJodaSerialization(sut2(), "EtdFutureTrade2");
+    assertSerialization(sut());
+  }
+
+  //-------------------------------------------------------------------------
+  @Test
+  public void test_summarize() {
+    EtdFutureTrade trade = sut();
+    PortfolioItemSummary expected = PortfolioItemSummary.builder()
+        .portfolioItemType(PortfolioItemType.TRADE)
+        .productType(ProductType.ETD_FUTURE)
+        .currencies(SECURITY.getCurrency())
+        .description(SECURITY.getSecurityId().getStandardId().getValue() + " x 3000, Jun17")
+        .build();
+    assertThat(trade.summarize()).isEqualTo(expected);
+  }
+
+  //-------------------------------------------------------------------------
+  @Test
+  public void test_resolveTarget() {
+    GenericSecurity security = GenericSecurity.of(SECURITY.getInfo());
+    Trade test = sut().resolveTarget(ImmutableReferenceData.of(SECURITY.getSecurityId(), security));
+    GenericSecurityTrade expected = GenericSecurityTrade.of(TRADE_INFO, security, 3000, 20);
+    assertThat(test).isEqualTo(expected);
+  }
+
+  //-------------------------------------------------------------------------
+  static EtdFutureTrade sut() {
+    return EtdFutureTrade.builder()
+        .info(TRADE_INFO)
+        .security(SECURITY)
+        .quantity(3000)
+        .price(20)
+        .build();
+  }
+
+  static EtdFutureTrade sut2() {
+    return EtdFutureTrade.builder()
+        .security(EtdFutureSecurityTest.sut2())
+        .quantity(4000)
+        .price(30)
+        .build();
+  }
+
+}

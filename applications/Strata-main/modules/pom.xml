@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.opengamma</groupId>
+    <artifactId>corporate-parent</artifactId>
+    <version>2.8.1</version>
+    <relativePath />
+  </parent>
+  <groupId>com.opengamma.strata</groupId>
+  <artifactId>strata-parent</artifactId>
+  <version>2.12.36-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Strata-Parent</name>
+  <description>OpenGamma Strata Parent</description>
+
+  <!-- ==================================================================== -->
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <!-- ==================================================================== -->
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/OpenGamma/Strata/issues</url>
+  </issueManagement>
+  <inceptionYear>2009</inceptionYear>
+  <mailingLists>
+    <mailingList>
+      <name>OpenGamma forum</name>
+      <archive>http://forums.opengamma.com/</archive>
+    </mailingList>
+  </mailingLists>
+  <scm>
+    <connection>scm:git:https://github.com/OpenGamma/Strata.git</connection>
+    <developerConnection>scm:git:https://github.com/OpenGamma/Strata.git</developerConnection>
+    <url>https://github.com/OpenGamma/Strata</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <!-- ==================================================================== -->
+  <modules>
+    <module>basics</module>
+    <module>collect</module>
+    <module>data</module>
+    <module>product</module>
+    <module>market</module>
+    <module>loader</module>
+    <module>math</module>
+    <module>pricer</module>
+    <module>calc</module>
+    <module>measure</module>
+    <module>report</module>
+  </modules>
+
+  <!-- ==================================================================== -->
+  <!-- standard build setup -->
+  <build>
+    <resources>
+      <!-- Include all standard resources -->
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <!-- Include LICENSE/NOTICE in jar files -->
+      <resource>
+        <directory>${root.dir}</directory>
+        <targetPath>META-INF</targetPath>
+        <includes>
+          <include>LICENSE.txt</include>
+          <include>NOTICE.txt</include>
+        </includes>
+      </resource>
+    </resources>
+    <testResources>
+      <!-- Include all standard resources -->
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+      <!-- Include LICENSE/NOTICE in test jar files -->
+      <testResource>
+        <directory>${root.dir}</directory>
+        <targetPath>META-INF</targetPath>
+        <includes>
+          <include>LICENSE.txt</include>
+          <include>NOTICE.txt</include>
+        </includes>
+      </testResource>
+    </testResources>
+    <plugins>
+      <!-- javadoc -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <!-- Java module system has borked Javadoc, links to Joda-Beans/Joda-Convert don't work -->
+          <!-- The supposed fixes don't work either -->
+          <!-- https://bugs.openjdk.java.net/browse/JDK-8212233 -->
+          <!-- https://issues.apache.org/jira/browse/MJAVADOC-615 -->
+          <!-- https://issues.apache.org/jira/browse/MJAVADOC-601 -->
+          <links>
+            <link>https://google.github.io/guava/releases/${guava-docs.version}/api/docs/</link>
+          </links>
+          <!-- The "allow-script-in-comments" is needed for 1.8.0_u121 and later -->
+          <!-- but when it is present on earlier JDK 8 builds Javadoc will complain about an unrecognised flag -->
+          <!-- If that happens to you, remove the line or upgrade to a later Java 8 version -->
+          <additionalOptions>
+            <additionalOption>--allow-script-in-comments</additionalOption>
+            <additionalOption>-Xdoclint:missing</additionalOption>
+            <additionalOption>-Xdoclint:reference</additionalOption>
+          </additionalOptions>
+        </configuration>
+      </plugin>
+      <!--  checkstyle -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>run-checkstyle</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>checkstyle</goal>
+            </goals>
+            <configuration>
+              <failsOnError>true</failsOnError>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- obtain git commit -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>buildnumber</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- create and publish test jar files -->
+      <!-- include build number in jar files -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>default-jar</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <archive>
+                <manifestEntries>
+                  <Automatic-Module-Name>${jpms.module.name}</Automatic-Module-Name>
+                </manifestEntries>
+              </archive>
+            </configuration>
+          </execution>
+          <execution>
+            <id>test-jar</id>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <skipIfEmpty>true</skipIfEmpty>
+          <archive>
+            <manifestEntries>
+              <Implementation-Build>${buildNumber}</Implementation-Build>
+              <Implementation-Date>${maven.build.timestamp}</Implementation-Date>
+              <Implementation-Build-Id>${ci.build}</Implementation-Build-Id>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+      <!-- attach site -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>attach-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- Block bad APIs -->
+      <plugin>
+        <groupId>de.thetaphi</groupId>
+        <artifactId>forbiddenapis</artifactId>
+        <configuration>
+          <failOnUnsupportedJava>false</failOnUnsupportedJava>
+          <bundledSignatures>
+            <bundledSignature>jdk-unsafe</bundledSignature>
+            <bundledSignature>jdk-deprecated</bundledSignature>
+            <bundledSignature>jdk-non-portable</bundledSignature>
+          </bundledSignatures>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+              <goal>testCheck</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <!--  remove slow SuiteHTMLReporter - 
+            already defined in corporate parent, but appears to be necessary for some configurations -->
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <properties>
+            <property>
+              <name>usedefaultlisteners</name>
+              <value>false</value>
+            </property>
+          </properties>
+        </configuration>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.jboss.bridger</groupId>
+          <artifactId>bridger</artifactId>
+          <version>${bridger.version}</version>
+          <dependencies>
+            <!-- Support Java 17 -->
+            <dependency>
+              <groupId>org.ow2.asm</groupId>
+              <artifactId>asm</artifactId>
+              <version>${asm.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.jboss.bridger</groupId>
+                    <artifactId>bridger</artifactId>
+                    <versionRange>[${bridger.version},)</versionRange>
+                    <goals>
+                      <goal>transform</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <!-- ==================================================================== -->
+  <dependencyManagement>
+    <dependencies>
+      <!-- OpenGamma -->
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-collect</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-basics</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-product</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-data</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-math</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-market</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-loader</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-pricer</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-calc</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-measure</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-report</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+      <!-- Third party -->
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>${guava.version}</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.google.errorprone</groupId>
+            <artifactId>error_prone_annotations</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.google.j2objc</groupId>
+            <artifactId>j2objc-annotations</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>animal-sniffer-annotations</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-compat-qual</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+          </exclusion>
+          <exclusion>
+            <groupId>com.google.guava</groupId>
+            <artifactId>listenablefuture</artifactId>
+          </exclusion>
+        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>org.joda</groupId>
+        <artifactId>joda-convert</artifactId>
+        <version>${joda-convert.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.joda</groupId>
+        <artifactId>joda-beans</artifactId>
+        <version>${joda-beans.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-nop</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.beust</groupId>
+        <artifactId>jcommander</artifactId>
+        <version>${jcommander.version}</version>
+      </dependency>
+      <!-- Testing -->
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-collect</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-basics</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-product</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-data</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-math</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-market</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-loader</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-pricer</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-calc</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.opengamma.strata</groupId>
+        <artifactId>strata-measure</artifactId>
+        <version>${project.version}</version>
+        <type>test-jar</type>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.junit</groupId>
+        <artifactId>junit-bom</artifactId>
+        <version>${junit5.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>${assertj.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>${mockito.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- ==================================================================== -->
+  <profiles>
+    <!-- force correct Java version -->
+    <profile>
+      <id>forcejavaversion</id>
+      <activation>
+        <jdk>[9,)</jdk>
+      </activation>
+      <properties>
+        <maven.compiler.release>8</maven.compiler.release>
+      </properties>
+      <build>
+      </build>
+    </profile>
+    <!-- apply strict build rules, activated with -Dstrict -->
+    <profile>
+      <id>strict</id>
+      <activation>
+        <property>
+          <name>strict</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>enforce</id>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <!-- no commons-logging or good/evil licensed json, junit only in test/provided -->
+                    <bannedDependencies>
+                      <excludes>
+                        <exclude>commons-logging:*</exclude>
+                        <exclude>org.json:json</exclude>
+                        <exclude>junit:*</exclude>
+                      </excludes>
+                      <includes>
+                        <include>junit:*:*:*:test</include>
+                        <include>junit:*:*:*:provided</include>
+                      </includes>
+                    </bannedDependencies>
+                    <banDuplicateClasses>
+                      <ignoreClasses>
+                        <ignoreClass>org.apache.commons.collections.ArrayStack</ignoreClass>
+                        <ignoreClass>org.apache.commons.collections.Buffer</ignoreClass>
+                        <ignoreClass>org.apache.commons.collections.BufferUnderflowException</ignoreClass>
+                        <ignoreClass>org.apache.commons.collections.FastHashMap*</ignoreClass>
+                        <ignoreClass>org.apache.tools.ant.ExitException</ignoreClass>
+                      </ignoreClasses>
+                      <findAllDuplicates>true</findAllDuplicates>
+                    </banDuplicateClasses>
+                    <!-- ensure dependencies resolve to latest version (removed as randomly fails MENFORCER-134) -->
+                    <!--requireUpperBoundDeps /-->
+                    <!-- need Java SE 8 or greater -->
+                    <requireJavaVersion>
+                      <version>[1.8,)</version>
+                    </requireJavaVersion>
+                    <requirePluginVersions>
+                    </requirePluginVersions>
+                  </rules>
+                  <fail>true</fail>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- validate Joda-Beans -->
+          <plugin>
+            <groupId>org.joda</groupId>
+            <artifactId>joda-beans-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>validate</phase>
+                <goals>
+                  <goal>validate</goal>
+                </goals>
+                <configuration>
+                  <stopOnError>true</stopOnError>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- Profile creating dist zip triggered by -Ddist -->
+    <profile>
+      <id>build-dist-javadoc-and-jars</id>
+      <activation>
+        <property>
+          <name>dist</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <!-- generate source jar file when packaging -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+                <configuration>
+                  <archive>
+                    <manifest>
+                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                    </manifest>
+                    <manifestEntries>
+                      <Implementation-Build>${buildNumber}</Implementation-Build>
+                      <Implementation-Date>${maven.build.timestamp}</Implementation-Date>
+                      <Implementation-Build-Id>${ci.build}</Implementation-Build-Id>
+                    </manifestEntries>
+                  </archive>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- generate javadoc jar file when packaging -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>attach-javadocs</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+                <configuration>
+                  <archive>
+                    <manifest>
+                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                      <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                    </manifest>
+                    <manifestEntries>
+                      <Implementation-Build>${buildNumber}</Implementation-Build>
+                      <Implementation-Date>${maven.build.timestamp}</Implementation-Date>
+                      <Implementation-Build-Id>${ci.build}</Implementation-Build-Id>
+                    </manifestEntries>
+                  </archive>
+                </configuration>
+              </execution>
+              <!-- create aggregate javadoc -->
+              <execution>
+                <id>make-javadoc</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>aggregate-no-fork</goal>
+                </goals>
+                <inherited>false</inherited>
+                <configuration>
+                  <windowtitle>OpenGamma Strata</windowtitle>
+                  <doctitle><![CDATA[<h1>OpenGamma Strata</h1>]]></doctitle>
+                  <header><![CDATA[<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\\\(","\\\\)"] ],processEscapes: true} });</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>]]></header>
+                  <bottom><![CDATA[<i>Copyright 2009-Present by OpenGamma Inc. and individual contributors</i><br /><i>Apache v2 licensed</i><br /><i>Additional documentation can be found at <a href="http://strata.opengamma.io">strata.opengamma.io</a>.</i><script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-12092825-5']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script>]]></bottom>
+                  <!-- The "allow-script-in-comments" is needed for 1.8.0_u121 and later -->
+                  <!-- but when it is present on earlier JDK 8 builds Javadoc will complain about an unrecognised flag -->
+                  <!-- If that happens to you, remove the line or upgrade to a later Java 8 version -->
+                  <additionalOptions>
+                    <additionalOption>--allow-script-in-comments</additionalOption>
+                    <additionalOption>-Xdoclint:missing</additionalOption>
+                    <additionalOption>-Xdoclint:reference</additionalOption>
+                  </additionalOptions>
+                  <excludePackageNames>com.opengamma.strata.loader.impl:com.opengamma.strata.math.impl:com.opengamma.strata.pricer.impl:com.opengamma.strata.examples</excludePackageNames>
+                  <groups>
+                    <group>
+                      <title>Measure-level API</title>
+                      <packages>com.opengamma.strata.measure:com.opengamma.strata.measure.*</packages>
+                    </group>
+                    <group>
+                      <title>Pricer-level API</title>
+                      <packages>com.opengamma.strata.pricer:com.opengamma.strata.pricer.*</packages>
+                    </group>
+                    <group>
+                      <title>Market data structures</title>
+                      <packages>com.opengamma.strata.market:com.opengamma.strata.market.*</packages>
+                    </group>
+                    <group>
+                      <title>Product domain model</title>
+                      <packages>com.opengamma.strata.product:com.opengamma.strata.product.*</packages>
+                    </group>
+                    <group>
+                      <title>Supporting toolkit</title>
+                      <packages>com.opengamma.strata.*</packages>
+                    </group>
+                  </groups>
+                  <validateLinks>true</validateLinks>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- Check for incompatible changes -->
+    <profile>
+      <id>compat</id>
+      <activation>
+        <property>
+          <name>compat</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.siom79.japicmp</groupId>
+            <artifactId>japicmp-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>cmp</goal>
+                </goals>
+                <configuration>
+                  <parameter>
+                    <onlyModified>true</onlyModified>
+                    <skipXmlReport>true</skipXmlReport>
+                  </parameter>
+                  <oldVersion>
+                    <dependency>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>${project.artifactId}</artifactId>
+                      <version>2.0.0</version>
+                    </dependency>
+                  </oldVersion>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!--  merge files, only works when mvn command run a second time -->
+          <plugin>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>validate</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <inherited>false</inherited>
+                <configuration>
+                  <target>
+                    <mkdir dir="${project.basedir}/target/japicmp" />
+                    <concat destfile="${project.basedir}/target/japicmp/japicmp.diff" overwrite="true">
+                      <fileset dir="${project.basedir}">
+                        <include name="*/target/japicmp/japicmp.diff" />
+                      </fileset>
+                    </concat>
+                  </target>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <!-- ==================================================================== -->
+  <properties>
+    <!-- Locate the root directory of the multi-module build -->
+    <root.dir>${project.basedir}/..</root.dir>
+    <!-- Versions -->
+    <asm.version>9.5</asm.version>
+    <assertj.version>3.25.3</assertj.version>
+    <bridger.version>1.6.Final</bridger.version>
+    <guava.version>32.1.3-jre</guava.version><!-- didn't want to go beyond v27 but forced to by security https://github.com/google/guava/issues/3320 -->
+    <guava-docs.version>26.0-jre</guava-docs.version>
+    <jcommander.version>1.78</jcommander.version>
+    <joda-convert.version>2.2.3</joda-convert.version>
+    <joda-beans.version>2.10.0</joda-beans.version>
+    <joda.beans.version>${joda-beans.version}</joda.beans.version>
+    <junit5.version>5.10.2</junit5.version>
+    <mockito.version>4.9.0</mockito.version>
+    <slf4j.version>1.7.36</slf4j.version>
+    <!-- Versions after M3 cause RequireFilesExist to reject relative paths -->
+    <extra-enforcer-rules.version>1.2</extra-enforcer-rules.version>
+    <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+    <!-- Properties for maven-checkstyle-plugin -->
+    <!-- versions must be retained to allow the version to be overridden on the command line -->
+    <build-config.version>2.8.1</build-config.version>
+    <checkstyle.version>8.45.1</checkstyle.version>
+    <!-- Properties for maven-javadoc-plugin -->
+    <windowtitle>OpenGamma Strata</windowtitle>
+    <doctitle><![CDATA[<h1>OpenGamma Strata</h1>]]></doctitle>
+    <header><![CDATA[<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\\\(","\\\\)"] ],processEscapes: true} });</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>]]></header>
+    <bottom><![CDATA[<i>Copyright 2009-Present by OpenGamma Inc. and individual contributors</i><br /><i>${javadoc.footer.license}</i><br /><i>Additional documentation can be found at <a href="http://strata.opengamma.io">strata.opengamma.io</a>.</i><script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-12092825-8']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })(); </script>]]></bottom>
+    <javadoc.footer.license>Apache v2 licensed</javadoc.footer.license>
+  </properties>
+
+</project>

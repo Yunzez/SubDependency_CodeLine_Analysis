@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.opengamma.strata</groupId>
+    <artifactId>strata-parent</artifactId>
+    <version>2.12.36-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>  
+  <artifactId>strata-report</artifactId>
+  <packaging>jar</packaging>
+  <name>Strata-Report</name>
+  <description>Reporting APIs and tools</description>
+
+  <!-- ==================================================================== -->
+  <build>
+    <plugins>
+      <!-- Ensure jar is created even if no code -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <skipIfEmpty>false</skipIfEmpty>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <!-- ==================================================================== -->
+  <dependencies>
+    <!-- OpenGamma -->
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-collect</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-basics</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-data</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-calc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-product</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-measure</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-market</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-pricer</artifactId>
+    </dependency>
+    
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-params</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.opengamma.strata</groupId>
+      <artifactId>strata-collect</artifactId>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- ==================================================================== -->
+  <profiles>
+    <!-- Profile extracting dependencies for dist.zip, triggered by -Ddist -->
+    <profile>
+      <id>build-report-tool</id>
+      <activation>
+        <property><name>dist</name></property>
+      </activation>
+      <build>
+        <plugins>
+          <!-- copy dependencies for main dist.zip -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>extract-dependencies</id>
+                <phase>install</phase>
+                <goals>
+                  <goal>copy-dependencies</goal>
+                </goals>
+                <configuration>
+                  <includeScope>runtime</includeScope>
+                </configuration>
+              </execution>
+              <execution>
+                <id>extract-dependencies-sources</id>
+                <phase>install</phase>
+                <goals>
+                  <goal>copy-dependencies</goal>
+                </goals>
+                <configuration>
+                  <classifier>sources</classifier>
+                  <includeGroupIds>com.opengamma.strata</includeGroupIds>
+                  <outputDirectory>target/dependency-sources</outputDirectory>
+                </configuration>
+              </execution>
+              <execution>
+                <id>extract-this</id>
+                <phase>install</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>${project.artifactId}</artifactId>
+                      <version>${project.version}</version>
+                      <type>jar</type>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>strata-loader</artifactId>
+                      <version>${project.version}</version>
+                      <type>jar</type>
+                    </artifactItem>
+                  </artifactItems>
+                  <outputDirectory>target/dependency</outputDirectory>
+                </configuration>
+              </execution>
+              <execution>
+                <id>extract-this-sources</id>
+                <phase>install</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>${project.artifactId}</artifactId>
+                      <version>${project.version}</version>
+                      <classifier>sources</classifier>
+                      <type>jar</type>
+                    </artifactItem>
+                    <artifactItem>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>strata-loader</artifactId>
+                      <version>${project.version}</version>
+                      <classifier>sources</classifier>
+                      <type>jar</type>
+                    </artifactItem>
+                  </artifactItems>
+                  <classifier>sources</classifier>
+                  <outputDirectory>target/dependency-sources</outputDirectory>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
+  <!-- ==================================================================== -->
+  <properties>
+    <jpms.module.name>com.opengamma.strata.report</jpms.module.name>
+    <!-- Locate the root directory of the multi-module build -->
+    <root.dir>${project.basedir}/../..</root.dir>
+    <!-- Properties for maven-javadoc-plugin -->
+    <windowtitle>OpenGamma Strata Pricer</windowtitle>
+    <doctitle><![CDATA[<h1>OpenGamma Strata Pricer</h1>]]></doctitle>
+  </properties>
+
+</project>

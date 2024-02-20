@@ -1,0 +1,14 @@
+name: ogbot
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+    - uses: OpenGamma/OGBot@main
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}

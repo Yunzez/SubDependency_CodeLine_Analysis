@@ -1,0 +1,23 @@
+queue_rules:
+  - name: default
+    conditions:
+      - "label=auto-merge"
+      - "check-success=build"
+
+pull_request_rules:
+  - name: Auto-Merge
+    conditions:
+      - "label=auto-merge"
+      - "status-success=build"
+      - "#approved-reviews-by>=1"
+      - "-conflict"
+      - "title~=^((?!(wip|WIP)).)*$"
+    actions:
+      queue:
+        method: squash
+        name: default
+  - name: Delete-Branch
+    conditions:
+      - "merged"
+    actions:
+      delete_head_branch: {}

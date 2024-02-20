@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmarks>
+   <site url="http://eclipse-cs.sf.net/update/" selected="true" name="Checkstyle"/>
+   <site url="http://update.eclemma.org/" selected="true" name="EclEmma"/>
+   <site url="http://findbugs.cs.umd.edu/eclipse/" selected="true" name="FindBugs"/>
+   <site url="http://download.eclipse.org/technology/m2e/releases" selected="true" name="Maven m2e"/>
+   <site url="http://beust.com/eclipse" selected="true" name="TestNG"/>
+</bookmarks>

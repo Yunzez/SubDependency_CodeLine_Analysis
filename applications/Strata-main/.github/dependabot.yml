@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "02:30"
+  open-pull-requests-limit: 20
+  reviewers:
+  - jodastephen
+  assignees:
+  - jodastephen
+  ignore:
+  - dependency-name: com.beust:jcommander
+    versions:
+    - ">= 1.78.a"
+  - dependency-name: org.openjfx:javafx-controls
+    versions:
+    - ">= 12.a"
