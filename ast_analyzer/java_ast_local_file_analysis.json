@@ -37,11 +37,16 @@
       "downstream_info": {
         "external_functions": {
           "getCryptoCipher": {
-            "call_line": "CryptoCipherFactory.getCryptoCipher"
+            "call_line": "CryptoCipherFactory.getCryptoCipher",
+            "exter_func_info": {
+              "line": "68-70",
+              "file_name": "subAst/output/Utils/CryptoCipherFactory.json",
+              "dependencyInfo": {}
+            }
           }
         },
         "internal_functions": {},
-        "usedVariables": [
+        "allVariableUsage": [
           {
             "variableName": "CryptoCipherFactory",
             "lineUsed": 56

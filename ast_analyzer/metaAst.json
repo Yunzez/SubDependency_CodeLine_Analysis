@@ -4,7 +4,7 @@
       "setConfig": "this.byteEncryptor.setConfig"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 44
@@ -26,7 +26,7 @@
       "setAlgorithm": "this.byteEncryptor.setAlgorithm"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 50
@@ -48,7 +48,7 @@
       "setPassword": "this.byteEncryptor.setPassword"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 54
@@ -70,7 +70,7 @@
       "setPasswordCharArray": "this.byteEncryptor.setPasswordCharArray"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 58
@@ -92,7 +92,7 @@
       "setKeyObtentionIterations": "this.byteEncryptor.setKeyObtentionIterations"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 62
@@ -114,7 +114,7 @@
       "setSaltGenerator": "this.byteEncryptor.setSaltGenerator"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 66
@@ -136,7 +136,7 @@
       "setIvGenerator": "this.byteEncryptor.setIvGenerator"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 70
@@ -158,7 +158,7 @@
       "setProviderName": "this.byteEncryptor.setProviderName"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 74
@@ -180,7 +180,7 @@
       "setProvider": "this.byteEncryptor.setProvider"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 78
@@ -204,7 +204,7 @@
       "getStandardStringOutputType": "CommonUtils.getStandardStringOutputType"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "CommonUtils",
         "lineUsed": 82
@@ -229,7 +229,7 @@
       "setStringOutputType": "setStringOutputType"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 92
@@ -255,7 +255,7 @@
       "isInitialized": "this.byteEncryptor.isInitialized"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 105
@@ -279,7 +279,7 @@
       "initialize": "this.byteEncryptor.initialize"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteEncryptor",
         "lineUsed": 111
@@ -302,7 +302,7 @@
       "equalsIgnoreCase": "equalsIgnoreCase"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "stringPBEConfig",
         "lineUsed": 117
@@ -329,7 +329,7 @@
       "encode": "this.base64.encode"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "message",
         "lineUsed": 131
@@ -374,7 +374,7 @@
       "decrypt": "this.byteEncryptor.decrypt"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "CommonUtils",
         "lineUsed": 161
@@ -415,7 +415,7 @@
       "getOctets": "param1DEROctetString.getOctets"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ASN1ObjectIdentifier",
         "lineUsed": 13
@@ -437,7 +437,7 @@
       "createPrimitive": "createPrimitive"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "25-27",
@@ -450,7 +450,7 @@
       "getInstance": "ASN1Sequence.getInstance"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ASN1Sequence",
         "lineUsed": 25
@@ -466,7 +466,7 @@
   "getId": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "120-122",
@@ -477,7 +477,7 @@
   "branch": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "124-126",
@@ -493,7 +493,7 @@
       "startsWith": "str1.startsWith"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramASN1ObjectIdentifier",
         "lineUsed": 130
@@ -548,7 +548,7 @@
       "hasMoreTokens": "oIDTokenizer.hasMoreTokens"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "Integer",
         "lineUsed": 136
@@ -632,7 +632,7 @@
       "toByteArray": "byteArrayOutputStream.toByteArray"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "byteArrayOutputStream",
         "lineUsed": 157
@@ -652,7 +652,7 @@
   "encodeConstructed": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "162-164",
@@ -666,7 +666,7 @@
       "getContents": "getContents"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ASN1OutputStream",
         "lineUsed": 167
@@ -685,7 +685,7 @@
       "getContents": "getContents"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramASN1OutputStream",
         "lineUsed": 171
@@ -704,7 +704,7 @@
       "getName": "getName"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "getName",
         "lineUsed": 110
@@ -722,7 +722,7 @@
       "equals": "this.identifier.equals"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "identifier",
         "lineUsed": 179
@@ -744,7 +744,7 @@
       "getId": "getId"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "182-184",
@@ -759,7 +759,7 @@
       "isValidIdentifier": "ASN1RelativeOID.isValidIdentifier"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramString",
         "lineUsed": 187
@@ -791,7 +791,7 @@
       "putIfAbsent": "pool.putIfAbsent"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "pool",
         "lineUsed": 195
@@ -818,7 +818,7 @@
       "get": "pool.get"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "pool",
         "lineUsed": 206
@@ -841,7 +841,7 @@
       "getName": "getName"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "getName",
         "lineUsed": 104
@@ -865,7 +865,7 @@
   "configure": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "6-6",
@@ -876,7 +876,7 @@
   "generatePrivate": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "62-64",
@@ -887,7 +887,7 @@
   "generatePublic": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "66-68",
@@ -903,7 +903,7 @@
       "loadClass": "classLoader.loadClass"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramClass",
         "lineUsed": 9
@@ -937,7 +937,7 @@
       "checkPermission": "securityManager.checkPermission"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "securityManager",
         "lineUsed": 151
@@ -957,7 +957,7 @@
   "setParameter": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "20-20",
@@ -968,7 +968,7 @@
   "addAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "24-24",
@@ -979,7 +979,7 @@
   "hasAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "26-26",
@@ -990,7 +990,7 @@
   "addKeyInfoConverter": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "28-28",
@@ -1001,7 +1001,7 @@
   "getKeyInfoConverter": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "30-30",
@@ -1012,7 +1012,7 @@
   "addAttributes": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "32-32",
@@ -1030,7 +1030,7 @@
       "getClass": "paramKeySpec.getClass"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "exception",
         "lineUsed": 25
@@ -1063,7 +1063,7 @@
       "getInstance": "SubjectPublicKeyInfo.getInstance"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "exception",
         "lineUsed": 37
@@ -1087,7 +1087,7 @@
       "getEncoded": "paramKey.getEncoded"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramKey",
         "lineUsed": 51
@@ -1111,7 +1111,7 @@
   "engineTranslateKey": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "56-60",
@@ -1126,7 +1126,7 @@
       "getEncoded": "paramKey.getEncoded"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramKey",
         "lineUsed": 81
@@ -1150,7 +1150,7 @@
   "translateKey": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "86-90",
@@ -1161,7 +1161,7 @@
   "getDigest": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "112-114",
@@ -1174,7 +1174,7 @@
       "intValueExact": "paramASN1Integer.intValueExact"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramASN1Integer",
         "lineUsed": 42
@@ -1190,7 +1190,7 @@
   "getVersion": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "91-93",
@@ -1201,7 +1201,7 @@
   "getAttributes": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "95-97",
@@ -1212,7 +1212,7 @@
   "getPrivateKeyAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "99-101",
@@ -1225,7 +1225,7 @@
       "getOctets": "this.privateKey.getOctets"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "privateKey",
         "lineUsed": 104
@@ -1248,7 +1248,7 @@
       "getOctets": "this.privateKey.getOctets"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ASN1Primitive",
         "lineUsed": 108
@@ -1272,7 +1272,7 @@
   "hasPublicKey": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "111-113",
@@ -1286,7 +1286,7 @@
       "getOctets": "this.keyData.getOctets"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ASN1Primitive",
         "lineUsed": 55
@@ -1310,7 +1310,7 @@
   "getPublicKeyData": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "62-64",
@@ -1323,7 +1323,7 @@
       "add": "aSN1EncodableVector.add"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "aSN1EncodableVector",
         "lineUsed": 68
@@ -1348,7 +1348,7 @@
   "getEcImplicitlyCa": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "10-10",
@@ -1359,7 +1359,7 @@
   "getDHDefaultParameters": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "12-12",
@@ -1370,7 +1370,7 @@
   "getDSADefaultParameters": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "14-14",
@@ -1381,7 +1381,7 @@
   "getAcceptableNamedCurves": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "16-16",
@@ -1392,7 +1392,7 @@
   "getAdditionalECParameters": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "18-18",
@@ -1408,7 +1408,7 @@
       "hasMoreTokens": "stringTokenizer.hasMoreTokens"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "Strings",
         "lineUsed": 50
@@ -1474,7 +1474,7 @@
   "getActions": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "86-88",
@@ -1488,7 +1488,7 @@
       "getName": "getName"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "getName",
         "lineUsed": 93
@@ -1508,7 +1508,7 @@
   "getAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "16-16",
@@ -1519,7 +1519,7 @@
   "getAlgorithmId": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "50-52",
@@ -1533,7 +1533,7 @@
       "getOctets": "this.keyData.getOctets"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ASN1Primitive",
         "lineUsed": 59
@@ -1559,7 +1559,7 @@
       "getSecureRandom": "getSecureRandom"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "46-48",
@@ -1572,7 +1572,7 @@
       "checkPermission": "checkPermission"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "50-55",
@@ -1585,7 +1585,7 @@
       "lookupProperty": "lookupProperty"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "57-60",
@@ -1599,7 +1599,7 @@
       "containsKey": "map.containsKey"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "threadProperties",
         "lineUsed": 64
@@ -1643,7 +1643,7 @@
       "getP": "dHParameters.getP"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "type",
         "lineUsed": 82
@@ -1696,7 +1696,7 @@
       "clone": "paramVarArgs.clone"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "type",
         "lineUsed": 100
@@ -1724,7 +1724,7 @@
       "clone": "paramVarArgs.clone"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramVarArgs",
         "lineUsed": 107
@@ -1744,7 +1744,7 @@
       "put": "map.put"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "threadProperties",
         "lineUsed": 111
@@ -1781,7 +1781,7 @@
       "put": "globalProperties.put"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "type",
         "lineUsed": 120
@@ -1812,7 +1812,7 @@
       "remove": "globalProperties.remove"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "globalProperties",
         "lineUsed": 129
@@ -1835,7 +1835,7 @@
       "localClearThreadProperty": "localClearThreadProperty"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "132-135",
@@ -1850,7 +1850,7 @@
       "remove": "map.remove"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "threadProperties",
         "lineUsed": 138
@@ -1886,7 +1886,7 @@
       "checkPermission": "securityManager.checkPermission"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "System",
         "lineUsed": 147
@@ -1923,7 +1923,7 @@
       "getCounter": "getCounter"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "getP",
         "lineUsed": 158
@@ -1971,7 +1971,7 @@
   "chooseLowerBound": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "163-176",
@@ -1982,7 +1982,7 @@
   "getQ": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "32-34",
@@ -1993,7 +1993,7 @@
   "getJ": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "78-80",
@@ -2004,7 +2004,7 @@
   "getM": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "82-84",
@@ -2024,7 +2024,7 @@
       "getSeed": "eCParameterSpec.getSeed"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ECUtil",
         "lineUsed": 78
@@ -2072,7 +2072,7 @@
   "getDefaultMParam": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "24-26",
@@ -2083,7 +2083,7 @@
   "getP": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "28-30",
@@ -2094,7 +2094,7 @@
   "getG": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "47-49",
@@ -2105,7 +2105,7 @@
   "getL": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "86-88",
@@ -2116,7 +2116,7 @@
   "getValidationParameters": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "40-42",
@@ -2127,7 +2127,7 @@
   "getCurve": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "43-45",
@@ -2146,7 +2146,7 @@
       "getH": "paramECDomainParameters.getH"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramECDomainParameters",
         "lineUsed": 123
@@ -2188,7 +2188,7 @@
       "getMidTermsOfReductionPolynomial": "eCFieldF2m.getMidTermsOfReductionPolynomial"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramEllipticCurve",
         "lineUsed": 134
@@ -2249,7 +2249,7 @@
       "getDegree": "polynomial.getDegree"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ECAlgorithms",
         "lineUsed": 148
@@ -2300,7 +2300,7 @@
       "getName": "getName"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramECParameterSpec",
         "lineUsed": 166
@@ -2345,7 +2345,7 @@
       "getAffineYCoord": "paramECPoint.getAffineYCoord"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramECPoint",
         "lineUsed": 183
@@ -2377,7 +2377,7 @@
   "getN": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "51-53",
@@ -2388,7 +2388,7 @@
   "getH": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "55-57",
@@ -2399,7 +2399,7 @@
   "getSeed": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "59-61",
@@ -2415,7 +2415,7 @@
       "newInstance": "ctor.newInstance"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "klass",
         "lineUsed": 33
@@ -2450,7 +2450,7 @@
       "getClassByNameOrNull": "getClassByNameOrNull"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "42-47",
@@ -2466,7 +2466,7 @@
       "forName": "Class.forName"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "CACHE_CLASSES",
         "lineUsed": 52
@@ -2536,7 +2536,7 @@
       "hasMoreElements": "names.hasMoreElements"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "System",
         "lineUsed": 22
@@ -2613,7 +2613,7 @@
   "getDefaultProperties": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "44-46",
@@ -2626,7 +2626,7 @@
       "putAll": "properties.putAll"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "properties",
         "lineUsed": 50
@@ -2648,7 +2648,7 @@
       "getCryptoCipher": "CryptoCipherFactory.getCryptoCipher"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "CryptoCipherFactory",
         "lineUsed": 56
@@ -2666,7 +2666,7 @@
       "valueOf": "String.valueOf"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "String",
         "lineUsed": 69
@@ -2684,7 +2684,7 @@
       "requireNonNull": "Objects.requireNonNull"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "Objects",
         "lineUsed": 74
@@ -2700,7 +2700,7 @@
   "checkState": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "81-84",
@@ -2716,7 +2716,7 @@
       "split": "clazzNames.split"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "clazzNames",
         "lineUsed": 88
@@ -2756,7 +2756,7 @@
   "getBlockSize": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "14-14",
@@ -2767,7 +2767,7 @@
   "init": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "18-18",
@@ -2778,7 +2778,7 @@
   "update": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "22-22",
@@ -2789,7 +2789,7 @@
   "doFinal": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "26-26",
@@ -2800,7 +2800,7 @@
   "updateAAD": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "32-34",
@@ -2811,7 +2811,7 @@
   "getClassName": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "29-31",
@@ -2822,7 +2822,7 @@
   "getImplClass": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "33-35",
@@ -2835,7 +2835,7 @@
       "getCryptoCipher": "getCryptoCipher"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "68-70",
@@ -2849,7 +2849,7 @@
       "isEmpty": "cipherClassString.isEmpty"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "props",
         "lineUsed": 73

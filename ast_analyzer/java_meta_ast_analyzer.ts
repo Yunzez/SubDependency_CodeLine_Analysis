@@ -125,7 +125,7 @@ const mergeAnalysis = (basePath: string, addsonPath: string) => {
         const addonFunctionData = addonAnalysisMap.get(exterFuncName);
         baseFunctionData.external_functions[exterFuncName] = {
           call_line: baseFunctionData.external_functions[exterFuncName],
-          exter_func_info: addonFunctionData?.self,
+          exter_func_info: addonFunctionData?.self_information ?? "Null",
         };
       }
     }
@@ -138,5 +138,5 @@ const mergeAnalysis = (basePath: string, addsonPath: string) => {
 type AnalysisResult = {
   external_functions: Record<string, any>;
   internal_functions: Record<string, any>;
-  self: Record<string, any>;
+  self_information: Record<string, any>;
 };

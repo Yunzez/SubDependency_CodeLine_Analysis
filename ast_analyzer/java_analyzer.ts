@@ -362,7 +362,7 @@ const extractMethodDetails = (
       external_functions: external,
       internal_functions: internal,
       // variableDeclarations: variableDeclarations,
-      usedVariables: variableUsages,
+      allVariableUsage: variableUsages,
       declaredVariableUsages: declaredVariableUsages,
       self_information: {
         line: `${method.range.beginLine}-${method.range.endLine}`, // Assuming line numbers are stored in `range`

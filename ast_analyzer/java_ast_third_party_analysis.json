@@ -2,7 +2,7 @@
   "getBlockSize": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "14-14",
@@ -18,7 +18,7 @@
   "getAlgorithm": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "16-16",
@@ -34,7 +34,7 @@
   "init": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "18-18",
@@ -50,7 +50,7 @@
   "update": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "22-22",
@@ -66,7 +66,7 @@
   "doFinal": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "26-26",
@@ -82,7 +82,7 @@
   "updateAAD": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "32-34",
@@ -95,130 +95,24 @@
       }
     }
   },
-  "setPassword": {
-    "external_functions": {
-      "setPassword": {
-        "call_line": "this.encryptor.setPassword"
-      }
-    },
-    "internal_functions": {},
-    "usedVariables": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 14
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        14
-      ]
-    },
-    "self_information": {
-      "line": "13-15",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
-  "setPasswordCharArray": {
-    "external_functions": {
-      "setPasswordCharArray": {
-        "call_line": "this.encryptor.setPasswordCharArray"
-      }
-    },
-    "internal_functions": {},
-    "usedVariables": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 18
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        18
-      ]
-    },
-    "self_information": {
-      "line": "17-19",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
-  "encrypt": {
-    "external_functions": {
-      "encrypt": {
-        "call_line": "this.encryptor.encrypt"
-      }
-    },
-    "internal_functions": {},
-    "usedVariables": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 22
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        22
-      ]
-    },
-    "self_information": {
-      "line": "21-23",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
-  "decrypt": {
-    "external_functions": {
-      "decrypt": {
-        "call_line": "this.encryptor.decrypt"
-      }
-    },
-    "internal_functions": {},
-    "usedVariables": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 26
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        26
-      ]
-    },
-    "self_information": {
-      "line": "25-27",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
   "createDefaultProperties": {
     "external_functions": {
       "getProperties": {
-        "call_line": "System.getProperties"
+        "call_line": "System.getProperties",
+        "exter_func_info": {
+          "line": "48-52",
+          "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
+          "dependencyInfo": {}
+        }
       },
       "println": "System.err.println",
       "toString": {
-        "call_line": "ex.toString"
+        "call_line": "ex.toString",
+        "exter_func_info": {
+          "line": "182-184",
+          "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+          "dependencyInfo": {}
+        }
       },
       "getResourceAsStream": "getResourceAsStream",
       "getContextClassLoader": "getContextClassLoader",
@@ -227,13 +121,18 @@
       "propertyNames": "fileProps.propertyNames",
       "nextElement": "names.nextElement",
       "getProperty": {
-        "call_line": "fileProps.getProperty"
+        "call_line": "fileProps.getProperty",
+        "exter_func_info": {
+          "line": "57-60",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
       },
       "setProperty": "defaultedProps.setProperty",
       "hasMoreElements": "names.hasMoreElements"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "System",
         "lineUsed": 22
@@ -315,7 +214,7 @@
   "getDefaultProperties": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "44-46",
@@ -333,7 +232,7 @@
       "putAll": "properties.putAll"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "properties",
         "lineUsed": 50
@@ -358,11 +257,16 @@
   "getCipherInstance": {
     "external_functions": {
       "getCryptoCipher": {
-        "call_line": "CryptoCipherFactory.getCryptoCipher"
+        "call_line": "CryptoCipherFactory.getCryptoCipher",
+        "exter_func_info": {
+          "line": "68-70",
+          "file_name": "subAst/output/Utils/CryptoCipherFactory.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "CryptoCipherFactory",
         "lineUsed": 56
@@ -385,7 +289,7 @@
       "valueOf": "String.valueOf"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "String",
         "lineUsed": 69
@@ -408,7 +312,7 @@
       "requireNonNull": "Objects.requireNonNull"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "Objects",
         "lineUsed": 74
@@ -429,7 +333,7 @@
   "checkState": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "81-84",
@@ -450,7 +354,7 @@
       "split": "clazzNames.split"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "clazzNames",
         "lineUsed": 88
@@ -492,10 +396,146 @@
       }
     }
   },
+  "setPassword": {
+    "external_functions": {
+      "setPassword": {
+        "call_line": "this.encryptor.setPassword",
+        "exter_func_info": {
+          "line": "53-55",
+          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "encryptor",
+        "lineUsed": 14
+      }
+    ],
+    "declaredVariableUsages": {
+      "encryptor": [
+        14
+      ]
+    },
+    "self_information": {
+      "line": "13-15",
+      "file_name": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
+      }
+    }
+  },
+  "setPasswordCharArray": {
+    "external_functions": {
+      "setPasswordCharArray": {
+        "call_line": "this.encryptor.setPasswordCharArray",
+        "exter_func_info": {
+          "line": "57-59",
+          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "encryptor",
+        "lineUsed": 18
+      }
+    ],
+    "declaredVariableUsages": {
+      "encryptor": [
+        18
+      ]
+    },
+    "self_information": {
+      "line": "17-19",
+      "file_name": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
+      }
+    }
+  },
+  "encrypt": {
+    "external_functions": {
+      "encrypt": {
+        "call_line": "this.encryptor.encrypt",
+        "exter_func_info": {
+          "line": "125-148",
+          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "encryptor",
+        "lineUsed": 22
+      }
+    ],
+    "declaredVariableUsages": {
+      "encryptor": [
+        22
+      ]
+    },
+    "self_information": {
+      "line": "21-23",
+      "file_name": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
+      }
+    }
+  },
+  "decrypt": {
+    "external_functions": {
+      "decrypt": {
+        "call_line": "this.encryptor.decrypt",
+        "exter_func_info": {
+          "line": "150-172",
+          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "encryptor",
+        "lineUsed": 26
+      }
+    ],
+    "declaredVariableUsages": {
+      "encryptor": [
+        26
+      ]
+    },
+    "self_information": {
+      "line": "25-27",
+      "file_name": "../asts/BasicTextEncryptor.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
+      }
+    }
+  },
   "getClassName": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "29-31",
@@ -511,7 +551,7 @@
   "getImplClass": {
     "external_functions": {},
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "33-35",
@@ -527,11 +567,16 @@
   "getCryptoCipher": {
     "external_functions": {
       "getCryptoCipher": {
-        "call_line": "getCryptoCipher"
+        "call_line": "getCryptoCipher",
+        "exter_func_info": {
+          "line": "68-70",
+          "file_name": "subAst/output/Utils/CryptoCipherFactory.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "68-70",
@@ -547,12 +592,17 @@
   "getCipherClassString": {
     "external_functions": {
       "getProperty": {
-        "call_line": "props.getProperty"
+        "call_line": "props.getProperty",
+        "exter_func_info": {
+          "line": "57-60",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
       },
       "isEmpty": "cipherClassString.isEmpty"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "props",
         "lineUsed": 73
@@ -581,11 +631,16 @@
   "setParameter": {
     "external_functions": {
       "setParameter": {
-        "call_line": "setParameter"
+        "call_line": "setParameter",
+        "exter_func_info": {
+          "line": "20-20",
+          "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "159-163",
@@ -603,7 +658,7 @@
       "get": "this.ecThreadSpec.get"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ecThreadSpec",
         "lineUsed": 104
@@ -630,14 +685,24 @@
       "get": "this.dhThreadSpec.get",
       "bitLength": "bitLength",
       "getP": {
-        "call_line": "dHParameterSpec.getP"
+        "call_line": "dHParameterSpec.getP",
+        "exter_func_info": {
+          "line": "28-30",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
       },
       "getSizedProperty": {
-        "call_line": "CryptoServicesRegistrar.getSizedProperty"
+        "call_line": "CryptoServicesRegistrar.getSizedProperty",
+        "exter_func_info": {
+          "line": "78-96",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "dhThreadSpec",
         "lineUsed": 109
@@ -681,20 +746,40 @@
   "getDSADefaultParameters": {
     "external_functions": {
       "getSizedProperty": {
-        "call_line": "CryptoServicesRegistrar.getSizedProperty"
+        "call_line": "CryptoServicesRegistrar.getSizedProperty",
+        "exter_func_info": {
+          "line": "78-96",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
       },
       "getP": {
-        "call_line": "dSAParameters.getP"
+        "call_line": "dSAParameters.getP",
+        "exter_func_info": {
+          "line": "28-30",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
       },
       "getQ": {
-        "call_line": "dSAParameters.getQ"
+        "call_line": "dSAParameters.getQ",
+        "exter_func_info": {
+          "line": "32-34",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
       },
       "getG": {
-        "call_line": "dSAParameters.getG"
+        "call_line": "dSAParameters.getG",
+        "exter_func_info": {
+          "line": "47-49",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "CryptoServicesRegistrar",
         "lineUsed": 128
@@ -735,7 +820,7 @@
       "unmodifiableSet": "Collections.unmodifiableSet"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "Collections",
         "lineUsed": 133
@@ -758,7 +843,7 @@
       "unmodifiableMap": "Collections.unmodifiableMap"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "Collections",
         "lineUsed": 137
@@ -781,7 +866,7 @@
       "setup": "this.setup"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "79-82",
@@ -801,7 +886,7 @@
       "put": "put"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "86-130",
@@ -817,17 +902,32 @@
   "loadAlgorithms": {
     "external_functions": {
       "loadClass": {
-        "call_line": "ClassUtil.loadClass"
+        "call_line": "ClassUtil.loadClass",
+        "exter_func_info": {
+          "line": "7-22",
+          "file_name": "subAst/output/BouncyCastleProvider/ClassUtil.json",
+          "dependencyInfo": {}
+        }
       },
       "configure": {
-        "call_line": "configure"
+        "call_line": "configure",
+        "exter_func_info": {
+          "line": "6-6",
+          "file_name": "subAst/output/BouncyCastleProvider/AlgorithmProvider.json",
+          "dependencyInfo": {}
+        }
       },
       "newInstance": {
-        "call_line": "clazz.newInstance"
+        "call_line": "clazz.newInstance",
+        "exter_func_info": {
+          "line": "24-40",
+          "file_name": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "ClassUtil",
         "lineUsed": 134
@@ -856,11 +956,16 @@
   "loadPQCKeys": {
     "external_functions": {
       "addKeyInfoConverter": {
-        "call_line": "addKeyInfoConverter"
+        "call_line": "addKeyInfoConverter",
+        "exter_func_info": {
+          "line": "28-28",
+          "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "144-157",
@@ -878,7 +983,7 @@
       "containsKey": "containsKey"
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "165-167",
@@ -894,11 +999,16 @@
   "addAlgorithm": {
     "external_functions": {
       "addAlgorithm": {
-        "call_line": "addAlgorithm"
+        "call_line": "addAlgorithm",
+        "exter_func_info": {
+          "line": "24-24",
+          "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [],
+    "allVariableUsage": [],
     "declaredVariableUsages": {},
     "self_information": {
       "line": "175-178",
@@ -916,7 +1026,7 @@
       "put": "keyInfoConverters.put"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "keyInfoConverters",
         "lineUsed": 182
@@ -943,7 +1053,7 @@
       "get": "keyInfoConverters.get"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "keyInfoConverters",
         "lineUsed": 187
@@ -973,7 +1083,7 @@
       "keySet": "paramMap.keySet"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "paramMap",
         "lineUsed": 195
@@ -1000,7 +1110,7 @@
       "get": "keyInfoConverters.get"
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "keyInfoConverters",
         "lineUsed": 201
@@ -1026,14 +1136,24 @@
     "external_functions": {
       "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
       "getAlgorithm": {
-        "call_line": "paramSubjectPublicKeyInfo.getAlgorithm"
+        "call_line": "paramSubjectPublicKeyInfo.getAlgorithm",
+        "exter_func_info": {
+          "line": "16-16",
+          "file_name": "subAst/output/Utils/CryptoCipher.json",
+          "dependencyInfo": {}
+        }
       },
       "generatePublic": {
-        "call_line": "asymmetricKeyInfoConverter.generatePublic"
+        "call_line": "asymmetricKeyInfoConverter.generatePublic",
+        "exter_func_info": {
+          "line": "66-68",
+          "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "getAlgorithm",
         "lineUsed": 206
@@ -1067,17 +1187,32 @@
     "external_functions": {
       "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
       "getAlgorithm": {
-        "call_line": "getAlgorithm"
+        "call_line": "getAlgorithm",
+        "exter_func_info": {
+          "line": "16-16",
+          "file_name": "subAst/output/Utils/CryptoCipher.json",
+          "dependencyInfo": {}
+        }
       },
       "getPrivateKeyAlgorithm": {
-        "call_line": "paramPrivateKeyInfo.getPrivateKeyAlgorithm"
+        "call_line": "paramPrivateKeyInfo.getPrivateKeyAlgorithm",
+        "exter_func_info": {
+          "line": "99-101",
+          "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+          "dependencyInfo": {}
+        }
       },
       "generatePrivate": {
-        "call_line": "asymmetricKeyInfoConverter.generatePrivate"
+        "call_line": "asymmetricKeyInfoConverter.generatePrivate",
+        "exter_func_info": {
+          "line": "62-64",
+          "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+          "dependencyInfo": {}
+        }
       }
     },
     "internal_functions": {},
-    "usedVariables": [
+    "allVariableUsage": [
       {
         "variableName": "getPrivateKeyAlgorithm",
         "lineUsed": 211
