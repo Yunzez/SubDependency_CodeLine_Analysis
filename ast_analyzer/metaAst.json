@@ -15,9 +15,9 @@
         44
       ]
     },
-    "self": {
+    "self_information": {
       "line": "43-47",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -37,9 +37,9 @@
         50
       ]
     },
-    "self": {
+    "self_information": {
       "line": "49-51",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -59,9 +59,9 @@
         54
       ]
     },
-    "self": {
+    "self_information": {
       "line": "53-55",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -81,9 +81,9 @@
         58
       ]
     },
-    "self": {
+    "self_information": {
       "line": "57-59",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -103,9 +103,9 @@
         62
       ]
     },
-    "self": {
+    "self_information": {
       "line": "61-63",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -125,9 +125,9 @@
         66
       ]
     },
-    "self": {
+    "self_information": {
       "line": "65-67",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -147,9 +147,9 @@
         70
       ]
     },
-    "self": {
+    "self_information": {
       "line": "69-71",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -169,9 +169,9 @@
         74
       ]
     },
-    "self": {
+    "self_information": {
       "line": "73-75",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -191,9 +191,9 @@
         78
       ]
     },
-    "self": {
+    "self_information": {
       "line": "77-79",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -215,9 +215,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "81-89",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -244,9 +244,9 @@
         92
       ]
     },
-    "self": {
+    "self_information": {
       "line": "91-102",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -266,9 +266,9 @@
         105
       ]
     },
-    "self": {
+    "self_information": {
       "line": "104-106",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -290,9 +290,9 @@
         111
       ]
     },
-    "self": {
+    "self_information": {
       "line": "108-113",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -313,9 +313,9 @@
         117
       ]
     },
-    "self": {
+    "self_information": {
       "line": "115-123",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -358,9 +358,9 @@
         135
       ]
     },
-    "self": {
+    "self_information": {
       "line": "125-148",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -403,9 +403,9 @@
         163
       ]
     },
-    "self": {
+    "self_information": {
       "line": "150-172",
-      "file": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
+      "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
       "dependencyInfo": {}
     }
   },
@@ -426,9 +426,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "12-14",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -439,9 +439,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "25-27",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -457,9 +457,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "24-26",
-      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -468,9 +468,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "120-122",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -479,9 +479,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "124-126",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -530,9 +530,9 @@
         131
       ]
     },
-    "self": {
+    "self_information": {
       "line": "128-132",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -620,9 +620,9 @@
         145
       ]
     },
-    "self": {
+    "self_information": {
       "line": "134-151",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -643,9 +643,9 @@
         157
       ]
     },
-    "self": {
+    "self_information": {
       "line": "153-160",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -654,9 +654,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "162-164",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -673,9 +673,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "166-168",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -692,9 +692,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "170-172",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -711,9 +711,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "109-111",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
       "dependencyInfo": {}
     }
   },
@@ -733,9 +733,9 @@
         179
       ]
     },
-    "self": {
+    "self_information": {
       "line": "178-180",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -746,9 +746,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "182-184",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -778,9 +778,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "186-191",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -807,9 +807,9 @@
         197
       ]
     },
-    "self": {
+    "self_information": {
       "line": "193-202",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -829,9 +829,9 @@
         206
       ]
     },
-    "self": {
+    "self_information": {
       "line": "204-208",
-      "file": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ASN1ObjectIdentifier.json",
       "dependencyInfo": {}
     }
   },
@@ -856,9 +856,9 @@
         104
       ]
     },
-    "self": {
+    "self_information": {
       "line": "99-107",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
       "dependencyInfo": {}
     }
   },
@@ -867,9 +867,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "6-6",
-      "file": "subAst/output/BouncyCastleProvider/AlgorithmProvider.json",
+      "file_name": "subAst/output/BouncyCastleProvider/AlgorithmProvider.json",
       "dependencyInfo": {}
     }
   },
@@ -878,9 +878,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "62-64",
-      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -889,9 +889,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "66-68",
-      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -926,9 +926,9 @@
         10
       ]
     },
-    "self": {
+    "self_information": {
       "line": "7-22",
-      "file": "subAst/output/BouncyCastleProvider/ClassUtil.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ClassUtil.json",
       "dependencyInfo": {}
     }
   },
@@ -948,9 +948,9 @@
         151
       ]
     },
-    "self": {
+    "self_information": {
       "line": "150-153",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -959,9 +959,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "20-20",
-      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
       "dependencyInfo": {}
     }
   },
@@ -970,9 +970,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "24-24",
-      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
       "dependencyInfo": {}
     }
   },
@@ -981,9 +981,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "26-26",
-      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
       "dependencyInfo": {}
     }
   },
@@ -992,9 +992,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "28-28",
-      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
       "dependencyInfo": {}
     }
   },
@@ -1003,9 +1003,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "30-30",
-      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
       "dependencyInfo": {}
     }
   },
@@ -1014,9 +1014,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "32-32",
-      "file": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
+      "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
       "dependencyInfo": {}
     }
   },
@@ -1049,9 +1049,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "19-29",
-      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -1074,9 +1074,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "31-41",
-      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -1102,9 +1102,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "43-54",
-      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -1113,9 +1113,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "56-60",
-      "file": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -1141,9 +1141,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "73-84",
-      "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -1152,9 +1152,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "86-90",
-      "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -1163,9 +1163,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "112-114",
-      "file": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
+      "file_name": "subAst/output/BouncyCastleProvider/McElieceKeyFactorySpi.json",
       "dependencyInfo": {}
     }
   },
@@ -1181,9 +1181,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "41-46",
-      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1192,9 +1192,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "91-93",
-      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1203,9 +1203,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "95-97",
-      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1214,9 +1214,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "99-101",
-      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1236,9 +1236,9 @@
         104
       ]
     },
-    "self": {
+    "self_information": {
       "line": "103-105",
-      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1263,9 +1263,9 @@
         108
       ]
     },
-    "self": {
+    "self_information": {
       "line": "107-109",
-      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1274,9 +1274,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "111-113",
-      "file": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1301,9 +1301,9 @@
         55
       ]
     },
-    "self": {
+    "self_information": {
       "line": "54-56",
-      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1312,9 +1312,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "62-64",
-      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1339,9 +1339,9 @@
         69
       ]
     },
-    "self": {
+    "self_information": {
       "line": "66-71",
-      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1350,9 +1350,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "10-10",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
       "dependencyInfo": {}
     }
   },
@@ -1361,9 +1361,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "12-12",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
       "dependencyInfo": {}
     }
   },
@@ -1372,9 +1372,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "14-14",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
       "dependencyInfo": {}
     }
   },
@@ -1383,9 +1383,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "16-16",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
       "dependencyInfo": {}
     }
   },
@@ -1394,9 +1394,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "18-18",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfiguration.json",
       "dependencyInfo": {}
     }
   },
@@ -1465,9 +1465,9 @@
         78
       ]
     },
-    "self": {
+    "self_information": {
       "line": "49-84",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
       "dependencyInfo": {}
     }
   },
@@ -1476,9 +1476,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "86-88",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
       "dependencyInfo": {}
     }
   },
@@ -1499,9 +1499,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "90-97",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ProviderConfigurationPermission.json",
       "dependencyInfo": {}
     }
   },
@@ -1510,9 +1510,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "16-16",
-      "file": "subAst/output/Utils/CryptoCipher.json",
+      "file_name": "subAst/output/Utils/CryptoCipher.json",
       "dependencyInfo": {}
     }
   },
@@ -1521,9 +1521,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "50-52",
-      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1548,9 +1548,9 @@
         59
       ]
     },
-    "self": {
+    "self_information": {
       "line": "58-60",
-      "file": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
+      "file_name": "subAst/output/BouncyCastleProvider/SubjectPublicKeyInfo.json",
       "dependencyInfo": {}
     }
   },
@@ -1561,9 +1561,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "46-48",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1574,9 +1574,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "50-55",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1587,9 +1587,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "57-60",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1629,9 +1629,9 @@
         66
       ]
     },
-    "self": {
+    "self_information": {
       "line": "62-71",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1681,9 +1681,9 @@
         85
       ]
     },
-    "self": {
+    "self_information": {
       "line": "78-96",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1711,9 +1711,9 @@
         100
       ]
     },
-    "self": {
+    "self_information": {
       "line": "98-103",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1731,9 +1731,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "105-108",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1767,9 +1767,9 @@
         116
       ]
     },
-    "self": {
+    "self_information": {
       "line": "110-117",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1799,9 +1799,9 @@
         123
       ]
     },
-    "self": {
+    "self_information": {
       "line": "119-124",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1823,9 +1823,9 @@
         129
       ]
     },
-    "self": {
+    "self_information": {
       "line": "126-130",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1837,9 +1837,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "132-135",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1873,9 +1873,9 @@
         143
       ]
     },
-    "self": {
+    "self_information": {
       "line": "137-144",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1905,9 +1905,9 @@
         151
       ]
     },
-    "self": {
+    "self_information": {
       "line": "146-155",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1962,9 +1962,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "157-161",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1973,9 +1973,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "163-176",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
       "dependencyInfo": {}
     }
   },
@@ -1984,9 +1984,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "32-34",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
       "dependencyInfo": {}
     }
   },
@@ -1995,9 +1995,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "78-80",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
       "dependencyInfo": {}
     }
   },
@@ -2006,9 +2006,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "82-84",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
       "dependencyInfo": {}
     }
   },
@@ -2063,9 +2063,9 @@
         76
       ]
     },
-    "self": {
+    "self_information": {
       "line": "72-81",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
       "dependencyInfo": {}
     }
   },
@@ -2074,9 +2074,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "24-26",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
       "dependencyInfo": {}
     }
   },
@@ -2085,9 +2085,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "28-30",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
       "dependencyInfo": {}
     }
   },
@@ -2096,9 +2096,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "47-49",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
       "dependencyInfo": {}
     }
   },
@@ -2107,9 +2107,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "86-88",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/DHParameters.json",
       "dependencyInfo": {}
     }
   },
@@ -2118,9 +2118,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "40-42",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
       "dependencyInfo": {}
     }
   },
@@ -2129,9 +2129,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "43-45",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
       "dependencyInfo": {}
     }
   },
@@ -2169,9 +2169,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "122-124",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
       "dependencyInfo": {}
     }
   },
@@ -2232,9 +2232,9 @@
         143
       ]
     },
-    "self": {
+    "self_information": {
       "line": "133-145",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
       "dependencyInfo": {}
     }
   },
@@ -2281,9 +2281,9 @@
         153
       ]
     },
-    "self": {
+    "self_information": {
       "line": "147-154",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
       "dependencyInfo": {}
     }
   },
@@ -2331,9 +2331,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "165-172",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
       "dependencyInfo": {}
     }
   },
@@ -2368,9 +2368,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "182-185",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/EC5Util.json",
       "dependencyInfo": {}
     }
   },
@@ -2379,9 +2379,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "51-53",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
       "dependencyInfo": {}
     }
   },
@@ -2390,9 +2390,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "55-57",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
       "dependencyInfo": {}
     }
   },
@@ -2401,9 +2401,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "59-61",
-      "file": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+      "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
       "dependencyInfo": {}
     }
   },
@@ -2439,9 +2439,9 @@
         36
       ]
     },
-    "self": {
+    "self_information": {
       "line": "24-40",
-      "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
       "dependencyInfo": {}
     }
   },
@@ -2452,9 +2452,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "42-47",
-      "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
       "dependencyInfo": {}
     }
   },
@@ -2514,9 +2514,9 @@
         61
       ]
     },
-    "self": {
+    "self_information": {
       "line": "49-75",
-      "file": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
       "dependencyInfo": {}
     }
   },
@@ -2604,9 +2604,9 @@
         34
       ]
     },
-    "self": {
+    "self_information": {
       "line": "21-42",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2615,9 +2615,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "44-46",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2637,9 +2637,9 @@
         50
       ]
     },
-    "self": {
+    "self_information": {
       "line": "48-52",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2655,9 +2655,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "54-60",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2673,9 +2673,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "67-70",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2691,9 +2691,9 @@
       }
     ],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "72-75",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2702,9 +2702,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "81-84",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2747,9 +2747,9 @@
         93
       ]
     },
-    "self": {
+    "self_information": {
       "line": "86-96",
-      "file": "subAst/output/CryptoCipherFactory/Utils.json",
+      "file_name": "subAst/output/CryptoCipherFactory/Utils.json",
       "dependencyInfo": {}
     }
   },
@@ -2758,9 +2758,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "14-14",
-      "file": "subAst/output/Utils/CryptoCipher.json",
+      "file_name": "subAst/output/Utils/CryptoCipher.json",
       "dependencyInfo": {}
     }
   },
@@ -2769,9 +2769,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "18-18",
-      "file": "subAst/output/Utils/CryptoCipher.json",
+      "file_name": "subAst/output/Utils/CryptoCipher.json",
       "dependencyInfo": {}
     }
   },
@@ -2780,9 +2780,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "22-22",
-      "file": "subAst/output/Utils/CryptoCipher.json",
+      "file_name": "subAst/output/Utils/CryptoCipher.json",
       "dependencyInfo": {}
     }
   },
@@ -2791,9 +2791,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "26-26",
-      "file": "subAst/output/Utils/CryptoCipher.json",
+      "file_name": "subAst/output/Utils/CryptoCipher.json",
       "dependencyInfo": {}
     }
   },
@@ -2802,9 +2802,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "32-34",
-      "file": "subAst/output/Utils/CryptoCipher.json",
+      "file_name": "subAst/output/Utils/CryptoCipher.json",
       "dependencyInfo": {}
     }
   },
@@ -2813,9 +2813,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "29-31",
-      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "file_name": "subAst/output/Utils/CryptoCipherFactory.json",
       "dependencyInfo": {}
     }
   },
@@ -2824,9 +2824,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "33-35",
-      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "file_name": "subAst/output/Utils/CryptoCipherFactory.json",
       "dependencyInfo": {}
     }
   },
@@ -2837,9 +2837,9 @@
     "internal_functions": {},
     "usedVariables": [],
     "declaredVariableUsages": {},
-    "self": {
+    "self_information": {
       "line": "68-70",
-      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "file_name": "subAst/output/Utils/CryptoCipherFactory.json",
       "dependencyInfo": {}
     }
   },
@@ -2864,9 +2864,9 @@
         74
       ]
     },
-    "self": {
+    "self_information": {
       "line": "72-77",
-      "file": "subAst/output/Utils/CryptoCipherFactory.json",
+      "file_name": "subAst/output/Utils/CryptoCipherFactory.json",
       "dependencyInfo": {}
     }
   }

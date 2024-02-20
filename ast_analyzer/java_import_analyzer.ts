@@ -67,8 +67,9 @@ export class ImportAnalyzer {
       );
       const outputDir = `./decompiled/${astFileName.split(".")[0]}`;
       await this.decompileJarWithJdCli(jarPath, outputDir);
-      await this.filterAndProcessDecompiledFiles(outputDir, importStatements);
 
+      // info: this step filter out and delete the unneccessary files and directories
+      await this.filterAndProcessDecompiledFiles(outputDir, importStatements);
       const directoryExists = await this.deleteEmptyDirectories(outputDir);
 
       if (directoryExists) {
@@ -81,30 +82,6 @@ export class ImportAnalyzer {
         );
 
         console.log(`Directory ${outputDir} was processed`);
-        // const fileFormat: string = "java";
-        // const localAstDirectory: string = "../asts/";
-        // const thirdPartyAstDirectory: string = `./subAst/output/${
-        //   astFileName.split(".")[0]
-        // }`;
-        // const localAnalysisOutputDir: string = `./subAst_local/${
-        //   astFileName.split(".")[0]
-        // }.json`;
-        // const thirdPartyAnalysisOutputDir: string = `./subAst_third_party/${
-        //   astFileName.split(".")[0]
-        // }.json`;
-
-        // //  * java                                              -> fileFormat
-        // //  * ../asts/                                          -> localAstDirectory
-        // //  * ../asts/main                                      -> thirdPartyAstDirectory
-        // //  * ../java_ast_local_file_analysis.json              -> localAnalysisOutputDir
-        // //  * ../asts/main/java_ast_third_party_analysis.json   -> thirdPartyAnalysisOutputDir
-        // this.rerunAnalyzer(
-        //   fileFormat,
-        //   localAstDirectory,
-        //   thirdPartyAstDirectory,
-        //   localAnalysisOutputDir,
-        //   thirdPartyAnalysisOutputDir
-        // );
       } else {
         console.log(
           `Directory ${outputDir} was compeletely irrelavant and so deleted`
@@ -156,6 +133,8 @@ export class ImportAnalyzer {
     });
   }
 
+  // * compare against the import statements to filter out the irrelevant files
+  // * this function recursively deletes the irrelevant files and directory
   async filterAndProcessDecompiledFiles(
     outputDir: string,
     importStatements: string[]
@@ -212,6 +191,7 @@ export class ImportAnalyzer {
     });
   }
 
+  // * recursively delete the empty directories, return false if the whole directory was deleted
   private async deleteEmptyDirectories(directory: string): Promise<boolean> {
     const entries = await fs.promises.readdir(directory);
 

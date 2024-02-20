@@ -63,9 +63,102 @@ export function extractVariableDeclarations(node: any) {
   // Function to reconstruct the statement from a variable declarator node
   // This is a conceptual function; actual implementation will depend on the AST structure
   function reconstructStatement(node: any): string {
-    // Placeholder for logic to reconstruct the statement from the node
-    // This could involve accessing parent nodes or related parts of the AST
-    return "variable declaration statement"; // Placeholder
+    let statement = "";
+
+    // Step 1: Determine the variable's type
+    // This might involve simple types (e.g., int, String) or complex ones (e.g., List<String>)
+    const type = reconstructType(node.type);
+
+    // Step 2: Extract the variable name
+    const variableName = node.name.identifier; // Assuming this is the correct path to the variable name
+
+    // Step 3: Check if there's an initializer and reconstruct it
+    let initializer = "";
+    if (node.initializer) {
+      // The initializer can be another expression that needs to be reconstructed
+      initializer = " = " + reconstructInitializer(node.initializer);
+    }
+
+    // Combine the parts to form the statement
+    statement = type + " " + variableName + initializer + ";";
+
+    return statement;
+  }
+
+  function reconstructType(typeNode: any): string {
+    if (!typeNode) return "UnknownType";
+
+    // Adjusted handling for PrimitiveType
+    if (typeNode["!"] === "com.github.javaparser.ast.type.PrimitiveType") {
+      return typeNode.type; // Correctly use 'type' for PrimitiveType nodes
+    }
+
+    // Handle ClassOrInterfaceType, including generics
+    if (
+      typeNode["!"] === "com.github.javaparser.ast.type.ClassOrInterfaceType"
+    ) {
+      if (typeNode.typeArguments) {
+        const baseType = typeNode.name.identifier;
+        const typeArgs = typeNode.typeArguments.map(reconstructType).join(", ");
+        return `${baseType}<${typeArgs}>`;
+      }
+      return typeNode.name.identifier;
+    }
+
+    // Handle ArrayType
+    if (typeNode["!"] === "com.github.javaparser.ast.type.ArrayType") {
+      const componentType = reconstructType(typeNode.componentType);
+      return `${componentType}[]`;
+    }
+
+    // Add more cases as needed for other type structures
+
+    return "ComplexType"; // Fallback for unhandled types
+  }
+
+  function reconstructInitializer(initializerNode: any): string {
+    // Direct handling of literals
+    if (initializerNode["!"] === "com.github.javaparser.ast.expr.LiteralExpr") {
+      return initializerNode.value;
+    }
+
+    // Handling simple method calls as initializers
+    if (
+      initializerNode["!"] === "com.github.javaparser.ast.expr.MethodCallExpr"
+    ) {
+      const methodName = initializerNode.name.identifier;
+      const args = initializerNode.arguments
+        .map(reconstructInitializer)
+        .join(", ");
+      return `${methodName}(${args})`;
+    }
+
+    // Handling object creation (new expressions)
+    if (
+      initializerNode["!"] ===
+      "com.github.javaparser.ast.expr.ObjectCreationExpr"
+    ) {
+      const typeName = reconstructType(initializerNode.type);
+      const args = initializerNode.arguments
+        .map(reconstructInitializer)
+        .join(", ");
+      return `new ${typeName}(${args})`;
+    }
+
+    // Handling array initializers
+    if (
+      initializerNode["!"] ===
+      "com.github.javaparser.ast.expr.ArrayInitializerExpr"
+    ) {
+      const values = initializerNode.values
+        .map(reconstructInitializer)
+        .join(", ");
+      return `{${values}}`;
+    }
+
+    // Add more cases as necessary for other types of initializers
+
+    return "ComplexInitializer"; // Fallback for unhandled initializers
   }
 
   traverseAST(node, processNode);

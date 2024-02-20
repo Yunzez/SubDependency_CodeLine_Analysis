@@ -29,8 +29,12 @@ export const analyzeJava = async (
   console.log(`Analyzing AST node from file: ${filePath}`, basicInfo);
   console.log(`------------------------------------------`);
   if (isThirdParty) {
+    // * extractMethodDetails produce information of the all the function of the file being process currently
     const methodDetails = extractMethodDetails(currentAst, filePath, basicInfo);
+
+    // * a recursive call to extractImportStatements to get all the import statements
     const importStatements = extractImportStatements(currentAst);
+
     console.log(`Found ${importStatements.length} external import statements`);
     console.log(importStatements);
     console.log(`Extracted method details from ${filePath}`);
@@ -70,7 +74,11 @@ export const analyzeLocalJava = (currentAst: any, filePath: string) => {
       fs.readFileSync("java_ast_third_party_analysis.json", "utf8")
     );
   }
-
+  const importStatements = extractImportStatements(currentAst);
+  const methodDeclarations = extractMethodDeclarations(currentAst);
+  const variableDeclarations = extractVariableDeclarations(currentAst);
+  // console.log(`Found ${methodDeclarations.length} method declarations`);
+  // localResolveVariableSource(importStatements, variableDeclarations);
   // Perform analysis specific to local ASTs
   const localMethodCalls = extractLocalMethodCalls(
     currentAst,
@@ -82,15 +90,38 @@ export const analyzeLocalJava = (currentAst: any, filePath: string) => {
   return { [filePath]: localMethodCalls };
 };
 
+// const localResolveVariableSource = (
+//   importStatement: string[],
+//   variableDeclarations: {
+//     name: string;
+//     statement: string;
+//   }[]
+// ) => {
+//   let resolvedVariableDeclarations = [];
+//   for (let variable of variableDeclarations) {
+//     // console.log("variable", variable.name);
+//     // console.log("statement", variable.statement);
+//     if (variable.name.includes(".")) {
+//       let variableParts = variable.name.split(".");
+//       if (importStatement.includes(variableParts[0])) {
+//         resolvedVariableDeclarations.push(variable);
+//       }
+//     } else {
+//       resolvedVariableDeclarations.push(variable);
+//     }
+//   }
+//   return resolvedVariableDeclarations;
+// };
+
 const extractLocalMethodCalls = (
   node: any,
   thirdPartyMethodDetails: any
 ): any => {
   let localMethodCalls: {
-    methodName: any;
-    methodCallLine: string;
+    functionName: any;
+    function_expression: string;
     line: string;
-    thirdPartyInfo: any;
+    downstream_info: any;
   }[] = [];
 
   const traverseNode = (currentNode: any) => {
@@ -98,22 +129,34 @@ const extractLocalMethodCalls = (
       currentNode["!"] &&
       currentNode["!"] === "com.github.javaparser.ast.expr.MethodCallExpr"
     ) {
-      //  console.log("find method call");
       const methodName = currentNode.name.identifier;
       const methodCallLine = extractMethodCallLine(currentNode);
+      const firstPart = methodCallLine.split(".")[0];
 
-      //  if (thirdPartyMethodDetails[methodName]) {
+      // ! precheck if the method is part of the package we are looking for
+      // ! disable the check when encouter uncertainity
+      let downstream_info = thirdPartyMethodDetails[methodName] ?? {};
+      if (thirdPartyMethodDetails[methodName]) {
+        const className =
+          downstream_info.self_information.dependencyInfo.className;
+        let cleanedName = className.replace("Optional[", "").replace("]", "");
+        if (!cleanedName.includes(firstPart)) {
+          downstream_info = {};
+        }
+      }
       localMethodCalls.push({
-        methodName: methodName,
-        methodCallLine: methodCallLine,
+        functionName: methodName,
+        function_expression: methodCallLine,
         line: `${currentNode.range.beginLine}-${currentNode.range.endLine}`,
-        thirdPartyInfo: thirdPartyMethodDetails[methodName],
+        downstream_info: downstream_info,
       });
-      //   }
     }
 
     Object.values(currentNode).forEach((childNode) => {
-      if (childNode instanceof Array || childNode instanceof Object) {
+      if (
+        childNode instanceof Array ||
+        (childNode instanceof Object && "!" in childNode)
+      ) {
         traverseNode(childNode);
       }
     });
@@ -153,6 +196,9 @@ const appendToJSONFile = (filename: string, data: any) => {
   console.log(`Data appended to ${filename}`);
 };
 
+/**
+ * * This function extracts method declarations from the AST and returns the root node of each method.
+ */
 const extractMethodDeclarations = (
   node: any,
   methodDeclarations: any[] = []
@@ -208,6 +254,11 @@ const extractImportStatements = (
   return importStatements;
 };
 
+/**
+ * * This function analyze one method from the root node .
+ * * we compare the function in the "Node" with the internalMethods set'
+ * * it recersuively look for nested structures
+ */
 const extractFunctionCalls = (
   node: any,
   internalMethods: Set<string>,
@@ -313,13 +364,14 @@ const extractMethodDetails = (
       // variableDeclarations: variableDeclarations,
       usedVariables: variableUsages,
       declaredVariableUsages: declaredVariableUsages,
-      self: {
+      self_information: {
         line: `${method.range.beginLine}-${method.range.endLine}`, // Assuming line numbers are stored in `range`
-        file: filePath,
+        file_name: filePath,
         dependencyInfo: {
           groupId: basicInfo.groupId,
           artifactId: basicInfo.artifactId,
           version: basicInfo.version,
+          className: basicInfo.className,
         },
       },
     };

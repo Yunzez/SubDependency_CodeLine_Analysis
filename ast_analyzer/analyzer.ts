@@ -85,7 +85,7 @@ const init = async (): Promise<void> => {
 
       let thirdPartyAsts: string[] = [];
       let localAsts: string[] = [];
-      // Step 1: Collecting AST Files
+      // * Step 1: Collecting AST Files
       findAstPaths(AST_DIRECTORY, thirdPartyAsts);
       findAstPaths(LOCAL_AST_DIRECTORY, localAsts);
 
