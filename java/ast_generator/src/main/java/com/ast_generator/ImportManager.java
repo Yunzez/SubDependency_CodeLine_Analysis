@@ -18,5 +18,19 @@ public class ImportManager {
         return thirdPartyImports;
     }
 
+    public void clearImports() {
+        thirdPartyImports.clear();
+    }
+
+    public void removeImport(String imp) {
+        thirdPartyImports.remove(imp);
+    }
+
+    public void printImports() {
+        for (String imp : thirdPartyImports) {
+            System.out.println(imp);
+        }
+    }
+
     // Additional methods as needed, such as clearImports, removeImport, etc.
 }

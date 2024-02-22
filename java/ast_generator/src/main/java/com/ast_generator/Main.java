@@ -105,8 +105,9 @@ public class Main {
         // ! turn this on to process directory
         processor.processDirectory();
 
-        // ! process dependencies
-        DependencyProcessor.processDependencies(inferredPomPath, importManager);
+        importManager.printImports();
+        // // ! process dependencies
+        // DependencyProcessor.processDependencies(inferredPomPath, importManager);
 
         scanner.close();
     }

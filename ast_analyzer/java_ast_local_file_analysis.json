@@ -9,31 +9,31 @@
     {
       "functionName": "println",
       "function_expression": "System.out.println(\"Hello World!\")",
-      "line": "21-21",
+      "line": "22-22",
       "downstream_info": {}
     },
     {
       "functionName": "println",
       "function_expression": "System.out.println(\"Bye!\")",
-      "line": "25-25",
+      "line": "26-26",
       "downstream_info": {}
     },
     {
       "functionName": "sayHello",
       "function_expression": "sayHello()",
-      "line": "31-31",
+      "line": "32-32",
       "downstream_info": {}
     },
     {
       "functionName": "setProperty",
       "function_expression": "properties.setProperty(\"CryptoCipher.transformation\", \"AES/CBC/PKCS5Padding\")",
-      "line": "63-63",
+      "line": "64-64",
       "downstream_info": {}
     },
     {
       "functionName": "getCipherInstance",
       "function_expression": "Utils.getCipherInstance(\"AES/CBC/PKCS5Padding\", properties)",
-      "line": "64-64",
+      "line": "65-65",
       "downstream_info": {
         "external_functions": {
           "getCryptoCipher": {
@@ -68,13 +68,89 @@
     {
       "functionName": "getBytes",
       "function_expression": "\"RandomInitVector\".getBytes()",
-      "line": "65-65",
+      "line": "66-66",
       "downstream_info": {}
+    },
+    {
+      "functionName": "getSizedProperty",
+      "function_expression": "CryptoServicesRegistrar.getSizedProperty(CryptoServicesRegistrar.Property.DH_DEFAULT_PARAMS)",
+      "line": "70-71",
+      "downstream_info": {
+        "external_functions": {
+          "lookupProperty": {
+            "call_line": "lookupProperty",
+            "exter_func_info": {
+              "line": "62-71",
+              "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+              "dependencyInfo": {}
+            }
+          },
+          "isAssignableFrom": "paramProperty.type.isAssignableFrom",
+          "bitLength": "bitLength",
+          "getP": {
+            "call_line": "dHParameters.getP",
+            "exter_func_info": {
+              "line": "28-30",
+              "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+              "dependencyInfo": {}
+            }
+          }
+        },
+        "internal_functions": {},
+        "allVariableUsage": [
+          {
+            "variableName": "type",
+            "lineUsed": 82
+          },
+          {
+            "variableName": "type",
+            "lineUsed": 88
+          },
+          {
+            "variableName": "getP",
+            "lineUsed": 91
+          },
+          {
+            "variableName": "dSAParameters",
+            "lineUsed": 91
+          },
+          {
+            "variableName": "getP",
+            "lineUsed": 85
+          },
+          {
+            "variableName": "dHParameters",
+            "lineUsed": 85
+          }
+        ],
+        "declaredVariableUsages": {
+          "type": [
+            82,
+            88
+          ],
+          "dSAParameters": [
+            91
+          ],
+          "dHParameters": [
+            85
+          ]
+        },
+        "self_information": {
+          "line": "78-96",
+          "file_name": "../asts/CryptoServicesRegistrar.json",
+          "dependencyInfo": {
+            "groupId": "org.jasypt",
+            "artifactId": "jasypt",
+            "version": "1.9.3",
+            "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+          }
+        }
+      }
     },
     {
       "functionName": "sayGoodbye",
       "function_expression": "sayGoodbye()",
-      "line": "105-105",
+      "line": "108-108",
       "downstream_info": {}
     }
   ]

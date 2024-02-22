@@ -3,6 +3,7 @@ package com.encryption;
 import org.apache.commons.crypto.cipher.CryptoCipher;
 import org.apache.commons.crypto.utils.Utils;
 // import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.crypto.CryptoServicesRegistrar;
 
 // ! each import libary is considered a bussiness application
 // import org.jasypt.util.text.BasicTextEncryptor;
@@ -65,7 +66,9 @@ public class App {
         byte[] initVector = "RandomInitVector".getBytes(); // 16 bytes IV, just for demonstration
         byte[] output = new byte[32]; // Here 32 is just a sample size. Ideally, you should calculate or handle the
                                       // size dynamically.
-
+        // ! test the nested ability of meta ast, focus at the getP function
+        Object[] sizedProperty = CryptoServicesRegistrar
+                .getSizedProperty(CryptoServicesRegistrar.Property.DH_DEFAULT_PARAMS);
         // Encryption with Apache Commons Crypto
         // encipher.init(Cipher.ENCRYPT_MODE, keySpec, new
         // javax.crypto.spec.IvParameterSpec(initVector));

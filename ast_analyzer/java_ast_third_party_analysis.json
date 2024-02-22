@@ -1,4 +1,685 @@
 {
+  "getSecureRandom": {
+    "external_functions": {
+      "getSecureRandom": {
+        "call_line": "getSecureRandom",
+        "exter_func_info": {
+          "line": "46-48",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [],
+    "declaredVariableUsages": {},
+    "self_information": {
+      "line": "46-48",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "setSecureRandom": {
+    "external_functions": {
+      "checkPermission": {
+        "call_line": "checkPermission",
+        "exter_func_info": {
+          "line": "146-155",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [],
+    "declaredVariableUsages": {},
+    "self_information": {
+      "line": "50-55",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "getProperty": {
+    "external_functions": {
+      "lookupProperty": {
+        "call_line": "lookupProperty",
+        "exter_func_info": {
+          "line": "62-71",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [],
+    "declaredVariableUsages": {},
+    "self_information": {
+      "line": "57-60",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "lookupProperty": {
+    "external_functions": {
+      "get": "globalProperties.get",
+      "containsKey": "map.containsKey"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 64
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 65
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 68
+      },
+      {
+        "variableName": "globalProperties",
+        "lineUsed": 66
+      }
+    ],
+    "declaredVariableUsages": {
+      "threadProperties": [
+        64
+      ],
+      "map": [
+        65,
+        68
+      ],
+      "globalProperties": [
+        66
+      ]
+    },
+    "self_information": {
+      "line": "62-71",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "getSizedProperty": {
+    "external_functions": {
+      "lookupProperty": {
+        "call_line": "lookupProperty",
+        "exter_func_info": {
+          "line": "62-71",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "isAssignableFrom": "paramProperty.type.isAssignableFrom",
+      "bitLength": "bitLength",
+      "getP": {
+        "call_line": "dHParameters.getP",
+        "exter_func_info": {
+          "line": "28-30",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "type",
+        "lineUsed": 82
+      },
+      {
+        "variableName": "type",
+        "lineUsed": 88
+      },
+      {
+        "variableName": "getP",
+        "lineUsed": 91
+      },
+      {
+        "variableName": "dSAParameters",
+        "lineUsed": 91
+      },
+      {
+        "variableName": "getP",
+        "lineUsed": 85
+      },
+      {
+        "variableName": "dHParameters",
+        "lineUsed": 85
+      }
+    ],
+    "declaredVariableUsages": {
+      "type": [
+        82,
+        88
+      ],
+      "dSAParameters": [
+        91
+      ],
+      "dHParameters": [
+        85
+      ]
+    },
+    "self_information": {
+      "line": "78-96",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "setThreadProperty": {
+    "external_functions": {
+      "checkPermission": {
+        "call_line": "checkPermission",
+        "exter_func_info": {
+          "line": "146-155",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "isAssignableFrom": "paramProperty.type.isAssignableFrom",
+      "getClass": "getClass",
+      "localSetThread": {
+        "call_line": "localSetThread",
+        "exter_func_info": {
+          "line": "110-117",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "clone": "paramVarArgs.clone"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "type",
+        "lineUsed": 100
+      },
+      {
+        "variableName": "paramVarArgs",
+        "lineUsed": 102
+      }
+    ],
+    "declaredVariableUsages": {
+      "type": [
+        100
+      ]
+    },
+    "self_information": {
+      "line": "98-103",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "setGlobalProperty": {
+    "external_functions": {
+      "checkPermission": {
+        "call_line": "checkPermission",
+        "exter_func_info": {
+          "line": "146-155",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "localSetGlobalProperty": {
+        "call_line": "localSetGlobalProperty",
+        "exter_func_info": {
+          "line": "119-124",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "clone": "paramVarArgs.clone"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "paramVarArgs",
+        "lineUsed": 107
+      }
+    ],
+    "declaredVariableUsages": {},
+    "self_information": {
+      "line": "105-108",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "localSetThread": {
+    "external_functions": {
+      "get": "threadProperties.get",
+      "set": "threadProperties.set",
+      "put": "map.put"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 111
+      },
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 114
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 116
+      }
+    ],
+    "declaredVariableUsages": {
+      "threadProperties": [
+        111,
+        114
+      ],
+      "map": [
+        116
+      ]
+    },
+    "self_information": {
+      "line": "110-117",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "localSetGlobalProperty": {
+    "external_functions": {
+      "isAssignableFrom": "paramProperty.type.isAssignableFrom",
+      "getClass": "getClass",
+      "localSetThread": {
+        "call_line": "localSetThread",
+        "exter_func_info": {
+          "line": "110-117",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "put": "globalProperties.put"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "type",
+        "lineUsed": 120
+      },
+      {
+        "variableName": "globalProperties",
+        "lineUsed": 123
+      }
+    ],
+    "declaredVariableUsages": {
+      "type": [
+        120
+      ],
+      "globalProperties": [
+        123
+      ]
+    },
+    "self_information": {
+      "line": "119-124",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "clearGlobalProperty": {
+    "external_functions": {
+      "checkPermission": {
+        "call_line": "checkPermission",
+        "exter_func_info": {
+          "line": "146-155",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "localClearThreadProperty": {
+        "call_line": "localClearThreadProperty",
+        "exter_func_info": {
+          "line": "137-144",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "remove": "globalProperties.remove"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "globalProperties",
+        "lineUsed": 129
+      }
+    ],
+    "declaredVariableUsages": {
+      "globalProperties": [
+        129
+      ]
+    },
+    "self_information": {
+      "line": "126-130",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "clearThreadProperty": {
+    "external_functions": {
+      "checkPermission": {
+        "call_line": "checkPermission",
+        "exter_func_info": {
+          "line": "146-155",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "localClearThreadProperty": {
+        "call_line": "localClearThreadProperty",
+        "exter_func_info": {
+          "line": "137-144",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [],
+    "declaredVariableUsages": {},
+    "self_information": {
+      "line": "132-135",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "localClearThreadProperty": {
+    "external_functions": {
+      "get": "threadProperties.get",
+      "set": "threadProperties.set",
+      "remove": "map.remove"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 138
+      },
+      {
+        "variableName": "threadProperties",
+        "lineUsed": 141
+      },
+      {
+        "variableName": "map",
+        "lineUsed": 143
+      }
+    ],
+    "declaredVariableUsages": {
+      "threadProperties": [
+        138,
+        141
+      ],
+      "map": [
+        143
+      ]
+    },
+    "self_information": {
+      "line": "137-144",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "checkPermission": {
+    "external_functions": {
+      "getSecurityManager": "System.getSecurityManager",
+      "doPrivileged": "AccessController.doPrivileged",
+      "checkPermission": {
+        "call_line": "securityManager.checkPermission",
+        "exter_func_info": {
+          "line": "146-155",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "System",
+        "lineUsed": 147
+      },
+      {
+        "variableName": "AccessController",
+        "lineUsed": 149
+      },
+      {
+        "variableName": "securityManager",
+        "lineUsed": 151
+      }
+    ],
+    "declaredVariableUsages": {
+      "securityManager": [
+        151
+      ]
+    },
+    "self_information": {
+      "line": "146-155",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "run": {
+    "external_functions": {
+      "checkPermission": {
+        "call_line": "securityManager.checkPermission",
+        "exter_func_info": {
+          "line": "146-155",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      }
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "securityManager",
+        "lineUsed": 151
+      }
+    ],
+    "declaredVariableUsages": {
+      "securityManager": [
+        151
+      ]
+    },
+    "self_information": {
+      "line": "150-153",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "toDH": {
+    "external_functions": {
+      "bitLength": "bitLength",
+      "getP": {
+        "call_line": "paramDSAParameters.getP",
+        "exter_func_info": {
+          "line": "28-30",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
+      },
+      "chooseLowerBound": {
+        "call_line": "chooseLowerBound",
+        "exter_func_info": {
+          "line": "163-176",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getG": {
+        "call_line": "paramDSAParameters.getG",
+        "exter_func_info": {
+          "line": "47-49",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getQ": {
+        "call_line": "paramDSAParameters.getQ",
+        "exter_func_info": {
+          "line": "32-34",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getSeed": {
+        "call_line": "getSeed",
+        "exter_func_info": {
+          "line": "59-61",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getValidationParameters": {
+        "call_line": "paramDSAParameters.getValidationParameters",
+        "exter_func_info": {
+          "line": "40-42",
+          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
+          "dependencyInfo": {}
+        }
+      },
+      "getCounter": "getCounter"
+    },
+    "internal_functions": {},
+    "allVariableUsage": [
+      {
+        "variableName": "getP",
+        "lineUsed": 158
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 158
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "getValidationParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "getValidationParameters",
+        "lineUsed": 160
+      },
+      {
+        "variableName": "paramDSAParameters",
+        "lineUsed": 160
+      }
+    ],
+    "declaredVariableUsages": {},
+    "self_information": {
+      "line": "157-161",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
+  "chooseLowerBound": {
+    "external_functions": {},
+    "internal_functions": {},
+    "allVariableUsage": [],
+    "declaredVariableUsages": {},
+    "self_information": {
+      "line": "163-176",
+      "file_name": "../asts/CryptoServicesRegistrar.json",
+      "dependencyInfo": {
+        "groupId": "org.jasypt",
+        "artifactId": "jasypt",
+        "version": "1.9.3",
+        "className": "Optional[org.bouncycastle.crypto.CryptoServicesRegistrar]"
+      }
+    }
+  },
   "getBlockSize": {
     "external_functions": {},
     "internal_functions": {},
@@ -396,142 +1077,6 @@
       }
     }
   },
-  "setPassword": {
-    "external_functions": {
-      "setPassword": {
-        "call_line": "this.encryptor.setPassword",
-        "exter_func_info": {
-          "line": "53-55",
-          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 14
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        14
-      ]
-    },
-    "self_information": {
-      "line": "13-15",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
-  "setPasswordCharArray": {
-    "external_functions": {
-      "setPasswordCharArray": {
-        "call_line": "this.encryptor.setPasswordCharArray",
-        "exter_func_info": {
-          "line": "57-59",
-          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 18
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        18
-      ]
-    },
-    "self_information": {
-      "line": "17-19",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
-  "encrypt": {
-    "external_functions": {
-      "encrypt": {
-        "call_line": "this.encryptor.encrypt",
-        "exter_func_info": {
-          "line": "125-148",
-          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 22
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        22
-      ]
-    },
-    "self_information": {
-      "line": "21-23",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
-  "decrypt": {
-    "external_functions": {
-      "decrypt": {
-        "call_line": "this.encryptor.decrypt",
-        "exter_func_info": {
-          "line": "150-172",
-          "file_name": "subAst/output/BasicTextEncryptor/StandardPBEStringEncryptor.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "encryptor",
-        "lineUsed": 26
-      }
-    ],
-    "declaredVariableUsages": {
-      "encryptor": [
-        26
-      ]
-    },
-    "self_information": {
-      "line": "25-27",
-      "file_name": "../asts/BasicTextEncryptor.json",
-      "dependencyInfo": {
-        "groupId": "org.jasypt",
-        "artifactId": "jasypt",
-        "version": "1.9.3",
-        "className": "Optional[org.jasypt.util.text.BasicTextEncryptor]"
-      }
-    }
-  },
   "getClassName": {
     "external_functions": {},
     "internal_functions": {},
@@ -625,620 +1170,6 @@
         "artifactId": "jasypt",
         "version": "1.9.3",
         "className": "Optional[org.apache.commons.crypto.cipher.CryptoCipher]"
-      }
-    }
-  },
-  "setParameter": {
-    "external_functions": {
-      "setParameter": {
-        "call_line": "setParameter",
-        "exter_func_info": {
-          "line": "20-20",
-          "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "159-163",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getEcImplicitlyCa": {
-    "external_functions": {
-      "get": "this.ecThreadSpec.get"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "ecThreadSpec",
-        "lineUsed": 104
-      }
-    ],
-    "declaredVariableUsages": {
-      "ecThreadSpec": [
-        104
-      ]
-    },
-    "self_information": {
-      "line": "103-106",
-      "file_name": "../asts/BouncyCastleProviderConfiguration.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getDHDefaultParameters": {
-    "external_functions": {
-      "get": "this.dhThreadSpec.get",
-      "bitLength": "bitLength",
-      "getP": {
-        "call_line": "dHParameterSpec.getP",
-        "exter_func_info": {
-          "line": "28-30",
-          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
-          "dependencyInfo": {}
-        }
-      },
-      "getSizedProperty": {
-        "call_line": "CryptoServicesRegistrar.getSizedProperty",
-        "exter_func_info": {
-          "line": "78-96",
-          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "dhThreadSpec",
-        "lineUsed": 109
-      },
-      {
-        "variableName": "getP",
-        "lineUsed": 119
-      },
-      {
-        "variableName": "getP",
-        "lineUsed": 114
-      },
-      {
-        "variableName": "dHParameterSpec",
-        "lineUsed": 114
-      },
-      {
-        "variableName": "CryptoServicesRegistrar",
-        "lineUsed": 123
-      }
-    ],
-    "declaredVariableUsages": {
-      "dhThreadSpec": [
-        109
-      ],
-      "dHParameterSpec": [
-        114
-      ]
-    },
-    "self_information": {
-      "line": "108-125",
-      "file_name": "../asts/BouncyCastleProviderConfiguration.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getDSADefaultParameters": {
-    "external_functions": {
-      "getSizedProperty": {
-        "call_line": "CryptoServicesRegistrar.getSizedProperty",
-        "exter_func_info": {
-          "line": "78-96",
-          "file_name": "subAst/output/BouncyCastleProviderConfiguration/CryptoServicesRegistrar.json",
-          "dependencyInfo": {}
-        }
-      },
-      "getP": {
-        "call_line": "dSAParameters.getP",
-        "exter_func_info": {
-          "line": "28-30",
-          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
-          "dependencyInfo": {}
-        }
-      },
-      "getQ": {
-        "call_line": "dSAParameters.getQ",
-        "exter_func_info": {
-          "line": "32-34",
-          "file_name": "subAst/output/BouncyCastleProviderConfiguration/DSAParameters.json",
-          "dependencyInfo": {}
-        }
-      },
-      "getG": {
-        "call_line": "dSAParameters.getG",
-        "exter_func_info": {
-          "line": "47-49",
-          "file_name": "subAst/output/BouncyCastleProviderConfiguration/ECParameterSpec.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "CryptoServicesRegistrar",
-        "lineUsed": 128
-      },
-      {
-        "variableName": "dSAParameters",
-        "lineUsed": 129
-      },
-      {
-        "variableName": "dSAParameters",
-        "lineUsed": 129
-      },
-      {
-        "variableName": "dSAParameters",
-        "lineUsed": 129
-      }
-    ],
-    "declaredVariableUsages": {
-      "dSAParameters": [
-        129,
-        129,
-        129
-      ]
-    },
-    "self_information": {
-      "line": "127-130",
-      "file_name": "../asts/BouncyCastleProviderConfiguration.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getAcceptableNamedCurves": {
-    "external_functions": {
-      "unmodifiableSet": "Collections.unmodifiableSet"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "Collections",
-        "lineUsed": 133
-      }
-    ],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "132-134",
-      "file_name": "../asts/BouncyCastleProviderConfiguration.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getAdditionalECParameters": {
-    "external_functions": {
-      "unmodifiableMap": "Collections.unmodifiableMap"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "Collections",
-        "lineUsed": 137
-      }
-    ],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "136-138",
-      "file_name": "../asts/BouncyCastleProviderConfiguration.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "run": {
-    "external_functions": {
-      "setup": "this.setup"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "79-82",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "setup": {
-    "external_functions": {
-      "loadAlgorithms": "loadAlgorithms",
-      "loadPQCKeys": "loadPQCKeys",
-      "put": "put"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "86-130",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "loadAlgorithms": {
-    "external_functions": {
-      "loadClass": {
-        "call_line": "ClassUtil.loadClass",
-        "exter_func_info": {
-          "line": "7-22",
-          "file_name": "subAst/output/BouncyCastleProvider/ClassUtil.json",
-          "dependencyInfo": {}
-        }
-      },
-      "configure": {
-        "call_line": "configure",
-        "exter_func_info": {
-          "line": "6-6",
-          "file_name": "subAst/output/BouncyCastleProvider/AlgorithmProvider.json",
-          "dependencyInfo": {}
-        }
-      },
-      "newInstance": {
-        "call_line": "clazz.newInstance",
-        "exter_func_info": {
-          "line": "24-40",
-          "file_name": "subAst/output/CryptoCipherFactory/ReflectionUtils.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "ClassUtil",
-        "lineUsed": 134
-      },
-      {
-        "variableName": "clazz",
-        "lineUsed": 137
-      }
-    ],
-    "declaredVariableUsages": {
-      "clazz": [
-        137
-      ]
-    },
-    "self_information": {
-      "line": "132-142",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "loadPQCKeys": {
-    "external_functions": {
-      "addKeyInfoConverter": {
-        "call_line": "addKeyInfoConverter",
-        "exter_func_info": {
-          "line": "28-28",
-          "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "144-157",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "hasAlgorithm": {
-    "external_functions": {
-      "containsKey": "containsKey"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "165-167",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "addAlgorithm": {
-    "external_functions": {
-      "addAlgorithm": {
-        "call_line": "addAlgorithm",
-        "exter_func_info": {
-          "line": "24-24",
-          "file_name": "subAst/output/BouncyCastleProvider/ConfigurableProvider.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "175-178",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "addKeyInfoConverter": {
-    "external_functions": {
-      "put": "keyInfoConverters.put"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "keyInfoConverters",
-        "lineUsed": 182
-      }
-    ],
-    "declaredVariableUsages": {
-      "keyInfoConverters": [
-        182
-      ]
-    },
-    "self_information": {
-      "line": "180-184",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getKeyInfoConverter": {
-    "external_functions": {
-      "get": "keyInfoConverters.get"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "keyInfoConverters",
-        "lineUsed": 187
-      }
-    ],
-    "declaredVariableUsages": {
-      "keyInfoConverters": [
-        187
-      ]
-    },
-    "self_information": {
-      "line": "186-188",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "addAttributes": {
-    "external_functions": {
-      "containsKey": "containsKey",
-      "put": "put",
-      "get": "paramMap.get",
-      "keySet": "paramMap.keySet"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "paramMap",
-        "lineUsed": 195
-      },
-      {
-        "variableName": "paramMap",
-        "lineUsed": 191
-      }
-    ],
-    "declaredVariableUsages": {},
-    "self_information": {
-      "line": "190-197",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getAsymmetricKeyInfoConverter": {
-    "external_functions": {
-      "get": "keyInfoConverters.get"
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "keyInfoConverters",
-        "lineUsed": 201
-      }
-    ],
-    "declaredVariableUsages": {
-      "keyInfoConverters": [
-        201
-      ]
-    },
-    "self_information": {
-      "line": "199-203",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getPublicKey": {
-    "external_functions": {
-      "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
-      "getAlgorithm": {
-        "call_line": "paramSubjectPublicKeyInfo.getAlgorithm",
-        "exter_func_info": {
-          "line": "16-16",
-          "file_name": "subAst/output/Utils/CryptoCipher.json",
-          "dependencyInfo": {}
-        }
-      },
-      "generatePublic": {
-        "call_line": "asymmetricKeyInfoConverter.generatePublic",
-        "exter_func_info": {
-          "line": "66-68",
-          "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "getAlgorithm",
-        "lineUsed": 206
-      },
-      {
-        "variableName": "paramSubjectPublicKeyInfo",
-        "lineUsed": 206
-      },
-      {
-        "variableName": "asymmetricKeyInfoConverter",
-        "lineUsed": 207
-      }
-    ],
-    "declaredVariableUsages": {
-      "asymmetricKeyInfoConverter": [
-        207
-      ]
-    },
-    "self_information": {
-      "line": "205-208",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
-      }
-    }
-  },
-  "getPrivateKey": {
-    "external_functions": {
-      "getAsymmetricKeyInfoConverter": "getAsymmetricKeyInfoConverter",
-      "getAlgorithm": {
-        "call_line": "getAlgorithm",
-        "exter_func_info": {
-          "line": "16-16",
-          "file_name": "subAst/output/Utils/CryptoCipher.json",
-          "dependencyInfo": {}
-        }
-      },
-      "getPrivateKeyAlgorithm": {
-        "call_line": "paramPrivateKeyInfo.getPrivateKeyAlgorithm",
-        "exter_func_info": {
-          "line": "99-101",
-          "file_name": "subAst/output/BouncyCastleProvider/PrivateKeyInfo.json",
-          "dependencyInfo": {}
-        }
-      },
-      "generatePrivate": {
-        "call_line": "asymmetricKeyInfoConverter.generatePrivate",
-        "exter_func_info": {
-          "line": "62-64",
-          "file_name": "subAst/output/BouncyCastleProvider/XMSSMTKeyFactorySpi.json",
-          "dependencyInfo": {}
-        }
-      }
-    },
-    "internal_functions": {},
-    "allVariableUsage": [
-      {
-        "variableName": "getPrivateKeyAlgorithm",
-        "lineUsed": 211
-      },
-      {
-        "variableName": "paramPrivateKeyInfo",
-        "lineUsed": 211
-      },
-      {
-        "variableName": "asymmetricKeyInfoConverter",
-        "lineUsed": 212
-      }
-    ],
-    "declaredVariableUsages": {
-      "asymmetricKeyInfoConverter": [
-        212
-      ]
-    },
-    "self_information": {
-      "line": "210-213",
-      "file_name": "../asts/BouncyCastleProvider.json",
-      "dependencyInfo": {
-        "groupId": "org.bouncycastle",
-        "artifactId": "bcprov-jdk15on",
-        "version": "1.70",
-        "className": "Optional[org.bouncycastle.jce.provider.BouncyCastleProvider]"
       }
     }
   }

@@ -124,7 +124,7 @@ public class DependencyProcessor {
                 System.out.println("Found jar at: " + mavenPath + " for artifact: " + artifactId);
                 try {
                     Path decompiledDir = decompileJarWithJdCli(mavenPath);
-                    // System.out.println("extracting from: " + decompiledDir);
+                    // // System.out.println("extracting from: " + decompiledDir);
                     extractJavaFilesFromDir(decompiledDir, dependecy);
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -133,6 +133,7 @@ public class DependencyProcessor {
                     e.printStackTrace();
                 }
             } else {
+                // importManager.removeImport(artifactId);
                 System.out.println("Skipping non-jar path: " + mavenPath);
             }
         });

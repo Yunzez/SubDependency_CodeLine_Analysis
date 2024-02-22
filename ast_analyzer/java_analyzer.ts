@@ -90,29 +90,6 @@ export const analyzeLocalJava = (currentAst: any, filePath: string) => {
   return { [filePath]: localMethodCalls };
 };
 
-// const localResolveVariableSource = (
-//   importStatement: string[],
-//   variableDeclarations: {
-//     name: string;
-//     statement: string;
-//   }[]
-// ) => {
-//   let resolvedVariableDeclarations = [];
-//   for (let variable of variableDeclarations) {
-//     // console.log("variable", variable.name);
-//     // console.log("statement", variable.statement);
-//     if (variable.name.includes(".")) {
-//       let variableParts = variable.name.split(".");
-//       if (importStatement.includes(variableParts[0])) {
-//         resolvedVariableDeclarations.push(variable);
-//       }
-//     } else {
-//       resolvedVariableDeclarations.push(variable);
-//     }
-//   }
-//   return resolvedVariableDeclarations;
-// };
-
 const extractLocalMethodCalls = (
   node: any,
   thirdPartyMethodDetails: any
